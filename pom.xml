@@ -11,10 +11,12 @@
         <maven.compile.targetLevel>1.8</maven.compile.targetLevel>
         <maven.compile.sourceLevel>1.8</maven.compile.sourceLevel>
         <maven.compile.version>3.5.1</maven.compile.version>
+	   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <modules>
         <module>artemis-demo-java-se</module>
+	<module>artemis-demo-java-ee</module>
     </modules>
 
     <dependencies>

@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
  <modelVersion>4.0.0</modelVersion>
- <artifactId>diana-demo-java-se</artifactId>
+ <artifactId>diana-demo-java-ee</artifactId>
  <packaging>pom</packaging>
- <name>Artemis Demo using Java SE</name>
+ <name>Artemis Demo using Java EE</name>
  <parent>
     <groupId>org.jnosql.artemis</groupId>
     <artifactId>artemis-demo-parent</artifactId>
@@ -14,7 +14,7 @@
     </properties>
 
 <modules>
-    <module>document</module>
-    <module>column</module>
+    <module>temperature-sensor-document</module>
+    <module>temperature-sensor-column</module>
 </modules>
 </project>
