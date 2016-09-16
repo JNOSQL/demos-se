@@ -31,6 +31,22 @@
         <maven.compile.version>3.5.1</maven.compile.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>apache-m2-snapshot</id>
+            <name>Apache Snapshot Repository</name>
+            <url>https://repository.apache.org/content/groups/snapshots</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>apache-m2-snapshot</id>
+            <name>Apache Snapshot Repository</name>
+            <url>https://repository.apache.org/content/groups/snapshots</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <finalName>temperature</finalName>
         <plugins>
