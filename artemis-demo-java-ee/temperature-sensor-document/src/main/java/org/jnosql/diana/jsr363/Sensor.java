@@ -16,7 +16,7 @@ import tec.uom.se.format.QuantityFormat;
 public class Sensor {
 
 
-    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd/MM HH:mm");
+    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd/MM HH:mm:ss");
 
     @Column
     private String sensorId;
