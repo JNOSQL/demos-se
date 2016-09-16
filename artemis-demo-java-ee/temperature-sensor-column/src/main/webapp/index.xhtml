@@ -7,13 +7,13 @@
         xmlns:p="http://primefaces.org/ui"
 >
 <h:head>
-    <title>Facelet Title</title>
+    <title>Sensor Temperature</title>
 </h:head>
 <h:body>
     <h:form>
         <p:poll interval="3" update="celius kelvin"/>
-        <p:chart id="celius" type="line" model="#{chartView.areaModelCelsius}" style="height:400px"/>
-        <p:chart id="kelvin" type="line" model="#{chartView.areaModelKelvin}" style="height:400px"/>
+        <p:chart id="celius" type="line" model="#{chartView.areaModelCelsius}" style="height:300px"/>
+        <p:chart id="kelvin" type="line" model="#{chartView.areaModelKelvin}" style="height:300px"/>
     </h:form>
 </h:body>
 </html>
