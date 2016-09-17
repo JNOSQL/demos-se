@@ -1,4 +1,4 @@
-package org.jnosql.diana.jsr363;
+package org.jnosql.diana.jsr363.temperature;
 
 
 import java.time.LocalDateTime;
@@ -10,14 +10,13 @@ import javax.measure.quantity.Temperature;
 import org.apache.commons.lang3.StringUtils;
 import org.jnosql.artemis.Column;
 import org.jnosql.artemis.Entity;
-import tec.uom.se.ComparableQuantity;
 import tec.uom.se.format.QuantityFormat;
 
 @Entity("temperature")
 public class Sensor {
 
 
-    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd/MM HH:mm:ss");
+    static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("hh:mm:ss");
 
     @Column
     private UUID id = UUID.randomUUID();

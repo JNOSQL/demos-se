@@ -11,9 +11,19 @@
 </h:head>
 <h:body>
     <h:form>
-        <p:poll interval="3" update="celius kelvin"/>
-        <p:chart id="celius" type="line" model="#{chartView.areaModelCelsius}" style="height:300px"/>
-        <p:chart id="kelvin" type="line" model="#{chartView.areaModelKelvin}" style="height:300px"/>
+        <p:poll interval="2" update="panel"/>
+        <p:accordionPanel id="panel">
+            <p:tab title="Celsius Temperature">
+                <p:chart id="celius" type="line" model="#{chartView.areaModelCelsius}" style="height:300px"/>
+            </p:tab>
+            <p:tab title="Kelvin Temperature">
+                <p:chart id="kelvin" type="line" model="#{chartView.areaModelKelvin}" style="height:300px"/>
+            </p:tab>
+        </p:accordionPanel>
+        <p:galleria value="#{imagesView.images}" var="image" panelWidth="300" panelHeight="300" showCaption="true"
+                    transitionInterval="3000" style="margin: auto">
+            <p:graphicImage name="images/#{image.name}" alt="#{image.description}" title="#{image.title}"/>
+        </p:galleria>
     </h:form>
 </h:body>
 </html>

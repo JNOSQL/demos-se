@@ -1,4 +1,4 @@
-package org.jnosql.diana.jsr363;
+package org.jnosql.diana.jsr363.temperature;
 
 
 import java.util.ArrayList;

@@ -1,8 +1,8 @@
 package org.jnosql.diana.jsr363.producers;
 
 
+import org.jnosql.diana.api.key.BucketManager;
 import org.jnosql.diana.api.key.BucketManagerFactory;
-import org.jnosql.diana.api.key.KeyValueConfiguration;
 import org.jnosql.diana.hazelcast.key.HazelCastKeyValueConfiguration;
 
 import javax.annotation.PostConstruct;
@@ -35,6 +35,11 @@ class BucketManagerProducer {
     @Produces
     public List<String> getList() {
         return managerFactory.getList("sensors", String.class);
+    }
+
+    @Produces
+    public BucketManager getManager() {
+        return managerFactory.getBucketManager("gallery");
     }
 
 
