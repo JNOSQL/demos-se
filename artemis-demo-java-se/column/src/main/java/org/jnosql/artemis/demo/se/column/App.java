@@ -1,14 +1,15 @@
 package org.jnosql.artemis.demo.se.column;
 
 
-import java.util.Arrays;
-import java.util.Optional;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
-import org.jnosql.artemis.column.ColumnCrudOperation;
+import org.jnosql.artemis.column.ColumnRepository;
 import org.jnosql.diana.api.column.Column;
 import org.jnosql.diana.api.column.ColumnCondition;
 import org.jnosql.diana.api.column.ColumnQuery;
+
+import java.util.Arrays;
+import java.util.Optional;
 
 public class App {
 
@@ -21,7 +22,7 @@ public class App {
     public static void main(String[] args) {
         Weld weld = new Weld();
         try(WeldContainer weldContainer = weld.initialize()) {
-            ColumnCrudOperation crudOperation = weldContainer.instance().select(ColumnCrudOperation.class).get();
+            ColumnRepository crudOperation = weldContainer.instance().select(ColumnRepository.class).get();
             Person saved = crudOperation.save(PERSON);
             System.out.println("Person saved" + saved);
 
