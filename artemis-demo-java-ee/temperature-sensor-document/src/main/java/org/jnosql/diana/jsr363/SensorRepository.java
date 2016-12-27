@@ -1,15 +1,16 @@
 package org.jnosql.diana.jsr363;
 
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import org.jnosql.artemis.document.DocumentCrudOperation;
+import org.jnosql.artemis.document.DocumentRepository;
 import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 
 @ApplicationScoped
 public class SensorRepository {
@@ -20,33 +21,33 @@ public class SensorRepository {
     private static final Document SENSOR_ID = Document.of("_id", Device.ID);
 
     @Inject
-    private DocumentCrudOperation crudOperation;
+    private DocumentRepository repository;
 
     public void save(Sensor sensor) {
-        crudOperation.save(sensor);
+        repository.save(sensor);
     }
 
 
     public List<String> sensors() {
         DocumentQuery query = DocumentQuery.of(SENSORS);
         query.addCondition(DocumentCondition.eq(SENSOR_ID));
-        Optional<Device> device = crudOperation.singleResult(query);
+        Optional<Device> device = repository.singleResult(query);
         return device.map(Device::getDevices).orElse(Collections.emptyList());
     }
 
     public void saveSensors(List<String> sensors) {
         Device device = Device.of(sensors);
         if (sensors.size() == 1) {
-            crudOperation.save(device);
+            repository.save(device);
         } else {
-            crudOperation.update(device);
+            repository.update(device);
         }
     }
 
     public List<Sensor> getSensor(String sensorId) {
         DocumentQuery query = DocumentQuery.of(TEMPERATURE);
         query.addCondition(DocumentCondition.eq(Document.of("sensorId", sensorId)));
-        return crudOperation.find(query);
+        return repository.find(query);
     }
 
 }

@@ -1,17 +1,17 @@
 package org.jnosql.diana.jsr363.temperature;
 
 
+import org.jnosql.artemis.column.ColumnRepository;
+import org.jnosql.diana.api.column.Column;
+import org.jnosql.diana.api.column.ColumnCondition;
+import org.jnosql.diana.api.column.ColumnQuery;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-
-import org.jnosql.artemis.column.ColumnCrudOperation;
-import org.jnosql.diana.api.column.Column;
-import org.jnosql.diana.api.column.ColumnCondition;
-import org.jnosql.diana.api.column.ColumnQuery;
 
 @ApplicationScoped
 public class SensorRepository {
@@ -24,27 +24,27 @@ public class SensorRepository {
     private static final long LIMIT = 20L;
 
     @Inject
-    private ColumnCrudOperation crudOperation;
+    private ColumnRepository repository;
 
     public void save(Sensor sensor) {
         LOGGER.info("Saving the sensor: " + sensor);
-        crudOperation.saveAsync(sensor);
+        repository.saveAsync(sensor);
     }
 
 
     public List<String> sensors() {
         ColumnQuery query = ColumnQuery.of(SENSORS);
         query.addCondition(ColumnCondition.eq(SENSOR_ID));
-        Optional<Device> device = crudOperation.singleResult(query);
+        Optional<Device> device = repository.singleResult(query);
         return device.map(Device::getDevices).orElse(Collections.emptyList());
     }
 
     public void saveSensors(List<String> sensors) {
         Device device = Device.of(sensors);
         if (sensors.size() == 1) {
-            crudOperation.saveAsync(device);
+            repository.saveAsync(device);
         } else {
-            crudOperation.updateAsync(device);
+            repository.updateAsync(device);
         }
     }
 
@@ -52,7 +52,7 @@ public class SensorRepository {
         ColumnQuery query = ColumnQuery.of(TEMPERATURE);
         query.addCondition(ColumnCondition.eq(Column.of("sensorId", sensorId)));
         query.setLimit(LIMIT);
-        return crudOperation.find(query);
+        return repository.find(query);
     }
 
 }

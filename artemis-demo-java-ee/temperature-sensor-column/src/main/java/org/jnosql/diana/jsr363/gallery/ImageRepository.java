@@ -1,7 +1,8 @@
 package org.jnosql.diana.jsr363.gallery;
 
 
-import org.jnosql.artemis.column.ColumnCrudOperation;
+import org.jnosql.artemis.column.ColumnRepository;
+import org.jnosql.diana.api.TypeReference;
 import org.jnosql.diana.api.Value;
 import org.jnosql.diana.api.column.Column;
 import org.jnosql.diana.api.column.ColumnCondition;
@@ -24,7 +25,7 @@ public class ImageRepository {
     public static final String GALLERY = "gallery";
 
     @Inject
-    private ColumnCrudOperation crudOperation;
+    private ColumnRepository repository;
 
     @Inject
     private BucketManager bucketManager;
@@ -32,12 +33,12 @@ public class ImageRepository {
     @PostConstruct
     void init() {
         LOGGER.info("Starting to load all galary imagesId");
-        Optional<Gallery> gallery = crudOperation.singleResult(getFindByIdQuery());
+        Optional<Gallery> gallery = repository.singleResult(getFindByIdQuery());
         List<String> imagesId = gallery.get().getImages();
         LOGGER.info("Gallary loaded, loading the imagesId" + imagesId);
         ColumnQuery query = ColumnQuery.of("image");
         query.addCondition(ColumnCondition.in(Column.of("name", imagesId)));
-        List<Image> images = crudOperation.find(query);
+        List<Image> images = repository.find(query);
         LOGGER.info("Found images: " + images);
         KeyValueEntity<String> imageEntity = KeyValueEntity.of(GALLERY, images);
         bucketManager.put(imageEntity);
@@ -47,7 +48,9 @@ public class ImageRepository {
 
     public List<Image> getImages() {
         Optional<Value> gallery = bucketManager.get(GALLERY);
-        return gallery.map(value -> value.getList(Image.class)).orElse(Collections.emptyList());
+
+        return gallery.map(value -> value.get(new TypeReference<List<Image>>(){}))
+                .orElse(Collections.emptyList());
     }
 
     private ColumnQuery getFindByIdQuery() {
