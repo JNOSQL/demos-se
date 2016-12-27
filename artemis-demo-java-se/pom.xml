@@ -16,5 +16,6 @@
 <modules>
     <module>document</module>
     <module>column</module>
+    <module>key-value</module>
 </modules>
 </project>
