@@ -21,7 +21,7 @@ public class HazelCastProducer {
     @PostConstruct
     public void init() {
         configuration = new HazelCastKeyValueConfiguration();
-        managerFactory = configuration.getManagerFactory();
+        managerFactory = configuration.get();
     }
 
 

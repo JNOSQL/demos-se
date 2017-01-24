@@ -25,8 +25,8 @@
             <version>2.3.5.Final</version>
         </dependency>
         <dependency>
-            <groupId>org.jnosql.diana.mongodb.driver</groupId>
-            <artifactId>mongodb-document-api</artifactId>
+            <groupId>org.jnosql.diana</groupId>
+            <artifactId>mongodb-driver</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

@@ -25,8 +25,8 @@
             <version>2.3.5.Final</version>
         </dependency>
         <dependency>
-            <groupId>org.jnosql.diana.cassandra.driver</groupId>
-            <artifactId>cassandra-column-api</artifactId>
+            <groupId>org.jnosql.diana</groupId>
+            <artifactId>cassandra-driver</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

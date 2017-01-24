@@ -88,14 +88,14 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jnosql.diana.hazelcast.driver</groupId>
-            <artifactId>hazelcast-key-value-api</artifactId>
+            <groupId>org.jnosql.diana</groupId>
+            <artifactId>hazelcast-driver</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>org.jnosql.diana.cassandra.driver</groupId>
-            <artifactId>cassandra-column-api</artifactId>
+            <groupId>org.jnosql.diana</groupId>
+            <artifactId>cassandra-driver</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

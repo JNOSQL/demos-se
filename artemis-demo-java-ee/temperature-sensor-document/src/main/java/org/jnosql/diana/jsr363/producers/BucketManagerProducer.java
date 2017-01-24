@@ -24,7 +24,7 @@ class BucketManagerProducer {
     @PostConstruct
     public void init() {
         HazelCastKeyValueConfiguration configuration = new HazelCastKeyValueConfiguration();
-        managerFactory = configuration.getManagerFactory(CONFIGURATION);
+        managerFactory = configuration.get(CONFIGURATION);
     }
 
     @PreDestroy

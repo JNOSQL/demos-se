@@ -20,13 +20,13 @@ public class MongoDBProducer {
     @PostConstruct
     public void init() {
         configuration = new MongoDBDocumentConfiguration();
-        managerFactory = configuration.getManagerFactory();
+        managerFactory = configuration.get();
     }
 
 
     @Produces
     public DocumentCollectionManager getManager() {
-        return managerFactory.getDocumentEntityManager(COLLECTION);
+        return managerFactory.get(COLLECTION);
 
     }
 

@@ -20,13 +20,13 @@ public class CassandraProducer {
     @PostConstruct
     public void init() {
         cassandraConfiguration = new CassandraConfiguration();
-        managerFactory = cassandraConfiguration.getManagerFactory();
+        managerFactory = cassandraConfiguration.get();
     }
 
 
     @Produces
     public ColumnFamilyManager getManager() {
-        return managerFactory.getColumnEntityManager(KEY_SPACE);
+        return managerFactory.get(KEY_SPACE);
     }
 
 }
