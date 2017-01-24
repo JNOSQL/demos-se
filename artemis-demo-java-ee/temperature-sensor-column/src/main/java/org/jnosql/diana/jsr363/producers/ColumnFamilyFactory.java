@@ -18,7 +18,7 @@ class ColumnFamilyFactory {
     @PostConstruct
     public void setup() {
         ColumnConfiguration configuration = new CassandraConfiguration();
-        managerFactory = configuration.getManagerFactory();
+        managerFactory = configuration.get();
     }
 
 
@@ -29,7 +29,7 @@ class ColumnFamilyFactory {
 
     @Produces
     public ColumnFamilyManager getManager() {
-        return managerFactory.getColumnEntityManager(KEY_SPACE);
+        return managerFactory.get(KEY_SPACE);
     }
 
 }

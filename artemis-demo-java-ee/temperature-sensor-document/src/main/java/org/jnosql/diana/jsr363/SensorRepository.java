@@ -30,7 +30,7 @@ public class SensorRepository {
 
     public List<String> sensors() {
         DocumentQuery query = DocumentQuery.of(SENSORS);
-        query.addCondition(DocumentCondition.eq(SENSOR_ID));
+        query.and(DocumentCondition.eq(SENSOR_ID));
         Optional<Device> device = repository.singleResult(query);
         return device.map(Device::getDevices).orElse(Collections.emptyList());
     }
@@ -46,7 +46,7 @@ public class SensorRepository {
 
     public List<Sensor> getSensor(String sensorId) {
         DocumentQuery query = DocumentQuery.of(TEMPERATURE);
-        query.addCondition(DocumentCondition.eq(Document.of("sensorId", sensorId)));
+        query.and(DocumentCondition.eq(Document.of("sensorId", sensorId)));
         return repository.find(query);
     }
 

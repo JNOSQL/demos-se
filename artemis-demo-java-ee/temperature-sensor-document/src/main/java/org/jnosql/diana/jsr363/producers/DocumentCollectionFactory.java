@@ -17,7 +17,7 @@ class DocumentCollectionFactory {
     @PostConstruct
     public void setup() {
         DocumentConfiguration configuration = new MongoDBDocumentConfiguration();
-        managerFactory = configuration.getManagerFactory();
+        managerFactory = configuration.get();
     }
 
 
@@ -28,7 +28,7 @@ class DocumentCollectionFactory {
 
     @Produces
     public DocumentCollectionManager getManager() {
-        return managerFactory.getDocumentEntityManager("jsr363-demo");
+        return managerFactory.get("jsr363-demo");
     }
 
 }

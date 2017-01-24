@@ -27,7 +27,7 @@ public class App {
             System.out.println("Person saved" + saved);
 
             DocumentQuery query = DocumentQuery.of("Person");
-            query.addCondition(DocumentCondition.eq(Document.of("_id", 1L)));
+            query.and(DocumentCondition.eq(Document.of("_id", 1L)));
 
             Optional<Person> person = crudOperation.singleResult(query);
             System.out.println("Entity found: " + person);

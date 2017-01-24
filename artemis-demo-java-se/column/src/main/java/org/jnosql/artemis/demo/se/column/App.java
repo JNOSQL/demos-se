@@ -27,7 +27,7 @@ public class App {
             System.out.println("Person saved" + saved);
 
             ColumnQuery query = ColumnQuery.of("Person");
-            query.addCondition(ColumnCondition.eq(Column.of("id", 1L)));
+            query.and(ColumnCondition.eq(Column.of("id", 1L)));
 
             Optional<Person> person = crudOperation.singleResult(query);
             System.out.println("Entity found: " + person);

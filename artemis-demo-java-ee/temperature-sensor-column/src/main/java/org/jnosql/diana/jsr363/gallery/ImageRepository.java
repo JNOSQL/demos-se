@@ -37,7 +37,7 @@ public class ImageRepository {
         List<String> imagesId = gallery.get().getImages();
         LOGGER.info("Gallary loaded, loading the imagesId" + imagesId);
         ColumnQuery query = ColumnQuery.of("image");
-        query.addCondition(ColumnCondition.in(Column.of("name", imagesId)));
+        query.and(ColumnCondition.in(Column.of("name", imagesId)));
         List<Image> images = repository.find(query);
         LOGGER.info("Found images: " + images);
         KeyValueEntity<String> imageEntity = KeyValueEntity.of(GALLERY, images);
@@ -55,7 +55,7 @@ public class ImageRepository {
 
     private ColumnQuery getFindByIdQuery() {
         ColumnQuery query = ColumnQuery.of(GALLERY);
-        return query.addCondition(ColumnCondition.eq(Column.of("id", Gallery.DEFAULT_ID)));
+        return query.and(ColumnCondition.eq(Column.of("id", Gallery.DEFAULT_ID)));
     }
 
 }
