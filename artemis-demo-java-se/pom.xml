@@ -15,6 +15,7 @@
 
 <modules>
     <module>document</module>
+    <module>document-double</module>
     <module>column</module>
     <module>key-value</module>
 </modules>
