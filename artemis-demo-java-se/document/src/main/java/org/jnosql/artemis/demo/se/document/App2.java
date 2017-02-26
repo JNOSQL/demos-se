@@ -24,15 +24,15 @@ public class App2 {
     public static void main(String[] args) {
         Weld weld = new Weld();
         try (WeldContainer weldContainer = weld.initialize()) {
-            PersonRepository crudOperation = weldContainer.instance().select(PersonRepository.class)
+            PersonRepository repository = weldContainer.instance().select(PersonRepository.class)
                     .select(ArtemisDatabaseQualifier.ofDocument()).get();
-            Person saved = crudOperation.save(PERSON);
+            Person saved = repository.save(PERSON);
             System.out.println("Person saved" + saved);
 
             DocumentQuery query = DocumentQuery.of("Person");
             query.and(DocumentCondition.eq(Document.of("_id", 1L)));
 
-            List<Person> people = crudOperation.findByName("Name");
+            List<Person> people = repository.findByName("Name");
             System.out.println("Entity found: " + people);
 
         }
