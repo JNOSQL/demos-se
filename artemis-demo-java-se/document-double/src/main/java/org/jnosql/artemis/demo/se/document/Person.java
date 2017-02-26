@@ -6,6 +6,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.jnosql.artemis.Column;
 import org.jnosql.artemis.Entity;
 
+import java.util.List;
+
 
 @Entity
 public class Person {
@@ -17,7 +19,7 @@ public class Person {
     private String name;
 
     @Column
-    private String phone;
+    private List<String> phones;
 
     private String ignore;
 
@@ -31,9 +33,6 @@ public class Person {
     }
 
 
-    public Person(String phone) {
-        this.phone = phone;
-    }
 
     public String getIgnore() {
         return ignore;
@@ -42,10 +41,10 @@ public class Person {
     public Person() {
     }
 
-    Person(String id, String name, String phone, String ignore) {
+    Person(String id, String name, List<String> phones, String ignore) {
         this.id = id;
         this.name = name;
-        this.phone = phone;
+        this.phones = phones;
         this.ignore = ignore;
     }
 
@@ -54,7 +53,7 @@ public class Person {
         return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
                 .append("id", id)
                 .append("name", name)
-                .append("phone", phone)
+                .append("phones", phones)
                 .append("ignore", ignore)
                 .toString();
     }

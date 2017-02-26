@@ -8,18 +8,29 @@ import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
+import java.util.Random;
+import java.util.UUID;
 
 import static org.jnosql.artemis.demo.se.document.DocumentDatabaseQualifier.COUCHBASE;
 import static org.jnosql.artemis.demo.se.document.DocumentDatabaseQualifier.MONGODB;
 
 public class App {
 
+    private static final List<String> PHONES;
+    static {
+        PHONES = new ArrayList<>();
+        PHONES.add("123456789");
+        PHONES.add("234242");
+    }
+    private static final String ID = UUID.randomUUID().toString();
     private static final Person PERSON = Person.builder().
-            withPhones("123456789")
+            withPhones(PHONES)
             .withName("Name")
-            .withId("1")
+            .withId(ID)
             .withIgnore("Just Ignore").build();
 
     public static void main(String[] args) {
@@ -34,7 +45,7 @@ public class App {
             System.out.println("Person saved" + saved);
 
             DocumentQuery query = DocumentQuery.of("Person");
-            query.and(DocumentCondition.eq(Document.of("_id", 1L)));
+            query.and(DocumentCondition.eq(Document.of("_id", ID)));
 
             Optional<Person> person = crudOperation.singleResult(query);
             System.out.println("Entity found: " + person);
@@ -49,7 +60,7 @@ public class App {
             System.out.println("Person saved" + saved);
 
             query = DocumentQuery.of("Person");
-            query.and(DocumentCondition.eq(Document.of("_id", 1L)));
+            query.and(DocumentCondition.eq(Document.of("_id", ID)));
 
             person = crudOperation.singleResult(query);
             System.out.println("Entity found: " + person);

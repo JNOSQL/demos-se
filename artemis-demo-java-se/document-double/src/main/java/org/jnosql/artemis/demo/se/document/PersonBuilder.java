@@ -9,7 +9,7 @@ public class PersonBuilder {
 
     private String name;
 
-    private String phone;
+    private List<String> phones;
 
     private String ignore;
 
@@ -24,8 +24,8 @@ public class PersonBuilder {
     }
 
 
-    public PersonBuilder withPhones(String phone) {
-        this.phone = phone;
+    public PersonBuilder withPhones(List<String> phones) {
+        this.phones = phones;
         return this;
     }
 
@@ -35,6 +35,6 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(id, name, phone, ignore);
+        return new Person(id, name, phones, ignore);
     }
 }
