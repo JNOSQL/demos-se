@@ -8,7 +8,7 @@ import org.jnosql.artemis.Column;
 import org.jnosql.artemis.Entity;
 
 
-@Entity
+@Entity("name")
 public class Person {
 
     @Column

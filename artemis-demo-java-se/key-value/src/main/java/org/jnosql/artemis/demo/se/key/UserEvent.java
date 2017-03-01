@@ -2,6 +2,7 @@ package org.jnosql.artemis.demo.se.key;
 
 
 import org.jnosql.artemis.EntityPostPersit;
+import org.jnosql.artemis.EntityPrePersist;
 import org.jnosql.artemis.key.KeyValueEntityPostPersist;
 import org.jnosql.artemis.key.KeyValueEntityPrePersist;
 
@@ -14,7 +15,7 @@ public class UserEvent {
 
     private static final Logger LOGGER = Logger.getLogger(UserEvent.class.getName());
 
-    public void preEntity(@Observes EntityPostPersit event) {
+    public void preEntity(@Observes EntityPrePersist event) {
         LOGGER.info("Event to pre persistence" + event.getValue());
     }
 

@@ -1,19 +1,21 @@
 package org.jnosql.artemis.demo.se.document;
 
 
-import java.util.logging.Logger;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
 import org.jnosql.artemis.EntityPostPersit;
+import org.jnosql.artemis.EntityPrePersist;
 import org.jnosql.artemis.document.DocumentEntityPostPersist;
 import org.jnosql.artemis.document.DocumentEntityPrePersist;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.event.Observes;
+import java.util.logging.Logger;
 
 @ApplicationScoped
 public class PersonEvent {
 
     private static final Logger LOGGER = Logger.getLogger(PersonEvent.class.getName());
 
-    public void preEntity(@Observes EntityPostPersit event) {
+    public void preEntity(@Observes EntityPrePersist event) {
         LOGGER.info("Event to pre persistence" + event.getValue());
     }
 

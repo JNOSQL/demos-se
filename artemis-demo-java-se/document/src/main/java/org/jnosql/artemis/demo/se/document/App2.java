@@ -3,15 +3,13 @@ package org.jnosql.artemis.demo.se.document;
 
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
-import org.jnosql.artemis.ArtemisDatabaseQualifier;
-import org.jnosql.artemis.document.DocumentRepository;
+import org.jnosql.artemis.DatabaseQualifier;
 import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 public class App2 {
 
@@ -25,7 +23,7 @@ public class App2 {
         Weld weld = new Weld();
         try (WeldContainer weldContainer = weld.initialize()) {
             PersonRepository repository = weldContainer.instance().select(PersonRepository.class)
-                    .select(ArtemisDatabaseQualifier.ofDocument()).get();
+                    .select(DatabaseQualifier.ofDocument()).get();
             Person saved = repository.save(PERSON);
             System.out.println("Person saved" + saved);
 
