@@ -4,6 +4,9 @@ package org.jnosql.artemis.demo.se.document;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
+
+import org.jnosql.artemis.Database;
+import org.jnosql.artemis.DatabaseType;
 import org.jnosql.diana.api.document.DocumentCollectionManager;
 import org.jnosql.diana.mongodb.document.MongoDBDocumentCollectionManagerFactory;
 import org.jnosql.diana.mongodb.document.MongoDBDocumentConfiguration;
@@ -12,6 +15,8 @@ import org.jnosql.diana.mongodb.document.MongoDBDocumentConfiguration;
 public class MongoDBProducer {
 
     private static final String COLLECTION = "developers";
+
+    public static final String MONGODB = "mongodb";
 
     private MongoDBDocumentConfiguration configuration;
 
@@ -25,6 +30,7 @@ public class MongoDBProducer {
 
 
     @Produces
+    @Database(value = DatabaseType.DOCUMENT, provider = MONGODB)
     public DocumentCollectionManager getManager() {
         return managerFactory.get(COLLECTION);
 

@@ -3,20 +3,20 @@ package org.jnosql.artemis.demo.se.document;
 
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
+import org.jnosql.artemis.DatabaseQualifier;
 import org.jnosql.artemis.document.DocumentRepository;
 import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 import java.util.UUID;
 
-import static org.jnosql.artemis.demo.se.document.DocumentDatabaseQualifier.COUCHBASE;
-import static org.jnosql.artemis.demo.se.document.DocumentDatabaseQualifier.MONGODB;
+import static org.jnosql.artemis.demo.se.document.CouchbaseProducer.COUCHBASE;
+import static org.jnosql.artemis.demo.se.document.MongoDBProducer.MONGODB;
+
 
 public class App {
 
@@ -38,8 +38,9 @@ public class App {
         try (WeldContainer weldContainer = weld.initialize()) {
 
             System.out.println(" Using couchbase database");
+
             DocumentRepository crudOperation = weldContainer.instance().select(DocumentRepository.class)
-                    .select(COUCHBASE).get();
+                    .select(DatabaseQualifier.ofDocument(COUCHBASE)).get();
 
             Person saved = crudOperation.save(PERSON);
             System.out.println("Person saved" + saved);
@@ -54,7 +55,7 @@ public class App {
             System.out.println(" Using mongodb database");
 
             crudOperation = weldContainer.instance().select(DocumentRepository.class)
-                    .select(MONGODB).get();
+                    .select(DatabaseQualifier.ofDocument(MONGODB)).get();
 
             saved = crudOperation.save(PERSON);
             System.out.println("Person saved" + saved);
