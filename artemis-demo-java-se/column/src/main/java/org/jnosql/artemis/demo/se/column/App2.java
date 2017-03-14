@@ -24,7 +24,7 @@ public class App2 {
             Person saved = repository.save(PERSON);
             System.out.println("Person saved" + saved);
 
-            Optional<Person> person = repository.findByIdOrderByName(1L);
+            Optional<Person> person = repository.findById(1L);
             System.out.println("Entity found: " + person);
 
         }
