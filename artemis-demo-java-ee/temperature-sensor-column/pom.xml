@@ -90,13 +90,13 @@
         <dependency>
             <groupId>org.jnosql.diana</groupId>
             <artifactId>hazelcast-driver</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
 
         <dependency>
             <groupId>org.jnosql.diana</groupId>
             <artifactId>cassandra-driver</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
 
         <dependency>
@@ -108,7 +108,7 @@
         <dependency>
             <groupId>org.jnosql.artemis</groupId>
             <artifactId>artemis-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
 
     </dependencies>

@@ -17,7 +17,7 @@
         <dependency>
             <groupId>org.jnosql.artemis</groupId>
             <artifactId>artemis-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.weld.se</groupId>
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>org.jnosql.diana</groupId>
             <artifactId>hazelcast-driver</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
 
     </dependencies>
