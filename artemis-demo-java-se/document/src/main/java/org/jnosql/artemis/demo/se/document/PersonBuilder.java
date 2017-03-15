@@ -13,6 +13,8 @@ public class PersonBuilder {
 
     private String ignore;
 
+    private Address address;
+
     public PersonBuilder withId(long id) {
         this.id = id;
         return this;
@@ -34,7 +36,12 @@ public class PersonBuilder {
         return this;
     }
 
+    public PersonBuilder withAddress(Address address) {
+        this.address = address;
+        return this;
+    }
+
     public Person build() {
-        return new Person(id, name, phones, ignore);
+        return new Person(id, name, phones, ignore, address);
     }
 }

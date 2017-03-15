@@ -2,9 +2,11 @@ package org.jnosql.artemis.demo.se.document;
 
 
 import java.util.List;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.jnosql.artemis.Column;
+import org.jnosql.artemis.Embeddable;
 import org.jnosql.artemis.Entity;
 
 
@@ -19,6 +21,9 @@ public class Person {
 
     @Column
     private List<String> phones;
+
+    @Column
+    private Address address;
 
     private String ignore;
 
@@ -43,11 +48,12 @@ public class Person {
     public Person() {
     }
 
-    Person(long id, String name, List<String> phones, String ignore) {
+    Person(long id, String name, List<String> phones, String ignore, Address address) {
         this.id = id;
         this.name = name;
         this.phones = phones;
         this.ignore = ignore;
+        this.address = address;
     }
 
     @Override
@@ -57,6 +63,7 @@ public class Person {
                 .append("name", name)
                 .append("phones", phones)
                 .append("ignore", ignore)
+                .append("address", address)
                 .toString();
     }
 
