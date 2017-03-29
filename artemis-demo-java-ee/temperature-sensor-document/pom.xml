@@ -83,7 +83,7 @@
         <dependency>
             <artifactId>uom-se</artifactId>
             <groupId>tec.uom</groupId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>1.0.4</version>
         </dependency>
 
         <dependency>
