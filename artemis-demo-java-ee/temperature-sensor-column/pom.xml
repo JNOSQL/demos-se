@@ -37,8 +37,13 @@
             <name>Apache Snapshot Repository</name>
             <url>https://repository.apache.org/content/groups/snapshots</url>
         </repository>
+       <repository>
+    	  <id>jnsoql-repo</id>
+	  <name>JNoSQL Maven Repository</name>
+	  <url>https://dl.bintray.com/jnosql/maven/</url>
+	  <layout>default</layout>
+       </repository>
     </repositories>
-
     <pluginRepositories>
         <pluginRepository>
             <id>apache-m2-snapshot</id>
@@ -113,17 +118,4 @@
 
     </dependencies>
 
-    <!-- This section allows you to configure where to publish libraries for
-    sharing. It is not required and may be deleted. For more information see:
-    http://maven.apache.org/plugins/maven-deploy-plugin/ -->
-    <distributionManagement>
-        <repository>
-            <id>localhost</id>
-            <url>file://${basedir}/target/repo/</url>
-        </repository>
-        <snapshotRepository>
-            <id>localhost</id>
-            <url>file://${basedir}/target/snapshot-repo/</url>
-        </snapshotRepository>
-    </distributionManagement>
 </project>
