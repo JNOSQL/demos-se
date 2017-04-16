@@ -11,12 +11,12 @@
         <maven.compile.targetLevel>1.8</maven.compile.targetLevel>
         <maven.compile.sourceLevel>1.8</maven.compile.sourceLevel>
         <maven.compile.version>3.5.1</maven.compile.version>
-	   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <modules>
         <module>artemis-demo-java-se</module>
-	<module>artemis-demo-java-ee</module>
+        <module>artemis-demo-java-ee</module>
     </modules>
 
     <dependencies>
@@ -59,11 +59,11 @@
         </plugins>
     </build>
     <repositories>
-     <repository>
-	<id>jnsoql-repo</id>
-	<name>JNoSQL Maven Repository</name>
-	<url>https://dl.bintray.com/jnosql/maven/</url>
-	<layout>default</layout>
-     </repository>
-     </repositories>
+        <repository>
+            <id>jnsoql-repo</id>
+            <name>JNoSQL Maven Repository</name>
+            <url>https://dl.bintray.com/jnosql/maven/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
 </project>
