@@ -24,6 +24,8 @@ import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
 
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -49,12 +51,12 @@ public class App {
             .withIgnore("Just Ignore").build();
 
     public static void main(String[] args) {
-        Weld weld = new Weld();
-        try (WeldContainer weldContainer = weld.initialize()) {
+
+        try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
             System.out.println(" Using couchbase database");
 
-            DocumentTemplate documentTemplate = weldContainer.instance().select(DocumentTemplate.class)
+            DocumentTemplate documentTemplate = container.select(DocumentTemplate.class)
                     .select(DatabaseQualifier.ofDocument(COUCHBASE)).get();
 
             Person saved = documentTemplate.insert(PERSON);
@@ -69,7 +71,7 @@ public class App {
 
             System.out.println(" Using mongodb database");
 
-            documentTemplate = weldContainer.instance().select(DocumentTemplate.class)
+            documentTemplate = container.select(DocumentTemplate.class)
                     .select(DatabaseQualifier.ofDocument(MONGODB)).get();
 
             saved = documentTemplate.insert(PERSON);
