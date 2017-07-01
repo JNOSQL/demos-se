@@ -13,11 +13,9 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.key;
+package org.jnosql.artemis.demo.se.hazelcast;
 
 
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
 import org.jnosql.artemis.key.KeyValueTemplate;
 
 import javax.enterprise.inject.se.SeContainer;

@@ -13,7 +13,7 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.key;
+package org.jnosql.artemis.demo.se.hazelcast;
 
 
 import org.jnosql.diana.api.key.BucketManager;
