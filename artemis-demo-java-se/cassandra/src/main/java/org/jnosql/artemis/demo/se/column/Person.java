@@ -28,8 +28,8 @@ import java.util.List;
 @Entity("Person")
 public class Person {
 
-    @Id
-    private long id;
+    @Id("id")
+    private Long id;
 
     @Column
     private String name;

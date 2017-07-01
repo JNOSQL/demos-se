@@ -16,12 +16,12 @@
 package org.jnosql.artemis.demo.se.column;
 
 
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
-import org.jnosql.artemis.DatabaseQualifier;
-
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.Optional;
+
+import static org.jnosql.artemis.DatabaseQualifier.ofColumn;
 
 public class App2 {
 
@@ -32,10 +32,9 @@ public class App2 {
             .withIgnore("Just Ignore").build();
 
     public static void main(String[] args) {
-        Weld weld = new Weld();
-        try(WeldContainer weldContainer = weld.initialize()) {
-            PersonRepository repository = weldContainer.instance()
-                    .select(PersonRepository.class).select(DatabaseQualifier.ofColumn()).get();
+
+        try(SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            PersonRepository repository = container.select(PersonRepository.class).select(ofColumn()).get();
             Person saved = repository.save(PERSON);
             System.out.println("Person saved" + saved);
 
