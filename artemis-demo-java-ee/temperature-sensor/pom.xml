@@ -17,7 +17,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jnosql.artemis.demo</groupId>
-    <artifactId>temperature-sensor-document</artifactId>
+    <artifactId>temperature-sensor</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>Temperature sensor document</name>
@@ -31,27 +31,6 @@
         <maven.compile.version>3.5.1</maven.compile.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>apache-m2-snapshot</id>
-            <name>Apache Snapshot Repository</name>
-            <url>https://repository.apache.org/content/groups/snapshots</url>
-        </repository>
-       <repository>
-    	  <id>jnsoql-repo</id>
-	  <name>JNoSQL Maven Repository</name>
-	  <url>https://dl.bintray.com/jnosql/maven/</url>
-	  <layout>default</layout>
-       </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>apache-m2-snapshot</id>
-            <name>Apache Snapshot Repository</name>
-            <url>https://repository.apache.org/content/groups/snapshots</url>
-        </pluginRepository>
-    </pluginRepositories>
 
     <build>
         <finalName>temperature</finalName>

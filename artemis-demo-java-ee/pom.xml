@@ -14,7 +14,6 @@
     </properties>
 
 <modules>
-    <module>temperature-sensor-document</module>
-    <module>temperature-sensor-column</module>
+    <module>temperature-sensor</module>
 </modules>
 </project>
