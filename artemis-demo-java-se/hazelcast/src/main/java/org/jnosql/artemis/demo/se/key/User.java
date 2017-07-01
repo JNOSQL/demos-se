@@ -49,6 +49,9 @@ public class User implements Serializable {
         return phones;
     }
 
+    User() {
+    }
+
     User(String userName, String name, List<String> phones) {
         this.userName = userName;
         this.name = name;

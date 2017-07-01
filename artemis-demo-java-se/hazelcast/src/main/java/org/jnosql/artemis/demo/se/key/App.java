@@ -20,6 +20,8 @@ import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 import org.jnosql.artemis.key.KeyValueTemplate;
 
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -32,14 +34,13 @@ public class App {
             .build();
 
     public static void main(String[] args) {
-        Weld weld = new Weld();
-        try (WeldContainer weldContainer = weld.initialize()) {
-            KeyValueTemplate keyValueTemplate = weldContainer.instance().select(KeyValueTemplate.class).get();
+
+        try(SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            KeyValueTemplate keyValueTemplate =  container.select(KeyValueTemplate.class).get();
             User saved = keyValueTemplate.put(USER);
             System.out.println("User saved" + saved);
             Optional<User> person = keyValueTemplate.get("username", User.class);
             System.out.println("Entity found: " + person);
-
         }
     }
 
