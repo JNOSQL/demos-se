@@ -18,7 +18,7 @@ package org.jnosql.artemis.demo.se.document;
 
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
-import org.jnosql.artemis.document.DocumentRepository;
+import org.jnosql.artemis.document.DocumentTemplate;
 import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
@@ -37,8 +37,8 @@ public class App {
     public static void main(String[] args) {
         Weld weld = new Weld();
         try (WeldContainer weldContainer = weld.initialize()) {
-            DocumentRepository crudOperation = weldContainer.instance().select(DocumentRepository.class).get();
-            Person saved = crudOperation.save(PERSON);
+            DocumentTemplate crudOperation = weldContainer.instance().select(DocumentTemplate.class).get();
+            Person saved = crudOperation.insert(PERSON);
             System.out.println("Person saved" + saved);
 
             DocumentQuery query = DocumentQuery.of("Person");

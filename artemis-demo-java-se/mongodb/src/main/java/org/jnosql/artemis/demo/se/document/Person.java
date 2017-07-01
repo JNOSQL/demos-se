@@ -23,13 +23,14 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.jnosql.artemis.Column;
 import org.jnosql.artemis.Embeddable;
 import org.jnosql.artemis.Entity;
+import org.jnosql.artemis.Id;
 
 
 @Entity
 public class Person {
 
-    @Column("_id")
-    private long id;
+    @Id
+    private Long id;
 
     @Column
     private String name;

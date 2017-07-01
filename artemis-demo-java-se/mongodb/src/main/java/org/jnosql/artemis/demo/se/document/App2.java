@@ -39,8 +39,7 @@ public class App2 {
         try (WeldContainer weldContainer = weld.initialize()) {
             PersonRepository repository = weldContainer.instance().select(PersonRepository.class)
                     .select(DatabaseQualifier.ofDocument()).get();
-            Person saved = repository.save(PERSON);
-            System.out.println("Person saved" + saved);
+            repository.save(PERSON);
 
             DocumentQuery query = DocumentQuery.of("Person");
             query.and(DocumentCondition.eq(Document.of("_id", 1L)));

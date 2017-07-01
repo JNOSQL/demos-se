@@ -18,8 +18,7 @@ package org.jnosql.artemis.demo.se.document;
 
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
-import org.jnosql.artemis.DatabaseQualifier;
-import org.jnosql.artemis.document.DocumentRepository;
+import org.jnosql.artemis.document.DocumentTemplate;
 import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
@@ -44,14 +43,14 @@ public class App3 {
                     .withAddress(new Address("Engenheiro Jose Anasoh", "Salvador", 53))
                     .build();
 
-            DocumentRepository repository = weldContainer.instance().select(DocumentRepository.class).get();
-            Person saved = repository.save(person);
+            DocumentTemplate repository = weldContainer.instance().select(DocumentTemplate.class).get();
+            Person saved = repository.insert(person);
             System.out.println("Person saved" + saved);
 
             DocumentQuery query = DocumentQuery.of("Person");
             query.and(DocumentCondition.eq(Document.of("_id", id)));
 
-            List<Person> people = repository.find(query);
+            List<Person> people = repository.select(query);
             System.out.println("Entity found: " + people);
 
         }
