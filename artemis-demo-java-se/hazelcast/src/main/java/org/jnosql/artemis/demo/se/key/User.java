@@ -16,22 +16,21 @@
 package org.jnosql.artemis.demo.se.key;
 
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.jnosql.artemis.Entity;
+import org.jnosql.artemis.Id;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
-
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-import org.jnosql.artemis.Column;
-import org.jnosql.artemis.Entity;
-import org.jnosql.artemis.Key;
 
 
 @Entity
 public class User implements Serializable {
 
-    @Column
-    @Key
+
+    @Id
     private String userName;
 
     private String name;
