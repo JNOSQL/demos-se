@@ -13,7 +13,7 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.column;
+package org.jnosql.artemis.demo.se.cassandra;
 
 
 import java.util.logging.Logger;
@@ -42,6 +42,6 @@ public class PersonEvent {
     }
 
     public void postColumn(@Observes ColumnEntityPostPersist event) {
-        LOGGER.info("Event to post column entity" + event.getEntity());
+        LOGGER.info("Event to post cassandra entity" + event.getEntity());
     }
 }
