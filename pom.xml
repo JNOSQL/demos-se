@@ -58,12 +58,4 @@
             </plugin>
         </plugins>
     </build>
-    <repositories>
-        <repository>
-            <id>jnsoql-repo</id>
-            <name>JNoSQL Maven Repository</name>
-            <url>https://dl.bintray.com/jnosql/maven/</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
 </project>
