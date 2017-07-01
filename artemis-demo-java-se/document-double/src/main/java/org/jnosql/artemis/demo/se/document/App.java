@@ -19,7 +19,7 @@ package org.jnosql.artemis.demo.se.document;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 import org.jnosql.artemis.DatabaseQualifier;
-import org.jnosql.artemis.document.DocumentRepository;
+import org.jnosql.artemis.document.DocumentTemplate;
 import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
@@ -54,33 +54,35 @@ public class App {
 
             System.out.println(" Using couchbase database");
 
-            DocumentRepository crudOperation = weldContainer.instance().select(DocumentRepository.class)
+            DocumentTemplate documentTemplate = weldContainer.instance().select(DocumentTemplate.class)
                     .select(DatabaseQualifier.ofDocument(COUCHBASE)).get();
 
-            Person saved = crudOperation.save(PERSON);
+            Person saved = documentTemplate.insert(PERSON);
             System.out.println("Person saved" + saved);
 
             DocumentQuery query = DocumentQuery.of("Person");
             query.and(DocumentCondition.eq(Document.of("_id", ID)));
 
-            Optional<Person> person = crudOperation.singleResult(query);
+            Optional<Person> person = documentTemplate.singleResult(query);
             System.out.println("Entity found: " + person);
 
 
             System.out.println(" Using mongodb database");
 
-            crudOperation = weldContainer.instance().select(DocumentRepository.class)
+            documentTemplate = weldContainer.instance().select(DocumentTemplate.class)
                     .select(DatabaseQualifier.ofDocument(MONGODB)).get();
 
-            saved = crudOperation.save(PERSON);
+            saved = documentTemplate.insert(PERSON);
             System.out.println("Person saved" + saved);
 
             query = DocumentQuery.of("Person");
             query.and(DocumentCondition.eq(Document.of("_id", ID)));
 
-            person = crudOperation.singleResult(query);
+            person = documentTemplate.singleResult(query);
             System.out.println("Entity found: " + person);
 
         }
     }
+
+    private App() {}
 }

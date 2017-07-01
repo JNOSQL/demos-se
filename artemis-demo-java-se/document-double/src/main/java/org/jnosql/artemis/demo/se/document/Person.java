@@ -20,6 +20,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.jnosql.artemis.Column;
 import org.jnosql.artemis.Entity;
+import org.jnosql.artemis.Id;
 
 import java.util.List;
 
@@ -27,7 +28,7 @@ import java.util.List;
 @Entity
 public class Person {
 
-    @Column("_id")
+    @Id
     private String id;
 
     @Column
