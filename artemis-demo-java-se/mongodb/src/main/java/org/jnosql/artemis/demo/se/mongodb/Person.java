@@ -13,7 +13,7 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.document;
+package org.jnosql.artemis.demo.se.mongodb;
 
 
 import org.apache.commons.lang3.builder.ToStringBuilder;

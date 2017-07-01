@@ -13,7 +13,7 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.document;
+package org.jnosql.artemis.demo.se.mongodb;
 
 
 import org.jnosql.artemis.document.DocumentTemplate;
@@ -24,38 +24,37 @@ import org.jnosql.diana.api.document.DocumentQuery;
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
-public class App3 {
+public class App {
+
 
 
     public static void main(String[] args) {
 
+        Random random = new Random();
+        Long id = random.nextLong();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            Random random = new Random();
-            long id = random.nextLong();
+
             Person person = Person.builder().
                     withPhones(Arrays.asList("234", "432"))
                     .withName("Name")
                     .withId(id)
-                    .withIgnore("Just Ignore")
-                    .withAddress(new Address("Engenheiro Jose Anasoh", "Salvador", 53))
-                    .build();
-
-            DocumentTemplate repository = container.select(DocumentTemplate.class).get();
-            Person saved = repository.insert(person);
+                    .withIgnore("Just Ignore").build();
+            DocumentTemplate documentTemplate = container.select(DocumentTemplate.class).get();
+            Person saved = documentTemplate.insert(person);
             System.out.println("Person saved" + saved);
 
             DocumentQuery query = DocumentQuery.of("Person");
             query.and(DocumentCondition.eq(Document.of("_id", id)));
 
-            List<Person> people = repository.select(query);
-            System.out.println("Entity found: " + people);
+            Optional<Person> personOptional = documentTemplate.singleResult(query);
+            System.out.println("Entity found: " + personOptional);
 
         }
     }
 
-    private App3() {
+    private App() {
     }
 }
