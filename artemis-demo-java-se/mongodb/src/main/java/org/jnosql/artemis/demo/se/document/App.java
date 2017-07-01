@@ -16,13 +16,13 @@
 package org.jnosql.artemis.demo.se.document;
 
 
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
 import org.jnosql.artemis.document.DocumentTemplate;
 import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
 
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -35,9 +35,9 @@ public class App {
             .withIgnore("Just Ignore").build();
 
     public static void main(String[] args) {
-        Weld weld = new Weld();
-        try (WeldContainer weldContainer = weld.initialize()) {
-            DocumentTemplate crudOperation = weldContainer.instance().select(DocumentTemplate.class).get();
+
+        try(SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            DocumentTemplate crudOperation = container.select(DocumentTemplate.class).get();
             Person saved = crudOperation.insert(PERSON);
             System.out.println("Person saved" + saved);
 
