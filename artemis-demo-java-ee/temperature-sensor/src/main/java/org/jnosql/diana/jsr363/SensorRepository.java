@@ -16,7 +16,7 @@
 package org.jnosql.diana.jsr363;
 
 
-import org.jnosql.artemis.document.DocumentRepository;
+import org.jnosql.artemis.document.DocumentTemplate;
 import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
@@ -36,33 +36,33 @@ public class SensorRepository {
     private static final Document SENSOR_ID = Document.of("_id", Device.ID);
 
     @Inject
-    private DocumentRepository repository;
+    private DocumentTemplate documentTemplate;
 
     public void save(Sensor sensor) {
-        repository.save(sensor);
+        documentTemplate.insert(sensor);
     }
 
 
     public List<String> sensors() {
         DocumentQuery query = DocumentQuery.of(SENSORS);
         query.and(DocumentCondition.eq(SENSOR_ID));
-        Optional<Device> device = repository.singleResult(query);
+        Optional<Device> device = documentTemplate.singleResult(query);
         return device.map(Device::getDevices).orElse(Collections.emptyList());
     }
 
     public void saveSensors(List<String> sensors) {
         Device device = Device.of(sensors);
         if (sensors.size() == 1) {
-            repository.save(device);
+            documentTemplate.insert(device);
         } else {
-            repository.update(device);
+            documentTemplate.update(device);
         }
     }
 
     public List<Sensor> getSensor(String sensorId) {
         DocumentQuery query = DocumentQuery.of(TEMPERATURE);
         query.and(DocumentCondition.eq(Document.of("sensorId", sensorId)));
-        return repository.find(query);
+        return documentTemplate.select(query);
     }
 
 }

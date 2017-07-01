@@ -21,12 +21,14 @@ import tec.uom.se.unit.Units;
 import javax.inject.Inject;
 import javax.measure.quantity.Temperature;
 import javax.measure.spi.QuantityFactory;
-import javax.ws.rs.*;
-
-import java.time.LocalDate;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;

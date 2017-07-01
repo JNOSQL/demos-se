@@ -16,16 +16,16 @@
 package org.jnosql.diana.jsr363;
 
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Objects;
-import javax.measure.Quantity;
-import javax.measure.quantity.Temperature;
 import org.apache.commons.lang3.StringUtils;
 import org.jnosql.artemis.Column;
 import org.jnosql.artemis.Entity;
-import tec.uom.se.ComparableQuantity;
 import tec.uom.se.format.QuantityFormat;
+
+import javax.measure.Quantity;
+import javax.measure.quantity.Temperature;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 @Entity("temperature")
 public class Sensor {
