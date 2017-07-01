@@ -31,3 +31,12 @@ Follow the instructions in: http://cassandra.apache.org/doc/latest/getting_start
 ## Run the code
 
 To run the code you can either get the war and put in any Java EE8 server.
+
+
+### Run the code
+
+* http://localhost:8080/ check the screen with JSF primefaces
+* GET http://localhost:8080/resource/api/v1/sensors/
+* GET http://localhost:8080/resource/api/v1/sensors/ids                      
+* GET http://localhost:8080/resource/api/v1/sensors/{id}
+* POST http://localhost:8080/resource/api/v1/sensors/ ->      void save(SensorRepresentation)      
