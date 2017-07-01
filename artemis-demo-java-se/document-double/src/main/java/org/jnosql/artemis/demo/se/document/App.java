@@ -16,8 +16,6 @@
 package org.jnosql.artemis.demo.se.document;
 
 
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
 import org.jnosql.artemis.DatabaseQualifier;
 import org.jnosql.artemis.document.DocumentTemplate;
 import org.jnosql.diana.api.document.Document;
