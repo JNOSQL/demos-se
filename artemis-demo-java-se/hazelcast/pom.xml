@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>document</artifactId>
-    <name>Artemis Demo using Java SE Document</name>
+    <artifactId>hazelcast</artifactId>
+    <name>Artemis Demo using Java SE Hazelcast</name>
     <parent>
         <groupId>org.jnosql.artemis</groupId>
         <artifactId>diana-demo-java-se</artifactId>
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>org.jnosql.artemis</groupId>
             <artifactId>artemis-core</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.weld.se</groupId>
@@ -26,8 +26,8 @@
         </dependency>
         <dependency>
             <groupId>org.jnosql.diana</groupId>
-            <artifactId>mongodb-driver</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
+            <artifactId>hazelcast-driver</artifactId>
+            <version>0.0.1</version>
         </dependency>
 
     </dependencies>

@@ -14,9 +14,9 @@
     </properties>
 
 <modules>
-    <module>document</module>
+    <module>mongodb</module>
     <module>document-double</module>
     <module>cassandra</module>
-    <module>key-value</module>
+    <module>hazelcast</module>
 </modules>
 </project>
