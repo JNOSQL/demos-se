@@ -16,13 +16,13 @@
 package org.jnosql.artemis.demo.se.document;
 
 
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
 import org.jnosql.artemis.document.DocumentTemplate;
 import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
 
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -31,8 +31,8 @@ public class App3 {
 
 
     public static void main(String[] args) {
-        Weld weld = new Weld();
-        try (WeldContainer weldContainer = weld.initialize()) {
+
+        try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             Random random = new Random();
             long id = random.nextLong();
             Person person = Person.builder().
@@ -43,7 +43,7 @@ public class App3 {
                     .withAddress(new Address("Engenheiro Jose Anasoh", "Salvador", 53))
                     .build();
 
-            DocumentTemplate repository = weldContainer.instance().select(DocumentTemplate.class).get();
+            DocumentTemplate repository = container.select(DocumentTemplate.class).get();
             Person saved = repository.insert(person);
             System.out.println("Person saved" + saved);
 
@@ -56,5 +56,6 @@ public class App3 {
         }
     }
 
-    private App3() {}
+    private App3() {
+    }
 }

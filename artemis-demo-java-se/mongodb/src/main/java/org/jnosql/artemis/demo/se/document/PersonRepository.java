@@ -16,11 +16,11 @@
 package org.jnosql.artemis.demo.se.document;
 
 
-import org.jnosql.artemis.RepositoryAsync;
+import org.jnosql.artemis.Repository;
 
 import java.util.List;
 
-public interface PersonRepository extends RepositoryAsync<Person, Long> {
+public interface PersonRepository extends Repository<Person, Long> {
 
 
     List<Person> findByName(String name);

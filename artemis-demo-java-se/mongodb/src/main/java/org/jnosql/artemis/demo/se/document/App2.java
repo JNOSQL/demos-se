@@ -16,33 +16,39 @@
 package org.jnosql.artemis.demo.se.document;
 
 
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
 import org.jnosql.artemis.DatabaseQualifier;
 import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
 
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class App2 {
 
-    private static final Person PERSON = Person.builder().
-            withPhones(Arrays.asList("234", "432"))
-            .withName("Name")
-            .withId(2)
-            .withIgnore("Just Ignore").build();
 
     public static void main(String[] args) {
-        Weld weld = new Weld();
-        try (WeldContainer weldContainer = weld.initialize()) {
-            PersonRepository repository = weldContainer.instance().select(PersonRepository.class)
+
+        Random random = new Random();
+        Long id = random.nextLong();
+
+        try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+
+            Person person = Person.builder().
+                    withPhones(Arrays.asList("234", "432"))
+                    .withName("Name")
+                    .withId(id)
+                    .withIgnore("Just Ignore").build();
+
+            PersonRepository repository = container.select(PersonRepository.class)
                     .select(DatabaseQualifier.ofDocument()).get();
-            repository.save(PERSON);
+            repository.save(person);
 
             DocumentQuery query = DocumentQuery.of("Person");
-            query.and(DocumentCondition.eq(Document.of("_id", 1L)));
+            query.and(DocumentCondition.eq(Document.of("_id", id)));
 
             List<Person> people = repository.findByName("Name");
             System.out.println("Entity found: " + people);
@@ -50,5 +56,6 @@ public class App2 {
         }
     }
 
-    private App2() {}
+    private App2() {
+    }
 }

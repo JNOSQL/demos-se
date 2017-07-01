@@ -25,30 +25,36 @@ import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.Random;
 
 public class App {
 
-    private static final Person PERSON = Person.builder().
-            withPhones(Arrays.asList("234", "432"))
-            .withName("Name")
-            .withId(1)
-            .withIgnore("Just Ignore").build();
+
 
     public static void main(String[] args) {
 
-        try(SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            DocumentTemplate crudOperation = container.select(DocumentTemplate.class).get();
-            Person saved = crudOperation.insert(PERSON);
+        Random random = new Random();
+        Long id = random.nextLong();
+        try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+
+            Person person = Person.builder().
+                    withPhones(Arrays.asList("234", "432"))
+                    .withName("Name")
+                    .withId(id)
+                    .withIgnore("Just Ignore").build();
+            DocumentTemplate documentTemplate = container.select(DocumentTemplate.class).get();
+            Person saved = documentTemplate.insert(person);
             System.out.println("Person saved" + saved);
 
             DocumentQuery query = DocumentQuery.of("Person");
-            query.and(DocumentCondition.eq(Document.of("_id", 1L)));
+            query.and(DocumentCondition.eq(Document.of("_id", id)));
 
-            Optional<Person> person = crudOperation.singleResult(query);
-            System.out.println("Entity found: " + person);
+            Optional<Person> personOptional = documentTemplate.singleResult(query);
+            System.out.println("Entity found: " + personOptional);
 
         }
     }
 
-    private App() {}
+    private App() {
+    }
 }
