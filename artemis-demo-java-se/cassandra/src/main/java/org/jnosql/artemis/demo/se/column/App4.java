@@ -17,19 +17,19 @@ package org.jnosql.artemis.demo.se.column;
 
 
 import com.datastax.driver.core.ConsistencyLevel;
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
 
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 
 public class App4 {
 
 
     public static void main(String[] args) {
-        Weld weld = new Weld();
-        try (WeldContainer weldContainer = weld.initialize()) {
-            MovieRepository repository = weldContainer.instance()
-                    .select(MovieRepository.class).get();
+
+        try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+
+            MovieRepository repository = container.select(MovieRepository.class).get();
 
             Movie matrix = new Movie();
             matrix.setName("The Matrix");

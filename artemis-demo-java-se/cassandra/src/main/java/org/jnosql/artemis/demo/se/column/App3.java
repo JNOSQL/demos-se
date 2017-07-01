@@ -17,13 +17,13 @@ package org.jnosql.artemis.demo.se.column;
 
 
 import com.datastax.driver.core.ConsistencyLevel;
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
 import org.jnosql.artemis.cassandra.column.CassandraTemplate;
 import org.jnosql.diana.api.column.Column;
 import org.jnosql.diana.api.column.ColumnCondition;
 import org.jnosql.diana.api.column.ColumnQuery;
 
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,9 +36,9 @@ public class App3 {
             .withIgnore("Just Ignore").build();
 
     public static void main(String[] args) {
-        Weld weld = new Weld();
-        try(WeldContainer weldContainer = weld.initialize()) {
-            CassandraTemplate cassandraTemplate = weldContainer.instance().select(CassandraTemplate.class).get();
+
+        try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            CassandraTemplate cassandraTemplate = container.select(CassandraTemplate.class).get();
             Person saved = cassandraTemplate.save(PERSON, ConsistencyLevel.ONE);
             System.out.println("Person saved" + saved);
 
@@ -51,5 +51,6 @@ public class App3 {
         }
     }
 
-    private App3() {}
+    private App3() {
+    }
 }

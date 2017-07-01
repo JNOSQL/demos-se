@@ -29,7 +29,7 @@ import java.util.List;
 public class Person {
 
     @Id("id")
-    private Long id;
+    private long id;
 
     @Column
     private String name;
