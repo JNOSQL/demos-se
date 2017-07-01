@@ -16,17 +16,19 @@
 package org.jnosql.artemis.demo.se.column;
 
 
-import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.jnosql.artemis.Column;
 import org.jnosql.artemis.Entity;
+import org.jnosql.artemis.Id;
+
+import java.util.List;
 
 
 @Entity("Person")
 public class Person {
 
-    @Column
+    @Id
     private long id;
 
     @Column

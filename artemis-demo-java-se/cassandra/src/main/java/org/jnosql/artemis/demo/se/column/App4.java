@@ -58,4 +58,6 @@ public class App4 {
 
         }
     }
+
+    private App4() {}
 }

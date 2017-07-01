@@ -17,11 +17,11 @@ package org.jnosql.artemis.demo.se.column;
 
 
 import org.jnosql.artemis.cassandra.column.CQL;
-import org.jnosql.artemis.cassandra.column.CassandraCrudRepository;
+import org.jnosql.artemis.cassandra.column.CassandraRepository;
 
 import java.util.List;
 
-public interface MovieRepository extends CassandraCrudRepository<Movie> {
+public interface MovieRepository extends CassandraRepository<Movie, String> {
 
 
     List<Movie> findByAge(Integer age);

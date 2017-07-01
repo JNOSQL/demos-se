@@ -16,11 +16,11 @@
 package org.jnosql.artemis.demo.se.column;
 
 
-import org.jnosql.artemis.CrudRepository;
+import org.jnosql.artemis.Repository;
 
 import java.util.Optional;
 
-public interface PersonRepository extends CrudRepository<Person> {
+public interface PersonRepository extends Repository<Person, Long> {
 
     Optional<Person> findById(Long id);
 }
