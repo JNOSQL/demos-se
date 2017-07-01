@@ -49,4 +49,6 @@ public class App2 {
 
         }
     }
+
+    private App2() {}
 }
