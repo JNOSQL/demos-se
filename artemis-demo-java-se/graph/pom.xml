@@ -41,6 +41,11 @@
             <artifactId>weld-se-shaded</artifactId>
             <version>3.0.0.Final</version>
         </dependency>
+        <dependency>
+            <groupId>com.thinkaurelius.titan</groupId>
+            <artifactId>titan-berkeleyje</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
 </project>
