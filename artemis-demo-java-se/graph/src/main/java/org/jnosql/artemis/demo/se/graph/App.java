@@ -44,7 +44,7 @@ public class App {
             Person natalia = graph.insert(builder().withAge(32).withName("Natalia")
                     .withOccupation("Developer").withSalary(5_000D).build());
 
-            Person rose = graph.insert(builder().withAge(32).withName("Rose")
+            Person rose = graph.insert(builder().withAge(40).withName("Rose")
                     .withOccupation("Design").withSalary(1_000D).build());
 
             Person tony = graph.insert(builder().withAge(22).withName("tony")
@@ -74,13 +74,27 @@ public class App {
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
-                    .both("knows").<Person>stream()
+                    .outE("knows")
+                    .bothV()
+                    .<Person>stream()
                     .distinct()
                     .collect(toList());
 
-            System.out.println(developers);
-            System.out.println(peopleWhoDeveloperKnows);
-            System.out.println(both);
+            List<Person> couple = graph.getTraversalVertex()
+                    .has("salary", gte(3_000D))
+                    .has("age", between(20, 25))
+                    .has("occupation", "Developer")
+                    .outE("knows")
+                    .has("feel", "love")
+                    .bothV()
+                    .<Person>stream()
+                    .distinct()
+                    .collect(toList());
+
+            System.out.println("Developers has salary greater than 3000 and age between 20 and 25: " + developers);
+            System.out.println("Person who the Developers target know: " + peopleWhoDeveloperKnows);
+            System.out.println("The person and the developers target: " + both);
+            System.out.println("Developers to Valentine days: " + couple);
 
         }
     }
