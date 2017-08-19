@@ -33,5 +33,6 @@
         <module>document-double</module>
         <module>cassandra</module>
         <module>hazelcast</module>
+	<module>graph</module>
     </modules>
 </project>
