@@ -14,20 +14,15 @@
  */
 package org.jnosql.artemis.demo.se.graph;
 
-import org.apache.tinkerpop.gremlin.structure.T;
-import org.apache.tinkerpop.gremlin.structure.Vertex;
 import org.jnosql.artemis.graph.GraphTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-
 import java.util.Map;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
-import static org.jnosql.artemis.demo.se.graph.Person.builder;
 
 public class TravelApp {
 
@@ -42,10 +37,10 @@ public class TravelApp {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             GraphTemplate graph = container.select(GraphTemplate.class).get();
 
-            Person stark = graph.insert(builder().withName("Stark").build());
-            Person roges = graph.insert(builder().withName("Rogers").build());
-            Person romanoff = graph.insert(builder().withName("Romanoff").build());
-            Person banners = graph.insert(builder().withName("Banners").build());
+            Traveler stark = graph.insert(Traveler.of("Stark"));
+            Traveler roges = graph.insert(Traveler.of("Rogers"));
+            Traveler romanoff = graph.insert(Traveler.of("Romanoff"));
+            Traveler banners = graph.insert(Traveler.of("Banners"));
 
             City sanFrancisco = graph.insert(City.of("San Francisco"));
             City moscow = graph.insert(City.of("Moscow"));
@@ -90,10 +85,34 @@ public class TravelApp {
                     .map(City::getName)
                     .collect((groupingBy(Function.identity(), counting())));
 
+
+            Map<String, Long> personTravelFun = graph.getTraversalVertex()
+                    .inE(TRAVELS)
+                    .has(GOAL, FUN).outV()
+                    .<Traveler>stream()
+                    .map(Traveler::getName)
+                    .collect((groupingBy(Function.identity(), counting())));
+
+            Map<String, Long> personTravelWork = graph.getTraversalVertex()
+                    .inE(TRAVELS)
+                    .has(GOAL, WORK).outV()
+                    .<Traveler>stream()
+                    .map(Traveler::getName)
+                    .collect((groupingBy(Function.identity(), counting())));
+
+            Map<String, Long> personTravel = graph.getTraversalVertex()
+                    .in(TRAVELS)
+                    .<Traveler>stream()
+                    .map(Traveler::getName)
+                    .collect((groupingBy(Function.identity(), counting())));
+
             System.out.println("The city most fun: "+ mostFunCity);
             System.out.println("The city most business: "+ mostBusiness);
             System.out.println("The city with more travel: "+ mostTravelCity);
 
+            System.out.println("The person who traveled fun: "+ personTravelFun);
+            System.out.println("The person who traveled business: "+ personTravelWork);
+            System.out.println("The person who traveled: "+ personTravel);
 
 
 
