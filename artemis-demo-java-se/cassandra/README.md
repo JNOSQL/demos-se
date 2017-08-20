@@ -1,6 +1,6 @@
 # casandra-demo
 
-A diana project with Java SE using using Column API with Cassandra as driver implementation.
+An Artemis project with Java SE using using Column API with Cassandra as driver implementation.
 
 ![Cassandra Project](https://github.com/JNOSQL/jnosql-site/blob/master/assets/img/logos/cassandra.png)
 
