@@ -11,7 +11,16 @@ containing hundreds of billions of vertices and edges distributed across a multi
 
 ## Run the code
 
+### BookApp
 
-![Titan Project](Book.png)
-![Titan Project](Marketing.png)
-![Titan Project](Travel.png)
+Library recommendation, category based that shows the software categories, the software books and also a book those is Software and Java.
+
+![BookApp](Book.png)
+
+### MarketingApp
+
+![MarketingApp](Marketing.png)
+
+### TravelApp
+
+![Travel](Travel.png)
