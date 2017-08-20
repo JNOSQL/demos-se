@@ -1,6 +1,6 @@
 # Graph
 
-A Artemis project with Java SE using using Graph API with Titan.
+A JNoSQL Artemis project with Java SE using using Graph API with Titan.
 
 ![Titan Project](http://titan.thinkaurelius.com/images/titan-logo2.png)
 
