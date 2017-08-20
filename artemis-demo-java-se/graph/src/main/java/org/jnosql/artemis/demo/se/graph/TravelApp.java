@@ -18,11 +18,13 @@ import org.jnosql.artemis.graph.GraphTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.toList;
 
 public class TravelApp {
 
@@ -63,6 +65,11 @@ public class TravelApp {
             graph.edge(romanoff, TRAVELS, newYork).add(GOAL, WORK);
             graph.edge(romanoff, TRAVELS, saoPaulo).add(GOAL, WORK);
             graph.edge(romanoff, TRAVELS, casaBlanca).add(GOAL, FUN);
+
+            graph.edge(stark, "knows", romanoff);
+            graph.edge(stark, "knows", roges);
+            graph.edge(roges, "knows", romanoff);
+
 
 
             Map<String, Long> mostFunCity = graph.getTraversalVertex()
@@ -106,6 +113,11 @@ public class TravelApp {
                     .map(Traveler::getName)
                     .collect((groupingBy(Function.identity(), counting())));
 
+            List<String> friendsCasaBlanca = graph.getTraversalVertex()
+                    .hasLabel("City")
+                    .has("name", "Casa Blanca")
+                    .in(TRAVELS).<Traveler>stream().map(Traveler::getName).collect(toList());
+
             System.out.println("The city most fun: "+ mostFunCity);
             System.out.println("The city most business: "+ mostBusiness);
             System.out.println("The city with more travel: "+ mostTravelCity);
@@ -113,6 +125,9 @@ public class TravelApp {
             System.out.println("The person who traveled fun: "+ personTravelFun);
             System.out.println("The person who traveled business: "+ personTravelWork);
             System.out.println("The person who traveled: "+ personTravel);
+
+
+            System.out.println("Friends because went to Casa Blanca: " + casaBlanca);
 
 
 
