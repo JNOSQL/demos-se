@@ -64,6 +64,15 @@ public class City {
         return Objects.hashCode(id);
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("City{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
+
     public static City of(String name) {
         return new City(name);
     }
