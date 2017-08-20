@@ -1,30 +1,12 @@
-# casandra-demo
+# Graph
 
-A diana project with Java SE using using Column API with Cassandra as driver implementation.
+A Artemis project with Java SE using using Graph API with Titan.
 
-![Cassandra Project](https://github.com/JNOSQL/jnosql-site/blob/master/assets/img/logos/cassandra.png)
+![Titan Project](http://titan.thinkaurelius.com/images/titan-logo2.png)
 
-**Cassandra**: Apache Cassandra is a free and open-source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure.
-
-
-To run this project a Cassandra instance is required, so you can use either a local instalation or using Docker.
-
-
-## Manual instalation
-
-Follow the instructions in: http://cassandra.apache.org/doc/latest/getting_started/installing.html
-
-
-## Using Docker
-
-![Docker](https://www.docker.com/sites/default/files/horizontal_large.png)
-
-
-1. Install docker: https://www.docker.com/
-1. https://store.docker.com/images/cassandra
-1. Run docker command
-1. `docker run -d --name casandra-instance -p 9042:9042 cassandra`
-
+Titan is a scalable graph database optimized for storing and querying graphs 
+containing hundreds of billions of vertices and edges distributed across a multi-machine cluster.
+ Titan is a transactional database that can support thousands of concurrent users executing complex graph traversals in real time.
 
 
 ## Run the code
