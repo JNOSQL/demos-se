@@ -16,21 +16,18 @@
 package org.jnosql.artemis.demo.se.graph;
 
 
-import org.apache.tinkerpop.gremlin.process.traversal.P;
 import org.jnosql.artemis.graph.GraphTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 import static org.apache.tinkerpop.gremlin.process.traversal.P.between;
 import static org.apache.tinkerpop.gremlin.process.traversal.P.gte;
 import static org.jnosql.artemis.demo.se.graph.Person.builder;
 
-public class App {
+public class MarketingApp {
 
 
     public static void main(String[] args) {
@@ -99,7 +96,7 @@ public class App {
         }
     }
 
-    private App() {
+    private MarketingApp() {
     }
 }
 
