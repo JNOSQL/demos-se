@@ -11,4 +11,4 @@ containing hundreds of billions of vertices and edges distributed across a multi
 
 ## Run the code
 
-With a Cassandra instance running go to the classes **App** and **CassandraAPP** and have fun.
+
