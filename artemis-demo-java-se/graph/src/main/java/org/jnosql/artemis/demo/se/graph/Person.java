@@ -23,7 +23,7 @@ import org.jnosql.artemis.Id;
 import java.util.Objects;
 
 
-@Entity("Person")
+@Entity
 public class Person {
 
     @Id
