@@ -30,5 +30,6 @@
 
     <modules>
         <module>temperature-sensor</module>
+        <module>graph</module>
     </modules>
 </project>
