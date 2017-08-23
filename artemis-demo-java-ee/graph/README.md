@@ -1,42 +1,34 @@
-# temperature-sensor
+# Graph
 
-A Java EE application using Hazelcast and MongoDB with Java EE 7 technology.
+A JNoSQL Artemis project with Java SE using using Graph API with Titan.
 
-![MongoDB Project](https://github.com/JNOSQL/jnosql-site/blob/master/assets/img/logos/mongodb.png)
+![Titan Project](http://titan.thinkaurelius.com/images/titan-logo2.png)
 
-
-**Mongodb**: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
-
-
-To run this project a MongoDB instance is required, so you can use either a local instalation or using Docker.
-
-
-## Manual instalation
-
-Follow the instructions in: http://cassandra.apache.org/doc/latest/getting_started/installing.html
-
-
-## Using Docker
-
-![Docker](https://www.docker.com/sites/default/files/horizontal_large.png)
-
-
-1. Install docker: https://www.docker.com/
-1. https://store.docker.com/images/mongo
-1. Run docker command
-1. `docker run -d --name mongodb-instance -p 27017:27017 mongodb`
-
+Titan is a scalable graph database optimized for storing and querying graphs 
+containing hundreds of billions of vertices and edges distributed across a multi-machine cluster.
+ Titan is a transactional database that can support thousands of concurrent users executing complex graph traversals in
+  real time.
 
 
 ## Run the code
 
-To run the code you can either get the war and put in any Java EE8 server.
+### BookApp
+
+Library recommendation, category based that shows the software categories, the software books and also a book those is
+ Software and Java.
+
+![BookApp](Book.png)
+
+### MarketingApp
 
 
-### Run the code
+The marketing campaign that needs to match from some rules relationship based with four people.
 
-* http://localhost:8080/ check the screen with JSF primefaces
-* GET http://localhost:8080/resource/api/v1/sensors/
-* GET http://localhost:8080/resource/api/v1/sensors/ids                      
-* GET http://localhost:8080/resource/api/v1/sensors/{id}
-* POST http://localhost:8080/resource/api/v1/sensors/ ->      void save(SensorRepresentation)      
+![MarketingApp](Marketing.png)
+
+### TravelApp
+
+Given cities and travelers, this TravelApp will return the most famous city, the person who most travel and also some
+ friends suggestion placed by the visited cities.
+
+![Travel](Travel.png)
