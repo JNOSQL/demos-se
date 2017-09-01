@@ -26,8 +26,10 @@ import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
-public class TravelApp {
+public final class TravelApp {
 
+    private TravelApp() {
+    }
 
     private static final String GOAL = "type";
     private static final String FUN = "fun";

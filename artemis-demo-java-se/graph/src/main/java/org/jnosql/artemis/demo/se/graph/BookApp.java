@@ -22,7 +22,10 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
-public class BookApp {
+public final class BookApp {
+
+    private BookApp() {
+    }
 
     public static void main(String[] args) {
 
@@ -82,8 +85,6 @@ public class BookApp {
             System.out.println("The software categories: " + softwareCategories);
             System.out.println("The software books: " + softwareBooks);
             System.out.println("The software and NoSQL books: " + sofwareNoSQLBooks);
-
-
 
 
         }

@@ -27,7 +27,11 @@ import static org.apache.tinkerpop.gremlin.process.traversal.P.between;
 import static org.apache.tinkerpop.gremlin.process.traversal.P.gte;
 import static org.jnosql.artemis.demo.se.graph.Person.builder;
 
-public class MarketingApp {
+public final class MarketingApp {
+
+
+    private MarketingApp() {
+    }
 
 
     public static void main(String[] args) {
@@ -96,7 +100,5 @@ public class MarketingApp {
         }
     }
 
-    private MarketingApp() {
-    }
 }
 
