@@ -92,7 +92,6 @@ public class BasicView {
 
     private void load() {
         Category software = graph.insert(Category.of("Software"));
-        Category romance = graph.insert(Category.of("Romance"));
 
         Category java = graph.insert(Category.of("Java"));
         Category nosql = graph.insert(Category.of("NoSQL"));
@@ -101,8 +100,6 @@ public class BasicView {
         Book effectiveJava = graph.insert(Book.of("Effective Java"));
         Book nosqlDistilled = graph.insert(Book.of("NoSQL D"));
         Book migratingMicroservice = graph.insert(Book.of("Migrating..."));
-        Book shack = graph.insert(Book.of("The Shack"));
-
 
         graph.edge(java, "is", software);
         graph.edge(nosql, "is", software);
