@@ -22,20 +22,27 @@
         xmlns:p="http://primefaces.org/ui"
 >
 <h:head>
-    <title>Sensor Temperature</title>
+    <title>Book Recomendation</title>
 </h:head>
 <h:body>
-    <p:diagram value="#{diagramBasicView.model}" style="height:400px" styleClass="ui-widget-content" />
+    <p:diagram value="#{diagramBasicView.model}" style="height:600px" styleClass="ui-widget-content" />
 
 
-    /* Demo CSS */
     <style type="text/css">
         .ui-diagram-element {
-            border:0.1em dotted #d4e06b;
-            width:14em;
-            height:4em;
-            line-height:4em;
+            width:6em;
+            height:6em;
+            line-height:5em;
             text-align: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+            border-radius: 5em;
+            border: 1px solid #404a4e;
+            background-color: #404a4e;
+            color: #cccccc;
+        }
+
+        .ui-diagram-element:hover {
+            background-color: #20282b;
         }
     </style>
 </h:body>

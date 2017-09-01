@@ -14,33 +14,17 @@
  */
 package org.jnosql.artemis.demo;
 
-import org.jnosql.artemis.Column;
-import org.jnosql.artemis.Entity;
-import org.jnosql.artemis.Id;
-
 import java.util.Objects;
 
-@Entity
-public class Category implements Nameable {
+public class NameableElement implements Nameable {
 
+    private final String name;
 
-    @Id
-    private Long id;
+    private final String label;
 
-    @Column
-    private String name;
-
-
-    Category() {
-    }
-
-    private Category(String name) {
-        this.name = name;
-    }
-
-
-    public Long getId() {
-        return id;
+    public NameableElement(Nameable nameable) {
+        this.name = nameable.getName();
+        this.label = nameable.getLabel();
     }
 
     @Override
@@ -50,7 +34,7 @@ public class Category implements Nameable {
 
     @Override
     public String getLabel() {
-        return "Category";
+        return label;
     }
 
     @Override
@@ -58,28 +42,25 @@ public class Category implements Nameable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Category)) {
+        if (!(o instanceof NameableElement)) {
             return false;
         }
-        Category traveler = (Category) o;
-        return Objects.equals(id, traveler.id);
+        NameableElement that = (NameableElement) o;
+        return Objects.equals(name, that.name) &&
+                Objects.equals(label, that.label);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hash(name, label);
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Traveler{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
+        final StringBuilder sb = new StringBuilder("NameableElement{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", label='").append(label).append('\'');
         sb.append('}');
         return sb.toString();
-    }
-
-    public static Category of(String name) {
-        return new Category(name);
     }
 }

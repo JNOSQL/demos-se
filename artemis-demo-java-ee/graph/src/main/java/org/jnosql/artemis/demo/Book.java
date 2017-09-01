@@ -21,7 +21,7 @@ import org.jnosql.artemis.Id;
 import java.util.Objects;
 
 @Entity
-public class Book {
+public class Book implements Nameable{
 
 
     @Id
@@ -43,8 +43,14 @@ public class Book {
         return id;
     }
 
+    @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String getLabel() {
+        return "Book";
     }
 
 

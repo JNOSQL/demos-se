@@ -15,15 +15,26 @@
 package org.jnosql.artemis.demo;
 
 
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import org.jnosql.artemis.graph.EdgeEntity;
+import org.jnosql.artemis.graph.GraphTemplate;
+import org.primefaces.model.diagram.Connection;
 import org.primefaces.model.diagram.DefaultDiagramModel;
 import org.primefaces.model.diagram.DiagramModel;
 import org.primefaces.model.diagram.Element;
-import org.primefaces.model.diagram.Connection;
 import org.primefaces.model.diagram.endpoint.DotEndPoint;
 import org.primefaces.model.diagram.endpoint.EndPointAnchor;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.inject.Inject;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static java.util.stream.Collectors.toList;
 
 @ManagedBean(name = "diagramBasicView")
 @RequestScoped
@@ -31,26 +42,76 @@ public class BasicView {
 
     private DefaultDiagramModel model;
 
+    private AtomicInteger counterX = new AtomicInteger(10);
+    private AtomicInteger counterY = new AtomicInteger(6);
+    private AtomicInteger elementCounter = new AtomicInteger(1);
+
+    @Inject
+    private GraphTemplate graph;
+
+    private Map<NameableElement, Element> elements = new HashMap<>();
+
     @PostConstruct
     public void init() {
+
+        load();
+        List<EdgeEntity<Nameable, Nameable>> edgeEntities = graph.getTraversalEdge()
+                .<Nameable, Nameable>stream().collect(toList());
+
         model = new DefaultDiagramModel();
         model.setMaxConnections(-1);
 
-        Element elementA = new Element("A", "20em", "6em");
-        elementA.addEndPoint(new DotEndPoint(EndPointAnchor.BOTTOM));
+        for (EdgeEntity<Nameable, Nameable> edge : edgeEntities) {
+            Element inbound = get(edge.getInbound());
+            Element outBound = get(edge.getOutbound());
 
-        Element elementB = new Element("B", "10em", "18em");
-        elementB.addEndPoint(new DotEndPoint(EndPointAnchor.TOP));
+            model.connect(new Connection(inbound.getEndPoints().get(0), outBound.getEndPoints().get(0)));
+        }
 
-        Element elementC = new Element("C", "40em", "18em");
-        elementC.addEndPoint(new DotEndPoint(EndPointAnchor.TOP));
+    }
 
-        model.addElement(elementA);
-        model.addElement(elementB);
-        model.addElement(elementC);
+    private Element get(Nameable nameable) {
+        NameableElement nameableElement = new NameableElement(nameable);
+        Element element = elements.get(nameableElement);
+        if (Objects.isNull(element)) {
+            element = new Element(nameable.getName(), counterX.get() + "em", counterY.get() + "em");
+            element.addEndPoint(new DotEndPoint(EndPointAnchor.AUTO_DEFAULT));
+            elements.put(nameableElement, element);
+            model.addElement(element);
+            counterX.getAndAdd(10);
+            elementCounter.getAndAdd(1);
+            if (elementCounter.get() % 3 == 0) {
+                counterY.getAndAdd(10);
+                counterX.set(10);
+            }
 
-        model.connect(new Connection(elementA.getEndPoints().get(0), elementB.getEndPoints().get(0)));
-        model.connect(new Connection(elementA.getEndPoints().get(0), elementC.getEndPoints().get(0)));
+        }
+
+        return element;
+    }
+
+    private void load() {
+        Category software = graph.insert(Category.of("Software"));
+        Category romance = graph.insert(Category.of("Romance"));
+
+        Category java = graph.insert(Category.of("Java"));
+        Category nosql = graph.insert(Category.of("NoSQL"));
+        Category microService = graph.insert(Category.of("Micro Service"));
+
+        Book effectiveJava = graph.insert(Book.of("Effective Java"));
+        Book nosqlDistilled = graph.insert(Book.of("NoSQL D"));
+        Book migratingMicroservice = graph.insert(Book.of("Migrating..."));
+        Book shack = graph.insert(Book.of("The Shack"));
+
+
+        graph.edge(java, "is", software);
+        graph.edge(nosql, "is", software);
+        graph.edge(microService, "is", software);
+
+
+        graph.edge(effectiveJava, "is", java);
+        graph.edge(nosqlDistilled, "is", nosql);
+        graph.edge(migratingMicroservice, "is", microService);
     }
 
     public DiagramModel getModel() {
