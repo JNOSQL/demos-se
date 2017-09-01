@@ -78,10 +78,10 @@ public class BasicView {
             element.addEndPoint(new DotEndPoint(EndPointAnchor.AUTO_DEFAULT));
             elements.put(nameableElement, element);
             model.addElement(element);
-            counterX.getAndAdd(10);
+            counterX.getAndAdd(15);
             elementCounter.getAndAdd(1);
             if (elementCounter.get() % 3 == 0) {
-                counterY.getAndAdd(10);
+                counterY.getAndAdd(12);
                 counterX.set(10);
             }
 
