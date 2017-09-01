@@ -97,18 +97,11 @@ public class BasicView {
         Category nosql = graph.insert(Category.of("NoSQL"));
         Category microService = graph.insert(Category.of("Micro Service"));
 
-        Book effectiveJava = graph.insert(Book.of("Effective Java"));
-        Book nosqlDistilled = graph.insert(Book.of("NoSQL D"));
-        Book migratingMicroservice = graph.insert(Book.of("Migrating..."));
 
         graph.edge(java, "is", software);
         graph.edge(nosql, "is", software);
         graph.edge(microService, "is", software);
 
-
-        graph.edge(effectiveJava, "is", java);
-        graph.edge(nosqlDistilled, "is", nosql);
-        graph.edge(migratingMicroservice, "is", microService);
     }
 
     public DiagramModel getModel() {
