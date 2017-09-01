@@ -23,7 +23,7 @@
     <groupId>org.jnosql.artemis.demo</groupId>
     <artifactId>graph</artifactId>
     <packaging>war</packaging>
-    <name>Temperature sensor document</name>
+    <name>Graph</name>
 
     <parent>
         <groupId>org.jnosql.artemis</groupId>
@@ -42,7 +42,7 @@
 
 
     <build>
-        <finalName>temperature</finalName>
+        <finalName>graph</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

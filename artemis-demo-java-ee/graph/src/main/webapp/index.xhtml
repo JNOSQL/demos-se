@@ -25,10 +25,18 @@
     <title>Sensor Temperature</title>
 </h:head>
 <h:body>
-    <h:form>
-        <p:poll interval="3" update="celius kelvin"/>
-        <p:chart id="celius" type="line" model="#{chartView.areaModelCelsius}" style="height:400px"/>
-        <p:chart id="kelvin" type="line" model="#{chartView.areaModelKelvin}" style="height:400px"/>
-    </h:form>
+    <p:diagram value="#{diagramBasicView.model}" style="height:400px" styleClass="ui-widget-content" />
+
+
+    /* Demo CSS */
+    <style type="text/css">
+        .ui-diagram-element {
+            border:0.1em dotted #d4e06b;
+            width:14em;
+            height:4em;
+            line-height:4em;
+            text-align: center;
+        }
+    </style>
 </h:body>
 </html>
