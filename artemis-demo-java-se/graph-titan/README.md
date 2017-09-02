@@ -1,4 +1,4 @@
-# Graph
+# Graph-Titan
 
 A JNoSQL Artemis project with Java SE using using Graph API with Titan.
 

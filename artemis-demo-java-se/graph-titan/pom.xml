@@ -16,8 +16,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>graph</artifactId>
-    <name>Artemis Demo using Java SE Graph</name>
+    <artifactId>graph-titan</artifactId>
+    <name>Artemis Demo using Java SE Graph-titan</name>
 
     <parent>
         <groupId>org.jnosql.artemis</groupId>
