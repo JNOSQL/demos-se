@@ -34,5 +34,6 @@
         <module>cassandra</module>
         <module>hazelcast</module>
 	<module>graph-titan</module>
+	<module>graph-janus</module>
     </modules>
 </project>
