@@ -1,6 +1,6 @@
-# Graph-Neo4J
+# Graph-JanusGraph
 
-A JNoSQL Artemis project with Java SE using using Graph API with Titan.
+A JNoSQL Artemis project with Java SE using using Graph API with Janus.
 
 ![Neo4J Project](http://info.neo4j.com/rs/773-GON-065/images/neo4j_logo.png)
 
