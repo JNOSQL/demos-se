@@ -14,8 +14,11 @@
  */
 package org.jnosql.artemis.demo.se.graph;
 
+import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.apache.tinkerpop.gremlin.structure.Graph;
+import org.janusgraph.core.JanusGraph;
 import org.janusgraph.core.JanusGraphFactory;
+import org.janusgraph.example.GraphOfTheGodsFactory;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -32,7 +35,12 @@ public class GraphProducer {
 
     @PostConstruct
     public void init() {
-        this.graph = JanusGraphFactory.open(FILE_CONF);
+        JanusGraph janusGraph = JanusGraphFactory.open(FILE_CONF);
+        GraphTraversalSource g = janusGraph.traversal();
+        if (g.V().count().next() == 0) {
+            GraphOfTheGodsFactory.load(janusGraph);
+        }
+        this.graph = janusGraph;
     }
 
     @Produces
