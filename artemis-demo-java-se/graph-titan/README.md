@@ -12,13 +12,6 @@ containing hundreds of billions of vertices and edges distributed across a multi
 
 ## Run the code
 
-### BookApp
-
-Library recommendation, category based that shows the software categories, the software books and also a book those is
- Software and Java.
-
-![BookApp](Book.png)
-
 ### MarketingApp
 
 
@@ -26,9 +19,4 @@ The marketing campaign that needs to match from some rules relationship based wi
 
 ![MarketingApp](Marketing.png)
 
-### TravelApp
 
-Given cities and travelers, this TravelApp will return the most famous city, the person who most travel and also some
- friends suggestion placed by the visited cities.
-
-![Travel](Travel.png)
