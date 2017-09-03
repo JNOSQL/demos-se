@@ -29,3 +29,9 @@ Given cities and travelers, this TravelApp will return the most famous city, the
  friends suggestion placed by the visited cities.
 
 ![Travel](Travel.png)
+
+### TheGodsApp
+
+The graph of Gods JanusGraph based
+
+![Travel](graph-of-the-gods.png)
