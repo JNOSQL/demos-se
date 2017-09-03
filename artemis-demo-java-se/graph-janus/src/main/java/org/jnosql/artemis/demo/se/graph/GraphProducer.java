@@ -14,27 +14,25 @@
  */
 package org.jnosql.artemis.demo.se.graph;
 
-import org.apache.tinkerpop.gremlin.neo4j.structure.Neo4jGraph;
 import org.apache.tinkerpop.gremlin.structure.Graph;
+import org.janusgraph.core.JanusGraphFactory;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
-import java.io.File;
 
 @ApplicationScoped
 public class GraphProducer {
 
-    private static final String DATA_DIR = "./target/jnosql-graph";
+    private static final String FILE_CONF = "conf/janusgraph-berkeleyje-lucene.properties";
 
     private Graph graph;
 
 
     @PostConstruct
     public void init() {
-        String absolutePath = new File("").getAbsolutePath() + "/target/jnosql/";
-        this.graph = Neo4jGraph.open(absolutePath);
+        this.graph = JanusGraphFactory.open(FILE_CONF);
     }
 
     @Produces
