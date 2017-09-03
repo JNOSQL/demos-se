@@ -2,7 +2,7 @@
 
 A JNoSQL Artemis project with Java SE using using Graph API with Janus.
 
-![Neo4J Project](http://info.neo4j.com/rs/773-GON-065/images/neo4j_logo.png)
+![Janus Graph Project](http://janusgraph.org/images/janusgraph.png)
 
 Neo4j is a graph database management system developed by  Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing, Neo4j is the most popular graph database according to db-engines.com. Neo4j is available in a GPL3-licensed open-source "community edition", with online backup and high availability extensions licensed under the terms of the Affero General Public License. Neo also licenses Neo4j with these extensions under closed-source commercial terms. Neo4j is implemented in Java and accessible from software written in other languages using the Cypher Query Language through a transactional HTTP endpoint, or through the binary 'bolt' protocol.
 
