@@ -1,13 +1,10 @@
-# Graph-Titan
+# Graph-Neo4J
 
 A JNoSQL Artemis project with Java SE using using Graph API with Titan.
 
-![Titan Project](http://titan.thinkaurelius.com/images/titan-logo2.png)
+![Neo4J Project](http://info.neo4j.com/rs/773-GON-065/images/neo4j_logo.png)
 
-Titan is a scalable graph database optimized for storing and querying graphs 
-containing hundreds of billions of vertices and edges distributed across a multi-machine cluster.
- Titan is a transactional database that can support thousands of concurrent users executing complex graph traversals in
-  real time.
+Neo4j is a graph database management system developed by  Neo4j, Inc. Described by its developers as an ACID-compliant transactional database with native graph storage and processing, Neo4j is the most popular graph database according to db-engines.com. Neo4j is available in a GPL3-licensed open-source "community edition", with online backup and high availability extensions licensed under the terms of the Affero General Public License. Neo also licenses Neo4j with these extensions under closed-source commercial terms. Neo4j is implemented in Java and accessible from software written in other languages using the Cypher Query Language through a transactional HTTP endpoint, or through the binary 'bolt' protocol.
 
 
 ## Run the code
