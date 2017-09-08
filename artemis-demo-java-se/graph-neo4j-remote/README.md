@@ -26,6 +26,16 @@ Follow the instructions in: https://neo4j.com/docs/operations-manual/current/ins
 1. `docker run --publish=7474:7474 --publish=7687:7687 --volume=$HOME/neo4j/data:/data neo4j`
 
 
+## Check the configuration
+
+Check the configuration in GraphProducer.
+
+This class has three attributes:
+
+* `private static final String URL = "bolt://localhost:7687";`
+* `private static final String USER = "neo4j";`
+* `private static final String PASSWORD = "admin";`
+
 ## Run the code
 
 ### BookApp
