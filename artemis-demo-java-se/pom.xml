@@ -35,5 +35,7 @@
         <module>hazelcast</module>
 	<module>graph-titan</module>
 	<module>graph-janus</module>
+	<module>graph-neo4j</module>
+	<module>graph-neo4j-remote</module>
     </modules>
 </project>
