@@ -14,6 +14,7 @@
  */
 package org.jnosql.artemis.demo.se.graph;
 
+import org.apache.tinkerpop.gremlin.structure.Graph;
 import org.jnosql.artemis.graph.GraphTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
@@ -41,16 +42,22 @@ public final class TravelApp {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             GraphTemplate graph = container.select(GraphTemplate.class).get();
 
-            Traveler stark = graph.insert(Traveler.of("Stark"));
-            Traveler roges = graph.insert(Traveler.of("Rogers"));
-            Traveler romanoff = graph.insert(Traveler.of("Romanoff"));
-            Traveler banners = graph.insert(Traveler.of("Banners"));
+            Graph thinkerpop = container.select(Graph.class).get();
 
-            City sanFrancisco = graph.insert(City.of("San Francisco"));
-            City moscow = graph.insert(City.of("Moscow"));
-            City newYork = graph.insert(City.of("New York"));
-            City saoPaulo = graph.insert(City.of("São Paulo"));
-            City casaBlanca = graph.insert(City.of("Casa Blanca"));
+            load(graph);
+
+            thinkerpop.tx().commit();
+
+            Traveler stark = getTraveler("Stark", graph);
+            Traveler roges = getTraveler("Rogers", graph);
+            Traveler romanoff = getTraveler("Romanoff", graph);
+            Traveler banners = getTraveler("Banners", graph);
+
+            City sanFrancisco = getCity("San Francisco", graph);
+            City moscow = getCity("Moscow", graph);
+            City newYork = getCity("New York", graph);
+            City saoPaulo = getCity("São Paulo", graph);
+            City casaBlanca = getCity("Casa Blanca", graph);
 
             graph.edge(stark, TRAVELS, sanFrancisco).add(GOAL, FUN);
             graph.edge(stark, TRAVELS, moscow).add(GOAL, FUN);
@@ -72,6 +79,7 @@ public final class TravelApp {
             graph.edge(stark, "knows", roges);
             graph.edge(roges, "knows", romanoff);
 
+            thinkerpop.tx().commit();
 
 
             Map<String, Long> mostFunCity = graph.getTraversalVertex()
@@ -134,5 +142,32 @@ public final class TravelApp {
 
 
         }
+    }
+
+    private static void load(GraphTemplate graph) {
+        graph.insert(Traveler.of("Stark"));
+        graph.insert(Traveler.of("Rogers"));
+        graph.insert(Traveler.of("Romanoff"));
+        graph.insert(Traveler.of("Banners"));
+
+        graph.insert(City.of("San Francisco"));
+        graph.insert(City.of("Moscow"));
+        graph.insert(City.of("New York"));
+        graph.insert(City.of("São Paulo"));
+        graph.insert(City.of("Casa Blanca"));
+    }
+
+    private static Traveler getTraveler(String name, GraphTemplate graph) {
+        return graph.getTraversalVertex().hasLabel("Traveler")
+                .has("name", name)
+                .<Traveler>next()
+                .orElseThrow(() -> new IllegalStateException("Entity does not find"));
+    }
+
+    private static City getCity(String name, GraphTemplate graph) {
+        return graph.getTraversalVertex().hasLabel("City")
+                .has("name", name)
+                .<City>next()
+                .orElseThrow(() -> new IllegalStateException("Entity does not find"));
     }
 }

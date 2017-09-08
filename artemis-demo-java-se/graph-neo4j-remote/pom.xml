@@ -17,7 +17,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>graph-neo4j-remote</artifactId>
-    <name>Artemis Demo using Java SE Graph-neo4j</name>
+    <name>Artemis Demo using Java SE Graph-neo4j remote</name>
 
     <parent>
         <groupId>org.jnosql.artemis</groupId>
@@ -44,23 +44,18 @@
         </dependency>
         <dependency>
             <groupId>org.apache.tinkerpop</groupId>
-            <artifactId>neo4j-gremlin</artifactId>
-            <version>${tinkerpop.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tinkerpop</groupId>
             <artifactId>gremlin-core</artifactId>
             <version>${tinkerpop.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.neo4j</groupId>
-            <artifactId>neo4j-tinkerpop-api-impl</artifactId>
-            <version>0.6-3.2.2</version>
+            <groupId>com.steelbridgelabs.oss</groupId>
+            <artifactId>neo4j-gremlin-bolt</artifactId>
+            <version>0.2.25</version>
         </dependency>
         <dependency>
-            <groupId>org.neo4j</groupId>
-            <artifactId>neo4j</artifactId>
-            <version>3.2.3</version>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver</artifactId>
+            <version>1.4.3</version>
         </dependency>
     </dependencies>
 

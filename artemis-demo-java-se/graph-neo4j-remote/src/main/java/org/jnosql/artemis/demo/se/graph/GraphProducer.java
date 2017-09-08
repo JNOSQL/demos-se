@@ -14,27 +14,36 @@
  */
 package org.jnosql.artemis.demo.se.graph;
 
-import org.apache.tinkerpop.gremlin.neo4j.structure.Neo4jGraph;
+import com.steelbridgelabs.oss.neo4j.structure.Neo4JElementIdProvider;
+import com.steelbridgelabs.oss.neo4j.structure.Neo4JGraph;
+import com.steelbridgelabs.oss.neo4j.structure.providers.Neo4JNativeElementIdProvider;
 import org.apache.tinkerpop.gremlin.structure.Graph;
+import org.neo4j.driver.v1.AuthTokens;
+import org.neo4j.driver.v1.Driver;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
-import java.io.File;
+
+import static org.neo4j.driver.v1.GraphDatabase.driver;
 
 @ApplicationScoped
 public class GraphProducer {
 
-    private static final String DATA_DIR = "./target/jnosql-graph";
 
-    private Graph graph;
+    private Neo4JGraph graph;
+
+    private Driver driver;
 
 
     @PostConstruct
     public void init() {
-        String absolutePath = new File("").getAbsolutePath() + "/target/jnosql/";
-        this.graph = Neo4jGraph.open( "http://localhost:7687");
+        driver = driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "admin"));
+        Neo4JElementIdProvider<?> vertexIdProvider = new Neo4JNativeElementIdProvider();
+        Neo4JElementIdProvider<?> edgeIdProvider = new Neo4JNativeElementIdProvider();
+        this.graph = new Neo4JGraph(driver, vertexIdProvider, edgeIdProvider);
+        graph.setProfilerEnabled(true);
     }
 
     @Produces
@@ -45,5 +54,6 @@ public class GraphProducer {
 
     public void close(@Disposes Graph graph) throws Exception {
         graph.close();
+        driver.close();
     }
 }
