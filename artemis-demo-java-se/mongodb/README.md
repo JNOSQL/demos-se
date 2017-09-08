@@ -13,7 +13,7 @@ To run this project a MongoDB instance is required, so you can use either a loca
 
 ## Manual instalation
 
-Follow the instructions in: http://cassandra.apache.org/doc/latest/getting_started/installing.html
+Follow the instructions in: https://docs.mongodb.com/manual/installation/
 
 
 ## Using Docker
