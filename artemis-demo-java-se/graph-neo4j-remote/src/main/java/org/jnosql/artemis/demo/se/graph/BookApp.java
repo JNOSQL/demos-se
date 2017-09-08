@@ -77,6 +77,7 @@ public final class BookApp {
 
             graph.edge(shack, "is", romance);
 
+            thinkerpop.tx().commit();
 
             List<String> softwareCategories = graph.getTraversalVertex().hasLabel("Category")
                     .has("name", "Software")
