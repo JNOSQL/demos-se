@@ -14,6 +14,7 @@
  */
 package org.jnosql.artemis.demo.se.graph;
 
+import org.apache.tinkerpop.gremlin.structure.Graph;
 import org.jnosql.artemis.graph.GraphTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
@@ -31,18 +32,34 @@ public final class BookApp {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             GraphTemplate graph = container.select(GraphTemplate.class).get();
+            Graph thinkerpop = container.select(Graph.class).get();
 
-            Category software = graph.insert(Category.of("Software"));
-            Category romance = graph.insert(Category.of("Romance"));
+            graph.insert(Category.of("Software"));
+            graph.insert(Category.of("Romance"));
 
-            Category java = graph.insert(Category.of("Java"));
-            Category nosql = graph.insert(Category.of("NoSQL"));
-            Category microService = graph.insert(Category.of("Micro Service"));
+            graph.insert(Category.of("Java"));
+            graph.insert(Category.of("NoSQL"));
+            graph.insert(Category.of("Micro Service"));
 
-            Book effectiveJava = graph.insert(Book.of("Effective Java"));
-            Book nosqlDistilled = graph.insert(Book.of("NoSQL Distilled"));
-            Book migratingMicroservice = graph.insert(Book.of("Migrating to Microservice Databases"));
-            Book shack = graph.insert(Book.of("The Shack"));
+            graph.insert(Book.of("Effective Java"));
+            graph.insert(Book.of("NoSQL Distilled"));
+            graph.insert(Book.of("Migrating to Microservice Databases"));
+            graph.insert(Book.of("The Shack"));
+
+            thinkerpop.tx().commit();
+
+            Category software = getCategory("Software", graph);
+            Category romance = getCategory("Romance", graph);
+
+            Category java = getCategory("Java", graph);;
+            Category nosql = getCategory("NoSQL", graph);;
+            Category microService = getCategory("Micro Service", graph);;
+
+            Book effectiveJava = getBook("Effective Java", graph);
+            Book nosqlDistilled = getBook("NoSQL Distilled", graph);
+            Book migratingMicroservice = getBook("Migrating to Microservice Databases", graph);
+            Book shack = getBook("The Shack", graph);
+
 
 
             graph.edge(java, "is", software);
@@ -88,5 +105,19 @@ public final class BookApp {
 
 
         }
+    }
+
+    private static Category getCategory(String name, GraphTemplate graph) {
+        return graph.getTraversalVertex().hasLabel("Category")
+                .has("name", name)
+                .<Category>next()
+                .orElseThrow(() -> new IllegalStateException("Entity does not find"));
+    }
+
+    private static Book getBook(String name, GraphTemplate graph) {
+        return graph.getTraversalVertex().hasLabel("Book")
+                .has("name", name)
+                .<Book>next()
+                .orElseThrow(() -> new IllegalStateException("Entity does not find"));
     }
 }
