@@ -17,19 +17,30 @@ package org.jnosql.artemis.demo.se.couchbase;
 import org.jnosql.artemis.ConfigurationUnit;
 import org.jnosql.diana.api.document.DocumentCollectionManager;
 import org.jnosql.diana.api.document.DocumentCollectionManagerFactory;
+import org.jnosql.diana.couchbase.document.CouchbaseDocumentCollectionManager;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 
+@ApplicationScoped
 public class CouchbaseProducer {
 
+    private static final String HEROES = "heroes";
+    
+    @Inject
     @ConfigurationUnit
-    private DocumentCollectionManagerFactory entityManager;
+    private DocumentCollectionManagerFactory<CouchbaseDocumentCollectionManager> entityManager;
 
 
     @Produces
     public DocumentCollectionManager getManager() {
-        return entityManager.get("heroes");
+        return entityManager.get(HEROES);
     }
 
+    @Produces
+    public CouchbaseDocumentCollectionManager getCouchbaseDocumentCollectionManager() {
+        return entityManager.get(HEROES);
+    }
 
 }
