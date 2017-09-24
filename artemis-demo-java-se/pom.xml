@@ -30,6 +30,7 @@
 
     <modules>
         <module>mongodb</module>
+        <module>couchbase</module>
         <module>document-double</module>
         <module>cassandra</module>
         <module>hazelcast</module>
