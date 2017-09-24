@@ -1,33 +1,30 @@
-# mongodb-demo
-
-A JNoSQL Atemis project with Java SE using Document API with MongoDB as driver implementation.
-
-![MongoDB Project](https://github.com/JNOSQL/jnosql-site/blob/master/assets/img/logos/mongodb.png)
+![Couchbase Project](https://github.com/JNOSQL/jnosql-site/blob/master/assets/img/logos/couchbase.png)
 
 
-**Mongodb**: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
+
+**Couchbase**: Couchbase Server, originally known as Membase, is an open-source, distributed multi-model NoSQL document-oriented database software package that is optimized for interactive applications.
 
 
-To run this project a MongoDB instance is required, so you can use either a local instalation or using Docker.
+### How To test
 
-
-## Manual instalation
-
-Follow the instructions in: https://docs.mongodb.com/manual/installation/
-
-
-## Using Docker
+Once this a communication layer to Couchbase, we're using integration test, so you need to install ArangoDB. The recommended way is using Docker.
 
 ![Docker](https://www.docker.com/sites/default/files/horizontal_large.png)
 
 
 1. Install docker: https://www.docker.com/
-1. https://store.docker.com/images/mongo
+1. https://hub.docker.com/r/couchbase/server/
 1. Run docker command
-1. `docker run -d --name mongodb-instance -p 27017:27017 mongodb`
+1. `docker run -d --name couchbase-instance -p 8091-8094:8091-8094 -p 11210:11210 couchbase`
+1. Follow the instructions: https://hub.docker.com/r/couchbase/server/
+1. On step one in the "Services" field enable the Full-Text Resource
+1. Follow the instructions: https://developer.couchbase.com/documentation/server/current/fts/full-text-intro.html to create a index-diana full text index
+1. Execute the test `mvn clean install`
 
 
+### Install without testing
 
-## Run the code
 
-With a MongoDB instance running go to the class **App** and have fun.
+If you won't run the tests the database is not required, so just run the maven skipping the tests.
+
+1. Execute the test `mvn clean install -DskipTests`
