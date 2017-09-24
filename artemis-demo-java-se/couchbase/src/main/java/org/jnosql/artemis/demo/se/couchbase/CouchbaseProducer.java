@@ -53,18 +53,18 @@ public class CouchbaseProducer {
 
     @Produces
     public List<String> getHeroList() {
-        return bucketManager.getList("hero-names", String.class);
+        return bucketManager.getList(HEROES, String.class);
     }
 
 
     @Produces
     public Set<String> getHeroSet() {
-        return bucketManager.getSet("hero-ids", String.class);
+        return bucketManager.getSet(HEROES, String.class);
     }
 
     @Produces
     public BucketManager getBucketManager() {
-        return bucketManager.getBucketManager("hero-bucket");
+        return bucketManager.getBucketManager(HEROES);
     }
 
 }
