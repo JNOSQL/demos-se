@@ -16,9 +16,11 @@
 package org.jnosql.artemis.demo.se.couchbase;
 
 
+import org.jnosql.artemis.document.DocumentTemplate;
+
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-import java.util.Random;
+import java.util.Collections;
 
 public class App {
 
@@ -26,11 +28,12 @@ public class App {
 
     public static void main(String[] args) {
 
-        Random random = new Random();
-        Long id = random.nextLong();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            Hero ironMan = Hero.builder().withRealName("Tony Stark").withName("iron_man")
+                    .withAge(34).withPowers(Collections.singleton("rich")).build();
 
-
+            DocumentTemplate template = container.select(DocumentTemplate.class).get();
+            template.insert(ironMan);
 
         }
     }

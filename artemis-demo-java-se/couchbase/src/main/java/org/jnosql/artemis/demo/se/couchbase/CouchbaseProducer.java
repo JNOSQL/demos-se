@@ -16,9 +16,20 @@ package org.jnosql.artemis.demo.se.couchbase;
 
 import org.jnosql.artemis.ConfigurationUnit;
 import org.jnosql.diana.api.document.DocumentCollectionManager;
+import org.jnosql.diana.api.document.DocumentCollectionManagerFactory;
+
+import javax.enterprise.inject.Produces;
 
 public class CouchbaseProducer {
 
     @ConfigurationUnit
-    private DocumentCollectionManager entityManager;
+    private DocumentCollectionManagerFactory entityManager;
+
+
+    @Produces
+    public DocumentCollectionManager getManager() {
+        return entityManager.get("heroes");
+    }
+
+
 }
