@@ -16,10 +16,12 @@
 package org.jnosql.artemis.demo.se.couchbase;
 
 
+import org.jnosql.artemis.DatabaseQualifier;
+
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 
-public class App3 {
+public class App4 {
 
 
     public static void main(String[] args) {
@@ -29,28 +31,20 @@ public class App3 {
             lock.setId("lock");
             lock.setName("Lock");
 
-            VillainCache cache = container.select(VillainCache.class).get();
+            Villain doom = new Villain();
+            doom.setId("doom");
+            doom.setName("Dc Doom");
 
+            VillainRepository repository = container.select(VillainRepository.class, DatabaseQualifier.ofKeyValue()).get();
 
-            cache.addName("Doctor Doom");
-            cache.addName("Magneto");
-            cache.addName("Red Skull");
-
-            cache.addPower("Strong");
-            cache.addPower("Strong");
-            cache.addPower("fly");
-
-            cache.put(lock);
-
-            System.out.println(cache.get("lock"));
-            System.out.println("The villain powers");
-            cache.getPowers().forEach(System.out::println);
-            System.out.println("The villain names");
-            cache.getNames().forEach(System.out::println);
+            repository.save(lock);
+            repository.save(doom);
+            System.out.println(repository.findById("lock"));
+            System.out.println(repository.findById("doom"));
 
         }
     }
 
-    private App3() {
+    private App4() {
     }
 }

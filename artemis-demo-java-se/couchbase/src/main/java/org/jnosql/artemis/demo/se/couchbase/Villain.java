@@ -23,6 +23,7 @@ import java.util.Objects;
 
 @Entity
 public class Villain implements Serializable {
+
     @Id
     private String id;
 
