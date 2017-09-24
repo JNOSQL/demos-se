@@ -27,7 +27,7 @@ import javax.inject.Inject;
 public class CouchbaseProducer {
 
     private static final String HEROES = "heroes";
-    
+
     @Inject
     @ConfigurationUnit
     private DocumentCollectionManagerFactory<CouchbaseDocumentCollectionManager> entityManager;

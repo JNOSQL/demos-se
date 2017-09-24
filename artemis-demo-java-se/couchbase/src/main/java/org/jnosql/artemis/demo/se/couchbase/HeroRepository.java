@@ -14,11 +14,11 @@
  */
 package org.jnosql.artemis.demo.se.couchbase;
 
-import org.jnosql.artemis.Repository;
+import org.jnosql.artemis.couchbase.document.CouchbaseRepository;
 
 import java.util.stream.Stream;
 
-public interface HeroRepository extends Repository<Hero, String> {
+public interface HeroRepository extends CouchbaseRepository<Hero, String> {
 
     Hero findByName(String name);
 
