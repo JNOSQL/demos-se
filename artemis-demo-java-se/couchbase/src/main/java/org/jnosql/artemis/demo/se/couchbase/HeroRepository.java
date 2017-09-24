@@ -15,16 +15,23 @@
 package org.jnosql.artemis.demo.se.couchbase;
 
 import org.jnosql.artemis.couchbase.document.CouchbaseRepository;
+import org.jnosql.artemis.couchbase.document.N1QL;
+import org.jnosql.artemis.couchbase.document.Param;
 
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public interface HeroRepository extends CouchbaseRepository<Hero, String> {
 
-    Hero findByName(String name);
+    Optional<Hero> findByName(String name);
 
     Stream<Hero> findByAgeGreaterThan(Integer age);
 
     Stream<Hero> findByAgeLessThan(Integer age);
 
     void deleteByName(String name);
+
+    @N1QL("select * from heroes where realName= $realName")
+    Optional<Hero> find(@Param("realName") String realName);
+
 }
