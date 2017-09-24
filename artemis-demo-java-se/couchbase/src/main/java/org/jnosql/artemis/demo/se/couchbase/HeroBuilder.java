@@ -12,51 +12,44 @@
  *
  * Otavio Santana
  */
+package org.jnosql.artemis.demo.se.couchbase;
 
-package org.jnosql.artemis.demo.se.mongodb;
+import java.util.Collections;
+import java.util.Set;
 
-import java.util.List;
+public class HeroBuilder {
 
-
-public class PersonBuilder {
-
-    private long id;
 
     private String name;
 
-    private List<String> phones;
+    private String realName;
 
-    private String ignore;
+    private Integer age;
 
-    private Address address;
+    private Set<String> powers = Collections.emptySet();
 
-    public PersonBuilder withId(long id) {
-        this.id = id;
-        return this;
-    }
 
-    public PersonBuilder withName(String name) {
+    public HeroBuilder withName(String name) {
         this.name = name;
         return this;
     }
 
-
-    public PersonBuilder withPhones(List<String> phones) {
-        this.phones = phones;
+    public HeroBuilder withRealName(String realName) {
+        this.realName = realName;
         return this;
     }
 
-    public PersonBuilder withIgnore(String ignore) {
-        this.ignore = ignore;
+    public HeroBuilder withAge(Integer age) {
+        this.age = age;
         return this;
     }
 
-    public PersonBuilder withAddress(Address address) {
-        this.address = address;
+    public HeroBuilder withPowers(Set<String> powers) {
+        this.powers = powers;
         return this;
     }
 
-    public Person build() {
-        return new Person(id, name, phones, ignore, address);
+    public Hero build() {
+        return new Hero(name, realName, age, powers);
     }
 }

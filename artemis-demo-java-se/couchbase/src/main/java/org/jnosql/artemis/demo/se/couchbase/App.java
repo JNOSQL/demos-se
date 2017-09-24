@@ -13,15 +13,28 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.mongodb;
+package org.jnosql.artemis.demo.se.couchbase;
 
 
-import org.jnosql.artemis.Repository;
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
+import java.util.Random;
 
-import java.util.List;
-
-public interface PersonRepository extends Repository<Person, Long> {
+public class App {
 
 
-    List<Person> findByName(String name);
+
+    public static void main(String[] args) {
+
+        Random random = new Random();
+        Long id = random.nextLong();
+        try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+
+
+
+        }
+    }
+
+    private App() {
+    }
 }

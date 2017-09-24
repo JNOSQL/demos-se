@@ -1,0 +1,12 @@
+[
+  {
+    "description": "The Neo4J configuration",
+    "name": "name",
+    "provider": "org.jnosql.diana.couchbase.document.CouchbaseDocumentConfiguration",
+    "settings": {
+      "couchbase-host-1": "localhost",
+      "couchbase-user": "root",
+      "couchbase-password": "123456"
+    }
+  }
+]
