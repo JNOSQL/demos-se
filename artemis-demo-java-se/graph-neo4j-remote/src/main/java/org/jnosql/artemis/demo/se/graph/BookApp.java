@@ -51,9 +51,9 @@ public final class BookApp {
             Category software = getCategory("Software", graph);
             Category romance = getCategory("Romance", graph);
 
-            Category java = getCategory("Java", graph);;
-            Category nosql = getCategory("NoSQL", graph);;
-            Category microService = getCategory("Micro Service", graph);;
+            Category java = getCategory("Java", graph);
+            Category nosql = getCategory("NoSQL", graph);
+            Category microService = getCategory("Micro Service", graph);
 
             Book effectiveJava = getBook("Effective Java", graph);
             Book nosqlDistilled = getBook("NoSQL Distilled", graph);
