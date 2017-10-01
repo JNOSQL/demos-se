@@ -17,7 +17,6 @@ package org.jnosql.artemis.demo.se.graph;
 
 
 import org.jnosql.artemis.Column;
-import org.jnosql.artemis.Convert;
 import org.jnosql.artemis.Entity;
 import org.jnosql.artemis.Id;
 
