@@ -29,24 +29,24 @@ public class App3 {
             lock.setId("lock");
             lock.setName("Lock");
 
-            VillainCache cache = container.select(VillainCache.class).get();
+            VillainService service = container.select(VillainService.class).get();
 
 
-            cache.addName("Doctor Doom");
-            cache.addName("Magneto");
-            cache.addName("Red Skull");
+            service.addName("Doctor Doom");
+            service.addName("Magneto");
+            service.addName("Red Skull");
 
-            cache.addPower("Strong");
-            cache.addPower("Strong");
-            cache.addPower("fly");
+            service.addPower("Strong");
+            service.addPower("Strong");
+            service.addPower("fly");
 
-            cache.put(lock);
+            service.put(lock);
 
-            System.out.println(cache.get("lock"));
+            System.out.println(service.get("lock"));
             System.out.println("The villain powers");
-            cache.getPowers().forEach(System.out::println);
+            service.getPowers().forEach(System.out::println);
             System.out.println("The villain names");
-            cache.getNames().forEach(System.out::println);
+            service.getNames().forEach(System.out::println);
 
         }
     }

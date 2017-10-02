@@ -23,7 +23,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @ApplicationScoped
-public class VillainCache {
+public class VillainService {
 
     @Inject
     private List<String> names;
