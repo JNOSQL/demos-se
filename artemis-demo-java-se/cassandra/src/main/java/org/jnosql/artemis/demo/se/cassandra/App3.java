@@ -19,13 +19,15 @@ package org.jnosql.artemis.demo.se.cassandra;
 import com.datastax.driver.core.ConsistencyLevel;
 import org.jnosql.artemis.cassandra.column.CassandraTemplate;
 import org.jnosql.diana.api.column.Column;
-import org.jnosql.diana.api.column.ColumnCondition;
 import org.jnosql.diana.api.column.ColumnQuery;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.jnosql.diana.api.column.ColumnCondition.eq;
+import static org.jnosql.diana.api.column.query.ColumnQueryBuilder.select;
 
 public class App3 {
 
@@ -42,8 +44,7 @@ public class App3 {
             Person saved = cassandraTemplate.save(PERSON, ConsistencyLevel.ONE);
             System.out.println("Person saved" + saved);
 
-            ColumnQuery query = ColumnQuery.of("Person");
-            query.and(ColumnCondition.eq(Column.of("id", 1L)));
+            ColumnQuery query = select().from("Person").where(eq(Column.of("id", 1L))).build();
 
             List<Person> people = cassandraTemplate.cql("select * from developers.Person where id = 1");
             System.out.println("Entity found: " + people);
