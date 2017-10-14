@@ -18,7 +18,6 @@ package org.jnosql.artemis.demo.se.mongodb;
 
 import org.jnosql.artemis.document.DocumentTemplate;
 import org.jnosql.diana.api.document.Document;
-import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;
@@ -27,8 +26,10 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.Random;
 
-public class App {
+import static org.jnosql.diana.api.document.DocumentCondition.eq;
+import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
 
+public class App {
 
 
     public static void main(String[] args) {
@@ -46,8 +47,9 @@ public class App {
             Person saved = documentTemplate.insert(person);
             System.out.println("Person saved" + saved);
 
-            DocumentQuery query = DocumentQuery.of("Person");
-            query.and(DocumentCondition.eq(Document.of("_id", id)));
+
+            DocumentQuery query = select().from("Person")
+                    .where(eq(Document.of("_id", id))).build();
 
             Optional<Person> personOptional = documentTemplate.singleResult(query);
             System.out.println("Entity found: " + personOptional);
