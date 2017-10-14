@@ -64,10 +64,11 @@ public class Device {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
-                .append("id", id)
-                .append("devices", devices)
-                .toString();
+        final StringBuilder sb = new StringBuilder("Device{");
+        sb.append("id='").append(id).append('\'');
+        sb.append(", devices=").append(devices);
+        sb.append('}');
+        return sb.toString();
     }
 
     public static Device of(List<String> devices) {
