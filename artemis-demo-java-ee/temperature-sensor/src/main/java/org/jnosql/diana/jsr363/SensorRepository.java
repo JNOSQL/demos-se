@@ -18,7 +18,6 @@ package org.jnosql.diana.jsr363;
 
 import org.jnosql.artemis.document.DocumentTemplate;
 import org.jnosql.diana.api.document.Document;
-import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -26,6 +25,9 @@ import javax.inject.Inject;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
+import static org.jnosql.diana.api.document.DocumentCondition.eq;
+import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
 
 @ApplicationScoped
 public class SensorRepository {
@@ -44,8 +46,9 @@ public class SensorRepository {
 
 
     public List<String> sensors() {
-        DocumentQuery query = DocumentQuery.of(SENSORS);
-        query.and(DocumentCondition.eq(SENSOR_ID));
+
+        DocumentQuery query = select().from(SENSORS).where(eq(SENSOR_ID)).build();
+
         Optional<Device> device = documentTemplate.singleResult(query);
         return device.map(Device::getDevices).orElse(Collections.emptyList());
     }
@@ -60,8 +63,7 @@ public class SensorRepository {
     }
 
     public List<Sensor> getSensor(String sensorId) {
-        DocumentQuery query = DocumentQuery.of(TEMPERATURE);
-        query.and(DocumentCondition.eq(Document.of("sensorId", sensorId)));
+        DocumentQuery query = select().from(TEMPERATURE).where(eq(Document.of("sensorId", sensorId))).build();
         return documentTemplate.select(query);
     }
 
