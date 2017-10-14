@@ -19,7 +19,6 @@ package org.jnosql.artemis.demo.se.document;
 import org.jnosql.artemis.DatabaseQualifier;
 import org.jnosql.artemis.document.DocumentTemplate;
 import org.jnosql.diana.api.document.Document;
-import org.jnosql.diana.api.document.DocumentCondition;
 import org.jnosql.diana.api.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;
@@ -31,16 +30,20 @@ import java.util.UUID;
 
 import static org.jnosql.artemis.demo.se.document.CouchbaseProducer.COUCHBASE;
 import static org.jnosql.artemis.demo.se.document.MongoDBProducer.MONGODB;
+import static org.jnosql.diana.api.document.DocumentCondition.eq;
+import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
 
 
 public class App {
 
     private static final List<String> PHONES;
+
     static {
         PHONES = new ArrayList<>();
         PHONES.add("123456789");
         PHONES.add("234242");
     }
+
     private static final String ID = UUID.randomUUID().toString();
     private static final Person PERSON = Person.builder().
             withPhones(PHONES)
@@ -60,8 +63,8 @@ public class App {
             Person saved = documentTemplate.insert(PERSON);
             System.out.println("Person saved" + saved);
 
-            DocumentQuery query = DocumentQuery.of("Person");
-            query.and(DocumentCondition.eq(Document.of("_id", ID)));
+            DocumentQuery query = select().from("Person")
+                    .where(eq(Document.of("_id", ID))).build();
 
             Optional<Person> person = documentTemplate.singleResult(query);
             System.out.println("Entity found: " + person);
@@ -75,8 +78,6 @@ public class App {
             saved = documentTemplate.insert(PERSON);
             System.out.println("Person saved" + saved);
 
-            query = DocumentQuery.of("Person");
-            query.and(DocumentCondition.eq(Document.of("_id", ID)));
 
             person = documentTemplate.singleResult(query);
             System.out.println("Entity found: " + person);
@@ -84,5 +85,6 @@ public class App {
         }
     }
 
-    private App() {}
+    private App() {
+    }
 }

@@ -66,12 +66,13 @@ public class Person {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
-                .append("id", id)
-                .append("name", name)
-                .append("phones", phones)
-                .append("ignore", ignore)
-                .toString();
+        final StringBuilder sb = new StringBuilder("Person{");
+        sb.append("id='").append(id).append('\'');
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", phones=").append(phones);
+        sb.append(", ignore='").append(ignore).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 
     public static PersonBuilder builder() {
