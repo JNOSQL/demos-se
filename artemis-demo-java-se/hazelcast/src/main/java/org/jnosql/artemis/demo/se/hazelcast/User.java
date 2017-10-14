@@ -16,8 +16,6 @@
 package org.jnosql.artemis.demo.se.hazelcast;
 
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import org.jnosql.artemis.Entity;
 import org.jnosql.artemis.Id;
 
@@ -78,11 +76,12 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
-                .append("userName", userName)
-                .append("name", name)
-                .append("phones", phones)
-                .toString();
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("userName='").append(userName).append('\'');
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", phones=").append(phones);
+        sb.append('}');
+        return sb.toString();
     }
 
     public static UserBuilder builder() {
