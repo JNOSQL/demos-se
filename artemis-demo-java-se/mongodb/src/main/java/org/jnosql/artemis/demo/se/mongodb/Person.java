@@ -16,8 +16,6 @@
 package org.jnosql.artemis.demo.se.mongodb;
 
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import org.jnosql.artemis.Column;
 import org.jnosql.artemis.Entity;
 import org.jnosql.artemis.Id;
@@ -73,13 +71,14 @@ public class Person {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
-                .append("id", id)
-                .append("name", name)
-                .append("phones", phones)
-                .append("ignore", ignore)
-                .append("address", address)
-                .toString();
+        final StringBuilder sb = new StringBuilder("Person{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", phones=").append(phones);
+        sb.append(", address=").append(address);
+        sb.append(", ignore='").append(ignore).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 
     public static PersonBuilder builder() {
