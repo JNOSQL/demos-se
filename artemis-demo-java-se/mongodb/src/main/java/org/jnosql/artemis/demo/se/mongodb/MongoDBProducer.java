@@ -16,12 +16,13 @@
 package org.jnosql.artemis.demo.se.mongodb;
 
 
+import org.jnosql.diana.api.document.DocumentCollectionManager;
+import org.jnosql.diana.api.document.DocumentCollectionManagerFactory;
+import org.jnosql.diana.mongodb.document.MongoDBDocumentConfiguration;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
-import org.jnosql.diana.api.document.DocumentCollectionManager;
-import org.jnosql.diana.mongodb.document.MongoDBDocumentCollectionManagerFactory;
-import org.jnosql.diana.mongodb.document.MongoDBDocumentConfiguration;
 
 @ApplicationScoped
 public class MongoDBProducer {
@@ -30,7 +31,7 @@ public class MongoDBProducer {
 
     private MongoDBDocumentConfiguration configuration;
 
-    private MongoDBDocumentCollectionManagerFactory managerFactory;
+    private DocumentCollectionManagerFactory managerFactory;
 
     @PostConstruct
     public void init() {
