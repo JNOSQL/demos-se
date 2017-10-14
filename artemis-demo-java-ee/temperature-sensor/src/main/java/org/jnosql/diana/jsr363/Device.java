@@ -16,13 +16,12 @@
 package org.jnosql.diana.jsr363;
 
 
+import org.jnosql.artemis.Column;
+import org.jnosql.artemis.Entity;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-import org.jnosql.artemis.Column;
-import org.jnosql.artemis.Entity;
 
 @Entity("sensors")
 public class Device {
