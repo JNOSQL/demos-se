@@ -49,7 +49,7 @@ public class App {
             withPhones(PHONES)
             .withName("Name")
             .withId(ID)
-            .withIgnore("Just Ignore").build();
+            .build();
 
     public static void main(String[] args) {
 
