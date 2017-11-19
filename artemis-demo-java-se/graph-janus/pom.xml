@@ -17,7 +17,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>graph-janus</artifactId>
-    <name>Artemis Demo using Java SE Graph-neo4j</name>
+    <name>Artemis Demo using Java SE Graph-janus</name>
 
     <parent>
         <groupId>org.jnosql.artemis</groupId>
