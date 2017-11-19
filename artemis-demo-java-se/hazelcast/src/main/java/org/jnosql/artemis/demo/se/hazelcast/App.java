@@ -33,8 +33,8 @@ public class App {
 
     public static void main(String[] args) {
 
-        try(SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            KeyValueTemplate keyValueTemplate =  container.select(KeyValueTemplate.class).get();
+        try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            KeyValueTemplate keyValueTemplate = container.select(KeyValueTemplate.class).get();
             User saved = keyValueTemplate.put(USER);
             System.out.println("User saved" + saved);
             Optional<User> person = keyValueTemplate.get("username", User.class);
@@ -42,5 +42,6 @@ public class App {
         }
     }
 
-    private App() {}
+    private App() {
+    }
 }
