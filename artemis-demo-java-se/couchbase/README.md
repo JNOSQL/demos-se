@@ -2,7 +2,7 @@
 
 ![Couchbase Project](https://github.com/JNOSQL/jnosql-site/blob/master/assets/img/logos/couchbase.png)
 
-A JNoSQL Atemis project with Java SE using Document API with Couchbase as driver implementation.
+A JNoSQL Artemis project with Java SE using Document API with Couchbase as driver implementation.
 
 
 **Couchbase**: Couchbase Server, originally known as Membase, is an open-source, distributed multi-model NoSQL document-oriented database software package that is optimized for interactive applications.
