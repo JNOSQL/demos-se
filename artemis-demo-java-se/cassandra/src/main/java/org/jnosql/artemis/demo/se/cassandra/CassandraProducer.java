@@ -17,8 +17,8 @@ package org.jnosql.artemis.demo.se.cassandra;
 
 
 import org.jnosql.diana.cassandra.column.CassandraColumnFamilyManager;
+import org.jnosql.diana.cassandra.column.CassandraColumnFamilyManagerFactory;
 import org.jnosql.diana.cassandra.column.CassandraConfiguration;
-import org.jnosql.diana.cassandra.column.CassandraDocumentEntityManagerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -31,7 +31,7 @@ public class CassandraProducer {
 
     private CassandraConfiguration cassandraConfiguration;
 
-    private CassandraDocumentEntityManagerFactory managerFactory;
+    private CassandraColumnFamilyManagerFactory managerFactory;
 
     @PostConstruct
     public void init() {
