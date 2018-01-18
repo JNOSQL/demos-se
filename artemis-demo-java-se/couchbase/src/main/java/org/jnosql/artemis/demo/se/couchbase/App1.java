@@ -19,7 +19,6 @@ package org.jnosql.artemis.demo.se.couchbase;
 import com.couchbase.client.java.search.SearchQuery;
 import com.couchbase.client.java.search.queries.MatchQuery;
 import org.jnosql.artemis.couchbase.document.CouchbaseTemplate;
-import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;
@@ -27,7 +26,6 @@ import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
 import java.util.List;
 
-import static org.jnosql.diana.api.document.DocumentCondition.eq;
 import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
 
 public class App1 {
