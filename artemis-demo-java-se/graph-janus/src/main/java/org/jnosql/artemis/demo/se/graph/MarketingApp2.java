@@ -17,15 +17,10 @@ package org.jnosql.artemis.demo.se.graph;
 
 
 import org.jnosql.artemis.DatabaseQualifier;
-import org.jnosql.artemis.graph.GraphTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-import java.util.List;
 
-import static java.util.stream.Collectors.toList;
-import static org.apache.tinkerpop.gremlin.process.traversal.P.between;
-import static org.apache.tinkerpop.gremlin.process.traversal.P.gte;
 import static org.jnosql.artemis.demo.se.graph.Person.builder;
 
 public final class MarketingApp2 {
