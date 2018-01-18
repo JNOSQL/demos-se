@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.jnosql.artemis</groupId>
         <artifactId>artemis-demo-java-se</artifactId>
-        <version>0.0.3</version>
+        <version>0.0.4</version>
     </parent>
 
     <properties>
@@ -41,7 +41,6 @@
             <artifactId>hazelcast-driver</artifactId>
             <version>${project.version}</version>
         </dependency>
-
     </dependencies>
 
 </project>
