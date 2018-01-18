@@ -17,7 +17,6 @@ package org.jnosql.artemis.demo.se.couchbase;
 
 
 import org.jnosql.artemis.document.DocumentTemplate;
-import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;
@@ -25,7 +24,6 @@ import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
 import java.util.List;
 
-import static org.jnosql.diana.api.document.DocumentCondition.eq;
 import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
 
 public class App {
@@ -41,7 +39,7 @@ public class App {
 
             template.insert(ironMan);
 
-            DocumentQuery query = select().from("Hero").where(eq(Document.of("_id", "iron_man"))).build();
+            DocumentQuery query = select().from("Hero").where("_id").eq("iron_man").build();
             List<Hero> heroes = template.select(query);
             System.out.println(heroes);
 

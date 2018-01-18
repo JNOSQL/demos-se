@@ -43,7 +43,7 @@ public class App1 {
             CouchbaseTemplate couchbaseTemplate = container.select(CouchbaseTemplate.class).get();
             couchbaseTemplate.insert(ironMan);
 
-            DocumentQuery query = select().from("Hero").where(eq(Document.of("_id", "iron_man"))).build();
+            DocumentQuery query = select().from("Hero").where("_id").eq("iron_man").build();
             List<Hero> heroes = couchbaseTemplate.select(query);
             System.out.println(heroes);
 
