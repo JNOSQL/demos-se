@@ -18,7 +18,6 @@ package org.jnosql.artemis.demo.se.document;
 
 import org.jnosql.artemis.DatabaseQualifier;
 import org.jnosql.artemis.document.DocumentTemplate;
-import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;
@@ -30,7 +29,6 @@ import java.util.UUID;
 
 import static org.jnosql.artemis.demo.se.document.CouchbaseProducer.COUCHBASE;
 import static org.jnosql.artemis.demo.se.document.MongoDBProducer.MONGODB;
-import static org.jnosql.diana.api.document.DocumentCondition.eq;
 import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
 
 
@@ -64,7 +62,7 @@ public class App {
             System.out.println("Person saved" + saved);
 
             DocumentQuery query = select().from("Person")
-                    .where(eq(Document.of("_id", ID))).build();
+                    .where("_id").eq(ID).build();
 
             Optional<Person> person = documentTemplate.singleResult(query);
             System.out.println("Entity found: " + person);

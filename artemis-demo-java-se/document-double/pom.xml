@@ -31,7 +31,7 @@
 
         <dependency>
             <groupId>org.jnosql.artemis</groupId>
-            <artifactId>artemis-core</artifactId>
+            <artifactId>artemis-document</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
