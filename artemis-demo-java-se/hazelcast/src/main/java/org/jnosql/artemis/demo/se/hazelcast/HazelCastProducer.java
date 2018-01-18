@@ -17,8 +17,8 @@ package org.jnosql.artemis.demo.se.hazelcast;
 
 
 import org.jnosql.diana.api.key.BucketManager;
-import org.jnosql.diana.hazelcast.key.HazelCastKeyValueConfiguration;
-import org.jnosql.diana.hazelcast.key.HazelCastKeyValueEntityManagerFactory;
+import org.jnosql.diana.hazelcast.key.HazelcastBucketManagerFactory;
+import org.jnosql.diana.hazelcast.key.HazelcastKeyValueConfiguration;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -29,13 +29,13 @@ public class HazelCastProducer {
 
     private static final String BUCKET = "developers";
 
-    private HazelCastKeyValueConfiguration configuration;
+    private HazelcastKeyValueConfiguration configuration;
 
-    private HazelCastKeyValueEntityManagerFactory managerFactory;
+    private HazelcastBucketManagerFactory managerFactory;
 
     @PostConstruct
     public void init() {
-        configuration = new HazelCastKeyValueConfiguration();
+        configuration = new HazelcastKeyValueConfiguration();
         managerFactory = configuration.get();
     }
 

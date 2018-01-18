@@ -33,7 +33,7 @@
 
         <dependency>
             <groupId>org.jnosql.artemis</groupId>
-            <artifactId>artemis-core</artifactId>
+            <artifactId>artemis-key-value</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
