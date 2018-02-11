@@ -1,8 +1,8 @@
 [
   {
-    "description": "The couchbase document configuration",
+    "description": "The arangodb document configuration",
     "name": "document",
-    "provider": "org.jnosql.diana.couchbase.document.CouchbaseDocumentConfiguration",
+    "provider": "org.jnosql.diana.arangodb.document.ArangoDBDocumentConfiguration",
     "settings": {
       "couchbase-host-1": "localhost",
       "couchbase-user": "root",
@@ -10,9 +10,9 @@
     }
   },
   {
-    "description": "The couchbase key-value configuration",
+    "description": "The arangodb key-value configuration",
     "name": "key-value",
-    "provider": "org.jnosql.diana.couchbase.key.CouchbaseKeyValueConfiguration",
+    "provider": "org.jnosql.diana.arangodb.key.ArangoDBKeyValueConfiguration",
     "settings": {
       "couchbase-host-1": "localhost",
       "couchbase-user": "root",

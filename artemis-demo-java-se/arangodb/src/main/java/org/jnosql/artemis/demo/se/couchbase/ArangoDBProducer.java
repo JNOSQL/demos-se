@@ -19,7 +19,7 @@ import org.jnosql.diana.api.document.DocumentCollectionManager;
 import org.jnosql.diana.api.document.DocumentCollectionManagerFactory;
 import org.jnosql.diana.api.key.BucketManager;
 import org.jnosql.diana.api.key.BucketManagerFactory;
-import org.jnosql.diana.couchbase.document.CouchbaseDocumentCollectionManager;
+import org.jnosql.diana.arangodb.document.ArangoDBDocumentCollectionManager;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -28,13 +28,13 @@ import java.util.List;
 import java.util.Set;
 
 @ApplicationScoped
-public class CouchbaseProducer {
+public class ArangoDBProducer {
 
     private static final String HEROES = "heroes";
 
     @Inject
     @ConfigurationUnit(name = "document")
-    private DocumentCollectionManagerFactory<CouchbaseDocumentCollectionManager> entityManager;
+    private DocumentCollectionManagerFactory<ArangoDBDocumentCollectionManager> entityManager;
 
     @Inject
     @ConfigurationUnit(name = "key-value")
@@ -47,7 +47,7 @@ public class CouchbaseProducer {
     }
 
     @Produces
-    public CouchbaseDocumentCollectionManager getCouchbaseDocumentCollectionManager() {
+    public ArangoDBDocumentCollectionManager getCouchbaseDocumentCollectionManager() {
         return entityManager.get(HEROES);
     }
 
