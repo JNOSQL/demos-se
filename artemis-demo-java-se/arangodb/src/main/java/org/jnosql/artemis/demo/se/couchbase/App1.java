@@ -16,9 +16,7 @@
 package org.jnosql.artemis.demo.se.couchbase;
 
 
-import com.couchbase.client.java.search.SearchQuery;
-import com.couchbase.client.java.search.queries.MatchQuery;
-import org.jnosql.artemis.couchbase.document.CouchbaseTemplate;
+import org.jnosql.artemis.arangodb.document.ArangoDBTemplate;
 import org.jnosql.diana.api.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;
@@ -38,17 +36,13 @@ public class App1 {
             Hero ironMan = Hero.builder().withRealName("Tony Stark").withName("iron_man")
                     .withAge(34).withPowers(Collections.singleton("rich")).build();
 
-            CouchbaseTemplate couchbaseTemplate = container.select(CouchbaseTemplate.class).get();
+            ArangoDBTemplate couchbaseTemplate = container.select(ArangoDBTemplate.class).get();
             couchbaseTemplate.insert(ironMan);
 
             DocumentQuery query = select().from("Hero").where("_id").eq("iron_man").build();
             List<Hero> heroes = couchbaseTemplate.select(query);
             System.out.println(heroes);
 
-            MatchQuery match = SearchQuery.match("rich").field("powers");
-            SearchQuery search = new SearchQuery("heroes-index", match);
-            List<Hero> searchResult = couchbaseTemplate.search(search);
-            System.out.println(searchResult);
 
 
         }

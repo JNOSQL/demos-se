@@ -14,14 +14,14 @@
  */
 package org.jnosql.artemis.demo.se.couchbase;
 
-import org.jnosql.artemis.couchbase.document.CouchbaseRepository;
-import org.jnosql.artemis.couchbase.document.N1QL;
-import org.jnosql.artemis.couchbase.document.Param;
+import org.jnosql.artemis.arangodb.document.AQL;
+import org.jnosql.artemis.arangodb.document.ArangoDBRepository;
+import org.jnosql.artemis.arangodb.document.Param;
 
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public interface HeroRepository extends CouchbaseRepository<Hero, String> {
+public interface HeroRepository extends ArangoDBRepository<Hero, String> {
 
     Optional<Hero> findByName(String name);
 
@@ -31,7 +31,7 @@ public interface HeroRepository extends CouchbaseRepository<Hero, String> {
 
     void deleteByName(String name);
 
-    @N1QL("select * from heroes where realName= $realName")
+    @AQL("select * from heroes where realName= @status")
     Optional<Hero> find(@Param("realName") String realName);
 
 }
