@@ -59,6 +59,7 @@
     </dependencies>
 
     <modules>
+        <module>arangodb</module>
         <module>mongodb</module>
         <module>couchbase</module>
         <module>document-double</module>
