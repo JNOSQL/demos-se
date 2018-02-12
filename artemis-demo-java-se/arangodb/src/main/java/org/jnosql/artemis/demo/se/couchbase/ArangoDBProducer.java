@@ -15,7 +15,6 @@
 package org.jnosql.artemis.demo.se.couchbase;
 
 import org.jnosql.artemis.ConfigurationUnit;
-import org.jnosql.diana.api.document.DocumentCollectionManager;
 import org.jnosql.diana.api.document.DocumentCollectionManagerFactory;
 import org.jnosql.diana.api.key.BucketManager;
 import org.jnosql.diana.api.key.BucketManagerFactory;
@@ -41,10 +40,6 @@ public class ArangoDBProducer {
     private BucketManagerFactory<BucketManager> bucketManager;
 
 
-    @Produces
-    public DocumentCollectionManager getManager() {
-        return entityManager.get(HEROES);
-    }
 
     @Produces
     public ArangoDBDocumentCollectionManager getCouchbaseDocumentCollectionManager() {
@@ -52,6 +47,7 @@ public class ArangoDBProducer {
     }
 
     @Produces
+
     public List<String> getHeroList() {
         return bucketManager.getList(HEROES, String.class);
     }

@@ -56,6 +56,11 @@
             <artifactId>javax.json</artifactId>
             <version>${javax.json.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.jnosql.artemis</groupId>
+            <artifactId>artemis-configuration</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <modules>

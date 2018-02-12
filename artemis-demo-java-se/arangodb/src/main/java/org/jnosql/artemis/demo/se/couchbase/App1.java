@@ -36,12 +36,14 @@ public class App1 {
             Hero ironMan = Hero.builder().withRealName("Tony Stark").withName("iron_man")
                     .withAge(34).withPowers(Collections.singleton("rich")).build();
 
-            ArangoDBTemplate couchbaseTemplate = container.select(ArangoDBTemplate.class).get();
-            couchbaseTemplate.insert(ironMan);
+            ArangoDBTemplate template = container.select(ArangoDBTemplate.class).get();
+            template.insert(ironMan);
 
             DocumentQuery query = select().from("Hero").where("_id").eq("iron_man").build();
-            List<Hero> heroes = couchbaseTemplate.select(query);
+            List<Hero> heroes = template.select(query);
+            List<Object> aql = template.aql("FOR h IN Hero FILTER  h._id == @id RETURN h", Collections.singletonMap("id", "iron_man"));
             System.out.println(heroes);
+            System.out.println(aql);
 
 
 
