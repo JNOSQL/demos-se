@@ -1,6 +1,6 @@
 # couchbase-demo
 
-![Couchbase Project](http://www.jnosql.org/img/logos/couchbase.png)
+![Couchbase Project](http://www.jnosql.org/img/logos/couchbase.svg)
 
 A JNoSQL Artemis project with Java SE using Document API with Couchbase as driver implementation.
 
