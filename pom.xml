@@ -36,7 +36,6 @@
 
     <modules>
         <module>artemis-demo-java-se</module>
-        <module>artemis-demo-java-ee</module>
     </modules>
 
     <dependencies>
