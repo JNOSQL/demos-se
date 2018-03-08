@@ -18,12 +18,12 @@ import org.jnosql.artemis.arangodb.document.AQL;
 import org.jnosql.artemis.arangodb.document.ArangoDBRepository;
 import org.jnosql.artemis.arangodb.document.Param;
 
-import java.util.Optional;
+import java.util.List;
 import java.util.stream.Stream;
 
 public interface HeroRepository extends ArangoDBRepository<Hero, String> {
 
-    Optional<Hero> findByName(String name);
+    List<Hero> findByName(String name);
 
     Stream<Hero> findByAgeGreaterThan(Integer age);
 
@@ -32,6 +32,6 @@ public interface HeroRepository extends ArangoDBRepository<Hero, String> {
     void deleteByName(String name);
 
     @AQL("select * from heroes where realName= @status")
-    Optional<Hero> find(@Param("realName") String realName);
+    List<Hero> find(@Param("realName") String realName);
 
 }

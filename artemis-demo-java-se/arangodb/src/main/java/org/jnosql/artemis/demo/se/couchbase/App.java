@@ -39,7 +39,7 @@ public class App {
 
             template.insert(ironMan);
 
-            DocumentQuery query = select().from("Hero").where("_key").eq("iron_man").build();
+            DocumentQuery query = select().from("Hero").where("name").eq("iron_man").build();
             List<Hero> heroes = template.select(query);
             System.out.println(heroes);
 

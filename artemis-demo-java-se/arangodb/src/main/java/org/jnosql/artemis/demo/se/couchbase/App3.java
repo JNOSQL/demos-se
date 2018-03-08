@@ -30,23 +30,8 @@ public class App3 {
             lock.setName("Lock");
 
             VillainService service = container.select(VillainService.class).get();
-
-
-            service.addName("Doctor Doom");
-            service.addName("Magneto");
-            service.addName("Red Skull");
-
-            service.addPower("Strong");
-            service.addPower("Strong");
-            service.addPower("fly");
-
             service.put(lock);
-
             System.out.println(service.get("lock"));
-            System.out.println("The villain powers");
-            service.getPowers().forEach(System.out::println);
-            System.out.println("The villain names");
-            service.getNames().forEach(System.out::println);
 
         }
     }

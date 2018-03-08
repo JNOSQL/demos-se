@@ -46,11 +46,6 @@ public class ArangoDBProducer {
         return entityManager.get(HEROES);
     }
 
-    @Produces
-
-    public List<String> getHeroList() {
-        return bucketManager.getList(HEROES, String.class);
-    }
 
 
     @Produces
