@@ -26,7 +26,7 @@ import java.util.Set;
 @Entity
 public class Hero implements Serializable {
 
-    @Id("_key")
+    @Id
     private String id;
 
     @Column
