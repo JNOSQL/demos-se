@@ -39,7 +39,6 @@ public class App3 {
                     withPhones(Arrays.asList("234", "432"))
                     .withName("Name")
                     .withId(id)
-                    .withIgnore("Just Ignore")
                     .withAddress(new Address("Engenheiro Jose Anasoh", "Salvador", 53))
                     .build();
 

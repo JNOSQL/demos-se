@@ -40,7 +40,7 @@ public class App {
                     withPhones(Arrays.asList("234", "432"))
                     .withName("Name")
                     .withId(id)
-                    .withIgnore("Just Ignore").build();
+                    .build();
             DocumentTemplate documentTemplate = container.select(DocumentTemplate.class).get();
             Person saved = documentTemplate.insert(person);
             System.out.println("Person saved" + saved);

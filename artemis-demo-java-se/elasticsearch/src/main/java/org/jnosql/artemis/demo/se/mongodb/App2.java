@@ -38,7 +38,7 @@ public class App2 {
                     withPhones(Arrays.asList("234", "432"))
                     .withName("Name")
                     .withId(id)
-                    .withIgnore("Just Ignore").build();
+                    .build();
 
             PersonRepository repository = container.select(PersonRepository.class)
                     .select(DatabaseQualifier.ofDocument()).get();
