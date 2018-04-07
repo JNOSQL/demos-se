@@ -14,8 +14,6 @@
  */
 package org.jnosql.artemis.demo.se.elasticsearch;
 
-import org.jnosql.artemis.Column;
-
 public class AddressBuilder {
 
     private String street;
