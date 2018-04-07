@@ -1,0 +1,48 @@
+{
+  "settings": {
+    "analysis": {
+      "filter": {
+      },
+      "analyzer": {
+        "whitespace_analyzer": {
+          "type": "custom",
+          "tokenizer": "whitespace",
+          "filter": [
+            "standard",
+            "lowercase",
+            "asciifolding"
+          ]
+        },
+        "lowercase_analyzer": {
+          "tokenizer": "keyword",
+          "type": "custom"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "developer": {
+      "properties": {
+        "name": {
+          "type": "text"
+        },
+        "phones": {
+          "type": "keyword"
+        },
+        "address": {
+          "properties": {
+            "street": {
+              "type": "text"
+            },
+            "city": {
+              "type": "text"
+            },
+            "number": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  }
+}
