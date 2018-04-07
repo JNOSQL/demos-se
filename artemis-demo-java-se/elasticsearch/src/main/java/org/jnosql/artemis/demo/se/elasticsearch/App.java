@@ -46,7 +46,7 @@ public class App {
             System.out.println("Developer saved" + saved);
 
 
-            DocumentQuery query = select().from("Developer")
+            DocumentQuery query = select().from("developer")
                     .where("_id").eq(id).build();
 
             Optional<Developer> personOptional = documentTemplate.singleResult(query);
