@@ -43,7 +43,7 @@ public class App {
 
             Developer developer = Developer.builder().
                     withPhones(Arrays.asList("85 85 343435684", "55 11 123448684"))
-                    .withName("Name")
+                    .withName("Poliana Lovelace")
                     .withId(id)
                     .withAddress(address)
                     .build();
