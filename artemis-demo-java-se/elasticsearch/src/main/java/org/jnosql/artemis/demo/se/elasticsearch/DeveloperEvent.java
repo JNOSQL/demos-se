@@ -26,9 +26,9 @@ import javax.enterprise.event.Observes;
 import java.util.logging.Logger;
 
 @ApplicationScoped
-public class PersonEvent {
+public class DeveloperEvent {
 
-    private static final Logger LOGGER = Logger.getLogger(PersonEvent.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(DeveloperEvent.class.getName());
 
     public void preEntity(@Observes EntityPrePersist event) {
         LOGGER.info("Event to pre persistence" + event.getValue());
