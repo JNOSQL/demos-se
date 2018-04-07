@@ -13,25 +13,27 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.mongodb;
+package org.jnosql.artemis.demo.se.elasticsearch;
 
 
-import org.jnosql.artemis.DatabaseQualifier;
+import org.jnosql.artemis.document.DocumentTemplate;
+import org.jnosql.diana.api.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
-public class App2 {
+import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
+
+public class App {
 
 
     public static void main(String[] args) {
 
         Random random = new Random();
         Long id = random.nextLong();
-
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
             Developer developer = Developer.builder().
@@ -39,18 +41,20 @@ public class App2 {
                     .withName("Name")
                     .withId(id)
                     .build();
+            DocumentTemplate documentTemplate = container.select(DocumentTemplate.class).get();
+            Developer saved = documentTemplate.insert(developer);
+            System.out.println("Developer saved" + saved);
 
-            DeveloperRepository repository = container.select(DeveloperRepository.class)
-                    .select(DatabaseQualifier.ofDocument()).get();
-            repository.save(developer);
 
-            List<Developer> people = repository.findByName("Name");
-            System.out.println("Entity found: " + people);
-            repository.findByPhones("234").forEach(System.out::println);
+            DocumentQuery query = select().from("Developer")
+                    .where("_id").eq(id).build();
+
+            Optional<Developer> personOptional = documentTemplate.singleResult(query);
+            System.out.println("Entity found: " + personOptional);
 
         }
     }
 
-    private App2() {
+    private App() {
     }
 }

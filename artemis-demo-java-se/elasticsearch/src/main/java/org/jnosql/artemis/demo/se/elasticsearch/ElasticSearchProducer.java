@@ -13,7 +13,7 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.mongodb;
+package org.jnosql.artemis.demo.se.elasticsearch;
 
 
 import org.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManager;
