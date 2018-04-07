@@ -16,16 +16,15 @@
 package org.jnosql.artemis.demo.se.elasticsearch;
 
 
-import org.jnosql.artemis.document.DocumentTemplate;
-import org.jnosql.diana.api.document.DocumentQuery;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.TermQueryBuilder;
+import org.jnosql.artemis.elasticsearch.document.ElasticsearchTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-
-import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
 
 public class App3 {
 
@@ -35,21 +34,26 @@ public class App3 {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             Random random = new Random();
             long id = random.nextLong();
+
+            Address address = Address.builder()
+                    .withCity("São Paulo")
+                    .withStreet("Av. nove de Julho 1854")
+                    .withNumber(10).build();
+
             Developer developer = Developer.builder().
-                    withPhones(Arrays.asList("234", "432"))
-                    .withName("Name")
+                    withPhones(Arrays.asList("85 85 343435684", "55 11 123448684"))
+                    .withName("Maria Lovelace")
                     .withId(id)
-                    .withAddress(new Address("Engenheiro Jose Anasoh", "Salvador", 53))
+                    .withAddress(address)
                     .build();
 
-            DocumentTemplate repository = container.select(DocumentTemplate.class).get();
-            Developer saved = repository.insert(developer);
+            ElasticsearchTemplate template = container.select(ElasticsearchTemplate.class).get();
+            Developer saved = template.insert(developer);
             System.out.println("Developer saved" + saved);
 
-            DocumentQuery query = select().from("Developer")
-                    .where("_id").eq(id).build();
+            TermQueryBuilder query = QueryBuilders.termQuery("phones", "85 85 343435684");
 
-            List<Developer> people = repository.select(query);
+            List<Developer> people = template.search(query);
             System.out.println("Entity found: " + people);
 
         }
