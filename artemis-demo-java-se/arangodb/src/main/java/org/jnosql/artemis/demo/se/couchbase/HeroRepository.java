@@ -25,12 +25,6 @@ public interface HeroRepository extends ArangoDBRepository<Hero, String> {
 
     List<Hero> findByName(String name);
 
-    Stream<Hero> findByAgeGreaterThan(Integer age);
-
-    Stream<Hero> findByAgeLessThan(Integer age);
-
-    void deleteByName(String name);
-
     @AQL("select * from heroes where realName= @status")
     List<Hero> find(@Param("realName") String realName);
 
