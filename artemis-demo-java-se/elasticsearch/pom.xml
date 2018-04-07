@@ -32,12 +32,7 @@
     <dependencies>
         <dependency>
             <groupId>org.jnosql.artemis</groupId>
-            <artifactId>artemis-document</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jnosql.diana</groupId>
-            <artifactId>elasticsearch-driver</artifactId>
+            <artifactId>elasticsearch-extension</artifactId>
             <version>0.0.5-SNAPSHOT</version>
         </dependency>
     </dependencies>
