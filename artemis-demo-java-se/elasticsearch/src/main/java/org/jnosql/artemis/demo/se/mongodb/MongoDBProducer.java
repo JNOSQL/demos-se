@@ -16,9 +16,9 @@
 package org.jnosql.artemis.demo.se.mongodb;
 
 
-import org.jnosql.diana.api.document.DocumentCollectionManager;
-import org.jnosql.diana.api.document.DocumentCollectionManagerFactory;
-import org.jnosql.diana.mongodb.document.MongoDBDocumentConfiguration;
+import org.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManager;
+import org.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManagerFactory;
+import org.jnosql.diana.elasticsearch.document.ElasticsearchDocumentConfiguration;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -29,19 +29,19 @@ public class MongoDBProducer {
 
     private static final String COLLECTION = "developers";
 
-    private MongoDBDocumentConfiguration configuration;
+    private ElasticsearchDocumentConfiguration configuration;
 
-    private DocumentCollectionManagerFactory managerFactory;
+    private ElasticsearchDocumentCollectionManagerFactory managerFactory;
 
     @PostConstruct
     public void init() {
-        configuration = new MongoDBDocumentConfiguration();
+        configuration = new ElasticsearchDocumentConfiguration();
         managerFactory = configuration.get();
     }
 
 
     @Produces
-    public DocumentCollectionManager getManager() {
+    public ElasticsearchDocumentCollectionManager getManager() {
         return managerFactory.get(COLLECTION);
 
     }
