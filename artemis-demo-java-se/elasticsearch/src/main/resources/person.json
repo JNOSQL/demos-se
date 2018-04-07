@@ -1,0 +1,44 @@
+{
+  "settings": {
+    "analysis": {
+      "filter": {
+      },
+      "analyzer": {
+        "whitespace_analyzer": {
+          "type": "custom",
+          "tokenizer": "whitespace",
+          "filter": [
+            "standard",
+            "lowercase",
+            "asciifolding"
+          ]
+        },
+        "lowercase_analyzer": {
+          "tokenizer": "keyword",
+          "type": "custom"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "person": {
+      "properties": {
+        "username": {
+          "type": "keyword"
+        },
+        "name": {
+          "type": "keyword"
+        },
+        "email": {
+          "type": "keyword"
+        },
+        "description": {
+          "type": "keyword"
+        },
+        "created": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
