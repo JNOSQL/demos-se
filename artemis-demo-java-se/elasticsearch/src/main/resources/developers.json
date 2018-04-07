@@ -24,7 +24,7 @@
     "developer": {
       "properties": {
         "name": {
-          "type": "text"
+          "type": "keyword"
         },
         "phones": {
           "type": "keyword"
