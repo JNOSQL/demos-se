@@ -91,4 +91,8 @@ public class Address {
         sb.append('}');
         return sb.toString();
     }
+
+    public static AddressBuilder builder() {
+        return new AddressBuilder();
+    }
 }
