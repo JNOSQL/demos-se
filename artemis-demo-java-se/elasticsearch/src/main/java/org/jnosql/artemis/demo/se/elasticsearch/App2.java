@@ -34,19 +34,24 @@ public class App2 {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
+            Address address = Address.builder()
+                    .withCity("São Paulo")
+                    .withStreet("Av. nove de Julho 1854")
+                    .withNumber(10).build();
+
             Developer developer = Developer.builder().
-                    withPhones(Arrays.asList("234", "432"))
-                    .withName("Name")
+                    withPhones(Arrays.asList("85 85 343435684", "55 11 123448684"))
+                    .withName("Maria Lovelace")
                     .withId(id)
+                    .withAddress(address)
                     .build();
 
             DeveloperRepository repository = container.select(DeveloperRepository.class)
                     .select(DatabaseQualifier.ofDocument()).get();
             repository.save(developer);
 
-            List<Developer> people = repository.findByName("Name");
+            List<Developer> people = repository.findByName("Maria Lovelace");
             System.out.println("Entity found: " + people);
-            repository.findByPhones("234").forEach(System.out::println);
 
         }
     }

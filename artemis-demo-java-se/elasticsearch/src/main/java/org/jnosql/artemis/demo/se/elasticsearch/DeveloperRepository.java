@@ -25,6 +25,4 @@ public interface DeveloperRepository extends Repository<Developer, Long> {
 
 
     List<Developer> findByName(String name);
-
-    Stream<Developer> findByPhones(String phone);
 }
