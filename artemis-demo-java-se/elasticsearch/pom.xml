@@ -38,7 +38,7 @@
         <dependency>
             <groupId>org.jnosql.diana</groupId>
             <artifactId>elasticsearch-driver</artifactId>
-            <version>${project.version}</version>
+            <version>0.0.5-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
