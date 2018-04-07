@@ -23,8 +23,8 @@ import org.jnosql.artemis.Id;
 import java.util.List;
 
 
-@Entity
-public class Person {
+@Entity("developer")
+public class Developer {
 
     @Id
     private Long id;
@@ -53,10 +53,10 @@ public class Person {
     }
 
 
-    public Person() {
+    public Developer() {
     }
 
-    Person(long id, String name, List<String> phones, Address address) {
+    Developer(long id, String name, List<String> phones, Address address) {
         this.id = id;
         this.name = name;
         this.phones = phones;
@@ -66,7 +66,7 @@ public class Person {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Person{");
+        final StringBuilder sb = new StringBuilder("Developer{");
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
         sb.append(", phones=").append(phones);
@@ -75,7 +75,7 @@ public class Person {
         return sb.toString();
     }
 
-    public static PersonBuilder builder() {
-        return new PersonBuilder();
+    public static DeveloperBuilder builder() {
+        return new DeveloperBuilder();
     }
 }

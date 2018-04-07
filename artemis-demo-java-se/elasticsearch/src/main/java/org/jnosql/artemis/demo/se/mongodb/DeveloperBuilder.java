@@ -18,7 +18,7 @@ package org.jnosql.artemis.demo.se.mongodb;
 import java.util.List;
 
 
-public class PersonBuilder {
+public class DeveloperBuilder {
 
     private long id;
 
@@ -28,28 +28,28 @@ public class PersonBuilder {
 
     private Address address;
 
-    public PersonBuilder withId(long id) {
+    public DeveloperBuilder withId(long id) {
         this.id = id;
         return this;
     }
 
-    public PersonBuilder withName(String name) {
+    public DeveloperBuilder withName(String name) {
         this.name = name;
         return this;
     }
 
 
-    public PersonBuilder withPhones(List<String> phones) {
+    public DeveloperBuilder withPhones(List<String> phones) {
         this.phones = phones;
         return this;
     }
 
-    public PersonBuilder withAddress(Address address) {
+    public DeveloperBuilder withAddress(Address address) {
         this.address = address;
         return this;
     }
 
-    public Person build() {
-        return new Person(id, name, phones, address);
+    public Developer build() {
+        return new Developer(id, name, phones, address);
     }
 }

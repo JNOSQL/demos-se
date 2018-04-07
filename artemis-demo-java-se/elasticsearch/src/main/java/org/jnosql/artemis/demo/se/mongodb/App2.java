@@ -34,17 +34,17 @@ public class App2 {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
-            Person person = Person.builder().
+            Developer developer = Developer.builder().
                     withPhones(Arrays.asList("234", "432"))
                     .withName("Name")
                     .withId(id)
                     .build();
 
-            PersonRepository repository = container.select(PersonRepository.class)
+            DeveloperRepository repository = container.select(DeveloperRepository.class)
                     .select(DatabaseQualifier.ofDocument()).get();
-            repository.save(person);
+            repository.save(developer);
 
-            List<Person> people = repository.findByName("Name");
+            List<Developer> people = repository.findByName("Name");
             System.out.println("Entity found: " + people);
             repository.findByPhones("234").forEach(System.out::println);
 

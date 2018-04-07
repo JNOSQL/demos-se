@@ -21,10 +21,10 @@ import org.jnosql.artemis.Repository;
 import java.util.List;
 import java.util.stream.Stream;
 
-public interface PersonRepository extends Repository<Person, Long> {
+public interface DeveloperRepository extends Repository<Developer, Long> {
 
 
-    List<Person> findByName(String name);
+    List<Developer> findByName(String name);
 
-    Stream<Person> findByPhones(String phone);
+    Stream<Developer> findByPhones(String phone);
 }

@@ -35,7 +35,7 @@ public class App3 {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             Random random = new Random();
             long id = random.nextLong();
-            Person person = Person.builder().
+            Developer developer = Developer.builder().
                     withPhones(Arrays.asList("234", "432"))
                     .withName("Name")
                     .withId(id)
@@ -43,13 +43,13 @@ public class App3 {
                     .build();
 
             DocumentTemplate repository = container.select(DocumentTemplate.class).get();
-            Person saved = repository.insert(person);
-            System.out.println("Person saved" + saved);
+            Developer saved = repository.insert(developer);
+            System.out.println("Developer saved" + saved);
 
-            DocumentQuery query = select().from("Person")
+            DocumentQuery query = select().from("Developer")
                     .where("_id").eq(id).build();
 
-            List<Person> people = repository.select(query);
+            List<Developer> people = repository.select(query);
             System.out.println("Entity found: " + people);
 
         }

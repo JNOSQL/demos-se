@@ -36,20 +36,20 @@ public class App {
         Long id = random.nextLong();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
-            Person person = Person.builder().
+            Developer developer = Developer.builder().
                     withPhones(Arrays.asList("234", "432"))
                     .withName("Name")
                     .withId(id)
                     .build();
             DocumentTemplate documentTemplate = container.select(DocumentTemplate.class).get();
-            Person saved = documentTemplate.insert(person);
-            System.out.println("Person saved" + saved);
+            Developer saved = documentTemplate.insert(developer);
+            System.out.println("Developer saved" + saved);
 
 
-            DocumentQuery query = select().from("Person")
+            DocumentQuery query = select().from("Developer")
                     .where("_id").eq(id).build();
 
-            Optional<Person> personOptional = documentTemplate.singleResult(query);
+            Optional<Developer> personOptional = documentTemplate.singleResult(query);
             System.out.println("Entity found: " + personOptional);
 
         }
