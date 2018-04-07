@@ -36,10 +36,16 @@ public class App {
         Long id = random.nextLong();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
+            Address address = Address.builder()
+                    .withCity("Salvador")
+                    .withStreet("Rua Engenheiro Jose")
+                    .withNumber(10).build();
+
             Developer developer = Developer.builder().
-                    withPhones(Arrays.asList("234", "432"))
+                    withPhones(Arrays.asList("85 85 343435684", "55 11 123448684"))
                     .withName("Name")
                     .withId(id)
+                    .withAddress(address)
                     .build();
             DocumentTemplate documentTemplate = container.select(DocumentTemplate.class).get();
             Developer saved = documentTemplate.insert(developer);
