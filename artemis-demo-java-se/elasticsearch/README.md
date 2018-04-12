@@ -1,6 +1,6 @@
 # elasticsearch-demo
 
-A JNoSQL Atemis project with Java SE using Document API with MongoDB as driver implementation.
+A JNoSQL Atemis project with Java SE using Document API with Elastic Search as driver implementation.
 
 ![Elasticsearch Project](https://jnosql.github.io/img/logos/elastic.svg)
 
