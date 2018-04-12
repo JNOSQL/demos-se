@@ -16,6 +16,7 @@ package org.jnosql.artemis.demo.se.graph;
 
 import org.apache.tinkerpop.gremlin.neo4j.structure.Neo4jGraph;
 import org.apache.tinkerpop.gremlin.structure.Graph;
+import org.jnosql.artemis.graph.GraphTraversalSourceSupplier;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -25,8 +26,6 @@ import java.io.File;
 
 @ApplicationScoped
 public class GraphProducer {
-
-    private static final String DATA_DIR = "./target/jnosql-graph";
 
     private Graph graph;
 
@@ -41,6 +40,12 @@ public class GraphProducer {
     @ApplicationScoped
     public Graph getGraph() {
         return graph;
+    }
+
+    @Produces
+    @ApplicationScoped
+    public GraphTraversalSourceSupplier getSupplier() {
+        return () -> graph.traversal();
     }
 
     public void close(@Disposes Graph graph) throws Exception {
