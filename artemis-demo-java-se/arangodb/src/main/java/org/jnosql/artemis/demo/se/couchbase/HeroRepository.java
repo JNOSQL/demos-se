@@ -19,7 +19,6 @@ import org.jnosql.artemis.arangodb.document.ArangoDBRepository;
 import org.jnosql.artemis.arangodb.document.Param;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 public interface HeroRepository extends ArangoDBRepository<Hero, String> {
 

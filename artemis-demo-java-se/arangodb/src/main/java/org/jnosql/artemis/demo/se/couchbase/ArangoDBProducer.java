@@ -23,7 +23,6 @@ import org.jnosql.diana.arangodb.document.ArangoDBDocumentCollectionManager;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Set;
 
 @ApplicationScoped
