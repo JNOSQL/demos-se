@@ -47,6 +47,7 @@ public class App {
                     .withId(id)
                     .withAddress(address)
                     .build();
+
             DocumentTemplate documentTemplate = container.select(DocumentTemplate.class).get();
             Developer saved = documentTemplate.insert(developer);
             System.out.println("Developer saved" + saved);
