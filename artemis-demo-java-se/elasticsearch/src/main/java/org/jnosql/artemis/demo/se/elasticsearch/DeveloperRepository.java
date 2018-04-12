@@ -19,7 +19,6 @@ package org.jnosql.artemis.demo.se.elasticsearch;
 import org.jnosql.artemis.Repository;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 public interface DeveloperRepository extends Repository<Developer, Long> {
 
