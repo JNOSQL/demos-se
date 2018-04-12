@@ -13,10 +13,10 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.couchbase;
+package org.jnosql.artemis.demo.se.arangodb;
 
 
-import org.jnosql.artemis.document.DocumentTemplate;
+import org.jnosql.artemis.arangodb.document.ArangoDBTemplate;
 import org.jnosql.diana.api.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;
@@ -26,7 +26,7 @@ import java.util.List;
 
 import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
 
-public class App {
+public class App1 {
 
 
     public static void main(String[] args) {
@@ -35,17 +35,20 @@ public class App {
 
             Hero ironMan = Hero.builder().withRealName("Tony Stark").withName("iron_man")
                     .withAge(34).withPowers(Collections.singleton("rich")).build();
-            DocumentTemplate template = container.select(DocumentTemplate.class).get();
 
+            ArangoDBTemplate template = container.select(ArangoDBTemplate.class).get();
             template.insert(ironMan);
 
-            DocumentQuery query = select().from("Hero").where("name").eq("iron_man").build();
+            DocumentQuery query = select().from("Hero").where("_key").eq("iron_man").build();
             List<Hero> heroes = template.select(query);
+            List<Hero> aql = template.aql("FOR h IN Hero FILTER  h.name == @id RETURN h", Collections.singletonMap("id", "iron_man"));
             System.out.println(heroes);
+            System.out.println(aql);
+
+
 
         }
     }
-
-    private App() {
+    private App1() {
     }
 }

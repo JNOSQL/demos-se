@@ -13,38 +13,32 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.couchbase;
+package org.jnosql.artemis.demo.se.arangodb;
 
-
-import org.jnosql.artemis.DatabaseQualifier;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
+import java.util.Collections;
 
-public class App4 {
+public class App2 {
+
 
 
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            Villain lock = new Villain();
-            lock.setId("lock");
-            lock.setName("Lock");
+            Hero ironMan = Hero.builder().withRealName("Tony Stark").withName("iron_man")
+                    .withAge(34).withPowers(Collections.singleton("rich")).build();
 
-            Villain doom = new Villain();
-            doom.setId("doom");
-            doom.setName("Dc Doom");
+            HeroRepository repository = container.select(HeroRepository.class).get();
+            repository.save(ironMan);
 
-            VillainRepository repository = container.select(VillainRepository.class, DatabaseQualifier.ofKeyValue()).get();
-
-            repository.save(lock);
-            repository.save(doom);
-            System.out.println(repository.findById("lock"));
-            System.out.println(repository.findById("doom"));
+            System.out.println(repository.findByName("iron_man"));
+            System.out.println(repository.find("Tony Stark"));
 
         }
     }
 
-    private App4() {
+    private App2() {
     }
 }

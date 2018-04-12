@@ -13,32 +13,39 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.couchbase;
+package org.jnosql.artemis.demo.se.arangodb;
 
+
+import org.jnosql.artemis.document.DocumentTemplate;
+import org.jnosql.diana.api.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
+import java.util.List;
 
-public class App2 {
+import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
 
+public class App {
 
 
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+
             Hero ironMan = Hero.builder().withRealName("Tony Stark").withName("iron_man")
                     .withAge(34).withPowers(Collections.singleton("rich")).build();
+            DocumentTemplate template = container.select(DocumentTemplate.class).get();
 
-            HeroRepository repository = container.select(HeroRepository.class).get();
-            repository.save(ironMan);
+            template.insert(ironMan);
 
-            System.out.println(repository.findByName("iron_man"));
-            System.out.println(repository.find("Tony Stark"));
+            DocumentQuery query = select().from("Hero").where("name").eq("iron_man").build();
+            List<Hero> heroes = template.select(query);
+            System.out.println(heroes);
 
         }
     }
 
-    private App2() {
+    private App() {
     }
 }

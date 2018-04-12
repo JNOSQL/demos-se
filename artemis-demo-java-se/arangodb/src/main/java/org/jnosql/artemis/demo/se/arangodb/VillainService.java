@@ -12,19 +12,28 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.couchbase;
+package org.jnosql.artemis.demo.se.arangodb;
 
-import org.jnosql.artemis.arangodb.document.AQL;
-import org.jnosql.artemis.arangodb.document.ArangoDBRepository;
-import org.jnosql.artemis.arangodb.document.Param;
+import org.jnosql.artemis.key.KeyValueTemplate;
 
-import java.util.List;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import java.util.Optional;
 
-public interface HeroRepository extends ArangoDBRepository<Hero, String> {
+@ApplicationScoped
+public class VillainService {
 
-    List<Hero> findByName(String name);
 
-    @AQL("select * from heroes where realName= @status")
-    List<Hero> find(@Param("realName") String realName);
+    @Inject
+    private KeyValueTemplate template;
+
+
+    public void put(Villain villain) {
+        template.put(villain);
+    }
+
+    public Optional<Villain> get(String name) {
+        return template.get(name, Villain.class);
+    }
 
 }

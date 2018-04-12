@@ -13,13 +13,15 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.couchbase;
+package org.jnosql.artemis.demo.se.arangodb;
 
+
+import org.jnosql.artemis.DatabaseQualifier;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 
-public class App3 {
+public class App4 {
 
 
     public static void main(String[] args) {
@@ -29,13 +31,20 @@ public class App3 {
             lock.setId("lock");
             lock.setName("Lock");
 
-            VillainService service = container.select(VillainService.class).get();
-            service.put(lock);
-            System.out.println(service.get("lock"));
+            Villain doom = new Villain();
+            doom.setId("doom");
+            doom.setName("Dc Doom");
+
+            VillainRepository repository = container.select(VillainRepository.class, DatabaseQualifier.ofKeyValue()).get();
+
+            repository.save(lock);
+            repository.save(doom);
+            System.out.println(repository.findById("lock"));
+            System.out.println(repository.findById("doom"));
 
         }
     }
 
-    private App3() {
+    private App4() {
     }
 }
