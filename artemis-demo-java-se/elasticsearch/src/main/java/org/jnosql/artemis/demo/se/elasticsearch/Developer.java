@@ -21,6 +21,9 @@ import org.jnosql.artemis.Entity;
 import org.jnosql.artemis.Id;
 
 import java.util.List;
+import java.util.Objects;
+
+import static java.util.Collections.unmodifiableList;
 
 
 @Entity("developer")
@@ -36,6 +39,9 @@ public class Developer {
     private List<String> phones;
 
     @Column
+    private List<String> languages;
+
+    @Column
     private Address address;
 
 
@@ -49,20 +55,38 @@ public class Developer {
 
 
     public List<String> getPhones() {
-        return phones;
+        return unmodifiableList(phones);
     }
 
-
-    public Developer() {
+    public List<String> getLanguages() {
+        return unmodifiableList(languages);
     }
 
-    Developer(long id, String name, List<String> phones, Address address) {
+    Developer() {
+    }
+
+    Developer(long id, String name, List<String> phones, List<String> languages,
+              Address address) {
         this.id = id;
         this.name = name;
         this.phones = phones;
         this.address = address;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Developer)) {
+            return false;
+        }
+        Developer developer = (Developer) o;
+        return Objects.equals(id, developer.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 
     @Override
     public String toString() {
@@ -70,6 +94,7 @@ public class Developer {
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
         sb.append(", phones=").append(phones);
+        sb.append(", languages=").append(languages);
         sb.append(", address=").append(address);
         sb.append('}');
         return sb.toString();

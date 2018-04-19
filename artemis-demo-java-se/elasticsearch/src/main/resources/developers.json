@@ -26,6 +26,10 @@
         "name": {
           "type": "keyword"
         },
+        "languages": {
+          "type": "text",
+          "analyzer": "whitespace_analyzer"
+        },
         "phones": {
           "type": "keyword"
         },
