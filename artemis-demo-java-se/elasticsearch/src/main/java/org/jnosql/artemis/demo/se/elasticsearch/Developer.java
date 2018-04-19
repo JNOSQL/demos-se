@@ -70,6 +70,7 @@ public class Developer {
         this.id = id;
         this.name = name;
         this.phones = phones;
+        this.languages = languages;
         this.address = address;
     }
 
