@@ -12,10 +12,6 @@
             "lowercase",
             "asciifolding"
           ]
-        },
-        "lowercase_analyzer": {
-          "tokenizer": "keyword",
-          "type": "custom"
         }
       }
     }
