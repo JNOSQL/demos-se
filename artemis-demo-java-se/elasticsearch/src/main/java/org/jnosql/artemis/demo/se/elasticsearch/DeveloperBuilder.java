@@ -52,7 +52,7 @@ public class DeveloperBuilder {
         return this;
     }
 
-    public DeveloperBuilder addSkill(String language) {
+    public DeveloperBuilder withLanguage(String language) {
        this.languages.add(language);
     }
 

@@ -45,6 +45,8 @@ public class App3 {
                     .withName("Maria Lovelace")
                     .withId(id)
                     .withAddress(address)
+                    .withLanguage("Java SE")
+                    .withLanguage("Java EE")
                     .build();
 
             ElasticsearchTemplate template = container.select(ElasticsearchTemplate.class).get();
