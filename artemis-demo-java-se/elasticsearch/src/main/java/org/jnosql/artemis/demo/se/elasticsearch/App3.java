@@ -58,6 +58,9 @@ public class App3 {
             List<Developer> people = template.search(query);
             System.out.println("Entity found: " + people);
 
+            QueryBuilders.termQuery("languages", "java");
+            template.search(query);
+            System.out.println("Entity found: " + people);
         }
     }
 
