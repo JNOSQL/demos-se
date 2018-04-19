@@ -25,11 +25,14 @@ import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
+import static org.elasticsearch.index.query.QueryBuilders.termQuery;
 
 public class App3 {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             Random random = new Random();
@@ -51,16 +54,18 @@ public class App3 {
 
             ElasticsearchTemplate template = container.select(ElasticsearchTemplate.class).get();
             Developer saved = template.insert(developer);
-            System.out.println("Developer saved" + saved);
 
-            TermQueryBuilder query = QueryBuilders.termQuery("phones", "85 85 343435684");
+            System.out.println("Developer saved" + saved);
+            TimeUnit.SECONDS.sleep(2L);
+
+            TermQueryBuilder query = termQuery("phones", "85 85 343435684");
 
             List<Developer> people = template.search(query);
-            System.out.println("Entity found: " + people);
+            System.out.println("Entity found from phone: " + people);
 
-            QueryBuilders.termQuery("languages", "java");
-            template.search(query);
-            System.out.println("Entity found: " + people);
+
+            people = template.search(termQuery("languages", "java"));
+            System.out.println("Entity found from languages: " + people);
         }
     }
 
