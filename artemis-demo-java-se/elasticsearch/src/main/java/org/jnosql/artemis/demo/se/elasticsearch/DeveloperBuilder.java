@@ -15,6 +15,7 @@
 
 package org.jnosql.artemis.demo.se.elasticsearch;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -27,6 +28,8 @@ public class DeveloperBuilder {
     private List<String> phones;
 
     private Address address;
+
+    private List<String> languages = new ArrayList<>();
 
     public DeveloperBuilder withId(long id) {
         this.id = id;
@@ -49,7 +52,13 @@ public class DeveloperBuilder {
         return this;
     }
 
+    public DeveloperBuilder addSkill(String language) {
+       this.languages.add(language);
+    }
+
+
+
     public Developer build() {
-        return new Developer(id, name, phones, address);
+        return new Developer(id, name, phones, languages, address);
     }
 }
