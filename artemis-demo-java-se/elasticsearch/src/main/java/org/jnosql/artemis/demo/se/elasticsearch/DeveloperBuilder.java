@@ -54,6 +54,7 @@ public class DeveloperBuilder {
 
     public DeveloperBuilder withLanguage(String language) {
        this.languages.add(language);
+       return this;
     }
 
 
