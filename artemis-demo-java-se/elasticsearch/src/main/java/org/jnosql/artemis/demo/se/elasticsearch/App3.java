@@ -27,7 +27,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import static org.elasticsearch.index.query.QueryBuilders.termQuery;
 
 public class App3 {
 
@@ -58,13 +57,13 @@ public class App3 {
             System.out.println("Developer saved" + saved);
             TimeUnit.SECONDS.sleep(2L);
 
-            TermQueryBuilder query = termQuery("phones", "85 85 343435684");
+            TermQueryBuilder query = QueryBuilders.termQuery("phones", "85 85 343435684");
 
             List<Developer> people = template.search(query);
             System.out.println("Entity found from phone: " + people);
 
 
-            people = template.search(termQuery("languages", "java"));
+            people = template.search(QueryBuilders.termQuery("languages", "java"));
             System.out.println("Entity found from languages: " + people);
         }
     }
