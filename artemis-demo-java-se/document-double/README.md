@@ -7,7 +7,7 @@ A JNoSQL Atemis project with Java SE using Document API with MongoDB and Couchba
 
 **Mongodb**: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
 
-![Couchbase Project](http://www.jnosql.org/img/logos/couchbase.png)
+![Couchbase Project](http://www.jnosql.org/img/logos/couchbase.svg)
 
 
 **Couchbase**: Couchbase Server, originally known as Membase, is an open-source, distributed multi-model NoSQL document-oriented database software package that is optimized for interactive applications.
