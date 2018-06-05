@@ -38,13 +38,13 @@ public class App {
     public static void main(String[] args) {
 
         try(SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            ColumnTemplate columnTemplate =  container.select(CassandraTemplate.class).get();
-            Person saved = columnTemplate.insert(PERSON);
+            ColumnTemplate template =  container.select(CassandraTemplate.class).get();
+            Person saved = template.insert(PERSON);
             System.out.println("Person saved" + saved);
 
             ColumnQuery query = select().from("Person").where("id").eq(1L).build();
 
-            Optional<Person> person = columnTemplate.singleResult(query);
+            Optional<Person> person = template.singleResult(query);
             System.out.println("Entity found: " + person);
 
         }
