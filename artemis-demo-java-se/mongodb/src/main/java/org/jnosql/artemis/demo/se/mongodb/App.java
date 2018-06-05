@@ -41,15 +41,15 @@ public class App {
                     .withName("Name")
                     .withId(id)
                     .withIgnore("Just Ignore").build();
-            DocumentTemplate documentTemplate = container.select(DocumentTemplate.class).get();
-            Person saved = documentTemplate.insert(person);
+            DocumentTemplate template = container.select(DocumentTemplate.class).get();
+            Person saved = template.insert(person);
             System.out.println("Person saved" + saved);
 
 
             DocumentQuery query = select().from("Person")
                     .where("_id").eq(id).build();
 
-            Optional<Person> personOptional = documentTemplate.singleResult(query);
+            Optional<Person> personOptional = template.singleResult(query);
             System.out.println("Entity found: " + personOptional);
 
         }
