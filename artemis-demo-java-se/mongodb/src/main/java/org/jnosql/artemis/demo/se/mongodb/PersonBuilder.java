@@ -26,9 +26,9 @@ public class PersonBuilder {
 
     private List<String> phones;
 
-    private String ignore;
-
     private Address address;
+
+    private Job job;
 
     public PersonBuilder withId(long id) {
         this.id = id;
@@ -46,17 +46,17 @@ public class PersonBuilder {
         return this;
     }
 
-    public PersonBuilder withIgnore(String ignore) {
-        this.ignore = ignore;
-        return this;
-    }
-
     public PersonBuilder withAddress(Address address) {
         this.address = address;
         return this;
     }
 
+    public PersonBuilder withJob(Job job) {
+        this.job = job;
+        return this;
+    }
+
     public Person build() {
-        return new Person(id, name, phones, ignore, address);
+        return new Person(id, name, phones, address, job);
     }
 }

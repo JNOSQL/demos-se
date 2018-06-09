@@ -12,48 +12,35 @@
  *
  * Otavio Santana
  */
-
 package org.jnosql.artemis.demo.se.mongodb;
-
 
 import org.jnosql.artemis.Column;
 import org.jnosql.artemis.Embeddable;
-import org.jnosql.artemis.Subentity;
 
 import java.util.Objects;
 
-@Subentity
-public class Address {
+@Embeddable
+public class Job {
 
     @Column
-    private String street;
-
+    private double salary;
     @Column
-    private String city;
+    private String ocupation;
 
-
-    Address(String street, String city) {
-        this.street = street;
-        this.city = city;
+    Job(double salary, String ocupation) {
+        this.salary = salary;
+        this.ocupation = ocupation;
     }
 
-    Address() {
+    public Job() {
     }
 
-    public String getStreet() {
-        return street;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
+    public String getOcupation() {
+        return ocupation;
     }
 
     @Override
@@ -61,17 +48,25 @@ public class Address {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Address)) {
+        if (!(o instanceof Job)) {
             return false;
         }
-        Address address = (Address) o;
-        return Objects.equals(street, address.street) &&
-                Objects.equals(city, address.city);
+        Job job = (Job) o;
+        return Double.compare(job.salary, salary) == 0 &&
+                Objects.equals(ocupation, job.ocupation);
     }
 
     @Override
     public int hashCode() {
+        return Objects.hash(salary, ocupation);
+    }
 
-        return Objects.hash(street, city);
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Job{");
+        sb.append("salary=").append(salary);
+        sb.append(", ocupation='").append(ocupation).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

@@ -39,8 +39,7 @@ public class App3 {
                     withPhones(Arrays.asList("234", "432"))
                     .withName("Name")
                     .withId(id)
-                    .withIgnore("Just Ignore")
-                    .withAddress(new Address("Engenheiro Jose Anasoh", "Salvador", 53))
+                    .withAddress(new Address("Engenheiro Jose Anasoh", "Salvador"))
                     .build();
 
             DocumentTemplate repository = container.select(DocumentTemplate.class).get();
