@@ -46,7 +46,7 @@ public class App2 {
 
             List<Person> people = repository.findByName("Name");
             System.out.println("Entity found: " + people);
-            repository.findByPhones("234").forEach(System.out::println);
+            //repository.findByPhones("234").forEach(System.out::println);
 
         }
     }
