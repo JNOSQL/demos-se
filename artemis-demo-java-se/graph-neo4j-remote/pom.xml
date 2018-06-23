@@ -27,7 +27,6 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tinkerpop.version>3.3.0</tinkerpop.version>
     </properties>
 
     <dependencies>

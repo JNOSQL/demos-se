@@ -27,7 +27,6 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tinkerpop.version>3.3.0</tinkerpop.version>
     </properties>
 
     <dependencies>
@@ -35,7 +34,7 @@
         <dependency>
             <groupId>org.jnosql.artemis</groupId>
             <artifactId>graph-extension</artifactId>
-            <version>0.0.6-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tinkerpop</groupId>
