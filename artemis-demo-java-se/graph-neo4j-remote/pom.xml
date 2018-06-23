@@ -32,7 +32,7 @@
     <dependencies>
         <dependency>
             <groupId>org.jnosql.artemis</groupId>
-            <artifactId>graph-extension</artifactId>
+            <artifactId>artemis-graph</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
