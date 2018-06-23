@@ -17,7 +17,6 @@ package org.jnosql.artemis.demo.se.mongodb;
 
 
 import org.jnosql.artemis.Column;
-import org.jnosql.artemis.Embeddable;
 import org.jnosql.artemis.Subentity;
 
 import java.util.Objects;
