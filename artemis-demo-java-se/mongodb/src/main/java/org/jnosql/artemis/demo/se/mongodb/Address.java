@@ -17,11 +17,11 @@ package org.jnosql.artemis.demo.se.mongodb;
 
 
 import org.jnosql.artemis.Column;
-import org.jnosql.artemis.Subentity;
+import org.jnosql.artemis.Entity;
 
 import java.util.Objects;
 
-@Subentity
+@Entity
 public class Address {
 
     @Column
