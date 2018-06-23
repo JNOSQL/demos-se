@@ -85,7 +85,8 @@ public final class BookApp {
             System.out.println("The software categories: " + softwareCategories);
             System.out.println("The software books: " + softwareBooks);
             System.out.println("The software and NoSQL books: " + sofwareNoSQLBooks);
-
+            List<Book> result = graph.query("g.V().hasLabel('Book')");
+            System.out.printf("from book query: " + result);
 
         }
     }
