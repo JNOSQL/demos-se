@@ -34,11 +34,12 @@ public class App {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            KeyValueTemplate keyValueTemplate = container.select(KeyValueTemplate.class).get();
-            User userSaved = keyValueTemplate.put(USER);
+            KeyValueTemplate template = container.select(KeyValueTemplate.class).get();
+            User userSaved = template.put(USER);
             System.out.println("User saved: " + userSaved);
-            Optional<User> user = keyValueTemplate.get("username", User.class);
+            Optional<User> user = template.get("username", User.class);
             System.out.println("Entity found: " + user);
+
         }
     }
 
