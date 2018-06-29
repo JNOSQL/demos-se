@@ -63,15 +63,16 @@
 
     <modules>
         <module>arangodb</module>
-        <module>mongodb</module>
-        <module>elasticsearch</module>
+        <module>cassandra</module>
         <module>couchbase</module>
         <module>document-double</module>
-        <module>cassandra</module>
-        <module>hazelcast</module>
-        <module>graph-titan</module>
+        <module>elasticsearch</module>
         <module>graph-janus</module>
         <module>graph-neo4j</module>
         <module>graph-neo4j-remote</module>
+        <module>graph-titan</module>
+        <module>hazelcast</module>
+        <module>mongodb</module>
+        <module>ravendb</module>
     </modules>
 </project>
