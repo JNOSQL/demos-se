@@ -1,19 +1,16 @@
-# mongodb-demo
+# ravendb-demo
 
-A JNoSQL Atemis project with Java SE using Document API with MongoDB as driver implementation.
+A JNoSQL Atemis project with Java SE using Document API with RavenDB as driver implementation.
 
-![MongoDB Project](http://www.jnosql.org/img/logos/mongodb.png)
-
-
-**Mongodb**: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
+![RavenDB Project](https://ravendb.net/Content/images/logo/ravendb_logo_small.jpg)
 
 
-To run this project a MongoDB instance is required, so you can use either a local instalation or using Docker.
+**RavenDB**: The Original Fully Transactional Open Source NoSQL Document Database. Easy to use, rapidly scalable, offers high availability, and takes your Business into the Next Generation of Data Performance.
 
 
-## Manual instalation
 
-Follow the instructions in: https://docs.mongodb.com/manual/installation/
+To run this project a RavenDB instance is required, so you can use either a local instalation or using Docker.
+
 
 
 ## Using Docker
@@ -22,12 +19,14 @@ Follow the instructions in: https://docs.mongodb.com/manual/installation/
 
 
 1. Install docker: https://www.docker.com/
-1. https://store.docker.com/images/mongo
+1. https://hub.docker.com/r/ravendb/ravendb/
 1. Run docker command
-1. Run MondoDB: verify MongoDB image name with the command `docker images`, it can be mongodb or mongo, and then execute this command `docker run -d --name mongodb-instance -p 27017:27017 mongodb`
+1. `sudo docker run -d -p 8080:8080 -p 38888:38888 ravendb/ravendb`
+1. Go to: http://localhost:8080/
+1. Create a database `database`
 
 
 
 ## Run the code
 
-With a MongoDB instance running go to the class **App** and have fun.
+With a RavenDB instance running go to the class **App** and have fun.
