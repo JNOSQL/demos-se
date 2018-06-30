@@ -13,30 +13,32 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.mongodb;
+package org.jnosql.artemis.demo.se.ravendb;
 
 
+import org.jnosql.diana.api.Settings;
 import org.jnosql.diana.api.document.DocumentCollectionManager;
 import org.jnosql.diana.api.document.DocumentCollectionManagerFactory;
-import org.jnosql.diana.mongodb.document.MongoDBDocumentConfiguration;
+import org.jnosql.diana.ravendb.document.RavenDBDocumentConfiguration;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 
 @ApplicationScoped
-public class MongoDBProducer {
+public class DocumentCollectionManagerProducer {
 
     private static final String COLLECTION = "developers";
 
-    private MongoDBDocumentConfiguration configuration;
+    private RavenDBDocumentConfiguration configuration;
 
     private DocumentCollectionManagerFactory managerFactory;
 
     @PostConstruct
     public void init() {
-        configuration = new MongoDBDocumentConfiguration();
-        managerFactory = configuration.get();
+        configuration = new RavenDBDocumentConfiguration();
+        Settings settings = Settings.builder().put("ravendb-server-host-1", "http://localhost:8080").build();
+        managerFactory = configuration.get(settings);
     }
 
 

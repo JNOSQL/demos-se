@@ -13,16 +13,18 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.mongodb;
+package org.jnosql.artemis.demo.se.ravendb;
 
 import java.util.List;
 
 
 public class PersonBuilder {
 
-    private long id;
+    private String id;
 
     private String name;
+
+    private Integer age;
 
     private List<String> phones;
 
@@ -30,7 +32,7 @@ public class PersonBuilder {
 
     private Job job;
 
-    public PersonBuilder withId(long id) {
+    public PersonBuilder withId(String id) {
         this.id = id;
         return this;
     }
@@ -40,6 +42,10 @@ public class PersonBuilder {
         return this;
     }
 
+    public PersonBuilder withAge(Integer age) {
+        this.age = age;
+        return this;
+    }
 
     public PersonBuilder withPhones(List<String> phones) {
         this.phones = phones;
@@ -56,7 +62,8 @@ public class PersonBuilder {
         return this;
     }
 
+
     public Person build() {
-        return new Person(id, name, phones, address, job);
+        return new Person(id, name, phones, age, address, job);
     }
 }

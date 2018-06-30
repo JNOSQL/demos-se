@@ -13,51 +13,42 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.mongodb;
+package org.jnosql.artemis.demo.se.ravendb;
 
 
-import org.jnosql.artemis.document.DocumentTemplate;
-import org.jnosql.diana.api.document.DocumentQuery;
+import org.jnosql.artemis.DatabaseQualifier;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
-import java.util.Optional;
+import java.util.List;
 import java.util.Random;
 
-import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
-
-public class App {
+public class App2 {
 
 
     public static void main(String[] args) {
 
         Random random = new Random();
-        Long id = random.nextLong();
+
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
-            Address address = new Address("Av nove de julho", "São Paulo");
-            Job job = new Job(12.12, "Developer");
             Person person = Person.builder().
                     withPhones(Arrays.asList("234", "432"))
                     .withName("Name")
-                    .withAddress(address)
-                    .withJob(job)
-                    .withId(id).build();
-            DocumentTemplate template = container.select(DocumentTemplate.class).get();
-            Person saved = template.insert(person);
-            System.out.println("Person saved" + saved);
+                    .build();
 
+            PersonRepository repository = container.select(PersonRepository.class)
+                    .select(DatabaseQualifier.ofDocument()).get();
+            repository.save(person);
 
-            DocumentQuery query = select().from("Person")
-                    .where("_id").eq(id).build();
-
-            Optional<Person> personOptional = template.singleResult(query);
-            System.out.println("Entity found: " + personOptional);
+            List<Person> people = repository.findByName("Name");
+            System.out.println("Entity found: " + people);
+            //repository.findByPhones("234").forEach(System.out::println);
 
         }
     }
 
-    private App() {
+    private App2() {
     }
 }

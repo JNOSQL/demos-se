@@ -21,7 +21,7 @@ To run this project a RavenDB instance is required, so you can use either a loca
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/r/ravendb/ravendb/
 1. Run docker command
-1. `sudo docker run -d -p 8080:8080 -p 38888:38888 ravendb/ravendb`
+1. `docker run -d -p 8080:8080 -p 38888:38888 ravendb/ravendb`
 1. Go to: http://localhost:8080/
 1. Create a database `database`
 

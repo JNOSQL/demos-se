@@ -13,10 +13,11 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.mongodb;
+package org.jnosql.artemis.demo.se.ravendb;
 
 
-import org.jnosql.artemis.DatabaseQualifier;
+import org.jnosql.artemis.document.DocumentTemplate;
+import org.jnosql.diana.api.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
@@ -24,33 +25,33 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class App2 {
+import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
+
+public class App3 {
 
 
     public static void main(String[] args) {
 
-        Random random = new Random();
-        Long id = random.nextLong();
-
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-
             Person person = Person.builder().
                     withPhones(Arrays.asList("234", "432"))
                     .withName("Name")
-                    .withId(id)
+                    .withAddress(new Address("Engenheiro Jose Anasoh", "Salvador"))
                     .build();
 
-            PersonRepository repository = container.select(PersonRepository.class)
-                    .select(DatabaseQualifier.ofDocument()).get();
-            repository.save(person);
+            DocumentTemplate repository = container.select(DocumentTemplate.class).get();
+            Person saved = repository.insert(person);
+            System.out.println("Person saved" + saved);
 
-            List<Person> people = repository.findByName("Name");
+            DocumentQuery query = select().from("Person")
+                    .where("_id").eq("").build();
+
+            List<Person> people = repository.select(query);
             System.out.println("Entity found: " + people);
-            //repository.findByPhones("234").forEach(System.out::println);
 
         }
     }
 
-    private App2() {
+    private App3() {
     }
 }

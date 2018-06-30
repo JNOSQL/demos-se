@@ -13,7 +13,7 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.mongodb;
+package org.jnosql.artemis.demo.se.ravendb;
 
 
 import org.jnosql.artemis.Column;
@@ -27,10 +27,13 @@ import java.util.List;
 public class Person {
 
     @Id
-    private Long id;
+    private String id;
 
     @Column
     private String name;
+
+    @Column
+    private Integer age;
 
     @Column
     private List<String> phones;
@@ -41,7 +44,7 @@ public class Person {
     @Column
     private Job job;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -58,12 +61,13 @@ public class Person {
     public Person() {
     }
 
-    Person(long id, String name, List<String> phones, Address address, Job job) {
+    Person(String id, String name, List<String> phones, Integer age, Address address, Job job) {
         this.id = id;
         this.name = name;
         this.phones = phones;
         this.address = address;
         this.job = job;
+        this.age = age;
     }
 
     @Override
