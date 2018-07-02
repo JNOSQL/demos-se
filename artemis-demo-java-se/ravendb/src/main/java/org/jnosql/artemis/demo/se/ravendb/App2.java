@@ -22,29 +22,32 @@ import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class App2 {
 
 
     public static void main(String[] args) {
 
-        Random random = new Random();
-
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
+
+
+            Address address = new Address("10880 Malibu Point", "Malibu");
+            Job job = new Job(1_000, "Rich");
             Person person = Person.builder().
-                    withPhones(Arrays.asList("234", "432"))
-                    .withName("Name")
+                    withPhones(Arrays.asList("9999999", "55555"))
+                    .withName("Tony stark")
+                    .withAddress(address)
+                    .withAge(50)
+                    .withJob(job)
                     .build();
 
             PersonRepository repository = container.select(PersonRepository.class)
                     .select(DatabaseQualifier.ofDocument()).get();
             repository.save(person);
 
-            List<Person> people = repository.findByName("Name");
+            List<Person> people = repository.findByName("Tony stark");
             System.out.println("Entity found: " + people);
-            //repository.findByPhones("234").forEach(System.out::println);
 
         }
     }

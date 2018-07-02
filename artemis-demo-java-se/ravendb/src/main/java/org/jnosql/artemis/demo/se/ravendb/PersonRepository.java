@@ -16,6 +16,8 @@
 package org.jnosql.artemis.demo.se.ravendb;
 
 
+import org.jnosql.artemis.Param;
+import org.jnosql.artemis.Query;
 import org.jnosql.artemis.Repository;
 
 import java.util.List;
@@ -24,4 +26,7 @@ import java.util.stream.Stream;
 public interface PersonRepository extends Repository<Person, Long> {
 
     List<Person> findByName(String name);
+
+    @Query("select * from Person where age > @age")
+    List<Person> findByAge(@Param("age") Integer age);
 }
