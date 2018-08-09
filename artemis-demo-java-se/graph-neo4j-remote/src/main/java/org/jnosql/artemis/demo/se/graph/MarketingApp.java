@@ -70,6 +70,8 @@ public final class MarketingApp {
             graph.edge(natalia, "knows", rose);
             graph.edge(banner, "knows", rose);
 
+            thinkerpop.tx().commit();
+
             List<Person> developers = graph.getTraversalVertex()
                     .has("occupation", "Developer")
                     .<Person>stream().collect(toList());
