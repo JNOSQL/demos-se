@@ -74,5 +74,6 @@
         <module>hazelcast</module>
         <module>mongodb</module>
         <module>ravendb</module>
+        <module>redis</module>
     </modules>
 </project>
