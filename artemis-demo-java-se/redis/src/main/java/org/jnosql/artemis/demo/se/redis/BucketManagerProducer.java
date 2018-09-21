@@ -25,7 +25,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 
 @ApplicationScoped
-public class HazelCastProducer {
+public class BucketManagerProducer {
 
     private static final String BUCKET = "developers";
 

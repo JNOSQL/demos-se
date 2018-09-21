@@ -47,7 +47,7 @@ public class User implements Serializable {
         return phones;
     }
 
-    User() {
+    public User() {
     }
 
     User(String userName, String name, List<String> phones) {
