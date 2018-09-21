@@ -13,17 +13,17 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.hazelcast;
+package org.jnosql.artemis.demo.se.redis;
 
 
-import org.jnosql.artemis.DatabaseQualifier;
+import org.jnosql.artemis.key.KeyValueTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.Optional;
 
-public class App2 {
+public class App {
 
     private static final User USER = User.builder().
             withPhones(Arrays.asList("234", "432"))
@@ -34,15 +34,15 @@ public class App2 {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            KeyValueTemplate template = container.select(KeyValueTemplate.class).get();
+            User userSaved = template.put(USER);
+            System.out.println("User saved: " + userSaved);
+            Optional<User> user = template.get("username", User.class);
+            System.out.println("Entity found: " + user);
 
-            UserRepository repository = container.select(UserRepository.class, DatabaseQualifier.ofKeyValue()).get();
-            repository.save(USER);
-            Optional<User> user = repository.findById("username");
-            System.out.println("User found: " + user);
-            System.out.println("The user found: " + repository.existsById("username"));
         }
     }
 
-    private App2() {
+    private App() {
     }
 }

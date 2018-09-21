@@ -13,12 +13,12 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.hazelcast;
+package org.jnosql.artemis.demo.se.redis;
 
 
 import org.jnosql.diana.api.key.BucketManager;
-import org.jnosql.diana.hazelcast.key.HazelcastBucketManagerFactory;
-import org.jnosql.diana.hazelcast.key.HazelcastKeyValueConfiguration;
+import org.jnosql.diana.redis.key.RedisBucketManagerFactory;
+import org.jnosql.diana.redis.key.RedisConfiguration;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -29,13 +29,13 @@ public class HazelCastProducer {
 
     private static final String BUCKET = "developers";
 
-    private HazelcastKeyValueConfiguration configuration;
+    private RedisConfiguration configuration;
 
-    private HazelcastBucketManagerFactory managerFactory;
+    private RedisBucketManagerFactory managerFactory;
 
     @PostConstruct
     public void init() {
-        configuration = new HazelcastKeyValueConfiguration();
+        configuration = new RedisConfiguration();
         managerFactory = configuration.get();
     }
 

@@ -13,7 +13,7 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.hazelcast;
+package org.jnosql.artemis.demo.se.redis;
 
 
 import org.jnosql.artemis.EntityPostPersit;
@@ -39,10 +39,10 @@ public class UserEvent {
     }
 
     public void preColumn(@Observes KeyValueEntityPrePersist event) {
-        LOGGER.info("Event to pre hazelcast entity" + event.getEntity());
+        LOGGER.info("Event to pre redis entity" + event.getEntity());
     }
 
     public void postColumn(@Observes KeyValueEntityPostPersist event) {
-        LOGGER.info("Event to post hazelcast entity" + event.getEntity());
+        LOGGER.info("Event to post redis entity" + event.getEntity());
     }
 }

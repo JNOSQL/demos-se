@@ -13,7 +13,7 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se.hazelcast;
+package org.jnosql.artemis.demo.se.redis;
 
 import java.util.List;
 
