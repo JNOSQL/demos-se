@@ -16,11 +16,9 @@
 package org.jnosql.artemis.demo.se.cassandra;
 
 
-import com.datastax.driver.core.ConsistencyLevel;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-import java.util.Arrays;
 
 public class App4 {
 
@@ -50,7 +48,6 @@ public class App4 {
                     .add("Spectre").add("Skyfall").add("American Beauty").build());
 
 
-            repository.save(Arrays.asList(matrix, fightClub, americanBeuty), ConsistencyLevel.ONE);
 
             System.out.println("Movies from 1999: " + repository.findByAge(1999));
             System.out.println("Find all: " + repository.findAll());
