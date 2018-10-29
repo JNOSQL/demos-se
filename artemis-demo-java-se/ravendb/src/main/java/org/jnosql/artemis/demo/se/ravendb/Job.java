@@ -15,7 +15,6 @@
 package org.jnosql.artemis.demo.se.ravendb;
 
 import org.jnosql.artemis.Column;
-import org.jnosql.artemis.Embeddable;
 import org.jnosql.artemis.Entity;
 
 import java.util.Objects;

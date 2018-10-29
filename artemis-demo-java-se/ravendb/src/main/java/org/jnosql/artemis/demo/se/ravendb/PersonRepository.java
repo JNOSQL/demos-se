@@ -21,7 +21,6 @@ import org.jnosql.artemis.Query;
 import org.jnosql.artemis.Repository;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 public interface PersonRepository extends Repository<Person, Long> {
 
