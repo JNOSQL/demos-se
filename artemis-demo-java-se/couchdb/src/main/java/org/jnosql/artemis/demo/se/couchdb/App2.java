@@ -16,6 +16,8 @@
 package org.jnosql.artemis.demo.se.couchdb;
 
 
+import org.jnosql.artemis.DatabaseQualifier;
+
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
@@ -30,11 +32,12 @@ public class App2 {
             Hero ironMan = Hero.builder().withRealName("Tony Stark").withName("iron_man")
                     .withAge(34).withPowers(Collections.singleton("rich")).build();
 
-            HeroRepository repository = container.select(HeroRepository.class).get();
+            HeroRepository repository = container.select(HeroRepository.class, DatabaseQualifier.ofDocument()).get();
             repository.save(ironMan);
 
             System.out.println(repository.findByName("iron_man"));
-            System.out.println(repository.findByName("Tony Stark"));
+            System.out.println(repository.findByAgeGreaterThan(30));
+            System.out.println(repository.findByAgeLessThan(40));
 
         }
     }

@@ -16,16 +16,16 @@ package org.jnosql.artemis.demo.se.couchdb;
 
 import org.jnosql.artemis.Repository;
 
+import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 public interface HeroRepository extends Repository<Hero, String> {
 
     Optional<Hero> findByName(String name);
 
-    Stream<Hero> findByAgeGreaterThan(Integer age);
+    List<Hero> findByAgeGreaterThan(Integer age);
 
-    Stream<Hero> findByAgeLessThan(Integer age);
+    List<Hero> findByAgeLessThan(Integer age);
 
     void deleteByName(String name);
 
