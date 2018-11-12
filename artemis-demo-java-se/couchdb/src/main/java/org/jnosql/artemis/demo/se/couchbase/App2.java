@@ -34,7 +34,7 @@ public class App2 {
             repository.save(ironMan);
 
             System.out.println(repository.findByName("iron_man"));
-            System.out.println(repository.find("Tony Stark"));
+            System.out.println(repository.findByName("Tony Stark"));
 
         }
     }

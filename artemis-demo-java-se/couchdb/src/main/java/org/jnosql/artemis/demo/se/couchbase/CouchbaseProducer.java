@@ -17,15 +17,10 @@ package org.jnosql.artemis.demo.se.couchbase;
 import org.jnosql.artemis.ConfigurationUnit;
 import org.jnosql.diana.api.document.DocumentCollectionManager;
 import org.jnosql.diana.api.document.DocumentCollectionManagerFactory;
-import org.jnosql.diana.api.key.BucketManager;
-import org.jnosql.diana.api.key.BucketManagerFactory;
-import org.jnosql.diana.couchbase.document.CouchbaseDocumentCollectionManager;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
-import java.util.List;
-import java.util.Set;
 
 @ApplicationScoped
 public class CouchbaseProducer {
@@ -34,11 +29,8 @@ public class CouchbaseProducer {
 
     @Inject
     @ConfigurationUnit(name = "document")
-    private DocumentCollectionManagerFactory<CouchbaseDocumentCollectionManager> entityManager;
+    private DocumentCollectionManagerFactory<DocumentCollectionManager> entityManager;
 
-    @Inject
-    @ConfigurationUnit(name = "key-value")
-    private BucketManagerFactory<BucketManager> bucketManager;
 
 
     @Produces
@@ -47,24 +39,8 @@ public class CouchbaseProducer {
     }
 
     @Produces
-    public CouchbaseDocumentCollectionManager getCouchbaseDocumentCollectionManager() {
+    public DocumentCollectionManager getCouchbaseDocumentCollectionManager() {
         return entityManager.get(HEROES);
-    }
-
-    @Produces
-    public List<String> getHeroList() {
-        return bucketManager.getList(HEROES, String.class);
-    }
-
-
-    @Produces
-    public Set<String> getHeroSet() {
-        return bucketManager.getSet(HEROES, String.class);
-    }
-
-    @Produces
-    public BucketManager getBucketManager() {
-        return bucketManager.getBucketManager(HEROES);
     }
 
 }

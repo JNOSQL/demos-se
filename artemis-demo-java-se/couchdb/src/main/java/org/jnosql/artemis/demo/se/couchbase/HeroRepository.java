@@ -14,14 +14,12 @@
  */
 package org.jnosql.artemis.demo.se.couchbase;
 
-import org.jnosql.artemis.couchbase.document.CouchbaseRepository;
-import org.jnosql.artemis.couchbase.document.N1QL;
-import org.jnosql.artemis.couchbase.document.Param;
+import org.jnosql.artemis.Repository;
 
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public interface HeroRepository extends CouchbaseRepository<Hero, String> {
+public interface HeroRepository extends Repository<Hero, String> {
 
     Optional<Hero> findByName(String name);
 
@@ -30,8 +28,5 @@ public interface HeroRepository extends CouchbaseRepository<Hero, String> {
     Stream<Hero> findByAgeLessThan(Integer age);
 
     void deleteByName(String name);
-
-    @N1QL("select * from heroes where realName= $realName")
-    Optional<Hero> find(@Param("realName") String realName);
 
 }
