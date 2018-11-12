@@ -75,5 +75,6 @@
         <module>mongodb</module>
         <module>ravendb</module>
         <module>redis</module>
+        <module>couchdb</module>
     </modules>
 </project>
