@@ -23,7 +23,7 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 
 @ApplicationScoped
-public class CouchbaseProducer {
+public class DocumentCollectionManagerProducer {
 
     private static final String HEROES = "heroes";
 
@@ -35,11 +35,6 @@ public class CouchbaseProducer {
 
     @Produces
     public DocumentCollectionManager getManager() {
-        return entityManager.get(HEROES);
-    }
-
-    @Produces
-    public DocumentCollectionManager getCouchbaseDocumentCollectionManager() {
         return entityManager.get(HEROES);
     }
 
