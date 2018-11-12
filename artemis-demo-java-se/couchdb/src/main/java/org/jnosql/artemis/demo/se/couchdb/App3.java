@@ -17,15 +17,12 @@ package org.jnosql.artemis.demo.se.couchdb;
 
 
 import org.jnosql.artemis.DatabaseQualifier;
-import org.jnosql.artemis.PreparedStatement;
-import org.jnosql.artemis.document.DocumentTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
-import java.util.List;
 
-public class App2 {
+public class App3 {
 
 
 
@@ -34,17 +31,17 @@ public class App2 {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             Hero ironMan = Hero.builder().withRealName("Tony Stark").withName("iron_man")
                     .withAge(34).withPowers(Collections.singleton("rich")).build();
-            DocumentTemplate template = container.select(DocumentTemplate.class).get();
 
-            template.update(ironMan);
+            HeroRepository repository = container.select(HeroRepository.class, DatabaseQualifier.ofDocument()).get();
+            repository.save(ironMan);
 
-            PreparedStatement prepare = template.prepare("select * from Hero where _id =@id");
-            List<Hero> heroes = prepare.bind("id", "iron_man").getResultList();
-            System.out.println(heroes);
+            System.out.println(repository.findByName("iron_man"));
+            System.out.println(repository.findByAgeGreaterThan(30));
+            System.out.println(repository.findByAgeLessThan(40));
 
         }
     }
 
-    private App2() {
+    private App3() {
     }
 }
