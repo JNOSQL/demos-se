@@ -12,7 +12,7 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.couchbase;
+package org.jnosql.artemis.demo.se.couchdb;
 
 import org.jnosql.artemis.ConfigurationUnit;
 import org.jnosql.diana.api.document.DocumentCollectionManager;

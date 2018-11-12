@@ -12,7 +12,7 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.couchbase;
+package org.jnosql.artemis.demo.se.couchdb;
 
 import java.util.Collections;
 import java.util.Set;
