@@ -13,7 +13,7 @@ To run this project a MongoDB instance is required, so you can use either a loca
 
 ## Manual instalation
 
-Follow the instructions in: https://docs.mongodb.com/manual/installation/
+Follow the instructions in: https://hub.docker.com/_/couchdb/
 
 
 ## Using Docker
