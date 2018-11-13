@@ -16,7 +16,6 @@
 package org.jnosql.artemis.demo.se.couchdb;
 
 
-import org.jnosql.artemis.DatabaseQualifier;
 import org.jnosql.artemis.PreparedStatement;
 import org.jnosql.artemis.document.DocumentTemplate;
 
@@ -38,9 +37,10 @@ public class App2 {
 
             template.update(ironMan);
 
-            PreparedStatement prepare = template.prepare("select * from Hero where _id =@id");
-            List<Hero> heroes = prepare.bind("id", "iron_man").getResultList();
+            PreparedStatement prepare = template.prepare("select * from Hero where realName =@name");
+            List<Hero> heroes = prepare.bind("name", "Tony Stark").getResultList();
             System.out.println(heroes);
+            System.out.println(template.query("select * from Hero where _id = 'iron_man'"));
 
         }
     }
