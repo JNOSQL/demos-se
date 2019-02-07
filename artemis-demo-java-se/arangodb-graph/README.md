@@ -1,4 +1,4 @@
-# ArangoDB-demo
+# ArangoDB-demo-graph
 
 ![ArangoDB Project](http://www.jnosql.org/img/logos/ArangoDB.png)
 
