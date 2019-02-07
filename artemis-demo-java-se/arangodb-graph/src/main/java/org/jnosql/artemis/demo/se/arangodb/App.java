@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Otávio Santana and others
+ * Copyright (c) 2019 Otávio Santana and others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * and Apache License v2.0 which accompanies this distribution.
@@ -16,6 +16,11 @@
 package org.jnosql.artemis.demo.se.arangodb;
 
 
+import com.arangodb.tinkerpop.gremlin.utils.ArangoDBConfigurationBuilder;
+import org.apache.commons.configuration.BaseConfiguration;
+import org.apache.tinkerpop.gremlin.structure.Graph;
+import org.apache.tinkerpop.gremlin.structure.util.GraphFactory;
+
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 
@@ -26,6 +31,16 @@ public class App {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
+            ArangoDBConfigurationBuilder builder = new ArangoDBConfigurationBuilder();
+            builder.graph("modern")
+                    .withVertexCollection("software")
+                    .withVertexCollection("person")
+                    .withEdgeCollection("knows")
+                    .withEdgeCollection("created")
+                    .configureEdge("knows", "person", "person")
+                    .configureEdge("created", "person", "software");
+            BaseConfiguration conf = builder.build();
+            Graph graph = GraphFactory.open(conf);
         }
     }
 
