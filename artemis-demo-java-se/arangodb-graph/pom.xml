@@ -40,6 +40,11 @@
             <artifactId>artemis-graph</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.arangodb</groupId>
+            <artifactId>arangodb-tinkerpop-provider</artifactId>
+            <version>2.0.1</version>
+        </dependency>
     </dependencies>
 
 

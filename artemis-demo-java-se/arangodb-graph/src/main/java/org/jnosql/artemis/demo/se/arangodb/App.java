@@ -16,15 +16,8 @@
 package org.jnosql.artemis.demo.se.arangodb;
 
 
-import org.jnosql.artemis.document.DocumentTemplate;
-import org.jnosql.diana.api.document.DocumentQuery;
-
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-import java.util.Collections;
-import java.util.List;
-
-import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
 
 public class App {
 
@@ -32,16 +25,6 @@ public class App {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-
-            Hero ironMan = Hero.builder().withRealName("Tony Stark").withName("iron_man")
-                    .withAge(34).withPowers(Collections.singleton("rich")).build();
-            DocumentTemplate template = container.select(DocumentTemplate.class).get();
-
-            template.insert(ironMan);
-
-            DocumentQuery query = select().from("Hero").where("name").eq("iron_man").build();
-            List<Hero> heroes = template.select(query);
-            System.out.println(heroes);
 
         }
     }
