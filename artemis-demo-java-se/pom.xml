@@ -63,6 +63,7 @@
 
     <modules>
         <module>arangodb</module>
+        <module>arangodb-graph</module>
         <module>cassandra</module>
         <module>couchbase</module>
         <module>document-double</module>
