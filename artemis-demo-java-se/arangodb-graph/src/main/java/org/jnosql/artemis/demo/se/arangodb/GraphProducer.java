@@ -14,8 +14,49 @@
  */
 package org.jnosql.artemis.demo.se.arangodb;
 
+
+import com.arangodb.tinkerpop.gremlin.utils.ArangoDBConfigurationBuilder;
+import org.apache.commons.configuration.BaseConfiguration;
+import org.apache.tinkerpop.gremlin.structure.Graph;
+import org.apache.tinkerpop.gremlin.structure.util.GraphFactory;
+import org.jnosql.artemis.graph.GraphTraversalSourceSupplier;
+
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Disposes;
+import javax.enterprise.inject.Produces;
 
 @ApplicationScoped
 public class GraphProducer {
+
+    private Graph graph;
+
+
+    @PostConstruct
+    public void init() {
+        ArangoDBConfigurationBuilder builder = new ArangoDBConfigurationBuilder();
+        builder.graph("marketing")
+                .withVertexCollection("Person")
+                .withEdgeCollection("knows")
+                .configureEdge("knows", "Person", "Person");
+        BaseConfiguration conf = builder.build();
+        this.graph = GraphFactory.open(conf);
+    }
+
+    @Produces
+    @ApplicationScoped
+    public Graph getGraph() {
+        return graph;
+    }
+
+    @Produces
+    @ApplicationScoped
+    public GraphTraversalSourceSupplier getSupplier() {
+        return () -> graph.traversal();
+    }
+
+    public void close(@Disposes Graph graph) throws Exception {
+        graph.close();
+    }
+
 }

@@ -27,7 +27,7 @@ import java.util.Objects;
 public class Person {
 
     @Id
-    private Long id;
+    private String id;
 
     @Column
     private String name;
@@ -42,7 +42,7 @@ public class Person {
     private Double salary;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
