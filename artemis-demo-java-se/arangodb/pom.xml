@@ -33,7 +33,7 @@
         <dependency>
             <groupId>org.jnosql.artemis</groupId>
             <artifactId>aragangodb-extension</artifactId>
-            <version>${project.version}</version>
+            <version>0.0.8-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

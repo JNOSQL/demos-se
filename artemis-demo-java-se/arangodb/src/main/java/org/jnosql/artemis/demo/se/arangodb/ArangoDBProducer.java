@@ -15,15 +15,13 @@
 package org.jnosql.artemis.demo.se.arangodb;
 
 import org.jnosql.artemis.ConfigurationUnit;
-import org.jnosql.diana.api.document.DocumentCollectionManagerFactory;
+import org.jnosql.diana.api.document.DocumentCollectionManager;
 import org.jnosql.diana.api.key.BucketManager;
-import org.jnosql.diana.api.key.BucketManagerFactory;
 import org.jnosql.diana.arangodb.document.ArangoDBDocumentCollectionManager;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
-import java.util.Set;
 
 @ApplicationScoped
 public class ArangoDBProducer {
@@ -31,30 +29,23 @@ public class ArangoDBProducer {
     private static final String HEROES = "heroes";
 
     @Inject
-    @ConfigurationUnit(name = "document")
-    private DocumentCollectionManagerFactory<ArangoDBDocumentCollectionManager> entityManager;
+    @ConfigurationUnit(name = "document", database = HEROES)
+    private DocumentCollectionManager documentManager;
 
     @Inject
-    @ConfigurationUnit(name = "key-value")
-    private BucketManagerFactory<BucketManager> bucketManager;
+    @ConfigurationUnit(name = "key-value", database = HEROES)
+    private BucketManager bucketManager;
 
 
 
     @Produces
-    public ArangoDBDocumentCollectionManager getCouchbaseDocumentCollectionManager() {
-        return entityManager.get(HEROES);
-    }
-
-
-
-    @Produces
-    public Set<String> getHeroSet() {
-        return bucketManager.getSet(HEROES, String.class);
+    public ArangoDBDocumentCollectionManager getCollectionManager() {
+        return (ArangoDBDocumentCollectionManager) documentManager;
     }
 
     @Produces
     public BucketManager getBucketManager() {
-        return bucketManager.getBucketManager(HEROES);
+        return bucketManager;
     }
 
 }
