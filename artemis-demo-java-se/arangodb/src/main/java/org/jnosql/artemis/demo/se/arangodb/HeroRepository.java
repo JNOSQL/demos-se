@@ -24,7 +24,7 @@ public interface HeroRepository extends ArangoDBRepository<Hero, String> {
 
     List<Hero> findByName(String name);
 
-    @AQL("select * from heroes where realName= @status")
+    @AQL("FOR hero in  Hero FILTER hero.realName == @realName return hero")
     List<Hero> find(@Param("realName") String realName);
 
 }
