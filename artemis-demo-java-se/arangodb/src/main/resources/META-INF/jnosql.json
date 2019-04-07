@@ -4,9 +4,6 @@
     "name": "document",
     "provider": "org.jnosql.diana.arangodb.document.ArangoDBDocumentConfiguration",
     "settings": {
-      "couchbase-host-1": "localhost",
-      "couchbase-user": "root",
-      "couchbase-password": "123456"
     }
   },
   {
@@ -14,9 +11,6 @@
     "name": "key-value",
     "provider": "org.jnosql.diana.arangodb.key.ArangoDBKeyValueConfiguration",
     "settings": {
-      "couchbase-host-1": "localhost",
-      "couchbase-user": "root",
-      "couchbase-password": "123456"
     }
   }
 ]
