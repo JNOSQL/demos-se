@@ -74,11 +74,10 @@ public class Movie {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Movie{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", age=").append(age);
-        sb.append(", director=").append(director);
-        sb.append('}');
-        return sb.toString();
+        return "Movie{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", director=" + director +
+                '}';
     }
 }

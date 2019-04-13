@@ -16,8 +16,6 @@
 package org.jnosql.artemis.demo.se.cassandra;
 
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import org.jnosql.artemis.Column;
 import org.jnosql.artemis.Entity;
 import org.jnosql.artemis.Id;
@@ -69,12 +67,12 @@ public class Person {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
-                .append("id", id)
-                .append("name", name)
-                .append("phones", phones)
-                .append("ignore", ignore)
-                .toString();
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", phones=" + phones +
+                ", ignore='" + ignore + '\'' +
+                '}';
     }
 
     public static PersonBuilder builder() {
