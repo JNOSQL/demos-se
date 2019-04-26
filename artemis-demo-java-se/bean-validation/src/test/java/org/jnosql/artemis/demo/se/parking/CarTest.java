@@ -15,7 +15,6 @@
 package org.jnosql.artemis.demo.se.parking;
 
 import org.javamoney.moneta.Money;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -25,11 +24,12 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-
 import java.util.Locale;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CarTest {
 
@@ -52,7 +52,7 @@ class CarTest {
                 .build();
 
         Set<ConstraintViolation<Car>> validate = validator.validate(ferrari);
-        Assertions.assertFalse(validate.isEmpty());
+        assertFalse(validate.isEmpty());
         String message = validate.stream().findFirst()
                 .map(ConstraintViolation::getMessageTemplate)
                 .orElse(null);
@@ -69,7 +69,7 @@ class CarTest {
                 .build();
 
         Set<ConstraintViolation<Car>> validate = validator.validate(ferrari);
-        Assertions.assertFalse(validate.isEmpty());
+        assertFalse(validate.isEmpty());
         String message = validate.stream().findFirst()
                 .map(ConstraintViolation::getMessageTemplate)
                 .orElse(null);
@@ -85,7 +85,7 @@ class CarTest {
                 .build();
 
         Set<ConstraintViolation<Car>> validate = validator.validate(ferrari);
-        Assertions.assertFalse(validate.isEmpty());
+        assertFalse(validate.isEmpty());
         String message = validate.stream().findFirst()
                 .map(ConstraintViolation::getMessageTemplate)
                 .orElse(null);
@@ -106,11 +106,22 @@ class CarTest {
 
 
         Set<ConstraintViolation<Car>> validate = validator.validate(ferrari);
-        Assertions.assertFalse(validate.isEmpty());
+        assertFalse(validate.isEmpty());
         String message = validate.stream().findFirst()
                 .map(ConstraintViolation::getMessageTemplate)
                 .orElse(null);
         assertEquals("The car price must work with USD", message);
 
+    }
+
+    @Test
+    public void shouldCreateInstance() {
+        Car ferrari = Car.builder().withPlate("BRL-1234")
+                .withModel("ferrari")
+                .withPrice(Money.of(1000, usd))
+                .build();
+
+        Set<ConstraintViolation<Car>> validate = validator.validate(ferrari);
+        assertTrue(validate.isEmpty());
     }
 }

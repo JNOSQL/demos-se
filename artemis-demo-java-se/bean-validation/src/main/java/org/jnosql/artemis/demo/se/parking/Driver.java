@@ -23,7 +23,12 @@ import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Driver {
@@ -32,7 +37,7 @@ public class Driver {
     @Id
     private String id;
 
-    @NotNull(message = "Name cannot be null")
+    @NotBlank(message = "Name cannot be null")
     @Column
     private String name;
 
@@ -52,6 +57,76 @@ public class Driver {
     private String email;
 
 
+    @Size(min = 1, message = "It must have one car at least")
+    @NotNull
+    @Column
+    private List<Car> cars;
+
+    @Deprecated
+    Driver() {
+    }
+
+    private Driver(String name, boolean license, int age, String email, List<Car> cars) {
+        this.name = name;
+        this.license = license;
+        this.age = age;
+        this.email = email;
+        this.cars = cars;
+    }
+
+    public void add(Car car) {
+        this.cars.add(Objects.requireNonNull(car, "car is required"));
+    }
+
+
+    public static DriverBuilder builder() {
+        return new DriverBuilder();
+    }
+
+    public static class DriverBuilder {
+
+        private String name;
+
+        private boolean license;
+
+        private int age;
+
+        private String email;
+
+        private List<Car> cars = Collections.emptyList();
+
+        private DriverBuilder() {
+        }
+
+        public DriverBuilder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public DriverBuilder withLicense(boolean license) {
+            this.license = license;
+            return this;
+        }
+
+        public DriverBuilder withAge(int age) {
+            this.age = age;
+            return this;
+        }
+
+        public DriverBuilder withEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public DriverBuilder withCars(List<Car> cars) {
+            this.cars = cars;
+            return this;
+        }
+
+        public Driver build() {
+            return new Driver(name, license, age, email, cars);
+        }
+    }
 
 
 }
