@@ -15,7 +15,9 @@
 package org.jnosql.artemis.demo.se.parking;
 
 import org.jnosql.artemis.Column;
+import org.jnosql.artemis.Convert;
 import org.jnosql.artemis.Entity;
+import org.jnosql.artemis.demo.se.parking.converter.MonetaryAmountConverter;
 import org.jnosql.artemis.demo.se.parking.validation.CurrencyAccepted;
 import org.jnosql.artemis.demo.se.parking.validation.MonetaryMax;
 import org.jnosql.artemis.demo.se.parking.validation.MonetaryMin;
@@ -38,6 +40,7 @@ public class Car {
     @MonetaryMin(value = "100", message = "There is not car cheap like that")
     @MonetaryMax(value = "1000000", message = "The parking does not support fancy car")
     @CurrencyAccepted(currencies = "USD", message = "The car price must work with USD")
+    @Convert(MonetaryAmountConverter.class)
     private MonetaryAmount price;
 
     @Column

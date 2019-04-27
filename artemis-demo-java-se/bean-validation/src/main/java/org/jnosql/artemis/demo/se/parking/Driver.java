@@ -16,8 +16,10 @@
 package org.jnosql.artemis.demo.se.parking;
 
 import org.jnosql.artemis.Column;
+import org.jnosql.artemis.Convert;
 import org.jnosql.artemis.Entity;
 import org.jnosql.artemis.Id;
+import org.jnosql.artemis.demo.se.parking.converter.ObjectIdConverter;
 
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
@@ -35,6 +37,7 @@ public class Driver {
 
 
     @Id
+    @Convert(ObjectIdConverter.class)
     private String id;
 
     @NotBlank(message = "Name cannot be null")
