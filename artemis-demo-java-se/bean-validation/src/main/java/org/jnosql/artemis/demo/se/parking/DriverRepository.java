@@ -14,7 +14,14 @@
  */
 package org.jnosql.artemis.demo.se.parking;
 
+import org.jnosql.artemis.Param;
+import org.jnosql.artemis.Query;
 import org.jnosql.artemis.Repository;
 
+import java.util.List;
+
 public interface DriverRepository extends Repository<Driver, String> {
+
+    @Query("select * from Driver where cars.color = @color")
+    List<Driver> findByColor(@Param("color") String color);
 }

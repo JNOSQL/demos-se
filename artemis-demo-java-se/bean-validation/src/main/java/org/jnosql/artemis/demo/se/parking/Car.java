@@ -26,6 +26,7 @@ import javax.money.MonetaryAmount;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.function.Supplier;
 
 @Entity
 public class Car {
@@ -47,10 +48,15 @@ public class Car {
     @NotBlank
     private String model;
 
-    private Car(String plate, MonetaryAmount price, String model) {
+    @Column
+    @NotBlank
+    private String color;
+
+    private Car(String plate, MonetaryAmount price, String model, String color) {
         this.plate = plate;
         this.price = price;
         this.model = model;
+        this.color = color;
     }
 
     @Deprecated
@@ -69,6 +75,10 @@ public class Car {
         return model;
     }
 
+    public String getColor() {
+        return color;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
@@ -84,11 +94,15 @@ public class Car {
 
     public static class CarBuilder {
 
+        private static final String DEFAULT_COLOR = "black";
+
         private String plate;
 
         private MonetaryAmount price;
 
         private String model;
+
+        private String color = DEFAULT_COLOR;
 
         private CarBuilder() {
         }
@@ -108,8 +122,17 @@ public class Car {
             return this;
         }
 
+        public CarBuilder withColor(String color) {
+            this.color = color;
+            return this;
+        }
+
+        public CarBuilder withColor(Supplier<String> color) {
+            return withColor(color.get());
+        }
+
         public Car build() {
-            return new Car(plate, price, model);
+            return new Car(plate, price, model, color);
         }
     }
 

@@ -14,27 +14,27 @@
  */
 package org.jnosql.artemis.demo.se.parking.converter;
 
-import org.bson.types.ObjectId;
 import org.javamoney.moneta.Money;
 import org.jnosql.artemis.AttributeConverter;
 
 import javax.money.MonetaryAmount;
 
-public class MonetaryAmountConverter implements AttributeConverter<String, MonetaryAmount> {
+public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmount, String> {
+
 
     @Override
-    public MonetaryAmount convertToDatabaseColumn(String attribute) {
+    public String convertToDatabaseColumn(MonetaryAmount attribute) {
         if(attribute == null) {
             return null;
         }
-        return Money.parse(attribute);
+        return attribute.toString();
     }
 
     @Override
-    public String convertToEntityAttribute(MonetaryAmount dbData) {
+    public MonetaryAmount convertToEntityAttribute(String dbData) {
         if(dbData == null) {
             return null;
         }
-        return dbData.toString();
+        return Money.parse(dbData);
     }
 }
