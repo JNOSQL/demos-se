@@ -22,6 +22,7 @@ import java.util.List;
 
 public interface DriverRepository extends Repository<Driver, String> {
 
-    @Query("select * from Driver where cars.color = @color")
+    @Query("select * from Driver where cars.color = @color order by cars.price.value desc")
     List<Driver> findByColor(@Param("color") String color);
+
 }

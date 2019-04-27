@@ -14,7 +14,6 @@
  */
 package org.jnosql.artemis.demo.se.parking.converter;
 
-import org.bson.BsonArray;
 import org.bson.BsonDecimal128;
 import org.bson.BsonDocument;
 import org.bson.BsonString;
@@ -22,14 +21,15 @@ import org.bson.BsonValue;
 import org.bson.types.Decimal128;
 import org.javamoney.moneta.Money;
 import org.jnosql.artemis.AttributeConverter;
+import org.jnosql.diana.api.document.Document;
 
-import javax.money.CurrencyUnit;
 import javax.money.MonetaryAmount;
-import javax.money.NumberValue;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
-public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmount, BsonDocument> {
+public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmount, Object> {
 
 
     private static final String VALUE = "value";
@@ -52,10 +52,20 @@ public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmoun
     }
 
     @Override
-    public MonetaryAmount convertToEntityAttribute(BsonDocument dbData) {
+    public MonetaryAmount convertToEntityAttribute(Object dbData) {
+
         if (dbData == null) {
             return null;
         }
+
+        if (dbData instanceof BsonDocument) {
+            return getMonetaryAmount(BsonDocument.class.cast(dbData));
+        }
+        return getMonetaryAmount(List.class.cast(dbData));
+
+    }
+
+    private MonetaryAmount getMonetaryAmount(BsonDocument dbData) {
         BigDecimal value = Optional.ofNullable(dbData.get(VALUE))
                 .map(BsonValue::asDecimal128)
                 .map(BsonDecimal128::decimal128Value)
@@ -65,6 +75,23 @@ public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmoun
         String currency = Optional.ofNullable(dbData.get(CURRENCY))
                 .map(BsonValue::asString)
                 .map(BsonString::getValue)
+                .orElse(DEFAULT_CURRENCY);
+
+        return Money.of(value, currency);
+    }
+
+    private MonetaryAmount getMonetaryAmount(List<Document> dbData) {
+
+        BigDecimal value = dbData.stream()
+                .filter(d -> VALUE.equals(d.getName()))
+                .findFirst()
+                .map(d -> d.get(Decimal128.class).bigDecimalValue())
+                .orElse(BigDecimal.ZERO);
+
+        String currency = dbData.stream()
+                .filter(d -> CURRENCY.equals(d.getName()))
+                .findFirst()
+                .map(d -> d.get(String.class))
                 .orElse(DEFAULT_CURRENCY);
 
         return Money.of(value, currency);

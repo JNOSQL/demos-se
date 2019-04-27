@@ -35,21 +35,33 @@ public class App1 {
             CurrencyUnit usd = Monetary.getCurrency(Locale.US);
 
             Car ferrari = Car.builder().withPlate("BRL-1234")
-                    .withModel("ferrari")
+                    .withModel("812 Superfast")
                     .withColor(Color.RED)
-                    .withPrice(Money.of(1000, usd))
+                    .withPrice(Money.of(315_000, usd))
                     .build();
 
-            Driver driver = Driver.builder().withAge(25)
+            Car mustang = Car.builder().withPlate("BRL-1234")
+                    .withModel("812 Superfast")
+                    .withColor(Color.RED)
+                    .withPrice(Money.of(55_000, usd))
+                    .build();
+
+            Driver michael = Driver.builder().withAge(25)
                     .withCars(Arrays.asList(ferrari))
-                    .withEmail("email@email.com")
+                    .withEmail("michael@ferrari.com")
                     .withLicense(true)
-                    .withName("Speed Racer").build();
+                    .withName("Michael Schumacher").build();
 
-            repository.save(driver);
+            Driver rubens = Driver.builder().withAge(25)
+                    .withCars(Arrays.asList(mustang))
+                    .withEmail("rubens@mustang.com")
+                    .withLicense(true)
+                    .withName("Rubens Barrichello").build();
 
-            List<Driver> drivers = repository.findByColor(Color.RED.get());
-            System.out.println(drivers);
+            repository.save(michael);
+            repository.save(rubens);
+
+            repository.findByColor(Color.RED.get()).forEach(System.out::println);
 
         }
     }
