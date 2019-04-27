@@ -81,6 +81,17 @@ public class Driver {
         this.cars.add(Objects.requireNonNull(car, "car is required"));
     }
 
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", license=" + license +
+                ", age=" + age +
+                ", email='" + email + '\'' +
+                ", cars=" + cars +
+                '}';
+    }
 
     public static DriverBuilder builder() {
         return new DriverBuilder();
