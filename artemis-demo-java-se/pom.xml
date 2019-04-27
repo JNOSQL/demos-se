@@ -32,7 +32,7 @@
         <dependency>
             <groupId>org.jboss.weld.se</groupId>
             <artifactId>weld-se-shaded</artifactId>
-            <version>3.0.3.Final</version>
+            <version>${weld.se.core.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.json</groupId>
