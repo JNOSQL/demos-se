@@ -22,7 +22,12 @@ import java.util.List;
 
 public interface DriverRepository extends Repository<Driver, String> {
 
+    List<Driver> findByName(String name);
+
     @Query("select * from Driver where cars.color = @color order by cars.price.value desc")
     List<Driver> findByColor(@Param("color") String color);
+
+    @Query("select * from Driver where cars.model = @model order by cars.price.value desc")
+    List<Driver> findByModel(@Param("model") String color);
 
 }

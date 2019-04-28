@@ -60,7 +60,7 @@ public class Driver {
     private String email;
 
 
-    @Size(min = 1, message = "It must have one car at least")
+    @Size(min = 1, max = 5, message = "It must have one car at least")
     @NotNull
     @Column
     private List<Car> cars;

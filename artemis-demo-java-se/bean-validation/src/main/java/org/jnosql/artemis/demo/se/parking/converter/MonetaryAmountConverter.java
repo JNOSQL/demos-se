@@ -25,7 +25,6 @@ import org.jnosql.diana.api.document.Document;
 
 import javax.money.MonetaryAmount;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

@@ -40,7 +40,7 @@ public class App1 {
                     .withPrice(Money.of(315_000, usd))
                     .build();
 
-            Car mustang = Car.builder().withPlate("BRL-1234")
+            Car mustang = Car.builder().withPlate("OTA-7659")
                     .withModel("812 Superfast")
                     .withColor(Color.RED)
                     .withPrice(Money.of(55_000, usd))
@@ -61,7 +61,12 @@ public class App1 {
             repository.save(michael);
             repository.save(rubens);
 
+            System.out.println("Find by Color");
             repository.findByColor(Color.RED.get()).forEach(System.out::println);
+            System.out.println("Find by Model");
+            repository.findByModel("812 Superfast").forEach(System.out::println);
+            System.out.println("Find by Name");
+            repository.findByName("Rubens Barrichello").forEach(System.out::println);
 
         }
     }

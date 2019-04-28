@@ -15,15 +15,15 @@
 package org.jnosql.artemis.demo.se.parking.validation;
 
 
-import static java.util.Collections.binarySearch;
-import static java.util.Collections.sort;
-
-import java.util.ArrayList;
-import java.util.List;
 import javax.money.CurrencyUnit;
 import javax.money.MonetaryAmount;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.util.Collections.binarySearch;
+import static java.util.Collections.sort;
 
 public class MonetaryAmountAcceptedValidator implements ConstraintValidator<CurrencyAccepted, MonetaryAmount>{
 
@@ -49,9 +49,4 @@ public class MonetaryAmountAcceptedValidator implements ConstraintValidator<Curr
     private boolean containsCurrency(CurrencyUnit value) {
         return binarySearch(currencies, value) >= 0;
     }
-
-    List<CurrencyUnit> getCurrencies() {
-        return currencies;
-    }
-
 }
