@@ -25,7 +25,9 @@ public class App {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             DriverRepository repository = container.select(DriverRepository.class).get();
+            //an invalid driver it will return an exception
             repository.save(new Driver());
+
         }
     }
 

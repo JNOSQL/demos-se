@@ -46,7 +46,7 @@ public class App1 {
                     .withPrice(Money.of(55_000, usd))
                     .build();
 
-            Driver michael = Driver.builder().withAge(25)
+            Driver michael = Driver.builder().withAge(35)
                     .withCars(Arrays.asList(ferrari))
                     .withEmail("michael@ferrari.com")
                     .withLicense(true)
@@ -66,7 +66,10 @@ public class App1 {
             System.out.println("Find by Model");
             repository.findByModel("812 Superfast").forEach(System.out::println);
             System.out.println("Find by Name");
-            repository.findByName("Rubens Barrichello").forEach(System.out::println);
+            repository.findByName("Rubens Barrichello").ifPresent(System.out::println);
+            System.out.println("Find by Plate");
+            repository.findByPlate("BRL-1234").ifPresent(System.out::println);
+
 
         }
     }

@@ -19,10 +19,14 @@ import org.jnosql.artemis.Query;
 import org.jnosql.artemis.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface DriverRepository extends Repository<Driver, String> {
 
-    List<Driver> findByName(String name);
+    Optional<Driver> findByName(String name);
+
+    @Query("select * from Driver where cars.plate = @plate")
+    Optional<Driver> findByPlate(@Param("plate") String name);
 
     @Query("select * from Driver where cars.color = @color order by cars.price.value desc")
     List<Driver> findByColor(@Param("color") String color);
