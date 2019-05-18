@@ -66,6 +66,7 @@
         <module>arangodb-graph</module>
         <module>cassandra</module>
         <module>couchbase</module>
+        <module>configurations</module>
         <module>document-double</module>
         <module>elasticsearch</module>
         <module>graph-janus</module>
