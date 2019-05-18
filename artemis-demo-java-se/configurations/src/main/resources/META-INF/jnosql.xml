@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurations>
+    <configuration>
+        <description>The couchbase document configuration</description>
+        <name>document</name>
+        <provider>org.jnosql.diana.couchbase.document.CouchbaseDocumentConfiguration</provider>
+        <settings>
+            <entry>
+                <key>couchbase.host.1</key>
+                <value>localhost</value>
+            </entry>
+            <entry>
+                <key>couchbase.user</key>
+                <value>root</value>
+            </entry>
+            <entry>
+                <key>couchbase.password</key>
+                <value>123456</value>
+            </entry>
+        </settings>
+    </configuration>
+</configurations>
