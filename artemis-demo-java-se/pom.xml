@@ -74,6 +74,7 @@
         <module>graph-neo4j-remote</module>
         <module>graph-titan</module>
         <module>hazelcast</module>
+        <module>memcached</module>
         <module>mongodb</module>
         <module>ravendb</module>
         <module>redis</module>
