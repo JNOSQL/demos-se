@@ -24,7 +24,7 @@ import java.util.List;
 public class ProductJNoSQLSample {
 
     public static void main(String[] args) {
-        KeyValueConfiguration<?> configuration = new HazelcastKeyValueConfiguration();
+        KeyValueConfiguration configuration = new HazelcastKeyValueConfiguration();
         BucketManagerFactory bucketManagerFactory = configuration.get();
         List<String> productYear = bucketManagerFactory.getList("product_2018", String.class);
         productYear.add("new Product");

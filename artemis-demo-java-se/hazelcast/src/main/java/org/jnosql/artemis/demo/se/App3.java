@@ -28,8 +28,8 @@ public class App3 {
 
     public static void main(String[] args) {
 
-        KeyValueConfiguration<?> configuration = new HazelcastKeyValueConfiguration();
-        BucketManagerFactory<?> managerFactory = configuration.get();
+        KeyValueConfiguration configuration = new HazelcastKeyValueConfiguration();
+        BucketManagerFactory managerFactory = configuration.get();
         List<String> products = managerFactory.getList("products", String.class);
         Set<String> uniqueProducts = managerFactory.getSet("unique_products", String.class);
         Queue<String> queue = managerFactory.getQueue("queue", String.class);
