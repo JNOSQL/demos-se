@@ -18,7 +18,7 @@ import com.steelbridgelabs.oss.neo4j.structure.Neo4JElementIdProvider;
 import com.steelbridgelabs.oss.neo4j.structure.Neo4JGraph;
 import com.steelbridgelabs.oss.neo4j.structure.providers.Neo4JNativeElementIdProvider;
 import org.apache.tinkerpop.gremlin.structure.Graph;
-import org.jnosql.artemis.ConfigurationUnit;
+import jakarta.nosql.mapping.ConfigurationUnit;
 import org.neo4j.driver.v1.Driver;
 
 import javax.annotation.PostConstruct;

@@ -14,9 +14,9 @@
  */
 package org.jnosql.artemis.demo.se.parking;
 
-import org.jnosql.artemis.Column;
+import jakarta.nosql.mapping.Column;
 import org.jnosql.artemis.Convert;
-import org.jnosql.artemis.Entity;
+import jakarta.nosql.mapping.Entity;
 import org.jnosql.artemis.demo.se.parking.converter.MonetaryAmountConverter;
 import org.jnosql.artemis.demo.se.parking.validation.CurrencyAccepted;
 import org.jnosql.artemis.demo.se.parking.validation.MonetaryMax;

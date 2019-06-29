@@ -15,11 +15,11 @@
 package org.jnosql.artemis.demo.se.infrastructure;
 
 
-import org.jnosql.artemis.ConfigurationReader;
-import org.jnosql.artemis.ConfigurationSettingsUnit;
-import org.jnosql.artemis.ConfigurationUnit;
-import org.jnosql.artemis.configuration.ConfigurationException;
-import org.jnosql.diana.api.Settings;
+import jakarta.nosql.mapping.ConfigurationReader;
+import jakarta.nosql.mapping.ConfigurationSettingsUnit;
+import jakarta.nosql.mapping.ConfigurationUnit;
+import jakarta.nosql.Settings;
+import jakarta.nosql.mapping.configuration.ConfigurationException;
 import org.neo4j.driver.v1.AuthToken;
 import org.neo4j.driver.v1.AuthTokens;
 import org.neo4j.driver.v1.Driver;

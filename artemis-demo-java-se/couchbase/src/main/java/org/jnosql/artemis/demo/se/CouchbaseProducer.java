@@ -14,11 +14,11 @@
  */
 package org.jnosql.artemis.demo.se;
 
-import org.jnosql.artemis.ConfigurationUnit;
-import org.jnosql.diana.api.document.DocumentCollectionManager;
-import org.jnosql.diana.api.document.DocumentCollectionManagerFactory;
-import org.jnosql.diana.api.key.BucketManager;
-import org.jnosql.diana.api.key.BucketManagerFactory;
+import jakarta.nosql.mapping.ConfigurationUnit;
+import jakarta.nosql.document.DocumentCollectionManager;
+import jakarta.nosql.document.DocumentCollectionManagerFactory;
+import jakarta.nosql.key.BucketManager;
+import jakarta.nosql.key.BucketManagerFactory;
 import org.jnosql.diana.couchbase.document.CouchbaseDocumentCollectionManager;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -34,11 +34,11 @@ public class CouchbaseProducer {
 
     @Inject
     @ConfigurationUnit(name = "document")
-    private DocumentCollectionManagerFactory<CouchbaseDocumentCollectionManager> entityManager;
+    private DocumentCollectionManagerFactory entityManager;
 
     @Inject
     @ConfigurationUnit(name = "key-value")
-    private BucketManagerFactory<BucketManager> bucketManager;
+    private BucketManagerFactory bucketManager;
 
 
     @Produces

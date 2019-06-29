@@ -16,10 +16,10 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.jnosql.artemis.EntityPostPersit;
-import org.jnosql.artemis.EntityPrePersist;
-import org.jnosql.artemis.document.DocumentEntityPostPersist;
-import org.jnosql.artemis.document.DocumentEntityPrePersist;
+import jakarta.nosql.mapping.EntityPostPersit;
+import jakarta.nosql.mapping.EntityPrePersist;
+import jakarta.nosql.mapping.document.DocumentEntityPostPersist;
+import jakarta.nosql.mapping.document.DocumentEntityPrePersist;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;

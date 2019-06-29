@@ -19,10 +19,10 @@ package org.jnosql.artemis.demo.se;
 import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
-import org.jnosql.artemis.EntityPostPersit;
-import org.jnosql.artemis.EntityPrePersist;
-import org.jnosql.artemis.column.ColumnEntityPostPersist;
-import org.jnosql.artemis.column.ColumnEntityPrePersist;
+import jakarta.nosql.mapping.EntityPostPersit;
+import jakarta.nosql.mapping.EntityPrePersist;
+import jakarta.nosql.mapping.column.ColumnEntityPostPersist;
+import jakarta.nosql.mapping.column.ColumnEntityPrePersist;
 
 @ApplicationScoped
 public class PersonEvent {

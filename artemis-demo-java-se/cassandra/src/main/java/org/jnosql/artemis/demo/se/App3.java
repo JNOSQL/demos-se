@@ -17,15 +17,16 @@ package org.jnosql.artemis.demo.se;
 
 
 import com.datastax.driver.core.ConsistencyLevel;
+import jakarta.nosql.column.ColumnQuery;
 import org.jnosql.artemis.cassandra.column.CassandraTemplate;
-import org.jnosql.diana.api.column.ColumnQuery;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.jnosql.diana.api.column.query.ColumnQueryBuilder.select;
+import static jakarta.nosql.column.ColumnQuery.select;
+
 
 public class App3 {
 

@@ -17,7 +17,7 @@ package org.jnosql.artemis.demo.se;
 
 
 import org.jnosql.artemis.PreparedStatement;
-import org.jnosql.artemis.document.DocumentTemplate;
+import jakarta.nosql.mapping.document.DocumentTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;

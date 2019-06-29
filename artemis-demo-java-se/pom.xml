@@ -54,11 +54,6 @@
             <artifactId>javax.json</artifactId>
             <version>${javax.json.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.jnosql.artemis</groupId>
-            <artifactId>artemis-configuration</artifactId>
-            <version>${project.version}</version>
-        </dependency>
     </dependencies>
 
     <modules>
@@ -81,4 +76,17 @@
         <module>redis</module>
         <module>couchdb</module>
     </modules>
+
+    <repositories>
+        <repository>
+            <id>oss.sonatype.org-snapshot</id>
+            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>

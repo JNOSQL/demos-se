@@ -16,7 +16,7 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.jnosql.diana.api.key.BucketManager;
+import jakarta.nosql.key.BucketManager;
 import org.jnosql.diana.redis.key.RedisBucketManagerFactory;
 import org.jnosql.diana.redis.key.RedisConfiguration;
 

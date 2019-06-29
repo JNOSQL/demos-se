@@ -16,7 +16,7 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.jnosql.diana.api.key.BucketManager;
+import jakarta.nosql.key.BucketManager;
 import org.jnosql.diana.hazelcast.key.HazelcastBucketManagerFactory;
 import org.jnosql.diana.hazelcast.key.HazelcastKeyValueConfiguration;
 

@@ -17,14 +17,14 @@ package org.jnosql.artemis.demo.se;
 
 
 import org.jnosql.artemis.arangodb.document.ArangoDBTemplate;
-import org.jnosql.diana.api.document.DocumentQuery;
+import jakarta.nosql.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
 import java.util.List;
 
-import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
+import static jakarta.nosql.document.DocumentQuery.select;
 
 public class App1 {
 

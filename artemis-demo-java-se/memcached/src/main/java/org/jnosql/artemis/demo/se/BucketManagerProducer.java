@@ -16,9 +16,9 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.jnosql.diana.api.key.BucketManager;
-import org.jnosql.diana.api.key.BucketManagerFactory;
-import org.jnosql.diana.api.key.KeyValueConfiguration;
+import jakarta.nosql.key.BucketManager;
+import jakarta.nosql.key.BucketManagerFactory;
+import jakarta.nosql.key.KeyValueConfiguration;
 import org.jnosql.diana.memcached.key.MemcachedKeyValueConfiguration;
 
 import javax.annotation.PostConstruct;
@@ -30,9 +30,9 @@ public class BucketManagerProducer {
 
     private static final String BUCKET = "developers";
 
-    private KeyValueConfiguration<?> configuration;
+    private KeyValueConfiguration configuration;
 
-    private BucketManagerFactory<?> managerFactory;
+    private BucketManagerFactory managerFactory;
 
     @PostConstruct
     public void init() {

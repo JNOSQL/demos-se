@@ -14,8 +14,8 @@
  */
 package org.jnosql.artemis.demo.se;
 
-import org.jnosql.artemis.document.DocumentTemplate;
-import org.jnosql.diana.api.document.DocumentCollectionManager;
+import jakarta.nosql.mapping.document.DocumentTemplate;
+import jakarta.nosql.document.DocumentCollectionManager;
 
 public interface ResourcesProducer {
 
