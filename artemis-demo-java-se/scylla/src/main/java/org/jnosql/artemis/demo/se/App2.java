@@ -29,7 +29,7 @@ public class App2 {
             withPhones(Arrays.asList("234", "432"))
             .withName("Name")
             .withId(1)
-            .withIgnore("Just Ignore").build();
+            .build();
 
     public static void main(String[] args) {
 
