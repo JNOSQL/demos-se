@@ -29,21 +29,14 @@ import static org.jnosql.diana.api.column.query.ColumnQueryBuilder.select;
 
 public class App3 {
 
-    private static final Person PERSON = Person.builder().
-            withPhones(Arrays.asList("234", "432"))
-            .withName("Name")
-            .withId(1)
-            .build();
-
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            Person person = Person.builder().withPhones(Arrays.asList("234", "432"))
+                    .withName("Ada Lovelace").withId(1).build();
             CassandraTemplate cassandraTemplate = container.select(CassandraTemplate.class).get();
-            Person saved = cassandraTemplate.save(PERSON, ConsistencyLevel.ONE);
+            Person saved = cassandraTemplate.save(person, ConsistencyLevel.ONE);
             System.out.println("Person saved" + saved);
-
-            ColumnQuery query = select().from("Person").where("id").eq(1L).build();
-
             List<Person> people = cassandraTemplate.cql("select * from developers.Person where id = 1");
             System.out.println("Entity found: " + people);
 

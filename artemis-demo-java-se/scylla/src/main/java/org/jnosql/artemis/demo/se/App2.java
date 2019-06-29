@@ -25,20 +25,16 @@ import static org.jnosql.artemis.DatabaseQualifier.ofColumn;
 
 public class App2 {
 
-    private static final Person PERSON = Person.builder().
-            withPhones(Arrays.asList("234", "432"))
-            .withName("Name")
-            .withId(1)
-            .build();
-
     public static void main(String[] args) {
 
         try(SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            Person person = Person.builder().withPhones(Arrays.asList("234", "432"))
+                    .withName("Ada Lovelace").withId(1).build();
             PersonRepository repository = container.select(PersonRepository.class).select(ofColumn()).get();
-            Person saved = repository.save(PERSON);
+            Person saved = repository.save(person);
             System.out.println("Person saved" + saved);
 
-            Optional<Person> person = repository.findById(1L);
+            Optional<Person> result = repository.findById(1L);
             System.out.println("Entity found: " + person);
 
         }

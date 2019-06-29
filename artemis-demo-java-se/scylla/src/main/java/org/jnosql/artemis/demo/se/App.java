@@ -29,26 +29,24 @@ import static org.jnosql.diana.api.column.query.ColumnQueryBuilder.select;
 
 public class App {
 
-    private static final Person PERSON = Person.builder().
-            withPhones(Arrays.asList("234", "432"))
-            .withName("Name")
-            .withId(1)
-            .build();
 
     public static void main(String[] args) {
 
-        try(SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            ColumnTemplate template =  container.select(CassandraTemplate.class).get();
-            Person saved = template.insert(PERSON);
+        try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            Person person = Person.builder().withPhones(Arrays.asList("234", "432"))
+                    .withName("Ada Lovelace").withId(1).build();
+            ColumnTemplate template = container.select(CassandraTemplate.class).get();
+            Person saved = template.insert(person);
             System.out.println("Person saved" + saved);
 
             ColumnQuery query = select().from("Person").where("id").eq(1L).build();
 
-            Optional<Person> person = template.singleResult(query);
-            System.out.println("Entity found: " + person);
+            Optional<Person> result = template.singleResult(query);
+            System.out.println("Entity found: " + result);
 
         }
     }
 
-    private App() {}
+    private App() {
+    }
 }
