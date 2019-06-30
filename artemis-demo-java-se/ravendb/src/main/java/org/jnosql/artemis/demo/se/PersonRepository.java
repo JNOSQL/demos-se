@@ -16,8 +16,8 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.jnosql.artemis.Param;
-import org.jnosql.artemis.Query;
+import jakarta.nosql.mapping.Param;
+import jakarta.nosql.mapping.Query;
 import jakarta.nosql.mapping.Repository;
 
 import java.util.List;

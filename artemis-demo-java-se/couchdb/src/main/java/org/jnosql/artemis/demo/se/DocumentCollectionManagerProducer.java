@@ -29,7 +29,7 @@ public class DocumentCollectionManagerProducer {
 
     @Inject
     @ConfigurationUnit(name = "document")
-    private DocumentCollectionManagerFactory<DocumentCollectionManager> entityManager;
+    private DocumentCollectionManagerFactory entityManager;
 
 
 
