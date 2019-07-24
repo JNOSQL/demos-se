@@ -19,7 +19,7 @@ To run this project an Elasticsearch instance is required, so you can use either
 1. Install docker: https://www.docker.com/
 1. https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
 1. Run docker command
-1. `docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.2.3`
+1. `docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:6.8.1`
 
 
 
