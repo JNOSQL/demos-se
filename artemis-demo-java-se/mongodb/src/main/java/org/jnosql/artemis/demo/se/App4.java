@@ -25,7 +25,7 @@ public class App4 {
             final String query = "select * from Attachment where _id = @id";
             final PreparedStatement prepare = template.prepare(query);
             prepare.bind("id", attachment.getId());
-            final Optional<Object> singleResult = prepare.getSingleResult();
+            final Optional<Attachment> singleResult = prepare.getSingleResult();
             System.out.println(singleResult);
 
         }
