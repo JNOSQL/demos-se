@@ -17,7 +17,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>pagination</artifactId>
-    <name>Artemis Demo using Java SE MongoDB with pagiantion</name>
+    <name>Artemis Demo using Java SE MongoDB with Pagination</name>
 
     <parent>
         <groupId>org.jnosql.artemis</groupId>
