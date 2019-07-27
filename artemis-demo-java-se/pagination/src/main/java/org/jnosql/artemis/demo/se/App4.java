@@ -16,7 +16,6 @@
 package org.jnosql.artemis.demo.se;
 
 
-import jakarta.nosql.mapping.Page;
 import jakarta.nosql.mapping.Pagination;
 import jakarta.nosql.mapping.document.DocumentTemplate;
 
@@ -42,11 +41,7 @@ public class App4 {
             queries.forEach(template::query);
 
             Pagination pagination = Pagination.page(1).size(2);
-            final Page<Car> page = repository.findByOrderByProvider(pagination);
-            List<Car> cars = page.getContent();
-            System.out.println(cars.size());
-            final Page<Car> nextPage = page.next();
-            cars = nextPage.getContent();
+            final List<Car> cars = repository.findByOrderByProvider(pagination);
             System.out.println(cars.size());
         }
     }

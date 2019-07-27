@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CarRepository extends Repository<Car, Long> {
 
-    Page<Car> findByOrderByProvider(Pagination pagination);
+    List<Car> findByOrderByProvider(Pagination pagination);
 
     Page<Car> findAll(Pagination pagination);
 }
