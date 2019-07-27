@@ -28,7 +28,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 
-public class App3 {
+public class App4 {
 
 
     public static void main(String[] args) throws InterruptedException {
@@ -68,6 +68,6 @@ public class App3 {
         }
     }
 
-    private App3() {
+    private App4() {
     }
 }
