@@ -24,6 +24,7 @@ import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import static jakarta.nosql.document.DocumentQuery.select;
 
@@ -49,7 +50,7 @@ public class App3 {
             DocumentQuery query = select().from("Person")
                     .where("_id").eq(id).build();
 
-            List<Person> people = repository.select(query);
+            List<Person> people = repository.<Person>select(query).collect(Collectors.toList());
             System.out.println("Entity found: " + people);
 
         }

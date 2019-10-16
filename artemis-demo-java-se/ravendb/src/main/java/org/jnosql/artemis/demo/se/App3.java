@@ -23,6 +23,7 @@ import jakarta.nosql.mapping.document.DocumentTemplate;
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class App3 {
 
@@ -38,7 +39,7 @@ public class App3 {
 
             PreparedStatement prepare = template.prepare("select * from Person where name = @name");
             prepare.bind("name", "Tony stark");
-            List<Person> people = prepare.getResultList();
+            List<Person> people = prepare.<Person>getResult().collect(Collectors.toList());
             System.out.println("Person from name: " + people);
             System.out.println("Person from age: " + repository.findByAge(30));
 

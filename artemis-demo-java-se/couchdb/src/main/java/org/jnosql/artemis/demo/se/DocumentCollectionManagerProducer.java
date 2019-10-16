@@ -14,7 +14,6 @@
  */
 package org.jnosql.artemis.demo.se;
 
-import jakarta.nosql.mapping.ConfigurationUnit;
 import jakarta.nosql.document.DocumentCollectionManager;
 import jakarta.nosql.document.DocumentCollectionManagerFactory;
 
@@ -28,7 +27,6 @@ public class DocumentCollectionManagerProducer {
     private static final String HEROES = "heroes";
 
     @Inject
-    @ConfigurationUnit(name = "document")
     private DocumentCollectionManagerFactory entityManager;
 
 

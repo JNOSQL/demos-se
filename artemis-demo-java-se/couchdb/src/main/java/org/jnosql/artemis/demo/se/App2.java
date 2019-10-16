@@ -23,6 +23,7 @@ import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class App2 {
 
@@ -38,7 +39,8 @@ public class App2 {
             template.update(ironMan);
 
             PreparedStatement prepare = template.prepare("select * from Hero where realName =@name");
-            List<Hero> heroes = prepare.bind("name", "Tony Stark").getResultList();
+            List<Hero> heroes = prepare.bind("name", "Tony Stark")
+                    .<Hero>getResult().collect(Collectors.toList());
             System.out.println(heroes);
             System.out.println(template.query("select * from Hero where _id = 'iron_man'"));
 

@@ -31,7 +31,6 @@ public class App2 {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
 
-
             Address address = new Address("10880 Malibu Point", "Malibu");
             Job job = new Job(1_000, "Rich");
             Person person = Person.builder().
