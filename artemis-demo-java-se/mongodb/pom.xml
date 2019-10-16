@@ -20,7 +20,7 @@
     <name>Artemis Demo using Java SE MongoDB</name>
 
     <parent>
-        <groupId>org.jnosql.artemis</groupId>
+        <groupId>org.eclipse.jnosql.artemis</groupId>
         <artifactId>artemis-demo-java-se</artifactId>
         <version>0.1.0-SNAPSHOT</version>
     </parent>
@@ -31,7 +31,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jnosql.artemis</groupId>
+            <groupId>org.eclipse.jnosql.artemis</groupId>
             <artifactId>artemis-document</artifactId>
             <version>${project.version}</version>
         </dependency>
