@@ -85,20 +85,20 @@ public final class TravelApp {
             Map<String, Long> mostFunCity = graph.getTraversalVertex()
                     .inE(TRAVELS)
                     .has(GOAL, FUN).inV()
-                    .<City>stream()
+                    .<City>getResult()
                     .map(City::getName)
                     .collect((groupingBy(Function.identity(), counting())));
 
             Map<String, Long> mostBusiness = graph.getTraversalVertex()
                     .inE(TRAVELS)
                     .has(GOAL, WORK).inV()
-                    .<City>stream()
+                    .<City>getResult()
                     .map(City::getName)
                     .collect((groupingBy(Function.identity(), counting())));
 
             Map<String, Long> mostTravelCity = graph.getTraversalVertex()
                     .out(TRAVELS)
-                    .<City>stream()
+                    .<City>getResult()
                     .map(City::getName)
                     .collect((groupingBy(Function.identity(), counting())));
 
@@ -106,27 +106,27 @@ public final class TravelApp {
             Map<String, Long> personTravelFun = graph.getTraversalVertex()
                     .inE(TRAVELS)
                     .has(GOAL, FUN).outV()
-                    .<Traveler>stream()
+                    .<Traveler>getResult()
                     .map(Traveler::getName)
                     .collect((groupingBy(Function.identity(), counting())));
 
             Map<String, Long> personTravelWork = graph.getTraversalVertex()
                     .inE(TRAVELS)
                     .has(GOAL, WORK).outV()
-                    .<Traveler>stream()
+                    .<Traveler>getResult()
                     .map(Traveler::getName)
                     .collect((groupingBy(Function.identity(), counting())));
 
             Map<String, Long> personTravel = graph.getTraversalVertex()
                     .in(TRAVELS)
-                    .<Traveler>stream()
+                    .<Traveler>getResult()
                     .map(Traveler::getName)
                     .collect((groupingBy(Function.identity(), counting())));
 
             List<String> friendsCasaBlanca = graph.getTraversalVertex()
                     .hasLabel("City")
                     .has("name", "Casa Blanca")
-                    .in(TRAVELS).<Traveler>stream().map(Traveler::getName).collect(toList());
+                    .in(TRAVELS).<Traveler>getResult().map(Traveler::getName).collect(toList());
 
             System.out.println("The city most fun: "+ mostFunCity);
             System.out.println("The city most business: "+ mostBusiness);

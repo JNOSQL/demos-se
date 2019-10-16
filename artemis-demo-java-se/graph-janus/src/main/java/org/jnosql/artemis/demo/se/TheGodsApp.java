@@ -36,7 +36,7 @@ public class TheGodsApp {
             graph.getTraversalEdge().has("place", geoWithin(circle(37.97, 23.72, 50)))
                     .stream().forEach(System.out::println);
 
-            graph.getTraversalVertex().stream().forEach(System.out::println);
+            graph.getTraversalVertex().getResult().forEach(System.out::println);
         }
     }
 }

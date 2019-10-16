@@ -16,10 +16,10 @@
 package org.jnosql.artemis.demo.se;
 
 
-import jakarta.nosql.mapping.Database;
-import jakarta.nosql.mapping.DatabaseType;
 import jakarta.nosql.document.DocumentCollectionManager;
 import jakarta.nosql.document.DocumentCollectionManagerFactory;
+import jakarta.nosql.mapping.Database;
+import jakarta.nosql.mapping.DatabaseType;
 import org.eclipse.jnosql.diana.mongodb.document.MongoDBDocumentConfiguration;
 
 import javax.annotation.PostConstruct;
@@ -42,7 +42,6 @@ public class MongoDBProducer {
         configuration = new MongoDBDocumentConfiguration();
         managerFactory = configuration.get();
     }
-
 
     @Produces
     @Database(value = DatabaseType.DOCUMENT, provider = MONGODB)

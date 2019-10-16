@@ -63,13 +63,13 @@ public final class BookApp {
 
             List<String> softwareCategories = graph.getTraversalVertex().hasLabel("Category")
                     .has("name", "Software")
-                    .in("is").hasLabel("Category").<Category>stream()
+                    .in("is").hasLabel("Category").<Category>getResult()
                     .map(Category::getName)
                     .collect(toList());
 
             List<String> softwareBooks = graph.getTraversalVertex().hasLabel("Category")
                     .has("name", "Software")
-                    .in("is").hasLabel("Book").<Book>stream()
+                    .in("is").hasLabel("Book").<Book>getResult()
                     .map(Book::getName)
                     .collect(toList());
 
@@ -77,7 +77,7 @@ public final class BookApp {
                     .has("name", "Software")
                     .in("is")
                     .has("name", "NoSQL")
-                    .in("is").<Book>stream()
+                    .in("is").<Book>getResult()
                     .map(Book::getName)
                     .collect(toList());
 
@@ -85,7 +85,8 @@ public final class BookApp {
             System.out.println("The software categories: " + softwareCategories);
             System.out.println("The software books: " + softwareBooks);
             System.out.println("The software and NoSQL books: " + sofwareNoSQLBooks);
-            List<Book> result = graph.query("g.V().hasLabel('Book')");
+            List<Book> result = graph.<Book>query("g.V().hasLabel('Book')")
+                    .collect(toList());
             System.out.printf("from book query: " + result);
 
         }

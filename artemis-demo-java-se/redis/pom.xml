@@ -34,7 +34,7 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.jnosql.diana</groupId>
+            <groupId>org.eclipse.jnosql.diana</groupId>
             <artifactId>redis-driver</artifactId>
             <version>${project.version}</version>
         </dependency>

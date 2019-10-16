@@ -64,13 +64,13 @@ public final class BookTraveresalApp {
 
             List<String> softwareCategories = graph.getTraversalVertex().hasLabel("Category")
                     .has("name", "Software")
-                    .in("is").hasLabel("Category").<Category>stream()
+                    .in("is").hasLabel("Category").<Category>getResult()
                     .map(Category::getName)
                     .collect(toList());
 
             List<String> softwareBooks = graph.getTraversalVertex().hasLabel("Category")
                     .has("name", "Software")
-                    .in("is").hasLabel("Book").<Book>stream()
+                    .in("is").hasLabel("Book").<Book>getResult()
                     .map(Book::getName)
                     .collect(toList());
 
@@ -78,7 +78,7 @@ public final class BookTraveresalApp {
                     .has("name", "Software")
                     .in("is")
                     .has("name", "NoSQL")
-                    .in("is").<Book>stream()
+                    .in("is").<Book>getResult()
                     .map(Book::getName)
                     .collect(toList());
 

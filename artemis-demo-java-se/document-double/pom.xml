@@ -35,12 +35,12 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.jnosql.diana</groupId>
+            <groupId>org.eclipse.jnosql.diana</groupId>
             <artifactId>mongodb-driver</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.jnosql.diana</groupId>
+            <groupId>org.eclipse.jnosql.diana</groupId>
             <artifactId>couchbase-driver</artifactId>
             <version>${project.version}</version>
         </dependency>
