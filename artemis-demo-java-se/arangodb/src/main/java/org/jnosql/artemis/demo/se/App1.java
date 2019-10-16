@@ -40,8 +40,8 @@ public class App1 {
             template.insert(ironMan);
 
             DocumentQuery query = select().from("Hero").where("_key").eq("iron_man").build();
-            List<Hero> heroes = template.select(query);
-            List<Hero> aql = template.aql("FOR h IN Hero FILTER  h.name == @id RETURN h", Collections.singletonMap("id", "iron_man"));
+            Stream<Hero> heroes = template.select(query);
+            Stream<Hero> aql = template.aql("FOR h IN Hero FILTER  h.name == @id RETURN h", Collections.singletonMap("id", "iron_man"));
             System.out.println(heroes);
             System.out.println(aql);
 

@@ -22,9 +22,9 @@ import java.util.List;
 
 public interface HeroRepository extends ArangoDBRepository<Hero, String> {
 
-    List<Hero> findByName(String name);
+    Stream<Hero> findByName(String name);
 
     @AQL("FOR hero in  Hero FILTER hero.realName == @realName return hero")
-    List<Hero> find(@Param("realName") String realName);
+    Stream<Hero> find(@Param("realName") String realName);
 
 }

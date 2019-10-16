@@ -14,7 +14,7 @@
  */
 package org.jnosql.artemis.demo.se;
 
-import jakarta.nosql.mapping.key.KeyValueTemplate;
+import jakarta.nosql.mapping.keyvalue.KeyValueTemplate;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

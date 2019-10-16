@@ -14,9 +14,8 @@
  */
 package org.jnosql.artemis.demo.se;
 
-import jakarta.nosql.mapping.ConfigurationUnit;
 import jakarta.nosql.document.DocumentCollectionManager;
-import jakarta.nosql.key.BucketManager;
+import jakarta.nosql.keyvalue.BucketManager;
 import org.jnosql.diana.arangodb.document.ArangoDBDocumentCollectionManager;
 
 import javax.enterprise.context.ApplicationScoped;

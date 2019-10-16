@@ -8,6 +8,7 @@ test-output/
 *.iml
 *.log
 .classpath
+.checkstyle
 -project
 /.resourceCache
 /.project

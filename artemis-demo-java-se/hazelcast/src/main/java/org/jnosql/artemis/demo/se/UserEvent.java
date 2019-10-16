@@ -18,8 +18,8 @@ package org.jnosql.artemis.demo.se;
 
 import jakarta.nosql.mapping.EntityPostPersit;
 import jakarta.nosql.mapping.EntityPrePersist;
-import jakarta.nosql.mapping.key.KeyValueEntityPostPersist;
-import jakarta.nosql.mapping.key.KeyValueEntityPrePersist;
+import jakarta.nosql.mapping.keyvalue.KeyValueEntityPostPersist;
+import jakarta.nosql.mapping.keyvalue.KeyValueEntityPrePersist;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;

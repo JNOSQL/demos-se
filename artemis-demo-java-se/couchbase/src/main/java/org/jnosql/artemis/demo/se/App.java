@@ -23,6 +23,7 @@ import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static jakarta.nosql.document.DocumentQuery.select;
 
@@ -40,7 +41,7 @@ public class App {
             template.insert(ironMan);
 
             DocumentQuery query = select().from("Hero").where("_id").eq("iron_man").build();
-            List<Hero> heroes = template.select(query);
+            Stream<Hero> heroes = template.select(query);
             System.out.println(heroes);
 
         }

@@ -16,7 +16,7 @@
 package org.jnosql.artemis.demo.se;
 
 
-import jakarta.nosql.mapping.key.KeyValueTemplate;
+import jakarta.nosql.mapping.keyvalue.KeyValueTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
