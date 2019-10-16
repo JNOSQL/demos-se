@@ -14,10 +14,9 @@
  */
 package org.jnosql.artemis.demo.se;
 
-import jakarta.nosql.mapping.ConfigurationUnit;
 import jakarta.nosql.document.DocumentCollectionManager;
-import jakarta.nosql.key.BucketManager;
-import org.jnosql.diana.arangodb.document.ArangoDBDocumentCollectionManager;
+import jakarta.nosql.keyvalue.BucketManager;
+import org.eclipse.jnosql.diana.arangodb.document.ArangoDBDocumentCollectionManager;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -29,11 +28,9 @@ public class ArangoDBProducer {
     private static final String HEROES = "heroes";
 
     @Inject
-    @ConfigurationUnit(name = "document", database = HEROES)
     private DocumentCollectionManager documentManager;
 
     @Inject
-    @ConfigurationUnit(name = "key-value", database = HEROES)
     private BucketManager bucketManager;
 
 

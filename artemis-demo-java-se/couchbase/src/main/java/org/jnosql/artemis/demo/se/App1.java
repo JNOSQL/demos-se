@@ -18,13 +18,14 @@ package org.jnosql.artemis.demo.se;
 
 import com.couchbase.client.java.search.SearchQuery;
 import com.couchbase.client.java.search.queries.MatchQuery;
-import org.jnosql.artemis.couchbase.document.CouchbaseTemplate;
+import org.eclipse.jnosql.artemis.couchbase.document.CouchbaseTemplate;
 import jakarta.nosql.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static jakarta.nosql.document.DocumentQuery.select;
 
@@ -42,12 +43,12 @@ public class App1 {
             couchbaseTemplate.insert(ironMan);
 
             DocumentQuery query = select().from("Hero").where("_id").eq("iron_man").build();
-            List<Hero> heroes = couchbaseTemplate.select(query);
+            List<Hero> heroes = couchbaseTemplate.<Hero>select(query).collect(Collectors.toList());
             System.out.println(heroes);
 
             MatchQuery match = SearchQuery.match("rich").field("powers");
             SearchQuery search = new SearchQuery("heroes-index", match);
-            List<Hero> searchResult = couchbaseTemplate.search(search);
+            List<Hero> searchResult = couchbaseTemplate.<Hero>search(search).collect(Collectors.toList());
             System.out.println(searchResult);
 
 

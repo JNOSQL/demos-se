@@ -16,8 +16,8 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.jnosql.artemis.cassandra.column.CQL;
-import org.jnosql.artemis.cassandra.column.CassandraRepository;
+import org.eclipse.jnosql.artemis.cassandra.column.CQL;
+import org.eclipse.jnosql.artemis.cassandra.column.CassandraRepository;
 
 import java.util.List;
 

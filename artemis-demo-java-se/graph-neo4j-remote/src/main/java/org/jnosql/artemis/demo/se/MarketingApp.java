@@ -17,7 +17,7 @@ package org.jnosql.artemis.demo.se;
 
 
 import org.apache.tinkerpop.gremlin.structure.Graph;
-import org.jnosql.artemis.graph.GraphTemplate;
+import org.eclipse.jnosql.artemis.graph.GraphTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;

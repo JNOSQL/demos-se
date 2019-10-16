@@ -21,7 +21,7 @@ import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.Optional;
 
-import static org.jnosql.artemis.DatabaseQualifier.ofColumn;
+import static org.eclipse.jnosql.artemis.DatabaseQualifier.ofColumn;
 
 public class App2 {
 

@@ -19,7 +19,7 @@ package org.jnosql.artemis.demo.se;
 import jakarta.nosql.key.BucketManager;
 import jakarta.nosql.key.BucketManagerFactory;
 import jakarta.nosql.key.KeyValueConfiguration;
-import org.jnosql.diana.memcached.key.MemcachedKeyValueConfiguration;
+import org.eclipse.jnosql.diana.memcached.key.MemcachedKeyValueConfiguration;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;

@@ -18,7 +18,7 @@ package org.jnosql.artemis.demo.se;
 
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.TermQueryBuilder;
-import org.jnosql.artemis.elasticsearch.document.ElasticsearchTemplate;
+import org.eclipse.jnosql.artemis.elasticsearch.document.ElasticsearchTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;

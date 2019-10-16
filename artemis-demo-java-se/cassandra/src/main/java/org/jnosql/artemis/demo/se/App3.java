@@ -18,12 +18,13 @@ package org.jnosql.artemis.demo.se;
 
 import com.datastax.driver.core.ConsistencyLevel;
 import jakarta.nosql.column.ColumnQuery;
-import org.jnosql.artemis.cassandra.column.CassandraTemplate;
+import org.eclipse.jnosql.artemis.cassandra.column.CassandraTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static jakarta.nosql.column.ColumnQuery.select;
 
@@ -45,7 +46,7 @@ public class App3 {
 
             ColumnQuery query = select().from("Person").where("id").eq(1L).build();
 
-            List<Person> people = cassandraTemplate.cql("select * from developers.Person where id = 1");
+            List<Person> people = cassandraTemplate.<Person>cql("select * from developers.Person where id = 1").collect(Collectors.toList());
             System.out.println("Entity found: " + people);
 
         }

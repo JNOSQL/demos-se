@@ -18,7 +18,7 @@ package org.jnosql.artemis.demo.se;
 
 import jakarta.nosql.column.ColumnQuery;
 import jakarta.nosql.mapping.column.ColumnTemplate;
-import org.jnosql.artemis.cassandra.column.CassandraTemplate;
+import org.eclipse.jnosql.artemis.cassandra.column.CassandraTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;

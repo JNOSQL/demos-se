@@ -19,7 +19,7 @@ package org.jnosql.artemis.demo.se;
 import jakarta.nosql.Settings;
 import jakarta.nosql.document.DocumentCollectionManager;
 import jakarta.nosql.document.DocumentCollectionManagerFactory;
-import org.jnosql.diana.ravendb.document.RavenDBDocumentConfiguration;
+import org.eclipse.jnosql.diana.ravendb.document.RavenDBDocumentConfiguration;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;

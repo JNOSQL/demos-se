@@ -16,10 +16,10 @@
 package org.jnosql.artemis.demo.se.parking;
 
 import jakarta.nosql.mapping.Column;
-import org.jnosql.artemis.Convert;
+import org.eclipse.jnosql.artemis.Convert;
 import jakarta.nosql.mapping.Entity;
 import jakarta.nosql.mapping.Id;
-import org.jnosql.artemis.demo.se.parking.converter.ObjectIdConverter;
+import org.eclipse.jnosql.artemis.demo.se.parking.converter.ObjectIdConverter;
 
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;

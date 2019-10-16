@@ -17,7 +17,7 @@ package org.jnosql.artemis.demo.se;
 
 
 import jakarta.nosql.mapping.PreparedStatement;
-import org.jnosql.artemis.DatabaseQualifier;
+import org.eclipse.jnosql.artemis.DatabaseQualifier;
 import jakarta.nosql.mapping.document.DocumentTemplate;
 
 import javax.enterprise.inject.se.SeContainer;

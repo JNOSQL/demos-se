@@ -17,8 +17,8 @@ package org.jnosql.artemis.demo.se;
 
 
 import jakarta.nosql.key.BucketManager;
-import org.jnosql.diana.redis.key.RedisBucketManagerFactory;
-import org.jnosql.diana.redis.key.RedisConfiguration;
+import org.eclipse.jnosql.diana.redis.key.RedisBucketManagerFactory;
+import org.eclipse.jnosql.diana.redis.key.RedisConfiguration;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
