@@ -14,11 +14,11 @@
  */
 package org.jnosql.artemis.demo.se;
 
-import jakarta.nosql.document.DocumentCollectionManager;
 import jakarta.nosql.document.DocumentCollectionManagerFactory;
 import jakarta.nosql.keyvalue.BucketManager;
 import jakarta.nosql.keyvalue.BucketManagerFactory;
 import org.eclipse.jnosql.diana.couchbase.document.CouchbaseDocumentCollectionManager;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -32,16 +32,12 @@ public class CouchbaseProducer {
     private static final String HEROES = "heroes";
 
     @Inject
+    @ConfigProperty(name = "document")
     private DocumentCollectionManagerFactory entityManager;
 
     @Inject
+    @ConfigProperty(name = "keyvalue")
     private BucketManagerFactory bucketManager;
-
-
-    @Produces
-    public DocumentCollectionManager getManager() {
-        return entityManager.get(HEROES);
-    }
 
     @Produces
     public CouchbaseDocumentCollectionManager getCouchbaseDocumentCollectionManager() {
@@ -52,7 +48,6 @@ public class CouchbaseProducer {
     public List<String> getHeroList() {
         return bucketManager.getList(HEROES, String.class);
     }
-
 
     @Produces
     public Set<String> getHeroSet() {
