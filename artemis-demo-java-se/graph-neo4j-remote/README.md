@@ -23,7 +23,7 @@ Follow the instructions in: https://neo4j.com/docs/operations-manual/current/ins
 1. Install docker: https://www.docker.com/
 1. https://store.docker.com/images/neo4j
 1. Run docker command
-1. `docker run --publish=7474:7474 --publish=7687:7687 --volume=$HOME/neo4j/data:/data neo4j`
+1. `docker run --publish=7474:7474 --publish=7687:7687 --env NEO4J_AUTH=neo4j/admin neo4j`
 
 
 ## Check the configuration
