@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Otávio Santana and others
+ * Copyright (c) 2019 Otávio Santana and others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * and Apache License v2.0 which accompanies this distribution.
@@ -15,7 +15,7 @@
 package org.jnosql.artemis.demo.se;
 
 import jakarta.nosql.document.DocumentCollectionManager;
-import jakarta.nosql.document.DocumentCollectionManagerFactory;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -24,16 +24,13 @@ import javax.inject.Inject;
 @ApplicationScoped
 public class DocumentCollectionManagerProducer {
 
-    private static final String HEROES = "heroes";
-
     @Inject
-    private DocumentCollectionManagerFactory entityManager;
-
-
+    @ConfigProperty(name = "document")
+    private DocumentCollectionManager entityManager;
 
     @Produces
     public DocumentCollectionManager getManager() {
-        return entityManager.get(HEROES);
+        return entityManager;
     }
 
 }
