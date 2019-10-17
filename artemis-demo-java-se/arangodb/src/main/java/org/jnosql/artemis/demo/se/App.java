@@ -29,7 +29,6 @@ import static jakarta.nosql.document.DocumentQuery.select;
 
 public class App {
 
-
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
