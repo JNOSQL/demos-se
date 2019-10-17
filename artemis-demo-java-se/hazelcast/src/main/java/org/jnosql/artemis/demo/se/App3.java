@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Otávio Santana and others
+ * Copyright (c) 2017, 2019 Otávio Santana and others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * and Apache License v2.0 which accompanies this distribution.
@@ -11,6 +11,7 @@
  * Contributors:
  *
  * Otavio Santana
+ * Werner Keil
  */
 
 package org.jnosql.artemis.demo.se;
@@ -34,6 +35,8 @@ public class App3 {
         Set<String> uniqueProducts = managerFactory.getSet("unique_products", String.class);
         Queue<String> queue = managerFactory.getQueue("queue", String.class);
         Map<String, String> map = managerFactory.getMap("map", String.class, String.class);
+       
+        System.exit(0);
     }
 
     private App3() {
