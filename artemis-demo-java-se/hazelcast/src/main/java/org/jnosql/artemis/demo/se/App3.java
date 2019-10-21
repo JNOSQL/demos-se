@@ -35,7 +35,9 @@ public class App3 {
         Set<String> uniqueProducts = managerFactory.getSet("unique_products", String.class);
         Queue<String> queue = managerFactory.getQueue("queue", String.class);
         Map<String, String> map = managerFactory.getMap("map", String.class, String.class);
-       
+        
+        //map.values().forEach(System.out::println);
+        
         System.exit(0);
     }
 

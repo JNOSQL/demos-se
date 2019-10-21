@@ -41,6 +41,8 @@ public class App2 {
             System.out.println("User found: " + user);
             System.out.println("The user found: " + repository.existsById("username"));
         }
+        
+        System.exit(0);
     }
 
     private App2() {
