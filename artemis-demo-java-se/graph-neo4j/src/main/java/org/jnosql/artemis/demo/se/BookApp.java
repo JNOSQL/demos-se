@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Otávio Santana and others
+ * Copyright (c) 2017, 2019 Otávio Santana and others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * and Apache License v2.0 which accompanies this distribution.
@@ -11,6 +11,7 @@
  * Contributors:
  *
  * Otavio Santana
+ * Werner Keil
  */
 package org.jnosql.artemis.demo.se;
 
@@ -80,14 +81,12 @@ public final class BookApp {
                     .map(Book::getName)
                     .collect(toList());
 
-
             System.out.println("The software categories: " + softwareCategories);
             System.out.println("The software books: " + softwareBooks);
             System.out.println("The software and NoSQL books: " + sofwareNoSQLBooks);
             List<Book> result = graph.<Book>query("g.V().hasLabel('Book')")
                     .collect(toList());
             System.out.printf("from book query: " + result);
-
         }
     }
 }
