@@ -44,7 +44,6 @@ public final class BookApp {
             Book migratingMicroservice = graph.insert(Book.of("Migrating to Microservice Databases"));
             Book shack = graph.insert(Book.of("The Shack"));
 
-
             graph.edge(java, "is", software);
             graph.edge(nosql, "is", software);
             graph.edge(microService, "is", software);
