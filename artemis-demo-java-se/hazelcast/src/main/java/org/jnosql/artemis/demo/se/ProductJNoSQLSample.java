@@ -30,7 +30,6 @@ public class ProductJNoSQLSample {
         List<String> productYear = bucketManagerFactory.getList("product_2018", String.class);
         productYear.add("new Product");
         productYear.add("even newer Product");
-        //System.out.println(productYear);
         productYear.forEach(System.out::println);
         System.exit(0);
     }
