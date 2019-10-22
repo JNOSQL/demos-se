@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Otávio Santana and others
+ * Copyright (c) 2017, 2019 Otávio Santana and others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * and Apache License v2.0 which accompanies this distribution.
@@ -11,6 +11,7 @@
  * Contributors:
  *
  * Otavio Santana
+ * Werner Keil
  */
 
 package org.jnosql.artemis.demo.se;
@@ -81,7 +82,7 @@ public final class MarketingApp {
                     .distinct()
                     .collect(toList());
 
-            List<Person> couple = graph.getTraversalVertex()
+            List<Person> couples = graph.getTraversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
@@ -95,7 +96,7 @@ public final class MarketingApp {
             System.out.println("Developers has salary greater than 3000 and age between 20 and 25: " + developers);
             System.out.println("Person who the Developers target know: " + peopleWhoDeveloperKnows);
             System.out.println("The person and the developers target: " + both);
-            System.out.println("Developers to Valentine days: " + couple);
+            System.out.println("Developers to Valentine's day: " + couples);
 
         }
     }

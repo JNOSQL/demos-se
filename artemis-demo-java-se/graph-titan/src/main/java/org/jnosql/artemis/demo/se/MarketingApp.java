@@ -96,7 +96,7 @@ public final class MarketingApp {
             System.out.println("Developers has salary greater than 3000 and age between 20 and 25: " + developers);
             System.out.println("Person who the Developers target know: " + peopleWhoDeveloperKnows);
             System.out.println("The person and the developers target: " + both);
-            System.out.println("Developers to Valentine days: " + couple);
+            System.out.println("Developers to Valentine's days: " + couple);
 
         }
         System.exit(0);

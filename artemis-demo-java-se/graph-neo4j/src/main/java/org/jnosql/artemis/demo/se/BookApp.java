@@ -86,7 +86,8 @@ public final class BookApp {
             System.out.println("The software and NoSQL books: " + sofwareNoSQLBooks);
             List<Book> result = graph.<Book>query("g.V().hasLabel('Book')")
                     .collect(toList());
-            System.out.printf("from book query: " + result);
+            System.out.println("from book query: ");
+            result.forEach(System.out::println);
         }
     }
 }
