@@ -22,7 +22,7 @@
     <name>Artemis Demo</name>
 
     <parent>
-        <groupId>org.jnosql</groupId>
+        <groupId>org.eclipse.jnosql</groupId>
         <artifactId>jnosql-parent</artifactId>
         <version>1.0.0-b1</version>
     </parent>

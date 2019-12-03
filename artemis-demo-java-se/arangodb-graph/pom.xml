@@ -40,6 +40,11 @@
             <artifactId>arangodb-tinkerpop-provider</artifactId>
             <version>2.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.tinkerpop</groupId>
+            <artifactId>gremlin-core</artifactId>
+            <version>${tinkerpop.version}</version>
+        </dependency>
     </dependencies>
 
 
