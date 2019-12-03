@@ -16,7 +16,7 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.jnosql.artemis.DatabaseQualifier;
+import org.eclipse.jnosql.artemis.DatabaseQualifier;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
@@ -29,7 +29,6 @@ public class App2 {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-
 
 
             Address address = new Address("10880 Malibu Point", "Malibu");

@@ -20,9 +20,9 @@
     <packaging>pom</packaging>
     <name>Artemis Demo using Java SE</name>
     <parent>
-        <groupId>org.jnosql.artemis</groupId>
+        <groupId>org.eclipse.jnosql.artemis</groupId>
         <artifactId>artemis-demo-parent</artifactId>
-        <version>0.0.9</version>
+        <version>1.0.0-b1</version>
     </parent>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -54,11 +54,6 @@
             <artifactId>javax.json</artifactId>
             <version>${javax.json.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.jnosql.artemis</groupId>
-            <artifactId>artemis-configuration</artifactId>
-            <version>${project.version}</version>
-        </dependency>
     </dependencies>
 
     <modules>
@@ -67,7 +62,6 @@
         <module>cassandra</module>
         <module>scylla</module>
         <module>couchbase</module>
-        <module>configurations</module>
         <module>document-double</module>
         <module>elasticsearch</module>
         <module>graph-janus</module>
@@ -81,4 +75,17 @@
         <module>redis</module>
         <module>couchdb</module>
     </modules>
+
+    <repositories>
+        <repository>
+            <id>oss.sonatype.org-snapshot</id>
+            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>

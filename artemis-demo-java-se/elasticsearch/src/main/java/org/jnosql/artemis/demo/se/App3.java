@@ -18,7 +18,7 @@ package org.jnosql.artemis.demo.se;
 
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.TermQueryBuilder;
-import org.jnosql.artemis.elasticsearch.document.ElasticsearchTemplate;
+import org.eclipse.jnosql.artemis.elasticsearch.document.ElasticsearchTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 
 public class App3 {
@@ -59,11 +60,12 @@ public class App3 {
 
             TermQueryBuilder query = QueryBuilders.termQuery("phones", "85 85 343435684");
 
-            List<Developer> people = template.search(query);
+            List<Developer> people = template.<Developer>search(query).collect(Collectors.toList());
             System.out.println("Entity found from phone: " + people);
 
 
-            people = template.search(QueryBuilders.termQuery("languages", "java"));
+            people = template.<Developer>search(QueryBuilders.termQuery("languages", "java"))
+                    .collect(Collectors.toList());
             System.out.println("Entity found from languages: " + people);
         }
     }

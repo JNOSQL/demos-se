@@ -14,9 +14,9 @@
  */
 package org.jnosql.artemis.demo.se;
 
-import org.jnosql.artemis.arangodb.document.AQL;
-import org.jnosql.artemis.arangodb.document.ArangoDBRepository;
-import org.jnosql.artemis.arangodb.document.Param;
+import org.eclipse.jnosql.artemis.arangodb.document.AQL;
+import org.eclipse.jnosql.artemis.arangodb.document.ArangoDBRepository;
+import org.eclipse.jnosql.artemis.arangodb.document.Param;
 
 import java.util.List;
 

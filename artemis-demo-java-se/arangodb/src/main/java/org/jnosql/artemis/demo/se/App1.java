@@ -16,15 +16,16 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.jnosql.artemis.arangodb.document.ArangoDBTemplate;
-import org.jnosql.diana.api.document.DocumentQuery;
+import org.eclipse.jnosql.artemis.arangodb.document.ArangoDBTemplate;
+import jakarta.nosql.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import static org.jnosql.diana.api.document.query.DocumentQueryBuilder.select;
+import static jakarta.nosql.document.DocumentQuery.select;
 
 public class App1 {
 
@@ -40,8 +41,9 @@ public class App1 {
             template.insert(ironMan);
 
             DocumentQuery query = select().from("Hero").where("_key").eq("iron_man").build();
-            List<Hero> heroes = template.select(query);
-            List<Hero> aql = template.aql("FOR h IN Hero FILTER  h.name == @id RETURN h", Collections.singletonMap("id", "iron_man"));
+            List<Hero> heroes = template.<Hero>select(query).collect(Collectors.toList());
+            List<Hero> aql = template.<Hero>aql("FOR h IN Hero FILTER  h.name == @id RETURN h", Collections.singletonMap("id", "iron_man"))
+                    .collect(Collectors.toList());
             System.out.println(heroes);
             System.out.println(aql);
 

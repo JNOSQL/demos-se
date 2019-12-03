@@ -16,10 +16,10 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.jnosql.artemis.EntityPostPersit;
-import org.jnosql.artemis.EntityPrePersist;
-import org.jnosql.artemis.key.KeyValueEntityPostPersist;
-import org.jnosql.artemis.key.KeyValueEntityPrePersist;
+import jakarta.nosql.mapping.EntityPostPersit;
+import jakarta.nosql.mapping.EntityPrePersist;
+import jakarta.nosql.mapping.keyvalue.KeyValueEntityPostPersist;
+import jakarta.nosql.mapping.keyvalue.KeyValueEntityPrePersist;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;

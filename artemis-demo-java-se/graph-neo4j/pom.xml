@@ -20,19 +20,20 @@
     <name>Artemis Demo using Java SE Graph-neo4j</name>
 
     <parent>
-        <groupId>org.jnosql.artemis</groupId>
+        <groupId>org.eclipse.jnosql.artemis</groupId>
         <artifactId>artemis-demo-java-se</artifactId>
-        <version>0.0.9</version>
+        <version>1.0.0-b1</version>
     </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <tinkerpop.version>3.4.3</tinkerpop.version>
     </properties>
 
     <dependencies>
 
         <dependency>
-            <groupId>org.jnosql.artemis</groupId>
+            <groupId>org.eclipse.jnosql.artemis</groupId>
             <artifactId>artemis-graph</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -52,14 +53,14 @@
             <version>${tinkerpop.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.neo4j</groupId>
-            <artifactId>neo4j-tinkerpop-api-impl</artifactId>
-            <version>0.6-3.2.2</version>
+            <groupId>org.apache.tinkerpop</groupId>
+            <artifactId>neo4j-gremlin</artifactId>
+            <version>3.4.3</version>
         </dependency>
         <dependency>
             <groupId>org.neo4j</groupId>
-            <artifactId>neo4j</artifactId>
-            <version>3.5.2</version>
+            <artifactId>neo4j-tinkerpop-api-impl</artifactId>
+            <version>0.9-3.4.0</version>
         </dependency>
     </dependencies>
 

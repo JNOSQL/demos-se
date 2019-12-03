@@ -14,9 +14,9 @@
  */
 package org.jnosql.artemis.demo.se;
 
-import org.jnosql.artemis.couchbase.document.CouchbaseRepository;
-import org.jnosql.artemis.couchbase.document.N1QL;
-import org.jnosql.artemis.couchbase.document.Param;
+import org.eclipse.jnosql.artemis.couchbase.document.CouchbaseRepository;
+import org.eclipse.jnosql.artemis.couchbase.document.N1QL;
+import org.eclipse.jnosql.artemis.couchbase.document.Param;
 
 import java.util.Optional;
 import java.util.stream.Stream;

@@ -14,7 +14,7 @@
  */
 package org.jnosql.artemis.demo.se;
 
-import org.jnosql.artemis.graph.GraphTemplate;
+import org.eclipse.jnosql.artemis.graph.GraphTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
@@ -31,6 +31,7 @@ public final class BookApp {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             GraphTemplate graph = container.select(GraphTemplate.class).get();
+            BookRepository repository = container.select(BookRepository.class).get();
 
             Category software = graph.insert(Category.of("Software"));
             Category romance = graph.insert(Category.of("Romance"));
@@ -43,7 +44,6 @@ public final class BookApp {
             Book nosqlDistilled = graph.insert(Book.of("NoSQL Distilled"));
             Book migratingMicroservice = graph.insert(Book.of("Migrating to Microservice Databases"));
             Book shack = graph.insert(Book.of("The Shack"));
-
 
             graph.edge(java, "is", software);
             graph.edge(nosql, "is", software);
@@ -63,13 +63,13 @@ public final class BookApp {
 
             List<String> softwareCategories = graph.getTraversalVertex().hasLabel("Category")
                     .has("name", "Software")
-                    .in("is").hasLabel("Category").<Category>stream()
+                    .in("is").hasLabel("Category").<Category>getResult()
                     .map(Category::getName)
                     .collect(toList());
 
             List<String> softwareBooks = graph.getTraversalVertex().hasLabel("Category")
                     .has("name", "Software")
-                    .in("is").hasLabel("Book").<Book>stream()
+                    .in("is").hasLabel("Book").<Book>getResult()
                     .map(Book::getName)
                     .collect(toList());
 
@@ -77,7 +77,7 @@ public final class BookApp {
                     .has("name", "Software")
                     .in("is")
                     .has("name", "NoSQL")
-                    .in("is").<Book>stream()
+                    .in("is").<Book>getResult()
                     .map(Book::getName)
                     .collect(toList());
 
@@ -85,7 +85,8 @@ public final class BookApp {
             System.out.println("The software categories: " + softwareCategories);
             System.out.println("The software books: " + softwareBooks);
             System.out.println("The software and NoSQL books: " + sofwareNoSQLBooks);
-            List<Book> result = graph.query("g.V().hasLabel('Book')");
+            List<Book> result = graph.<Book>query("g.V().hasLabel('Book')")
+                    .collect(toList());
             System.out.printf("from book query: " + result);
 
         }

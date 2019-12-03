@@ -16,11 +16,11 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.jnosql.artemis.Database;
-import org.jnosql.artemis.DatabaseType;
-import org.jnosql.diana.api.document.DocumentCollectionManager;
-import org.jnosql.diana.couchbase.document.CouchbaseDocumentConfiguration;
-import org.jnosql.diana.couchbase.document.CouhbaseDocumentCollectionManagerFactory;
+import jakarta.nosql.mapping.Database;
+import jakarta.nosql.mapping.DatabaseType;
+import jakarta.nosql.document.DocumentCollectionManager;
+import org.eclipse.jnosql.diana.couchbase.document.CouchbaseDocumentConfiguration;
+import org.eclipse.jnosql.diana.couchbase.document.CouhbaseDocumentCollectionManagerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;

@@ -14,9 +14,9 @@
  */
 package org.jnosql.artemis.demo.se.parking;
 
-import org.jnosql.artemis.Param;
-import org.jnosql.artemis.Query;
-import org.jnosql.artemis.Repository;
+import jakarta.nosql.mapping.Param;
+import jakarta.nosql.mapping.Query;
+import jakarta.nosql.mapping.Repository;
 
 import java.util.List;
 import java.util.Optional;

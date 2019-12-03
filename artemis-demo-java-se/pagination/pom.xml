@@ -16,13 +16,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>configurations</artifactId>
-    <name>Artemis Demo using Java SE Couchbase</name>
+    <artifactId>pagination</artifactId>
+    <name>Artemis Demo using Java SE MongoDB with Pagination</name>
 
     <parent>
-        <groupId>org.jnosql.artemis</groupId>
+        <groupId>org.eclipse.jnosql.artemis</groupId>
         <artifactId>artemis-demo-java-se</artifactId>
-        <version>0.0.9</version>
+        <version>1.0.0-b1</version>
     </parent>
 
     <properties>
@@ -31,24 +31,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jnosql.artemis</groupId>
+            <groupId>org.eclipse.jnosql.artemis</groupId>
             <artifactId>artemis-document</artifactId>
             <version>${project.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>org.jnosql.diana</groupId>
-            <artifactId>couchbase-driver</artifactId>
+            <groupId>org.eclipse.jnosql.diana</groupId>
+            <artifactId>mongodb-driver</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
-
-
-    <repositories>
-        <repository>
-            <id>sonatype.snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
-    </repositories>
 
 </project>

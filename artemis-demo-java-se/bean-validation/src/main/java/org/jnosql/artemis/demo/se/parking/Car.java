@@ -14,13 +14,13 @@
  */
 package org.jnosql.artemis.demo.se.parking;
 
-import org.jnosql.artemis.Column;
-import org.jnosql.artemis.Convert;
-import org.jnosql.artemis.Entity;
-import org.jnosql.artemis.demo.se.parking.converter.MonetaryAmountConverter;
-import org.jnosql.artemis.demo.se.parking.validation.CurrencyAccepted;
-import org.jnosql.artemis.demo.se.parking.validation.MonetaryMax;
-import org.jnosql.artemis.demo.se.parking.validation.MonetaryMin;
+import jakarta.nosql.mapping.Column;
+import org.eclipse.jnosql.artemis.Convert;
+import jakarta.nosql.mapping.Entity;
+import org.eclipse.jnosql.artemis.demo.se.parking.converter.MonetaryAmountConverter;
+import org.eclipse.jnosql.artemis.demo.se.parking.validation.CurrencyAccepted;
+import org.eclipse.jnosql.artemis.demo.se.parking.validation.MonetaryMax;
+import org.eclipse.jnosql.artemis.demo.se.parking.validation.MonetaryMin;
 
 import javax.money.MonetaryAmount;
 import javax.validation.constraints.NotBlank;

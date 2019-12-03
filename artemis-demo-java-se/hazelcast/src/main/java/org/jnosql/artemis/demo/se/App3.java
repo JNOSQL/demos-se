@@ -15,9 +15,9 @@
 
 package org.jnosql.artemis.demo.se;
 
-import org.jnosql.diana.api.key.BucketManagerFactory;
-import org.jnosql.diana.api.key.KeyValueConfiguration;
-import org.jnosql.diana.hazelcast.key.HazelcastKeyValueConfiguration;
+import jakarta.nosql.keyvalue.BucketManagerFactory;
+import jakarta.nosql.keyvalue.KeyValueConfiguration;
+import org.eclipse.jnosql.diana.hazelcast.keyvalue.HazelcastKeyValueConfiguration;
 
 import java.util.List;
 import java.util.Map;
@@ -28,8 +28,8 @@ public class App3 {
 
     public static void main(String[] args) {
 
-        KeyValueConfiguration<?> configuration = new HazelcastKeyValueConfiguration();
-        BucketManagerFactory<?> managerFactory = configuration.get();
+        KeyValueConfiguration configuration = new HazelcastKeyValueConfiguration();
+        BucketManagerFactory managerFactory = configuration.get();
         List<String> products = managerFactory.getList("products", String.class);
         Set<String> uniqueProducts = managerFactory.getSet("unique_products", String.class);
         Queue<String> queue = managerFactory.getQueue("queue", String.class);

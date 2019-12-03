@@ -31,7 +31,6 @@ public class App3 {
 
             VillainService service = container.select(VillainService.class).get();
 
-
             service.addName("Doctor Doom");
             service.addName("Magneto");
             service.addName("Red Skull");

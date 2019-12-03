@@ -16,8 +16,8 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.jnosql.artemis.Column;
-import org.jnosql.artemis.Embeddable;
+import jakarta.nosql.mapping.Column;
+import jakarta.nosql.mapping.Embeddable;
 
 import java.util.Objects;
 

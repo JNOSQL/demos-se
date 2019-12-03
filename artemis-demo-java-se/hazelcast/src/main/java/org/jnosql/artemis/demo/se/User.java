@@ -16,8 +16,8 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.jnosql.artemis.Entity;
-import org.jnosql.artemis.Id;
+import jakarta.nosql.mapping.Entity;
+import jakarta.nosql.mapping.Id;
 
 import java.io.Serializable;
 import java.util.List;

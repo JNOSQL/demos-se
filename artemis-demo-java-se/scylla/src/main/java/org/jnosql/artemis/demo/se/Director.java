@@ -16,7 +16,7 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.jnosql.artemis.Column;
+import jakarta.nosql.mapping.Column;
 
 import java.util.HashSet;
 import java.util.Objects;

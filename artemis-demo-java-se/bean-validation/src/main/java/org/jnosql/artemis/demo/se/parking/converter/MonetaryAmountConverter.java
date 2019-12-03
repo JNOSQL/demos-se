@@ -20,8 +20,8 @@ import org.bson.BsonString;
 import org.bson.BsonValue;
 import org.bson.types.Decimal128;
 import org.javamoney.moneta.Money;
-import org.jnosql.artemis.AttributeConverter;
-import org.jnosql.diana.api.document.Document;
+import org.eclipse.jnosql.artemis.AttributeConverter;
+import org.eclipse.jnosql.diana.api.document.Document;
 
 import javax.money.MonetaryAmount;
 import java.math.BigDecimal;

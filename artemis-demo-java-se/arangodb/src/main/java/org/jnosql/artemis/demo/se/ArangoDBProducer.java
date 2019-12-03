@@ -14,10 +14,10 @@
  */
 package org.jnosql.artemis.demo.se;
 
-import org.jnosql.artemis.ConfigurationUnit;
-import org.jnosql.diana.api.document.DocumentCollectionManager;
-import org.jnosql.diana.api.key.BucketManager;
-import org.jnosql.diana.arangodb.document.ArangoDBDocumentCollectionManager;
+import jakarta.nosql.document.DocumentCollectionManager;
+import jakarta.nosql.keyvalue.BucketManager;
+import org.eclipse.jnosql.diana.arangodb.document.ArangoDBDocumentCollectionManager;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -26,17 +26,13 @@ import javax.inject.Inject;
 @ApplicationScoped
 public class ArangoDBProducer {
 
-    private static final String HEROES = "heroes";
-
     @Inject
-    @ConfigurationUnit(name = "document", database = HEROES)
+    @ConfigProperty(name = "document")
     private DocumentCollectionManager documentManager;
 
     @Inject
-    @ConfigurationUnit(name = "key-value", database = HEROES)
+    @ConfigProperty(name = "keyvalue")
     private BucketManager bucketManager;
-
-
 
     @Produces
     public ArangoDBDocumentCollectionManager getCollectionManager() {

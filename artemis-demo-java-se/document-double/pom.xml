@@ -19,9 +19,9 @@
     <artifactId>document-double</artifactId>
     <name>Artemis Demo using Java SE Document with two documents</name>
     <parent>
-        <groupId>org.jnosql.artemis</groupId>
+        <groupId>org.eclipse.jnosql.artemis</groupId>
         <artifactId>artemis-demo-java-se</artifactId>
-        <version>0.0.9</version>
+        <version>1.0.0-b1</version>
     </parent>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,17 +30,17 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.jnosql.artemis</groupId>
+            <groupId>org.eclipse.jnosql.artemis</groupId>
             <artifactId>artemis-document</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.jnosql.diana</groupId>
+            <groupId>org.eclipse.jnosql.diana</groupId>
             <artifactId>mongodb-driver</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.jnosql.diana</groupId>
+            <groupId>org.eclipse.jnosql.diana</groupId>
             <artifactId>couchbase-driver</artifactId>
             <version>${project.version}</version>
         </dependency>
