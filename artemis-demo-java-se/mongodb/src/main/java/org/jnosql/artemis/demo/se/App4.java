@@ -18,6 +18,10 @@ package org.jnosql.artemis.demo.se;
 import jakarta.nosql.mapping.PreparedStatement;
 import jakarta.nosql.mapping.document.DocumentTemplate;
 
+import org.jnosql.artemis.PreparedStatement;
+import org.jnosql.artemis.document.DocumentTemplate;
+
+
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Optional;
@@ -40,12 +44,16 @@ public class App4 {
             final String query = "select * from Attachment where _id = @id";
             final PreparedStatement prepare = template.prepare(query);
             prepare.bind("id", attachment.getId());
+
             final Optional<Attachment> singleResult = prepare.getSingleResult();
+            final Optional<Object> singleResult = prepare.getSingleResult();
             System.out.println(singleResult);
 
         }
     }
 
+
     private App4() {
     }
+
 }
