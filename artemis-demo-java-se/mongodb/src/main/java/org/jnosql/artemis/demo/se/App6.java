@@ -16,18 +16,14 @@
 package org.jnosql.artemis.demo.se;
 
 
-import jakarta.nosql.mapping.PreparedStatement;
 import jakarta.nosql.mapping.document.DocumentTemplate;
-import org.bson.types.Binary;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
 import java.util.Optional;
-import java.util.UUID;
 
 
 public class App6 {
