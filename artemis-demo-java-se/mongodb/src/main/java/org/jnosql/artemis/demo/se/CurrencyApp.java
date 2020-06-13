@@ -39,4 +39,8 @@ public class CurrencyApp {
 
         }
     }
+
+
+    private CurrencyApp() {
+    }
 }
