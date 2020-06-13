@@ -16,7 +16,7 @@
 package org.jnosql.artemis.demo.se;
 
 
-import com.datastax.driver.core.ConsistencyLevel;
+import com.datastax.oss.driver.api.core.ConsistencyLevel;
 import jakarta.nosql.column.ColumnQuery;
 import org.eclipse.jnosql.artemis.cassandra.column.CassandraTemplate;
 
