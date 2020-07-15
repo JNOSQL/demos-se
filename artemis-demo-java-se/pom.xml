@@ -71,6 +71,7 @@
         <module>hazelcast</module>
         <module>memcached</module>
         <module>mongodb</module>
+        <module>mongodb-double</module>
         <module>jcache</module>
         <module>ravendb</module>
         <module>redis</module>
