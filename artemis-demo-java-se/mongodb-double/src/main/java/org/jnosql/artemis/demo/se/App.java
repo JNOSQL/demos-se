@@ -16,27 +16,34 @@
 package org.jnosql.artemis.demo.se;
 
 
-import jakarta.nosql.mapping.document.DocumentTemplate;
-import jakarta.nosql.document.DocumentQuery;
-
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
-import java.util.Optional;
-import java.util.Random;
-
-import static jakarta.nosql.document.DocumentQuery.select;
+import java.util.Collections;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 public class App {
 
+    private static final Logger LOGGER = Logger.getLogger(App.class.getName());
 
     public static void main(String[] args) {
 
-        Random random = new Random();
-        Long id = random.nextLong();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            GreekService greek = container.select(GreekService.class).get();
+            RomanService romain = container.select(RomanService.class).get();
+            God artemis = new God("Artemis", Arrays.asList("Moon", "Hunt"));
+            God diana = new God("Diana", Arrays.asList("Moon", "Hunt"));
+            romain.insert(diana);
+            greek.insert(artemis);
 
+            LOGGER.info("Finding in the Greek service ");
+            LOGGER.info("Finding by Artemis : " + greek.findName("Artemis").collect(Collectors.toList()));
+            LOGGER.info("Finding by Diana " + greek.findName("Diana").collect(Collectors.toList()));
 
+            LOGGER.info("Finding in the Romain service ");
+            LOGGER.info("Finding by Artemis : " + romain.findName("Artemis").collect(Collectors.toList()));
+            LOGGER.info("Finding by Diana " + romain.findName("Diana").collect(Collectors.toList()));
 
         }
     }

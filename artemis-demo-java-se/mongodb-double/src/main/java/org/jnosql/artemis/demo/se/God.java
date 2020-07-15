@@ -11,7 +11,7 @@ import java.util.List;
 public class God {
 
     @Id
-    private BsonObjectId id;
+    private String id;
 
     @Column
     private String name;
@@ -19,8 +19,7 @@ public class God {
     @Column
     private List<String> powers;
 
-    God(BsonObjectId id, String name, List<String> powers) {
-        this.id = id;
+    God(String name, List<String> powers) {
         this.name = name;
         this.powers = powers;
     }
@@ -28,7 +27,7 @@ public class God {
     public God() {
     }
 
-    public BsonObjectId getId() {
+    public String getId() {
         return id;
     }
 
@@ -38,5 +37,14 @@ public class God {
 
     public List<String> getPowers() {
         return powers;
+    }
+
+    @Override
+    public String toString() {
+        return "God{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", powers=" + powers +
+                '}';
     }
 }
