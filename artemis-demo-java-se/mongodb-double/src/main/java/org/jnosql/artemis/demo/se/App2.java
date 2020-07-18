@@ -29,20 +29,21 @@ public class App2 {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            GreekService greek = container.select(GreekService.class).get();
-            RomanService romain = container.select(RomanService.class).get();
+            Service service = container.select(Service.class).get();
+            GodRepository greek = service.getGreek();
+            GodRepository romain = service.getRomain();
             God artemis = new God("Artemis", Arrays.asList("Moon", "Hunt"));
             God diana = new God("Diana", Arrays.asList("Moon", "Hunt"));
-            romain.insert(diana);
-            greek.insert(artemis);
+            romain.save(diana);
+            greek.save(artemis);
 
             LOGGER.info("Finding in the Greek service ");
-            LOGGER.info("Finding by Artemis : " + greek.findName("Artemis").collect(Collectors.toList()));
-            LOGGER.info("Finding by Diana " + greek.findName("Diana").collect(Collectors.toList()));
+            LOGGER.info("Finding by Artemis : " + greek.findByName("Artemis"));
+            LOGGER.info("Finding by Diana " + greek.findByName("Diana"));
 
             LOGGER.info("Finding in the Romain service ");
-            LOGGER.info("Finding by Artemis : " + romain.findName("Artemis").collect(Collectors.toList()));
-            LOGGER.info("Finding by Diana " + romain.findName("Diana").collect(Collectors.toList()));
+            LOGGER.info("Finding by Artemis : " + romain.findByName("Artemis"));
+            LOGGER.info("Finding by Diana " + romain.findByName("Diana"));
 
         }
     }
