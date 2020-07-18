@@ -17,4 +17,12 @@ public class Service {
     @Inject
     @Database(provider = "romain", value = DatabaseType.DOCUMENT)
     private GodRepository romain;
+
+    public GodRepository getGreek() {
+        return greek;
+    }
+
+    public GodRepository getRomain() {
+        return romain;
+    }
 }
