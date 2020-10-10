@@ -19,7 +19,6 @@ package org.jnosql.artemis.demo.se;
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -41,7 +40,7 @@ public class App {
             LOGGER.info("Finding by Artemis : " + greek.findName("Artemis").collect(Collectors.toList()));
             LOGGER.info("Finding by Diana " + greek.findName("Diana").collect(Collectors.toList()));
 
-            LOGGER.info("Finding in the Romain service ");
+            LOGGER.info("Finding in the Roman service ");
             LOGGER.info("Finding by Artemis : " + romain.findName("Artemis").collect(Collectors.toList()));
             LOGGER.info("Finding by Diana " + romain.findName("Diana").collect(Collectors.toList()));
 

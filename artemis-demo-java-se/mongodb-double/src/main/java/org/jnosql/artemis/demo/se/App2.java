@@ -20,7 +20,6 @@ import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 public class App2 {
 
@@ -41,7 +40,7 @@ public class App2 {
             LOGGER.info("Finding by Artemis : " + greek.findByName("Artemis"));
             LOGGER.info("Finding by Diana " + greek.findByName("Diana"));
 
-            LOGGER.info("Finding in the Romain service ");
+            LOGGER.info("Finding in the Roman service ");
             LOGGER.info("Finding by Artemis : " + romain.findByName("Artemis"));
             LOGGER.info("Finding by Diana " + romain.findByName("Diana"));
 
