@@ -23,7 +23,7 @@ Follow the instructions in: http://docs.couchdb.org/en/stable/install/index.html
 1. Install docker: https://www.docker.com/
 1. https://store.docker.com/images/mongo
 1. Run docker command
-1. Execute `docker run --name couchdb_instance -p 5984:5984 -d couchdb`
+1. Execute `docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -d couchdb`
 
 
 
