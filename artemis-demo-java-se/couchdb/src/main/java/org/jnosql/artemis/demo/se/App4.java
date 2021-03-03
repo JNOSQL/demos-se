@@ -43,4 +43,7 @@ public class App4 {
             System.out.println(first1);
         }
     }
+
+    private App4() {
+    }
 }
