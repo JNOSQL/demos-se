@@ -21,7 +21,7 @@
     <name>Artemis Demo using Java SE</name>
     <parent>
         <groupId>org.eclipse.jnosql.mapping</groupId>
-        <artifactId>mapping-demo-parent</artifactId>
+        <artifactId>jnosql-demo-parent</artifactId>
         <version>1.0.0-b3</version>
     </parent>
     <properties>
