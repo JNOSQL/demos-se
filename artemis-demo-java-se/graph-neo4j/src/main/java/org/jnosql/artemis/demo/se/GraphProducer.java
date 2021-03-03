@@ -16,7 +16,7 @@ package org.jnosql.artemis.demo.se;
 
 import org.apache.tinkerpop.gremlin.neo4j.structure.Neo4jGraph;
 import org.apache.tinkerpop.gremlin.structure.Graph;
-import org.eclipse.jnosql.artemis.graph.GraphTraversalSourceSupplier;
+import org.eclipse.jnosql.mapping.graph.GraphTraversalSourceSupplier;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;

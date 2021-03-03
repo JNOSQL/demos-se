@@ -16,7 +16,7 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.eclipse.jnosql.artemis.DatabaseQualifier;
+import org.eclipse.jnosql.mapping.DatabaseQualifier;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;

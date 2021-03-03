@@ -19,7 +19,7 @@ import com.arangodb.tinkerpop.gremlin.utils.ArangoDBConfigurationBuilder;
 import org.apache.commons.configuration.BaseConfiguration;
 import org.apache.tinkerpop.gremlin.structure.Graph;
 import org.apache.tinkerpop.gremlin.structure.util.GraphFactory;
-import org.eclipse.jnosql.artemis.graph.GraphTraversalSourceSupplier;
+import org.eclipse.jnosql.mapping.graph.GraphTraversalSourceSupplier;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;

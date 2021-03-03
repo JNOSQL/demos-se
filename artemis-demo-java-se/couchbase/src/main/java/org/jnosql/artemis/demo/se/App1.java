@@ -18,7 +18,7 @@ package org.jnosql.artemis.demo.se;
 
 import com.couchbase.client.java.search.SearchQuery;
 import com.couchbase.client.java.search.queries.MatchQuery;
-import org.eclipse.jnosql.artemis.couchbase.document.CouchbaseTemplate;
+import org.eclipse.jnosql.mapping.couchbase.document.CouchbaseTemplate;
 import jakarta.nosql.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;

@@ -15,7 +15,7 @@
 package org.jnosql.artemis.demo.se.parking.converter;
 
 import org.bson.types.ObjectId;
-import org.eclipse.jnosql.artemis.AttributeConverter;
+import org.eclipse.jnosql.mapping.AttributeConverter;
 
 public class ObjectIdConverter implements AttributeConverter<String, ObjectId> {
 

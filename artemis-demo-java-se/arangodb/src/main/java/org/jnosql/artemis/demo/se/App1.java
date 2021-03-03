@@ -16,7 +16,7 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.eclipse.jnosql.artemis.arangodb.document.ArangoDBTemplate;
+import org.eclipse.jnosql.mapping.arangodb.document.ArangoDBTemplate;
 import jakarta.nosql.document.DocumentQuery;
 
 import javax.enterprise.inject.se.SeContainer;

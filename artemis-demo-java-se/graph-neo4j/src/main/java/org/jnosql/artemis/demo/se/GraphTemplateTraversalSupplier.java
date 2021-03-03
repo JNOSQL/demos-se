@@ -14,8 +14,8 @@
  */
 package org.jnosql.artemis.demo.se;
 
-import org.eclipse.jnosql.artemis.graph.GraphTemplate;
-import org.eclipse.jnosql.artemis.graph.GraphTraversalSourceOperation;
+import org.eclipse.jnosql.mapping.graph.GraphTemplate;
+import org.eclipse.jnosql.mapping.graph.GraphTraversalSourceOperation;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

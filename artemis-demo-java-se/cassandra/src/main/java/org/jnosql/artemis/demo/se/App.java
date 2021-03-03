@@ -16,7 +16,7 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.eclipse.jnosql.artemis.cassandra.column.CassandraTemplate;
+import org.eclipse.jnosql.mapping.cassandra.column.CassandraTemplate;
 import jakarta.nosql.mapping.column.ColumnTemplate;
 import jakarta.nosql.column.ColumnQuery;
 
