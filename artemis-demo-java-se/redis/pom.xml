@@ -21,7 +21,7 @@
 
     <parent>
         <groupId>org.eclipse.jnosql.mapping</groupId>
-        <artifactId>artemis-demo-java-se</artifactId>
+        <artifactId>mapping-demo-java-se</artifactId>
         <version>1.0.0-b3</version>
     </parent>
 
@@ -30,7 +30,7 @@
 
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>artemis-key-value</artifactId>
+            <artifactId>mapping-key-value</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

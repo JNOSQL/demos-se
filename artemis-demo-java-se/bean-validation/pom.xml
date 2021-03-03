@@ -21,7 +21,7 @@
 
     <parent>
         <groupId>org.eclipse.jnosql.mapping</groupId>
-        <artifactId>artemis-demo-java-se</artifactId>
+        <artifactId>mapping-demo-java-se</artifactId>
         <version>1.0.0-b3</version>
     </parent>
 
@@ -32,12 +32,12 @@
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>artemis-document</artifactId>
+            <artifactId>mapping-document</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>artemis-validation</artifactId>
+            <artifactId>mapping-validation</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

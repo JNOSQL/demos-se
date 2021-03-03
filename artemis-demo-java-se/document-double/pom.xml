@@ -20,7 +20,7 @@
     <name>Artemis Demo using Java SE Document with two documents</name>
     <parent>
         <groupId>org.eclipse.jnosql.mapping</groupId>
-        <artifactId>artemis-demo-java-se</artifactId>
+        <artifactId>mapping-demo-java-se</artifactId>
         <version>1.0.0-b3</version>
     </parent>
     <properties>
@@ -31,7 +31,7 @@
 
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>artemis-document</artifactId>
+            <artifactId>mapping-document</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

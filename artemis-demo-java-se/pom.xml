@@ -16,12 +16,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>artemis-demo-java-se</artifactId>
+    <artifactId>mapping-demo-java-se</artifactId>
     <packaging>pom</packaging>
     <name>Artemis Demo using Java SE</name>
     <parent>
         <groupId>org.eclipse.jnosql.mapping</groupId>
-        <artifactId>artemis-demo-parent</artifactId>
+        <artifactId>mapping-demo-parent</artifactId>
         <version>1.0.0-b3</version>
     </parent>
     <properties>
