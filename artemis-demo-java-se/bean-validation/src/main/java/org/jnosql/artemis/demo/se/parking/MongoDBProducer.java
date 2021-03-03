@@ -18,7 +18,7 @@ package org.jnosql.artemis.demo.se.parking;
 
 import jakarta.nosql.document.DocumentCollectionManager;
 import jakarta.nosql.document.DocumentCollectionManagerFactory;
-import org.eclipse.jnosql.diana.mongodb.document.MongoDBDocumentConfiguration;
+import org.eclipse.jnosql.communication.mongodb.document.MongoDBDocumentConfiguration;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;

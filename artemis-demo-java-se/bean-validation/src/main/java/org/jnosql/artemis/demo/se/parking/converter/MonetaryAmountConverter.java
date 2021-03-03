@@ -21,7 +21,7 @@ import org.bson.BsonValue;
 import org.bson.types.Decimal128;
 import org.javamoney.moneta.Money;
 import org.eclipse.jnosql.mapping.AttributeConverter;
-import org.eclipse.jnosql.diana.api.document.Document;
+import org.eclipse.jnosql.communication.api.document.Document;
 
 import javax.money.MonetaryAmount;
 import java.math.BigDecimal;

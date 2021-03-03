@@ -16,9 +16,9 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.eclipse.jnosql.diana.cassandra.column.CassandraColumnFamilyManager;
-import org.eclipse.jnosql.diana.cassandra.column.CassandraColumnFamilyManagerFactory;
-import org.eclipse.jnosql.diana.cassandra.column.CassandraConfiguration;
+import org.eclipse.jnosql.communication.cassandra.column.CassandraColumnFamilyManager;
+import org.eclipse.jnosql.communication.cassandra.column.CassandraColumnFamilyManagerFactory;
+import org.eclipse.jnosql.communication.cassandra.column.CassandraConfiguration;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;

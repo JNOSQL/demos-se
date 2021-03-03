@@ -17,7 +17,7 @@ package org.jnosql.artemis.demo.se;
 
 import jakarta.nosql.keyvalue.BucketManagerFactory;
 import jakarta.nosql.keyvalue.KeyValueConfiguration;
-import org.eclipse.jnosql.diana.hazelcast.keyvalue.HazelcastKeyValueConfiguration;
+import org.eclipse.jnosql.communication.hazelcast.keyvalue.HazelcastKeyValueConfiguration;
 
 import java.util.List;
 

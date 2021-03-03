@@ -17,7 +17,7 @@ package org.jnosql.artemis.demo.se;
 import jakarta.nosql.document.DocumentCollectionManagerFactory;
 import jakarta.nosql.keyvalue.BucketManager;
 import jakarta.nosql.keyvalue.BucketManagerFactory;
-import org.eclipse.jnosql.diana.couchbase.document.CouchbaseDocumentCollectionManager;
+import org.eclipse.jnosql.communication.couchbase.document.CouchbaseDocumentCollectionManager;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;

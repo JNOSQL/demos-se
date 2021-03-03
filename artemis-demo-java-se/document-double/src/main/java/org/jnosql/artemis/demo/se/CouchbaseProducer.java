@@ -19,8 +19,8 @@ package org.jnosql.artemis.demo.se;
 import jakarta.nosql.mapping.Database;
 import jakarta.nosql.mapping.DatabaseType;
 import jakarta.nosql.document.DocumentCollectionManager;
-import org.eclipse.jnosql.diana.couchbase.document.CouchbaseDocumentConfiguration;
-import org.eclipse.jnosql.diana.couchbase.document.CouhbaseDocumentCollectionManagerFactory;
+import org.eclipse.jnosql.communication.couchbase.document.CouchbaseDocumentConfiguration;
+import org.eclipse.jnosql.communication.couchbase.document.CouhbaseDocumentCollectionManagerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;

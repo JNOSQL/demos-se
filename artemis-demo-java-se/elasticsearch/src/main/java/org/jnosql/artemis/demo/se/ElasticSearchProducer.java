@@ -16,9 +16,9 @@
 package org.jnosql.artemis.demo.se;
 
 
-import org.eclipse.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManager;
-import org.eclipse.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManagerFactory;
-import org.eclipse.jnosql.diana.elasticsearch.document.ElasticsearchDocumentConfiguration;
+import org.eclipse.jnosql.communication.elasticsearch.document.ElasticsearchDocumentCollectionManager;
+import org.eclipse.jnosql.communication.elasticsearch.document.ElasticsearchDocumentCollectionManagerFactory;
+import org.eclipse.jnosql.communication.elasticsearch.document.ElasticsearchDocumentConfiguration;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;

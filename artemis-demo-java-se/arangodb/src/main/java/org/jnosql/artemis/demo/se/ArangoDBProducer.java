@@ -16,7 +16,7 @@ package org.jnosql.artemis.demo.se;
 
 import jakarta.nosql.document.DocumentCollectionManager;
 import jakarta.nosql.keyvalue.BucketManager;
-import org.eclipse.jnosql.diana.arangodb.document.ArangoDBDocumentCollectionManager;
+import org.eclipse.jnosql.communication.arangodb.document.ArangoDBDocumentCollectionManager;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
