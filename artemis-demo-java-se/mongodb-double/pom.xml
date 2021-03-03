@@ -20,7 +20,7 @@
     <name>Artemis Demo using Java SE MongoDB</name>
 
     <parent>
-        <groupId>org.eclipse.jnosql.artemis</groupId>
+        <groupId>org.eclipse.jnosql.mapping</groupId>
         <artifactId>artemis-demo-java-se</artifactId>
         <version>1.0.0-b3</version>
     </parent>
@@ -31,12 +31,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.eclipse.jnosql.artemis</groupId>
+            <groupId>org.eclipse.jnosql.mapping</groupId>
             <artifactId>artemis-document</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jnosql.diana</groupId>
+            <groupId>org.eclipse.jnosql.communication</groupId>
             <artifactId>mongodb-driver</artifactId>
             <version>${project.version}</version>
         </dependency>

@@ -20,7 +20,7 @@
     <packaging>pom</packaging>
     <name>Artemis Demo using Java SE</name>
     <parent>
-        <groupId>org.eclipse.jnosql.artemis</groupId>
+        <groupId>org.eclipse.jnosql.mapping</groupId>
         <artifactId>artemis-demo-parent</artifactId>
         <version>1.0.0-b3</version>
     </parent>
