@@ -19,8 +19,6 @@ import jakarta.nosql.mapping.document.DocumentTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;
@@ -45,4 +43,6 @@ public class App7 {
             System.out.println(first1);
         }
     }
+
+    private App7() {}
 }
