@@ -21,7 +21,7 @@
     <parent>
         <groupId>org.eclipse.jnosql.artemis</groupId>
         <artifactId>artemis-demo-java-se</artifactId>
-        <version>1.0.0-b2</version>
+        <version>1.0.0-b3</version>
     </parent>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
