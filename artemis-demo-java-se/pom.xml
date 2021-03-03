@@ -18,7 +18,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>mapping-demo-java-se</artifactId>
     <packaging>pom</packaging>
-    <name>Artemis Demo using Java SE</name>
+    <name>JNoSQL Demo using Java SE</name>
     <parent>
         <groupId>org.eclipse.jnosql.mapping</groupId>
         <artifactId>jnosql-demo-parent</artifactId>
