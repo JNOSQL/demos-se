@@ -18,13 +18,12 @@ import jakarta.nosql.mapping.Column;
 import jakarta.nosql.mapping.Entity;
 import jakarta.nosql.mapping.Id;
 
-import java.io.Serializable;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
-public class Hero implements Serializable {
+public class Hero {
 
     @Id
     private String id;
