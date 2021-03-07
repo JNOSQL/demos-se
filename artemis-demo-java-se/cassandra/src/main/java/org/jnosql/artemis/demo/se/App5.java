@@ -15,6 +15,7 @@
 package org.jnosql.artemis.demo.se;
 
 
+import jakarta.nosql.column.ColumnQuery;
 import org.eclipse.jnosql.mapping.cassandra.column.CassandraTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
@@ -22,6 +23,7 @@ import javax.enterprise.inject.se.SeContainerInitializer;
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Locale;
+import java.util.Optional;
 
 public class App5 {
 
@@ -48,6 +50,10 @@ public class App5 {
                     .build();
 
             template.insert(company);
+
+            Optional<Company> soujava = template.find(Company.class, "Soujava");
+
+            System.out.println("the company is " + soujava);
 
 
         }
