@@ -29,13 +29,11 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 
 @ApplicationScoped
-public class CassandraProducer {
-
+public class ColumnFamilyProducer {
 
     @Inject
     @ConfigProperty(name = "column")
     private ColumnFamilyManager columnManager;
-
 
     @Produces
     public CassandraColumnFamilyManager getManagerCassandra() {
