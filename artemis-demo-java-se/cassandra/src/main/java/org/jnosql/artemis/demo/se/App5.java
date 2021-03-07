@@ -50,8 +50,7 @@ public class App5 {
                     .build();
 
             template.insert(company);
-
-            Optional<Company> soujava = template.find(Company.class, "Soujava");
+            Optional<Company> soujava = template.find(Company.class, "SouJava");
 
             System.out.println("the company is " + soujava);
 
