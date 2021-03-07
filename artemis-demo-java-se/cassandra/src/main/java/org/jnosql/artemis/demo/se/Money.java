@@ -57,7 +57,7 @@ public class Money {
         return currency.getSymbol() + " "+ amount;
     }
 
-    public Money of(Currency currency, BigDecimal amount) {
+    public static Money of(Currency currency, BigDecimal amount) {
         Objects.requireNonNull(currency, "currency is required");
         Objects.requireNonNull(amount, "amount is required");
         return new Money(currency, amount);
