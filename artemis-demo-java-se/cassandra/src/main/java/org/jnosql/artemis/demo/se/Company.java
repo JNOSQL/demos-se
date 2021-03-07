@@ -30,6 +30,19 @@ public class Company {
     @UDT("address")
     private Set<Address> addresses;
 
+    @Deprecated
+    Company() {
+    }
+
+    Company(String nickname, Money cost, Set<String> languages, Map<String, String> contacts,
+            Set<Address> addresses) {
+        this.nickname = nickname;
+        this.cost = cost;
+        this.languages = languages;
+        this.contacts = contacts;
+        this.addresses = addresses;
+    }
+
     public String getNickname() {
         return nickname;
     }
