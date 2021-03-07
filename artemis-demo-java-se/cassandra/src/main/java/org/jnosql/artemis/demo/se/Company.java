@@ -1,3 +1,17 @@
+/*
+ * Copyright (c) 2021 Otávio Santana and others
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * and Apache License v2.0 which accompanies this distribution.
+ * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
+ * and the Apache License v2.0 is available at http://www.opensource.org/licenses/apache2.0.php.
+ *
+ * You may elect to redistribute this code under either of these licenses.
+ *
+ * Contributors:
+ *
+ * Otavio Santana
+ */
 package org.jnosql.artemis.demo.se;
 
 import jakarta.nosql.mapping.Column;
@@ -30,7 +44,7 @@ public class Company {
 
     @Column
     @UDT("address")
-    private Set<Address> addresses;
+    private Set<Headquarter> headquarters;
 
     /**
      * Use the {@link Company#builder()} instead
@@ -40,12 +54,12 @@ public class Company {
     }
 
     private Company(String name, Money cost, Set<String> languages, Map<String, String> contacts,
-                    Set<Address> addresses) {
+                    Set<Headquarter> headquarters) {
         this.name = name;
         this.cost = cost;
         this.languages = languages;
         this.contacts = contacts;
-        this.addresses = addresses;
+        this.headquarters = headquarters;
     }
 
     public String getName() {
@@ -70,11 +84,11 @@ public class Company {
         return Collections.unmodifiableMap(contacts);
     }
 
-    public Set<Address> getAddresses() {
-        if (this.addresses == null) {
+    public Set<Headquarter> getAddresses() {
+        if (this.headquarters == null) {
             return Collections.emptySet();
         }
-        return Collections.unmodifiableSet(this.addresses);
+        return Collections.unmodifiableSet(this.headquarters);
     }
 
     @Override
@@ -101,7 +115,7 @@ public class Company {
                 ", cost=" + cost +
                 ", languages=" + languages +
                 ", contacts=" + contacts +
-                ", addresses=" + addresses +
+                ", addresses=" + headquarters +
                 '}';
     }
 
@@ -111,7 +125,7 @@ public class Company {
 
 
     public static class CompanyBuilder {
-        private String nickname;
+        private String name;
 
         private Money cost;
 
@@ -119,13 +133,13 @@ public class Company {
 
         private Map<String, String> contacts = new HashMap<>();
 
-        private Set<Address> addresses = new HashSet<>();
+        private Set<Headquarter> headquarters = new HashSet<>();
 
         private CompanyBuilder() {
         }
 
-        public CompanyBuilder withNickname(String nickname) {
-            this.nickname = Objects.requireNonNull(nickname, "nickname is required");
+        public CompanyBuilder withName(String name) {
+            this.name = Objects.requireNonNull(name, "name is required");
             return this;
         }
 
@@ -145,13 +159,13 @@ public class Company {
             return this;
         }
 
-        public CompanyBuilder addAddress(Address address) {
-            this.addresses.add(Objects.requireNonNull(address, "address is required"));
+        public CompanyBuilder addHeadquarter(Headquarter headquarter) {
+            this.headquarters.add(Objects.requireNonNull(headquarter, "headquarter is required"));
             return this;
         }
 
         public Company build() {
-            return new Company(nickname, cost, languages, contacts, addresses);
+            return new Company(name, cost, languages, contacts, headquarters);
         }
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Otávio Santana and others
+ * Copyright (c) 2021 Otávio Santana and others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * and Apache License v2.0 which accompanies this distribution.
@@ -12,13 +12,16 @@
  *
  * Otavio Santana
  */
-
 package org.jnosql.artemis.demo.se;
 
 
+import org.eclipse.jnosql.mapping.cassandra.column.CassandraTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
+import java.math.BigDecimal;
+import java.util.Currency;
+import java.util.Locale;
 
 public class App5 {
 
@@ -27,34 +30,29 @@ public class App5 {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
-            MovieRepository repository = container.select(MovieRepository.class).get();
+            CassandraTemplate template = container.select(CassandraTemplate.class).get();
+            Currency currency = Currency.getInstance(Locale.US);
 
-            Movie matrix = new Movie();
-            matrix.setName("The Matrix");
-            matrix.setAge(1999);
-            matrix.setDirector(Director.builder().withName("Lana Wachowski")
-                    .add("The Matrix").add("The Matrix Reloaded").add("Assassins").build());
+            Company company = Company.builder()
+                    .withName("SouJava")
+                    .addLanguage("Portuguese")
+                    .addLanguage("English")
+                    .addLanguage("Italian")
+                    .addLanguage("Spanish")
+                    .addHeadquarter(Headquarter.of("Salvador", "Brazil"))
+                    .addHeadquarter(Headquarter.of("Sao Paulo", "Brazil"))
+                    .addHeadquarter(Headquarter.of("Leiria", "Portugal"))
+                    .add("twitter", "otaviojava")
+                    .add("linkedin", "otaviojava")
+                    .withCost(Money.of(currency, BigDecimal.valueOf(10_000)))
+                    .build();
 
-            Movie fightClub = new Movie();
-            fightClub.setName("Fight Club");
-            fightClub.setAge(1999);
-            fightClub.setDirector(Director.builder().withName("David Fincher")
-                    .add("Fight Club").add("Seven").add("The Social Network").build());
-
-            Movie americanBeuty = new Movie();
-            americanBeuty.setName("American Beauty");
-            americanBeuty.setAge(1999);
-            americanBeuty.setDirector(Director.builder().withName("Sam Mendes")
-                    .add("Spectre").add("Skyfall").add("American Beauty").build());
-
-
-
-            System.out.println("Movies from 1999: " + repository.findByAge(1999));
-            System.out.println("Find all: " + repository.findAll());
+            template.insert(company);
 
 
         }
     }
 
-    private App5() {}
+    private App5() {
+    }
 }
