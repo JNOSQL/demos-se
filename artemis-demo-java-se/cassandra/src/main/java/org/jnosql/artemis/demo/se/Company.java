@@ -16,7 +16,7 @@ import java.util.Set;
 public class Company {
 
     @Id
-    private String nickname;
+    private String name;
 
     @Column
     @UDT("money")
@@ -39,17 +39,17 @@ public class Company {
     Company() {
     }
 
-    private Company(String nickname, Money cost, Set<String> languages, Map<String, String> contacts,
+    private Company(String name, Money cost, Set<String> languages, Map<String, String> contacts,
                     Set<Address> addresses) {
-        this.nickname = nickname;
+        this.name = name;
         this.cost = cost;
         this.languages = languages;
         this.contacts = contacts;
         this.addresses = addresses;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getName() {
+        return name;
     }
 
     public Money getCost() {
@@ -86,18 +86,18 @@ public class Company {
             return false;
         }
         Company company = (Company) o;
-        return Objects.equals(nickname, company.nickname);
+        return Objects.equals(name, company.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(nickname);
+        return Objects.hashCode(name);
     }
 
     @Override
     public String toString() {
         return "Company{" +
-                "nickname='" + nickname + '\'' +
+                "name='" + name + '\'' +
                 ", cost=" + cost +
                 ", languages=" + languages +
                 ", contacts=" + contacts +
