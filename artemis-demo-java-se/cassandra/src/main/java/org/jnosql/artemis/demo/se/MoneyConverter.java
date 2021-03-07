@@ -22,7 +22,7 @@ public class MoneyConverter implements AttributeConverter<Currency, String> {
 
     @Override
     public String convertToDatabaseColumn(Currency attribute) {
-        return attribute.getSymbol();
+        return attribute.getCurrencyCode();
     }
 
     @Override
