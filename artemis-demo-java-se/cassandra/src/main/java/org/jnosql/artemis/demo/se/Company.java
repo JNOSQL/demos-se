@@ -6,6 +6,8 @@ import jakarta.nosql.mapping.Id;
 import org.eclipse.jnosql.mapping.cassandra.column.UDT;
 
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -30,12 +32,15 @@ public class Company {
     @UDT("address")
     private Set<Address> addresses;
 
+    /**
+     * Use the {@link Company#builder()} instead
+     */
     @Deprecated
     Company() {
     }
 
-    Company(String nickname, Money cost, Set<String> languages, Map<String, String> contacts,
-            Set<Address> addresses) {
+    private Company(String nickname, Money cost, Set<String> languages, Map<String, String> contacts,
+                    Set<Address> addresses) {
         this.nickname = nickname;
         this.cost = cost;
         this.languages = languages;
@@ -66,7 +71,7 @@ public class Company {
     }
 
     public Set<Address> getAddresses() {
-        if(this.addresses == null) {
+        if (this.addresses == null) {
             return Collections.emptySet();
         }
         return Collections.unmodifiableSet(this.addresses);
@@ -98,5 +103,55 @@ public class Company {
                 ", contacts=" + contacts +
                 ", addresses=" + addresses +
                 '}';
+    }
+
+    public static CompanyBuilder builder() {
+        return new CompanyBuilder();
+    }
+
+
+    public static class CompanyBuilder {
+        private String nickname;
+
+        private Money cost;
+
+        private Set<String> languages = new HashSet<>();
+
+        private Map<String, String> contacts = new HashMap<>();
+
+        private Set<Address> addresses = new HashSet<>();
+
+        private CompanyBuilder() {
+        }
+
+        public CompanyBuilder withNickname(String nickname) {
+            this.nickname = Objects.requireNonNull(nickname, "nickname is required");
+            return this;
+        }
+
+        public CompanyBuilder withCost(Money cost) {
+            this.cost = Objects.requireNonNull(cost, "cost is required");
+            return this;
+        }
+
+        public CompanyBuilder addLanguage(String language) {
+            this.languages.add(Objects.requireNonNull(language, "language is required"));
+            return this;
+        }
+
+        public CompanyBuilder add(String type, String contact) {
+            this.contacts.put(Objects.requireNonNull(type, "type is required"),
+                    Objects.requireNonNull(contact, "contact is required"));
+            return this;
+        }
+
+        public CompanyBuilder addAddress(Address address) {
+            this.addresses.add(Objects.requireNonNull(address, "address is required"));
+            return this;
+        }
+
+        public Company build() {
+            return new Company(nickname, cost, languages, contacts, addresses);
+        }
     }
 }
