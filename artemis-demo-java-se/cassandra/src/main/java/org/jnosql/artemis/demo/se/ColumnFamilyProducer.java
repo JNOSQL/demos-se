@@ -17,13 +17,9 @@ package org.jnosql.artemis.demo.se;
 
 
 import jakarta.nosql.column.ColumnFamilyManager;
-import jakarta.nosql.mapping.column.ColumnTemplate;
 import org.eclipse.jnosql.communication.cassandra.column.CassandraColumnFamilyManager;
-import org.eclipse.jnosql.communication.cassandra.column.CassandraColumnFamilyManagerFactory;
-import org.eclipse.jnosql.communication.cassandra.column.CassandraConfiguration;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
@@ -36,7 +32,7 @@ public class ColumnFamilyProducer {
     private ColumnFamilyManager columnManager;
 
     @Produces
-    public CassandraColumnFamilyManager getManagerCassandra() {
+    public CassandraColumnFamilyManager getColumnManager() {
         return (CassandraColumnFamilyManager) columnManager;
     }
 
