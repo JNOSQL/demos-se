@@ -6,7 +6,7 @@ import jakarta.nosql.mapping.Entity;
 import java.util.Objects;
 
 @Entity
-public class Address {
+public class Headquarter {
 
     @Column
     private String city;
@@ -15,10 +15,10 @@ public class Address {
     private String country;
 
     @Deprecated
-    Address() {
+    Headquarter() {
     }
 
-    private Address(String city, String country) {
+    private Headquarter(String city, String country) {
         this.city = city;
         this.country = country;
     }
@@ -39,8 +39,8 @@ public class Address {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Address address = (Address) o;
-        return Objects.equals(city, address.city) && Objects.equals(country, address.country);
+        Headquarter headquarter = (Headquarter) o;
+        return Objects.equals(city, headquarter.city) && Objects.equals(country, headquarter.country);
     }
 
     @Override
@@ -50,9 +50,14 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Address{" +
+        return "Headquarter{" +
                 "city='" + city + '\'' +
                 ", country='" + country + '\'' +
                 '}';
+    }
+
+    public static Headquarter of(String city, String country) {
+        return new Headquarter(Objects.requireNonNull(city, "city is required"),
+                Objects.requireNonNull(country, "country is required"));
     }
 }
