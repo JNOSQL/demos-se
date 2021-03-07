@@ -21,6 +21,7 @@ import org.eclipse.jnosql.communication.cassandra.column.CassandraColumnFamilyMa
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 
@@ -32,8 +33,13 @@ public class ColumnFamilyProducer {
     private ColumnFamilyManager columnManager;
 
     @Produces
+    @ApplicationScoped
     public CassandraColumnFamilyManager getColumnManager() {
         return (CassandraColumnFamilyManager) columnManager;
+    }
+
+    public void close(@Disposes CassandraColumnFamilyManager manager) {
+        manager.close();
     }
 
 }
