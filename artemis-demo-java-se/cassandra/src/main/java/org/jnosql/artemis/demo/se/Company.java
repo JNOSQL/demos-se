@@ -29,7 +29,7 @@ import java.util.Set;
 @Entity
 public class Company {
 
-    @Id
+    @Id("name")
     private String name;
 
     @Column
@@ -43,7 +43,7 @@ public class Company {
     private Map<String, String> contacts;
 
     @Column
-    @UDT("address")
+    @UDT("headquarter")
     private Set<Headquarter> headquarters;
 
     /**
