@@ -10,7 +10,7 @@ Neo4j is a graph database management system developed by  Neo4j, Inc. Described 
 To run this project a nEO4j instance is required, so you can use either a local instalation or using Docker.
 
 
-## Manual instalation
+## Manual installation
 
 Follow the instructions in: https://neo4j.com/docs/operations-manual/current/installation/
 
