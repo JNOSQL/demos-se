@@ -37,7 +37,7 @@ public class WorkerBuilder {
         return this;
     }
 
-    public Worker createWorker() {
+    public Worker build() {
         return new Worker(name, occupation, salary);
     }
 }
