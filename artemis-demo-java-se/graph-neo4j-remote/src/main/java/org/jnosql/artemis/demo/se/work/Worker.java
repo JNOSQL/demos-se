@@ -36,6 +36,20 @@ public class Worker {
     @Column
     private BigDecimal salary;
 
+
+    /**
+     * @Deprecated
+     * It is only to the framework requirement.
+     */
+    Worker() {
+    }
+
+    public Worker(String name, String occupation, BigDecimal salary) {
+        this.name = name;
+        this.occupation = occupation;
+        this.salary = salary;
+    }
+
     public Long getId() {
         return id;
     }
