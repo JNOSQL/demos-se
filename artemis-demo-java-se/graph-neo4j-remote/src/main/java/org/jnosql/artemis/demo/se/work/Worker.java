@@ -14,5 +14,24 @@
  */
 package org.jnosql.artemis.demo.se.work;
 
+import jakarta.nosql.mapping.Column;
+import jakarta.nosql.mapping.Entity;
+import jakarta.nosql.mapping.Id;
+
+import java.math.BigDecimal;
+
+@Entity
 public class Worker {
+
+    @Id
+    private Long id;
+
+    @Column
+    private String name;
+
+    @Column
+    private String occupation;
+
+    @Column
+    private BigDecimal salary;
 }
