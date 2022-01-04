@@ -22,17 +22,17 @@ public class WorkerBuilder {
     private String occupation;
     private BigDecimal salary;
 
-    public WorkerBuilder setName(String name) {
+    public WorkerBuilder name(String name) {
         this.name = name;
         return this;
     }
 
-    public WorkerBuilder setOccupation(String occupation) {
+    public WorkerBuilder occupation(String occupation) {
         this.occupation = occupation;
         return this;
     }
 
-    public WorkerBuilder setSalary(BigDecimal salary) {
+    public WorkerBuilder salary(BigDecimal salary) {
         this.salary = salary;
         return this;
     }
