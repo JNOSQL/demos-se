@@ -92,4 +92,8 @@ public class Worker {
                 ", salary=" + salary +
                 '}';
     }
+
+    public static WorkerBuilder builder() {
+        return new WorkerBuilder();
+    }
 }
