@@ -18,7 +18,15 @@ import org.eclipse.jnosql.mapping.graph.GraphTemplate;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
+
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
+import static org.jnosql.artemis.demo.se.travel.TravelerService.FUN;
+import static org.jnosql.artemis.demo.se.travel.TravelerService.GOAL;
+import static org.jnosql.artemis.demo.se.travel.TravelerService.WORK;
 
 @ApplicationScoped
 class CityService {
@@ -50,5 +58,31 @@ class CityService {
         this.save(City.of("New York"));
         this.save(City.of("São Paulo"));
         this.save(City.of("Casa Blanca"));
+    }
+
+    public Map<String, Long> getMostFunCity() {
+        return template.getTraversalVertex()
+                .inE(Labels.TRAVELS)
+                .has(GOAL, FUN).inV()
+                .<City>getResult()
+                .map(City::getName)
+                .collect((groupingBy(Function.identity(), counting())));
+    }
+
+    public Map<String, Long> getMostBusinessCity() {
+        return template.getTraversalVertex()
+                .inE(Labels.TRAVELS)
+                .has(GOAL, WORK).inV()
+                .<City>getResult()
+                .map(City::getName)
+                .collect((groupingBy(Function.identity(), counting())));
+    }
+
+    public Map<String, Long> getMostTravelCity() {
+       return template.getTraversalVertex()
+                .out(Labels.TRAVELS)
+                .<City>getResult()
+                .map(City::getName)
+                .collect((groupingBy(Function.identity(), counting())));
     }
 }

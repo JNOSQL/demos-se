@@ -65,7 +65,6 @@ public final class TravelApp {
 
             travelerService.travelWork(roges, newYork);
 
-
             travelerService.travelWork(banners, casaBlanca);
             travelerService.travelWork(banners, saoPaulo);
 
@@ -80,25 +79,9 @@ public final class TravelApp {
             travelerService.knows(roges, romanoff);
 
 
-            Map<String, Long> mostFunCity = graph.getTraversalVertex()
-                    .inE(TRAVELS)
-                    .has(GOAL, FUN).inV()
-                    .<City>getResult()
-                    .map(City::getName)
-                    .collect((groupingBy(Function.identity(), counting())));
-
-            Map<String, Long> mostBusiness = graph.getTraversalVertex()
-                    .inE(TRAVELS)
-                    .has(GOAL, WORK).inV()
-                    .<City>getResult()
-                    .map(City::getName)
-                    .collect((groupingBy(Function.identity(), counting())));
-
-            Map<String, Long> mostTravelCity = graph.getTraversalVertex()
-                    .out(TRAVELS)
-                    .<City>getResult()
-                    .map(City::getName)
-                    .collect((groupingBy(Function.identity(), counting())));
+            Map<String, Long> mostFunCity = cityService.getMostFunCity();
+            Map<String, Long> mostBusiness = cityService.getMostBusinessCity();
+            Map<String, Long> mostTravelCity = cityService.getMostTravelCity();
 
 
             Map<String, Long> personTravelFun = graph.getTraversalVertex()

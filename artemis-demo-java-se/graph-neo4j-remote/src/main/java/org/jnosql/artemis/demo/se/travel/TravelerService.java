@@ -24,9 +24,9 @@ import java.util.Optional;
 @ApplicationScoped
 class TravelerService {
 
-    private static final String GOAL = "type";
-    private static final String FUN = "fun";
-    private static final String WORK = "Work";
+    static final String GOAL = "type";
+    static final String FUN = "fun";
+    static final String WORK = "Work";
 
     @Inject
     private GraphTemplate template;
@@ -70,4 +70,6 @@ class TravelerService {
     public void knows(Traveler travelerA, Traveler travelerB) {
         template.edge(travelerA, Labels.KNOWS, travelerB);
     }
+
+
 }
