@@ -84,41 +84,23 @@ public final class TravelApp {
             Map<String, Long> mostTravelCity = cityService.getMostTravelCity();
 
 
-            Map<String, Long> personTravelFun = graph.getTraversalVertex()
-                    .inE(TRAVELS)
-                    .has(GOAL, FUN).outV()
-                    .<Traveler>getResult()
-                    .map(Traveler::getName)
-                    .collect((groupingBy(Function.identity(), counting())));
+            Map<String, Long> peopleHaveFun = travelerService.getPeopleHaveFun();
 
-            Map<String, Long> personTravelWork = graph.getTraversalVertex()
-                    .inE(TRAVELS)
-                    .has(GOAL, WORK).outV()
-                    .<Traveler>getResult()
-                    .map(Traveler::getName)
-                    .collect((groupingBy(Function.identity(), counting())));
+            Map<String, Long> peopleTravelWork = travelerService.getPeopleTravelWork();
 
-            Map<String, Long> personTravel = graph.getTraversalVertex()
-                    .in(TRAVELS)
-                    .<Traveler>getResult()
-                    .map(Traveler::getName)
-                    .collect((groupingBy(Function.identity(), counting())));
+            Map<String, Long> peopleTravel = travelerService.getPeopleTravel();
 
-            List<String> friendsCasaBlanca = graph.getTraversalVertex()
-                    .hasLabel("City")
-                    .has("name", "Casa Blanca")
-                    .in(TRAVELS).<Traveler>getResult().map(Traveler::getName).collect(toList());
+            List<String> friendsCasaBlanca = travelerService.getFriendsCasaBlanca();
 
             System.out.println("The city most fun: "+ mostFunCity);
             System.out.println("The city most business: "+ mostBusiness);
             System.out.println("The city with more travel: "+ mostTravelCity);
 
-            System.out.println("The person who traveled fun: "+ personTravelFun);
-            System.out.println("The person who traveled business: "+ personTravelWork);
-            System.out.println("The person who traveled: "+ personTravel);
+            System.out.println("The person who traveled fun: "+ peopleHaveFun);
+            System.out.println("The person who traveled business: "+ peopleTravelWork);
+            System.out.println("The person who traveled: "+ peopleTravel);
 
-
-            System.out.println("Friends because went to Casa Blanca: " + casaBlanca);
+            System.out.println("Friends because went to Casa Blanca: " + friendsCasaBlanca);
 
 
 
