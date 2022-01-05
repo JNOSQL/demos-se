@@ -55,11 +55,11 @@ public final class TravelApp {
             Traveler romanoff = travelerService.findByNameSafe("Romanoff");
             Traveler banners = travelerService.findByNameSafe("Banners");
 
-            City sanFrancisco = getCity("San Francisco", graph);
-            City moscow = getCity("Moscow", graph);
-            City newYork = getCity("New York", graph);
-            City saoPaulo = getCity("São Paulo", graph);
-            City casaBlanca = getCity("Casa Blanca", graph);
+            City sanFrancisco = cityService.findByNameSafe("San Francisco");
+            City moscow = cityService.findByNameSafe("Moscow");
+            City newYork = cityService.findByNameSafe("New York");
+            City saoPaulo = cityService.findByNameSafe("São Paulo");
+            City casaBlanca = cityService.findByNameSafe("Casa Blanca");
 
             graph.edge(stark, TRAVELS, sanFrancisco).add(GOAL, FUN);
             graph.edge(stark, TRAVELS, moscow).add(GOAL, FUN);
