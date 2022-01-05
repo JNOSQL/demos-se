@@ -33,9 +33,6 @@ public class Programmer {
     @Column
     private String occupation;
 
-    @Column
-    private BigDecimal salary;
-
     /**
      * @Deprecated
      * It is only to the framework requirement.
@@ -43,10 +40,9 @@ public class Programmer {
     Programmer() {
     }
 
-    public Programmer(String name, String occupation, BigDecimal salary) {
+    public Programmer(String name, String occupation) {
         this.name = name;
         this.occupation = occupation;
-        this.salary = salary;
     }
 
     public Long getId() {
@@ -61,8 +57,10 @@ public class Programmer {
         return occupation;
     }
 
-    public BigDecimal getSalary() {
-        return salary;
+    public Programmer merge(Programmer programmer) {
+        this.name = programmer.name;
+        this.occupation = programmer.occupation;
+        return this;
     }
 
     @Override
@@ -84,15 +82,15 @@ public class Programmer {
 
     @Override
     public String toString() {
-        return "Worker{" +
+        return "Programmer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", occupation='" + occupation + '\'' +
-                ", salary=" + salary +
                 '}';
     }
 
     public static ProgrammerBuilder builder() {
         return new ProgrammerBuilder();
     }
+
 }
