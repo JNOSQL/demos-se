@@ -19,7 +19,15 @@ import org.eclipse.jnosql.mapping.graph.GraphTemplate;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
+
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.toList;
+import static org.jnosql.artemis.demo.se.travel.Labels.TRAVELS;
 
 @ApplicationScoped
 class TravelerService {
@@ -58,12 +66,12 @@ class TravelerService {
     }
 
     public void travelFun(Traveler traveler, City city) {
-        EdgeEntity edge = template.edge(traveler, Labels.TRAVELS, city);
+        EdgeEntity edge = template.edge(traveler, TRAVELS, city);
         edge.add(GOAL, FUN);
     }
 
     public void travelWork(Traveler traveler, City city) {
-        EdgeEntity edge = template.edge(traveler, Labels.TRAVELS, city);
+        EdgeEntity edge = template.edge(traveler, TRAVELS, city);
         edge.add(GOAL, WORK);
     }
 
@@ -71,5 +79,38 @@ class TravelerService {
         template.edge(travelerA, Labels.KNOWS, travelerB);
     }
 
+    Map<String, Long> getPeopleHaveFun() {
+        return template.getTraversalVertex()
+                .inE(TRAVELS)
+                .has(GOAL, FUN).outV()
+                .<Traveler>getResult()
+                .map(Traveler::getName)
+                .collect((groupingBy(Function.identity(), counting())));
+    }
+
+    public Map<String, Long> getPeopleTravelWork() {
+        return template.getTraversalVertex()
+                .inE(TRAVELS)
+                .has(GOAL, WORK).outV()
+                .<Traveler>getResult()
+                .map(Traveler::getName)
+                .collect((groupingBy(Function.identity(), counting())));
+    }
+
+    public Map<String, Long> getPeopleTravel() {
+        return template.getTraversalVertex()
+                .in(TRAVELS)
+                .<Traveler>getResult()
+                .map(Traveler::getName)
+                .collect((groupingBy(Function.identity(), counting())));
+    }
+
+    public List<String> getFriendsCasaBlanca() {
+        return template.getTraversalVertex()
+                .hasLabel("City")
+                .has("name", "Casa Blanca")
+                .in(TRAVELS).<Traveler>getResult()
+                .map(Traveler::getName).collect(toList());
+    }
 
 }
