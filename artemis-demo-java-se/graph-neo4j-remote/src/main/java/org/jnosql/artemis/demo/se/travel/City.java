@@ -12,7 +12,7 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se;
+package org.jnosql.artemis.demo.se.travel;
 
 import jakarta.nosql.mapping.Column;
 import jakarta.nosql.mapping.Entity;
