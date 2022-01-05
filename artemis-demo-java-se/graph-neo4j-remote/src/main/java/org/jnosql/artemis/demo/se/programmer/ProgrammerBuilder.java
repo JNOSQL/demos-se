@@ -14,13 +14,10 @@
  */
 package org.jnosql.artemis.demo.se.programmer;
 
-import java.math.BigDecimal;
-
 public class ProgrammerBuilder {
 
     private String name;
     private String occupation;
-    private BigDecimal salary;
 
     public ProgrammerBuilder name(String name) {
         this.name = name;
@@ -32,12 +29,8 @@ public class ProgrammerBuilder {
         return this;
     }
 
-    public ProgrammerBuilder salary(BigDecimal salary) {
-        this.salary = salary;
-        return this;
-    }
 
     public Programmer build() {
-        return new Programmer(name, occupation, salary);
+        return new Programmer(name, occupation);
     }
 }
