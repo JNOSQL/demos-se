@@ -14,6 +14,7 @@
  */
 package org.jnosql.artemis.demo.se.travel;
 
+import org.eclipse.jnosql.mapping.graph.EdgeEntity;
 import org.eclipse.jnosql.mapping.graph.GraphTemplate;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -22,6 +23,10 @@ import java.util.Optional;
 
 @ApplicationScoped
 class TravelerService {
+
+    private static final String GOAL = "type";
+    private static final String FUN = "fun";
+    private static final String WORK = "Work";
 
     @Inject
     private GraphTemplate template;
@@ -50,5 +55,19 @@ class TravelerService {
         this.save(Traveler.of("Rogers"));
         this.save(Traveler.of("Romanoff"));
         this.save(Traveler.of("Banners"));
+    }
+
+    public void travelFun(Traveler traveler, City city) {
+        EdgeEntity edge = template.edge(traveler, Labels.TRAVELS, city);
+        edge.add(GOAL, FUN);
+    }
+
+    public void travelWork(Traveler traveler, City city) {
+        EdgeEntity edge = template.edge(traveler, Labels.TRAVELS, city);
+        edge.add(GOAL, WORK);
+    }
+
+    public void knows(Traveler travelerA, Traveler travelerB) {
+        template.edge(travelerA, Labels.KNOWS, travelerB);
     }
 }

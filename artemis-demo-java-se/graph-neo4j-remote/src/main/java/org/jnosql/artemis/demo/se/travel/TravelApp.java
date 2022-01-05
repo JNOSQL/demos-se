@@ -61,25 +61,28 @@ public final class TravelApp {
             City saoPaulo = cityService.findByNameSafe("São Paulo");
             City casaBlanca = cityService.findByNameSafe("Casa Blanca");
 
-            graph.edge(stark, TRAVELS, sanFrancisco).add(GOAL, FUN);
-            graph.edge(stark, TRAVELS, moscow).add(GOAL, FUN);
-            graph.edge(stark, TRAVELS, newYork).add(GOAL, FUN);
-            graph.edge(stark, TRAVELS, saoPaulo).add(GOAL, FUN);
-            graph.edge(stark, TRAVELS, casaBlanca).add(GOAL, FUN);
+            travelerService.travelFun(stark, sanFrancisco);
+            travelerService.travelFun(stark, moscow);
+            travelerService.travelFun(stark, newYork);
+            travelerService.travelFun(stark, saoPaulo);
+            travelerService.travelFun(stark, casaBlanca);
 
-            graph.edge(roges, TRAVELS, newYork).add(GOAL, WORK);
+            travelerService.travelWork(roges, newYork);
 
-            graph.edge(banners, TRAVELS, casaBlanca).add(GOAL, WORK);
-            graph.edge(banners, TRAVELS, saoPaulo).add(GOAL, WORK);
 
-            graph.edge(romanoff, TRAVELS, moscow).add(GOAL, WORK);
-            graph.edge(romanoff, TRAVELS, newYork).add(GOAL, WORK);
-            graph.edge(romanoff, TRAVELS, saoPaulo).add(GOAL, WORK);
-            graph.edge(romanoff, TRAVELS, casaBlanca).add(GOAL, FUN);
+            travelerService.travelWork(banners, casaBlanca);
+            travelerService.travelWork(banners, saoPaulo);
 
-            graph.edge(stark, "knows", romanoff);
-            graph.edge(stark, "knows", roges);
-            graph.edge(roges, "knows", romanoff);
+
+            travelerService.travelWork(romanoff, moscow);
+            travelerService.travelWork(romanoff, newYork);
+            travelerService.travelWork(romanoff, saoPaulo);
+            travelerService.travelFun(romanoff, casaBlanca);
+
+            travelerService.knows(stark, romanoff);
+            travelerService.knows(stark, roges);
+            travelerService.knows(roges, romanoff);
+
 
             thinkerpop.tx().commit();
 
@@ -146,11 +149,4 @@ public final class TravelApp {
         }
     }
 
-
-    private static City getCity(String name, GraphTemplate graph) {
-        return graph.getTraversalVertex().hasLabel("City")
-                .has("name", name)
-                .<City>next()
-                .orElseThrow(() -> new IllegalStateException("Entity does not find"));
-    }
 }
