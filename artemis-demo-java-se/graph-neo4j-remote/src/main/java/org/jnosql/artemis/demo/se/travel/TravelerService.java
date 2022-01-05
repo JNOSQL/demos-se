@@ -37,7 +37,7 @@ class TravelerService {
                 .hasLabel(Traveler.class)
                 .has("name", name)
                 .<Traveler>next()
-                .orElseThrow(() -> new IllegalStateException("Entity does not find"));
+                .orElseThrow(() -> new IllegalStateException("Entity does not find with name: " + name));
     }
 
     public Traveler save(Traveler traveler) {
