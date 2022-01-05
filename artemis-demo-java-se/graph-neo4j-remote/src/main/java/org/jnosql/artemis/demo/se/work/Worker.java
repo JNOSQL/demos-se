@@ -36,7 +36,6 @@ public class Worker {
     @Column
     private BigDecimal salary;
 
-
     /**
      * @Deprecated
      * It is only to the framework requirement.
