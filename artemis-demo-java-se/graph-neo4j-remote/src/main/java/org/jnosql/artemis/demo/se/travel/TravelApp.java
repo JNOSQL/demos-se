@@ -14,8 +14,6 @@
  */
 package org.jnosql.artemis.demo.se.travel;
 
-import org.eclipse.jnosql.mapping.graph.GraphTemplate;
-
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.List;
@@ -29,7 +27,6 @@ public final class TravelApp {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            GraphTemplate graph = container.select(GraphTemplate.class).get();
 
             TravelerService travelerService = container.select(TravelerService.class).get();
             CityService cityService = container.select(CityService.class).get();
