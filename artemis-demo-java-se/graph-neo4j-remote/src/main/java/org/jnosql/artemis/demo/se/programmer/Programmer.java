@@ -12,7 +12,7 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.work;
+package org.jnosql.artemis.demo.se.programmer;
 
 import jakarta.nosql.mapping.Column;
 import jakarta.nosql.mapping.Entity;
@@ -22,7 +22,7 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
-public class Worker {
+public class Programmer {
 
     @Id
     private Long id;
@@ -40,10 +40,10 @@ public class Worker {
      * @Deprecated
      * It is only to the framework requirement.
      */
-    Worker() {
+    Programmer() {
     }
 
-    public Worker(String name, String occupation, BigDecimal salary) {
+    public Programmer(String name, String occupation, BigDecimal salary) {
         this.name = name;
         this.occupation = occupation;
         this.salary = salary;
@@ -73,8 +73,8 @@ public class Worker {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Worker worker = (Worker) o;
-        return Objects.equals(id, worker.id);
+        Programmer programmer = (Programmer) o;
+        return Objects.equals(id, programmer.id);
     }
 
     @Override
@@ -92,7 +92,7 @@ public class Worker {
                 '}';
     }
 
-    public static WorkerBuilder builder() {
-        return new WorkerBuilder();
+    public static ProgrammerBuilder builder() {
+        return new ProgrammerBuilder();
     }
 }

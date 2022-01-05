@@ -12,32 +12,32 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.work;
+package org.jnosql.artemis.demo.se.programmer;
 
 import java.math.BigDecimal;
 
-public class WorkerBuilder {
+public class ProgrammerBuilder {
 
     private String name;
     private String occupation;
     private BigDecimal salary;
 
-    public WorkerBuilder name(String name) {
+    public ProgrammerBuilder name(String name) {
         this.name = name;
         return this;
     }
 
-    public WorkerBuilder occupation(String occupation) {
+    public ProgrammerBuilder occupation(String occupation) {
         this.occupation = occupation;
         return this;
     }
 
-    public WorkerBuilder salary(BigDecimal salary) {
+    public ProgrammerBuilder salary(BigDecimal salary) {
         this.salary = salary;
         return this;
     }
 
-    public Worker build() {
-        return new Worker(name, occupation, salary);
+    public Programmer build() {
+        return new Programmer(name, occupation, salary);
     }
 }
