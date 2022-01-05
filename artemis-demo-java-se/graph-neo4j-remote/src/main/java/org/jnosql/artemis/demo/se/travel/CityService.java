@@ -32,6 +32,13 @@ class CityService {
                 .has("name", name).next();
     }
 
+    public City findByNameSafe(String name) {
+        return template.getTraversalVertex()
+                .hasLabel(City.class)
+                .has("name", name).<City>next()
+                .orElseThrow(() -> new IllegalStateException("Entity does not find with name: " + name));
+    }
+
     public City save(City city) {
         return findByName(city.getName())
                 .orElseGet(() -> template.insert(city));
