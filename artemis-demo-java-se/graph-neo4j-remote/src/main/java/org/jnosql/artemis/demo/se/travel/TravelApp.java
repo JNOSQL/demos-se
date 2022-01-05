@@ -26,11 +26,6 @@ public final class TravelApp {
     private TravelApp() {
     }
 
-    private static final String GOAL = "type";
-    private static final String FUN = "fun";
-    private static final String TRAVELS = "travels";
-    private static final String WORK = "Work";
-
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
