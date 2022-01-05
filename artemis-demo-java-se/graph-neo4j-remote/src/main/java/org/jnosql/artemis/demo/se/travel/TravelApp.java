@@ -14,7 +14,6 @@
  */
 package org.jnosql.artemis.demo.se.travel;
 
-import org.apache.tinkerpop.gremlin.structure.Graph;
 import org.eclipse.jnosql.mapping.graph.GraphTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
@@ -42,13 +41,10 @@ public final class TravelApp {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             GraphTemplate graph = container.select(GraphTemplate.class).get();
 
-            Graph thinkerpop = container.select(Graph.class).get();
             TravelerService travelerService = container.select(TravelerService.class).get();
             CityService cityService = container.select(CityService.class).get();
             travelerService.load();
             cityService.load();
-
-            thinkerpop.tx().commit();
 
             Traveler stark = travelerService.findByNameSafe("Stark");
             Traveler roges = travelerService.findByNameSafe("Rogers");
@@ -82,9 +78,6 @@ public final class TravelApp {
             travelerService.knows(stark, romanoff);
             travelerService.knows(stark, roges);
             travelerService.knows(roges, romanoff);
-
-
-            thinkerpop.tx().commit();
 
 
             Map<String, Long> mostFunCity = graph.getTraversalVertex()
