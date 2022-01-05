@@ -21,32 +21,32 @@ import jakarta.nosql.mapping.Id;
 import java.util.Objects;
 
 @Entity
-public class Language {
+public class Question {
 
     @Id
     private Long id;
 
     @Column
-    private String name;
+    private String value;
 
 
     /**
      * @Deprecated
      * It is only to the framework requirement.
      */
-    Language() {
+    Question() {
     }
 
-    private Language(String name) {
-        this.name = name;
+    private Question(String value) {
+        this.value = value;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getValue() {
+        return value;
     }
 
     @Override
@@ -57,8 +57,8 @@ public class Language {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Language language = (Language) o;
-        return Objects.equals(id, language.id);
+        Question question = (Question) o;
+        return Objects.equals(id, question.id);
     }
 
     @Override
@@ -70,11 +70,11 @@ public class Language {
     public String toString() {
         return "Language{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + value + '\'' +
                 '}';
     }
 
-    public static Language of(String name) {
-        return new Language(name);
+    public static Question of(String name) {
+        return new Question(name);
     }
 }
