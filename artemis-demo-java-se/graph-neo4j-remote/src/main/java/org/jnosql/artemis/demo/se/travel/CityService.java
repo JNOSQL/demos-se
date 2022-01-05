@@ -36,4 +36,12 @@ class CityService {
         return findByName(city.getName())
                 .orElseGet(() -> template.insert(city));
     }
+
+    public void load() {
+        this.save(City.of("San Francisco"));
+        this.save(City.of("Moscow"));
+        this.save(City.of("New York"));
+        this.save(City.of("São Paulo"));
+        this.save(City.of("Casa Blanca"));
+    }
 }

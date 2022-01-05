@@ -27,12 +27,20 @@ class TravelerService {
     private GraphTemplate template;
 
     public Optional<Traveler> findByName(String name) {
-        return template.getTraversalVertex().hasLabel("Traveler")
+        return template.getTraversalVertex()
+                .hasLabel(Traveler.class)
                 .has("name", name).next();
     }
 
     public Traveler save(Traveler traveler) {
         return findByName(traveler.getName())
                 .orElseGet(() -> template.insert(traveler));
+    }
+
+    public void load() {
+        this.save(Traveler.of("Stark"));
+        this.save(Traveler.of("Rogers"));
+        this.save(Traveler.of("Romanoff"));
+        this.save(Traveler.of("Banners"));
     }
 }
