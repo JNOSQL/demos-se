@@ -50,10 +50,10 @@ public final class TravelApp {
 
             thinkerpop.tx().commit();
 
-            Traveler stark = getTraveler("Stark", graph);
-            Traveler roges = getTraveler("Rogers", graph);
-            Traveler romanoff = getTraveler("Romanoff", graph);
-            Traveler banners = getTraveler("Banners", graph);
+            Traveler stark = travelerService.findByNameSafe("Stark");
+            Traveler roges = travelerService.findByNameSafe("Rogers");
+            Traveler romanoff = travelerService.findByNameSafe("Romanoff");
+            Traveler banners = travelerService.findByNameSafe("Banners");
 
             City sanFrancisco = getCity("San Francisco", graph);
             City moscow = getCity("Moscow", graph);
@@ -146,12 +146,6 @@ public final class TravelApp {
         }
     }
 
-    private static Traveler getTraveler(String name, GraphTemplate graph) {
-        return graph.getTraversalVertex().hasLabel("Traveler")
-                .has("name", name)
-                .<Traveler>next()
-                .orElseThrow(() -> new IllegalStateException("Entity does not find"));
-    }
 
     private static City getCity(String name, GraphTemplate graph) {
         return graph.getTraversalVertex().hasLabel("City")
