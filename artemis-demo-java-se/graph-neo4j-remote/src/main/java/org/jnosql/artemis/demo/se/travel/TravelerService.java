@@ -32,6 +32,14 @@ class TravelerService {
                 .has("name", name).next();
     }
 
+    public Traveler findByNameSafe(String name) {
+        return template.getTraversalVertex()
+                .hasLabel(Traveler.class)
+                .has("name", name)
+                .<Traveler>next()
+                .orElseThrow(() -> new IllegalStateException("Entity does not find"));
+    }
+
     public Traveler save(Traveler traveler) {
         return findByName(traveler.getName())
                 .orElseGet(() -> template.insert(traveler));
