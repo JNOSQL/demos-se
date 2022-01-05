@@ -88,10 +88,9 @@ public final class TravelApp {
             System.out.println("The person who traveled: "+ peopleTravel);
 
             System.out.println("Friends because went to Casa Blanca: " + friendsCasaBlanca);
-
-
-
         }
+
+        System.exit(0);
     }
 
 }
