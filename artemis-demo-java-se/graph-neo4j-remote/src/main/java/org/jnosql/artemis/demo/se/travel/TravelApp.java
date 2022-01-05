@@ -16,7 +16,6 @@ package org.jnosql.artemis.demo.se.travel;
 
 import org.apache.tinkerpop.gremlin.structure.Graph;
 import org.eclipse.jnosql.mapping.graph.GraphTemplate;
-import org.jnosql.artemis.demo.se.City;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
@@ -44,8 +43,10 @@ public final class TravelApp {
             GraphTemplate graph = container.select(GraphTemplate.class).get();
 
             Graph thinkerpop = container.select(Graph.class).get();
-
-            load(graph);
+            TravelerService travelerService = container.select(TravelerService.class).get();
+            CityService cityService = container.select(CityService.class).get();
+            travelerService.load();
+            cityService.load();
 
             thinkerpop.tx().commit();
 
@@ -143,19 +144,6 @@ public final class TravelApp {
 
 
         }
-    }
-
-    private static void load(GraphTemplate graph) {
-        graph.insert(Traveler.of("Stark"));
-        graph.insert(Traveler.of("Rogers"));
-        graph.insert(Traveler.of("Romanoff"));
-        graph.insert(Traveler.of("Banners"));
-
-        graph.insert(City.of("San Francisco"));
-        graph.insert(City.of("Moscow"));
-        graph.insert(City.of("New York"));
-        graph.insert(City.of("São Paulo"));
-        graph.insert(City.of("Casa Blanca"));
     }
 
     private static Traveler getTraveler(String name, GraphTemplate graph) {
