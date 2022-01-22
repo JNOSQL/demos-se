@@ -1,0 +1,14 @@
+[
+  {
+    "description": "The arangodb document configuration",
+    "name": "document",
+    "provider": "org.jnosql.diana.arangodb.document.ArangoDBDocumentConfiguration",
+    "settings": {}
+  },
+  {
+    "description": "The arangodb key-value configuration",
+    "name": "key-value",
+    "provider": "org.jnosql.diana.arangodb.key.ArangoDBKeyValueConfiguration",
+    "settings": {}
+  }
+]

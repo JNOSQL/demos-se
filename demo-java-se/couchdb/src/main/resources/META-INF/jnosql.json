@@ -1,0 +1,10 @@
+[
+  {
+    "description": "The couchdb document configuration",
+    "name": "document",
+    "provider": "org.jnosql.diana.couchdb.document.CouchDBDocumentConfiguration",
+    "settings": {
+      "couchdb.host": "localhost"
+    }
+  }
+]
