@@ -38,7 +38,7 @@
     </properties>
 
     <modules>
-        <module>artemis-demo-java-se</module>
+        <module>demo-java-se</module>
     </modules>
 
     <dependencies>
