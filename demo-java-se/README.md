@@ -1,4 +1,4 @@
-![JNoSQL Project](https://github.com/JNOSQL/jnosql-site/blob/master/images/duke-artemis.png)
+![JNoSQL Project](https://raw.githubusercontent.com/JNOSQL/jnosql.github.io/master/images/duke-artemis.png)
 
 ## JNoSQL examples code
 
