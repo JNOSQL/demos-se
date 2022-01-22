@@ -1,9 +1,9 @@
-![Artemis Project](https://github.com/JNOSQL/jnosql-site/blob/master/images/duke-artemis.png)
+![JNoSQL Project](https://github.com/JNOSQL/jnosql-site/blob/master/images/duke-artemis.png)
 
-## Artemis examples code
+## JNoSQL examples code
 
 
-This project has Artemis demonstrations using several provider and the NoSQL API and its specializations.
+This project has JNoSQL demonstrations using several provider and the NoSQL API and its specializations.
 
 
 
