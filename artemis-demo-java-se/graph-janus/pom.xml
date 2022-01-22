@@ -27,7 +27,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <janusgraph.version>0.3.2</janusgraph.version>
+        <janusgraph.version>0.6.0</janusgraph.version>
     </properties>
 
     <dependencies>
