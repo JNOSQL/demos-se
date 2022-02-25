@@ -30,19 +30,22 @@ public class App8 {
     public static void main(String[] args) {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
-            Map<String, Object> maps = Collections.singletonMap("1", "2");
-            UserScopePropertiesBroken entity1 = new UserScopePropertiesBroken("user", "scope", maps);
+            City elSalvador = City.of("1", "El Salvador");
+            Citizen salvador = Citizen.of("1", "Salvador", elSalvador);
 
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
 
-          //  template.insert(entity1);
+            template.delete(Citizen.class, "1");
+            template.insert(salvador);
 
-            final DocumentQuery query1 = select().from("user_scope_properties_broken").where("_id")
-                    .eq("user").and("scope").eq("scope").build();
-            final Optional<Object> first1 = template.select(query1).findFirst();
-            System.out.println(first1);
+            final DocumentQuery query = select().from(Citizen.class.getSimpleName())
+                    .where("name").eq("Salvador")
+                    .and("city.name").eq("El Salvador").build();
+            final Optional<Citizen> citizen = template.singleResult(query);
+            System.out.println(citizen);
         }
     }
 
-    private App8() {}
+    private App8() {
+    }
 }
