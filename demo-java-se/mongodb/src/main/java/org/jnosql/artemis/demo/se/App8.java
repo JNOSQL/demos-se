@@ -19,8 +19,6 @@ import jakarta.nosql.mapping.document.DocumentTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-import java.util.Collections;
-import java.util.Map;
 import java.util.Optional;
 
 import static jakarta.nosql.document.DocumentQuery.select;
