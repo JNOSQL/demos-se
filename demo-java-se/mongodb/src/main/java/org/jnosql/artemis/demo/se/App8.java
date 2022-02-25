@@ -25,7 +25,7 @@ import java.util.Optional;
 
 import static jakarta.nosql.document.DocumentQuery.select;
 
-public class App7 {
+public class App8 {
 
     public static void main(String[] args) {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
@@ -44,5 +44,5 @@ public class App7 {
         }
     }
 
-    private App7() {}
+    private App8() {}
 }
