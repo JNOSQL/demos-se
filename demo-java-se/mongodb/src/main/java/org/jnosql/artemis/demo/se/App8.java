@@ -35,7 +35,6 @@ public class App8 {
 
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
 
-            template.delete(Citizen.class, "1");
             template.insert(salvador);
 
             final DocumentQuery query = select().from(Citizen.class.getSimpleName())
@@ -43,6 +42,8 @@ public class App8 {
                     .and("city.name").eq("El Salvador").build();
             final Optional<Citizen> citizen = template.singleResult(query);
             System.out.println(citizen);
+
+            template.delete(Citizen.class, "1");
         }
     }
 
