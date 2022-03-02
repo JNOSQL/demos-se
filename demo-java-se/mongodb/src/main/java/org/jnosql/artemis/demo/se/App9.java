@@ -28,7 +28,7 @@ public class App9 {
     public static void main(String[] args) {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
-            Citizen salvador = Citizen.of("1", "Salvador", null);
+            Citizen salvador = Citizen.of("1", "Salvador");
 
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
 
