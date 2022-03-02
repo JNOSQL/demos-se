@@ -86,4 +86,10 @@ public class Citizen {
         Objects.requireNonNull(city, "city is required");
         return new Citizen(id, name, city);
     }
+
+    public static Citizen of(String id, String name){
+        Objects.requireNonNull(id, "id is required");
+        Objects.requireNonNull(name, "name is required");
+        return new Citizen(id, name, null);
+    }
 }
