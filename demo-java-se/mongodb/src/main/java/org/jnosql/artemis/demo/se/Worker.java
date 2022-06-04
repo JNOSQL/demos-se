@@ -41,16 +41,21 @@ public class Worker {
     @Column
     private int dailyHours;
 
+    @Column
+    private Gender gender;
+
     Worker() {
     }
 
 
-    Worker(String id, String name, String city, int age, int dailyHours) {
+    Worker(String id, String name, String city, int age, int dailyHours,
+                  Gender gender) {
         this.id = id;
         this.name = name;
         this.city = city;
         this.age = age;
         this.dailyHours = dailyHours;
+        this.gender = gender;
     }
 
     public String getId() {
@@ -71,6 +76,10 @@ public class Worker {
 
     public int getDailyHours() {
         return dailyHours;
+    }
+
+    public Gender getGender() {
+        return gender;
     }
 
     @Override
@@ -98,6 +107,7 @@ public class Worker {
                 ", city='" + city + '\'' +
                 ", age=" + age +
                 ", dailyHours=" + dailyHours +
+                ", gender=" + gender +
                 '}';
     }
 
