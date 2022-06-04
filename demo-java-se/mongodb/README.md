@@ -11,15 +11,12 @@ A JNoSQL Atemis project with Java SE using Document API with MongoDB as driver i
 To run this project a MongoDB instance is required, so you can use either a local instalation or using Docker.
 
 
-## Manual instalation
+## Manual installation
 
 Follow the instructions in: https://docs.mongodb.com/manual/installation/
 
 
 ## Using Docker
-
-![Docker](https://www.docker.com/sites/default/files/horizontal_large.png)
-
 
 1. Install docker: https://www.docker.com/
 2. https://store.docker.com/images/mongo
