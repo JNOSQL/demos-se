@@ -14,7 +14,6 @@
  */
 package org.jnosql.artemis.demo.se;
 
-import jakarta.nosql.Sort;
 import jakarta.nosql.document.DocumentCondition;
 import jakarta.nosql.document.DocumentQuery;
 import jakarta.nosql.mapping.document.DocumentTemplate;
@@ -23,7 +22,6 @@ import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -32,7 +30,6 @@ import static jakarta.nosql.document.DocumentCondition.and;
 import static jakarta.nosql.document.DocumentCondition.eq;
 import static jakarta.nosql.document.DocumentCondition.gte;
 import static jakarta.nosql.document.DocumentCondition.or;
-import static jakarta.nosql.document.DocumentQuery.select;
 
 public class App10 {
 
