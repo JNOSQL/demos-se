@@ -13,16 +13,13 @@
  * Otavio Santana
  */
 
-package org.jnosql.artemis.demo.se;
+package org.jnosql.artemis.demo.se.infra;
 
 
 import jakarta.nosql.document.DocumentCollectionManager;
-import jakarta.nosql.document.DocumentCollectionManagerFactory;
 import org.eclipse.jnosql.communication.mongodb.document.MongoDBDocumentCollectionManager;
-import org.eclipse.jnosql.communication.mongodb.document.MongoDBDocumentConfiguration;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
