@@ -27,6 +27,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static jakarta.nosql.Sort.asc;
 import static jakarta.nosql.document.DocumentCondition.and;
 import static jakarta.nosql.document.DocumentCondition.eq;
 import static jakarta.nosql.document.DocumentCondition.gte;
@@ -62,7 +63,7 @@ public class App10 {
 
             final DocumentQuery query =  DocumentQuery.builder()
                     .from("Worker")
-                    .sort(Sort.asc("name"))
+                    .sort(asc("name"))
                     .where(or(maleAfterThirty, femaleAfterThirty))
                     .build();
 
