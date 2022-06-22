@@ -15,7 +15,6 @@
 package org.jnosql.artemis.demo.se;
 
 import jakarta.nosql.document.DocumentDeleteQuery;
-import jakarta.nosql.mapping.Page;
 import jakarta.nosql.mapping.Pagination;
 import jakarta.nosql.mapping.document.DocumentTemplate;
 
@@ -33,26 +32,30 @@ public class App11 {
             template.delete(DocumentDeleteQuery.delete().from("Person").build());
             Person otavio = Person.builder().withId(1L)
                     .withName("Otavio")
+                    .withJob(new Job(10, "Java Developer"))
                     .build();
 
             Person poliana = Person.builder().withId(2L)
                     .withName("Poliana")
+                    .withJob(new Job(10, "Java Developer"))
                     .build();
 
             Person elder = Person.builder().withId(3L)
                     .withName("elder")
+                    .withJob(new Job(10, "Java Developer"))
                     .build();
 
             Person yanaga = Person.builder().withId(4L)
                     .withName("Yanaga")
+                    .withJob(new Job(10, "Java Developer"))
                     .build();
 
             repository.save(Arrays.asList(otavio, poliana, elder, yanaga));
 
-            List<Person> people = repository.findAll(Pagination.page(1).size(1));
+            List<Person> people = repository.findByJob_Occupation("Java Developer", Pagination.page(1).size(1));
             System.out.println("First pagination");
             people.forEach(System.out::println);
-            people = repository.findAll(Pagination.page(2).size(1));
+            people = repository.findByJob_Occupation("Java Developer", Pagination.page(2).size(1));
             System.out.println("second pagination");
             people.forEach(System.out::println);
 

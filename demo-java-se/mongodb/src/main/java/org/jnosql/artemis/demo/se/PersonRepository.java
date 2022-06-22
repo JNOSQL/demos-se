@@ -33,4 +33,8 @@ public interface PersonRepository extends Repository<Person, Long> {
     Stream<Person> findByPhones(String phone);
 
     List<Person> findAll(Pagination pagination);
+
+    List<Person> findByJob_Occupation(String name, Pagination pagination);
+
+
 }

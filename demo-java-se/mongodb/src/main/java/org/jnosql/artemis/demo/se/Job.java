@@ -25,11 +25,11 @@ public class Job {
     @Column
     private double salary;
     @Column
-    private String ocupation;
+    private String occupation;
 
-    Job(double salary, String ocupation) {
+    Job(double salary, String occupation) {
         this.salary = salary;
-        this.ocupation = ocupation;
+        this.occupation = occupation;
     }
 
     public Job() {
@@ -39,8 +39,8 @@ public class Job {
         return salary;
     }
 
-    public String getOcupation() {
-        return ocupation;
+    public String getOccupation() {
+        return occupation;
     }
 
     @Override
@@ -53,19 +53,19 @@ public class Job {
         }
         Job job = (Job) o;
         return Double.compare(job.salary, salary) == 0 &&
-                Objects.equals(ocupation, job.ocupation);
+                Objects.equals(occupation, job.occupation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(salary, ocupation);
+        return Objects.hash(salary, occupation);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Job{");
         sb.append("salary=").append(salary);
-        sb.append(", ocupation='").append(ocupation).append('\'');
+        sb.append(", ocupation='").append(occupation).append('\'');
         sb.append('}');
         return sb.toString();
     }
