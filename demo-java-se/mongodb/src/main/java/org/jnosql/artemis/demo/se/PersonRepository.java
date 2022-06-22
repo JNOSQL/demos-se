@@ -34,7 +34,7 @@ public interface PersonRepository extends Repository<Person, Long> {
 
     List<Person> findAll(Pagination pagination);
 
-    List<Person> findByJob_Occupation(String name, Pagination pagination);
+    List<Person> findByJob_Occupation(String occupation, Pagination pagination);
 
 
 }
