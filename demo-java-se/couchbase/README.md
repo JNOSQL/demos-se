@@ -12,8 +12,6 @@ A JNoSQL Artemis project with Java SE using Document API with Couchbase as drive
 
 Once this a communication layer to Couchbase, we're using integration test, so you need to install Couchbase. The recommended way is using Docker.
 
-![Docker](https://www.docker.com/sites/default/files/horizontal_large.png)
-
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/r/couchbase/server/
