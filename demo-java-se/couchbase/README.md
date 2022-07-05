@@ -20,4 +20,3 @@ Once this a communication layer to Couchbase, we're using integration test, so y
 1. Follow the instructions: https://hub.docker.com/r/couchbase/server/
 1. On step one in the "Services" field enable the Full-Text Resource
 1. Follow the instructions: https://developer.couchbase.com/documentation/server/current/fts/full-text-intro.html to create a heroes-index full text index
-1. Execute the test `mvn clean install`
