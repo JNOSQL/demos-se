@@ -17,8 +17,6 @@ package org.jnosql.artemis.demo.se;
 
 
 import jakarta.nosql.mapping.Pagination;
-import jakarta.nosql.mapping.Param;
-import jakarta.nosql.mapping.Query;
 import jakarta.nosql.mapping.Repository;
 
 import javax.enterprise.context.ApplicationScoped;
