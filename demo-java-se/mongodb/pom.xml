@@ -35,11 +35,6 @@
             <artifactId>mongodb-extension</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.smallrye.config</groupId>
-            <artifactId>smallrye-config</artifactId>
-            <version>1.7.0</version>
-        </dependency>
     </dependencies>
 
 </project>
