@@ -27,14 +27,9 @@ import java.util.stream.Stream;
 
 @ApplicationScoped
 public interface PersonRepository extends Repository<Person, Long> {
-
     List<Person> findByName(String name);
 
     Stream<Person> findByPhones(String phone);
-
     List<Person> findAll(Pagination pagination);
-
-    List<Person> findByJob_Occupation(String occupation, Pagination pagination);
-
 
 }
