@@ -28,8 +28,8 @@
     </parent>
 
     <properties>
-        <maven.compile.targetLevel>1.8</maven.compile.targetLevel>
-        <maven.compile.sourceLevel>1.8</maven.compile.sourceLevel>
+        <maven.compile.targetLevel>11</maven.compile.targetLevel>
+        <maven.compile.sourceLevel>11</maven.compile.sourceLevel>
         <maven.compile.version>3.5.1</maven.compile.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <json.b.version>1.0</json.b.version>
@@ -45,39 +45,6 @@
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compile.version}</version>
-                <configuration>
-                    <target>1.8</target>
-                    <source>1.8</source>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
