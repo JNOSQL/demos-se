@@ -33,7 +33,6 @@ public final class MarketingApp {
     private MarketingApp() {
     }
 
-
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
