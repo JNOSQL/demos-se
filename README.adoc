@@ -1,6 +1,0 @@
-# Jakarta-NoSQL demo
-
-
-This project has Jakarta NoSQL demonstrations using several provider and the NoSQL API and its specializations.
-
-* demo-java-se: The bunch of projects that are using Jakarta NoSQL with CDI 2.0
