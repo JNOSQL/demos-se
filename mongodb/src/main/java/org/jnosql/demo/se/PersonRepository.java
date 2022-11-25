@@ -20,8 +20,11 @@ import jakarta.nosql.mapping.Pagination;
 import jakarta.nosql.mapping.Repository;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.Dependent;
+import javax.enterprise.inject.Stereotype;
 import java.util.List;
 import java.util.stream.Stream;
+
 
 @ApplicationScoped
 public interface PersonRepository extends Repository<Person, Long> {

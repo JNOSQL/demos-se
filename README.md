@@ -2,10 +2,7 @@
 
 ## JNoSQL examples code
 
-
 This project has JNoSQL demonstrations using several provider and the NoSQL API and its specializations.
-
-
 
 
 The bunch of projects that are using Artemis with CDI 2.0

@@ -32,8 +32,8 @@
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>mongodb-extension</artifactId>
-            <version>${project.version}</version>
+            <artifactId>jnosql-mongodb-extension</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
