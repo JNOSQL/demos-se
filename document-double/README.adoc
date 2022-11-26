@@ -1,4 +1,4 @@
-= document-double
+= Double database instance
 
 Sample application using MongoDB and couchdb at the same time with Java SE and Jakarta NoSQL.
 
