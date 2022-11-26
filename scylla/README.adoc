@@ -1,0 +1,9 @@
+= Scylla
+
+ScyllaDB using Java SE with Jakarta NoSQL.
+
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/scylladb/scylla/
+1. Run docker command
+** `docker run -d --name scylladb-instance -p 9042:9042 scylladb/scylla`

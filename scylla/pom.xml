@@ -33,7 +33,7 @@
 
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>cassandra-extension</artifactId>
+            <artifactId>jnosql-cassandra-extension</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
