@@ -1,7 +1,5 @@
 # mongodb-demo
 
-A JNoSQL Atemis project with Java SE using Document API with MongoDB as driver implementation.
-
 ![MongoDB Project](http://www.jnosql.org/img/logos/mongodb.png)
 
 
