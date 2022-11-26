@@ -1,0 +1,13 @@
+= hazelcast-demo
+
+Hazelcast demo using Java SE with Jakarta NoSQL.
+
+== Using Docker
+
+![Docker](https://www.docker.com/sites/default/files/horizontal_large.png)
+
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/_/memcached
+1. Execute:
+** `docker run -d --name memcached-instance -p 11211:11211 memcached:latest`
