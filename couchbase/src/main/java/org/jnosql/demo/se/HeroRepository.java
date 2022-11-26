@@ -23,15 +23,13 @@ import java.util.stream.Stream;
 
 public interface HeroRepository extends CouchbaseRepository<Hero, String> {
 
-    Optional<Hero> findByName(String name);
-
     Stream<Hero> findByAgeGreaterThan(Integer age);
 
     Stream<Hero> findByAgeLessThan(Integer age);
 
     void deleteByName(String name);
 
-    @N1QL("select * from heroes where realName= $realName")
+    @N1QL("select * from heroes._default.Hero where realName= $realName")
     Optional<Hero> find(@Param("realName") String realName);
 
 }

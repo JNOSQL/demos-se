@@ -16,35 +16,36 @@
 package org.jnosql.demo.se;
 
 
+import jakarta.nosql.document.DocumentQuery;
 import org.eclipse.jnosql.mapping.DatabaseQualifier;
+import org.eclipse.jnosql.mapping.couchbase.document.CouchbaseTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
-public class App4 {
+import static jakarta.nosql.document.DocumentQuery.select;
+
+public class App2 {
 
 
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            Villain lock = new Villain();
-            lock.setId("lock");
-            lock.setName("Lock");
 
-            Villain doom = new Villain();
-            doom.setId("doom");
-            doom.setName("Dc Doom");
+            Hero ironMan = Hero.builder().withRealName("Tony Stark")
+                    .withName("iron man")
+                    .withAge(34).withPowers(Collections.singleton("rich")).build();
 
-            VillainRepository repository = container.select(VillainRepository.class, DatabaseQualifier.ofKeyValue()).get();
+            HeroRepository repository = container.select(HeroRepository.class).get();
+            repository.save(ironMan);
 
-            repository.save(lock);
-            repository.save(doom);
-            System.out.println(repository.findById("lock"));
-            System.out.println(repository.findById("doom"));
-
+            System.out.println("Find by id: " + repository.findById("iron man"));
+            System.out.println("Find by real name: " + repository.find("Tony Stark"));
         }
     }
-
-    private App4() {
+    private App2() {
     }
 }
