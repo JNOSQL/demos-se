@@ -16,10 +16,8 @@
 package org.jnosql.demo.se;
 
 
-import com.couchbase.client.java.search.SearchQuery;
-import com.couchbase.client.java.search.queries.MatchQuery;
-import org.eclipse.jnosql.mapping.couchbase.document.CouchbaseTemplate;
 import jakarta.nosql.document.DocumentQuery;
+import org.eclipse.jnosql.mapping.couchbase.document.CouchbaseTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
@@ -45,12 +43,6 @@ public class App1 {
             DocumentQuery query = select().from("Hero").where("_id").eq("iron_man").build();
             List<Hero> heroes = couchbaseTemplate.<Hero>select(query).collect(Collectors.toList());
             System.out.println(heroes);
-
-            MatchQuery match = SearchQuery.match("rich").field("powers");
-            SearchQuery search = new SearchQuery("heroes-index", match);
-            List<Hero> searchResult = couchbaseTemplate.<Hero>search(search).collect(Collectors.toList());
-            System.out.println(searchResult);
-
 
         }
     }

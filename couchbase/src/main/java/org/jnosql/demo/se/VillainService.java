@@ -18,30 +18,13 @@ import jakarta.nosql.mapping.keyvalue.KeyValueTemplate;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @ApplicationScoped
 public class VillainService {
 
     @Inject
-    private List<String> names;
-
-    @Inject
-    private Set<String> powers;
-
-    @Inject
     private KeyValueTemplate template;
-
-
-    public void addName(String hero) {
-        names.add(hero);
-    }
-
-    public void addPower(String ids) {
-        this.powers.add(ids);
-    }
 
     public void put(Villain villain) {
         template.put(villain);
@@ -51,11 +34,4 @@ public class VillainService {
         return template.get(name, Villain.class);
     }
 
-    public List<String> getNames() {
-        return names;
-    }
-
-    public Set<String> getPowers() {
-        return powers;
-    }
 }
