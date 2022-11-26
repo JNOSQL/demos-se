@@ -16,13 +16,14 @@
 package org.jnosql.demo.se;
 
 
-import java.util.logging.Logger;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
-import jakarta.nosql.mapping.EntityPostPersit;
+import jakarta.nosql.mapping.EntityPostPersist;
 import jakarta.nosql.mapping.EntityPrePersist;
 import jakarta.nosql.mapping.column.ColumnEntityPostPersist;
 import jakarta.nosql.mapping.column.ColumnEntityPrePersist;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.event.Observes;
+import java.util.logging.Logger;
 
 @ApplicationScoped
 public class PersonEvent {
@@ -33,7 +34,7 @@ public class PersonEvent {
         LOGGER.info("Event to pre persistence" + event.getValue());
     }
 
-    public void postEntity(@Observes EntityPostPersit event) {
+    public void postEntity(@Observes EntityPostPersist event) {
         LOGGER.info("Event to post persistence" + event.getValue());
     }
 

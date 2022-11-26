@@ -31,10 +31,11 @@ import static jakarta.nosql.column.ColumnQuery.select;
 public class App {
 
     private static final Person PERSON = Person.builder().
-            withPhones(Arrays.asList("234", "432"))
-            .withName("Name")
-            .withId(1)
-            .withIgnore("Just Ignore").build();
+            phones(Arrays.asList("234", "432"))
+            .name("Name")
+            .id(1)
+            .ignore("Just Ignore")
+            .build();
 
     public static void main(String[] args) {
 

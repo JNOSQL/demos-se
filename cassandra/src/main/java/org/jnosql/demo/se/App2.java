@@ -25,13 +25,14 @@ import static org.eclipse.jnosql.mapping.DatabaseQualifier.ofColumn;
 
 public class App2 {
 
-    private static final Person PERSON = Person.builder().
-            withPhones(Arrays.asList("234", "432"))
-            .withName("Name")
-            .withId(1)
-            .withIgnore("Just Ignore").build();
-
+    private static final Person PERSON = Person.builder()
+            .id(1)
+            .phones(Arrays.asList("234", "432"))
+            .name("Name")
+            .ignore("Just Ignore")
+            .build();
     public static void main(String[] args) {
+
 
         try(SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             PersonRepository repository = container.select(PersonRepository.class).select(ofColumn()).get();
