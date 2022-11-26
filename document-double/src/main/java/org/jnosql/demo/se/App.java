@@ -16,9 +16,9 @@
 package org.jnosql.demo.se;
 
 
-import org.eclipse.jnosql.mapping.DatabaseQualifier;
-import jakarta.nosql.mapping.document.DocumentTemplate;
 import jakarta.nosql.document.DocumentQuery;
+import jakarta.nosql.mapping.document.DocumentTemplate;
+import org.eclipse.jnosql.mapping.DatabaseQualifier;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
@@ -27,9 +27,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.jnosql.demo.se.CouchbaseProducer.COUCHBASE;
-import static org.jnosql.demo.se.MongoDBProducer.MONGODB;
 import static jakarta.nosql.document.DocumentQuery.select;
+import static org.jnosql.demo.se.MongoDBProducer.MONGODB;
 
 
 public class App {
@@ -55,29 +54,28 @@ public class App {
 
             System.out.println(" Using couchbase database");
 
-            DocumentTemplate documentTemplate = container.select(DocumentTemplate.class)
-                    .select(DatabaseQualifier.ofDocument(COUCHBASE)).get();
+            DocumentTemplate template = container.select(DocumentTemplate.class).get();
 
-            Person saved = documentTemplate.insert(PERSON);
+            Person saved = template.insert(PERSON);
             System.out.println("Person saved" + saved);
 
             DocumentQuery query = select().from("Person")
                     .where("_id").eq(ID).build();
 
-            Optional<Person> person = documentTemplate.singleResult(query);
+            Optional<Person> person = template.singleResult(query);
             System.out.println("Entity found: " + person);
 
 
             System.out.println(" Using mongodb database");
 
-            documentTemplate = container.select(DocumentTemplate.class)
+            template = container.select(DocumentTemplate.class)
                     .select(DatabaseQualifier.ofDocument(MONGODB)).get();
 
-            saved = documentTemplate.insert(PERSON);
+            saved = template.insert(PERSON);
             System.out.println("Person saved" + saved);
 
 
-            person = documentTemplate.singleResult(query);
+            person = template.singleResult(query);
             System.out.println("Entity found: " + person);
 
         }
