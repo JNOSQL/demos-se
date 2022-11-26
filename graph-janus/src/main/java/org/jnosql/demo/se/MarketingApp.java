@@ -16,7 +16,10 @@
 package org.jnosql.demo.se;
 
 
+import org.apache.tinkerpop.gremlin.structure.Graph;
 import org.eclipse.jnosql.mapping.graph.GraphTemplate;
+import org.janusgraph.core.JanusGraph;
+import org.janusgraph.example.GraphOfTheGodsFactory;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
@@ -36,41 +39,41 @@ public final class MarketingApp {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            GraphTemplate graph = container.select(GraphTemplate.class).get();
+            GraphTemplate template = container.select(GraphTemplate.class).get();
 
-            Person banner = graph.insert(Person.builder().withAge(30).withName("Banner")
+            Person banner = template.insert(Person.builder().withAge(30).withName("Banner")
                     .withOccupation("Developer").withSalary(3_000D).build());
 
-            Person natalia = graph.insert(Person.builder().withAge(32).withName("Natalia")
+            Person natalia = template.insert(Person.builder().withAge(32).withName("Natalia")
                     .withOccupation("Developer").withSalary(5_000D).build());
 
-            Person rose = graph.insert(Person.builder().withAge(40).withName("Rose")
+            Person rose = template.insert(Person.builder().withAge(40).withName("Rose")
                     .withOccupation("Design").withSalary(1_000D).build());
 
-            Person tony = graph.insert(Person.builder().withAge(22).withName("tony")
+            Person tony = template.insert(Person.builder().withAge(22).withName("tony")
                     .withOccupation("Developer").withSalary(4_500D).build());
 
 
-            graph.edge(tony, "knows", rose).add("feel", "love");
-            graph.edge(tony, "knows", natalia);
+            template.edge(tony, "knows", rose).add("feel", "love");
+            template.edge(tony, "knows", natalia);
 
-            graph.edge(natalia, "knows", rose);
-            graph.edge(banner, "knows", rose);
+            template.edge(natalia, "knows", rose);
+            template.edge(banner, "knows", rose);
 
-            List<Person> developers = graph.getTraversalVertex()
+            List<Person> developers = template.getTraversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
                     .<Person>getResult().collect(toList());
 
-            List<Person> peopleWhoDeveloperKnows = graph.getTraversalVertex()
+            List<Person> peopleWhoDeveloperKnows = template.getTraversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
                     .out("knows")
                     .<Person>getResult().collect(toList());
 
-            List<Person> both = graph.getTraversalVertex()
+            List<Person> both = template.getTraversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
@@ -80,7 +83,7 @@ public final class MarketingApp {
                     .distinct()
                     .collect(toList());
 
-            List<Person> couple = graph.getTraversalVertex()
+            List<Person> couple = template.getTraversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")

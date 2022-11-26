@@ -31,7 +31,11 @@
     </properties>
 
     <dependencies>
-
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
             <artifactId>jnosql-mapping-graph</artifactId>
@@ -45,7 +49,7 @@
         <dependency>
             <groupId>org.apache.tinkerpop</groupId>
             <artifactId>gremlin-core</artifactId>
-            <version>${tinkerpop.version}</version>
+            <version>3.5.3</version>
         </dependency>
         <dependency>
             <groupId>org.janusgraph</groupId>
