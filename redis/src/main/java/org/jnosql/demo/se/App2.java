@@ -26,9 +26,9 @@ import java.util.Optional;
 public class App2 {
 
     private static final User USER = User.builder().
-            withPhones(Arrays.asList("234", "432"))
-            .withUsername("username")
-            .withName("Name")
+            phones(Arrays.asList("234", "432"))
+            .username("username")
+            .name("Name")
             .build();
 
     public static void main(String[] args) {

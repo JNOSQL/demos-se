@@ -26,19 +26,18 @@ public class UserBuilder {
 
     private List<String> phones;
 
-
-    public UserBuilder withUsername(String username) {
+    public UserBuilder username(String username) {
         this.username = username;
         return this;
     }
 
-    public UserBuilder withName(String name) {
+    public UserBuilder name(String name) {
         this.name = name;
         return this;
     }
 
 
-    public UserBuilder withPhones(List<String> phones) {
+    public UserBuilder phones(List<String> phones) {
         this.phones = phones;
         return this;
     }
