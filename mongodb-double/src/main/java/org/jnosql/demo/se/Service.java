@@ -24,7 +24,6 @@ import javax.inject.Inject;
 public class Service {
 
     @Inject
-    @Database(provider = "greek", value = DatabaseType.DOCUMENT)
     private GodRepository greek;
 
 

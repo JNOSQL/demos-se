@@ -23,6 +23,7 @@ import jakarta.nosql.mapping.DatabaseType;
 import org.eclipse.jnosql.communication.mongodb.document.MongoDBDocumentConfiguration;
 import org.eclipse.jnosql.mapping.config.MicroProfileSettings;
 import org.eclipse.microprofile.config.Config;
+import org.eclipse.microprofile.config.ConfigProvider;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
@@ -33,13 +34,12 @@ import javax.inject.Inject;
 public class ManagerProducer {
 
     private static final String DATABASE = "jnosql.document.database.2";
-    @Inject
-    private Config config;
 
     @ApplicationScoped
     @Produces
     @Database(provider = "romain", value = DatabaseType.DOCUMENT)
     public DocumentManager getRomain() {
+        Config config = ConfigProvider.getConfig();
         DocumentConfiguration configuration = new MongoDBDocumentConfiguration();
         Settings settings = MicroProfileSettings.INSTANCE;
         DocumentManagerFactory factory = configuration.apply(settings);
@@ -47,7 +47,4 @@ public class ManagerProducer {
         return manager;
     }
 
-    public void close(@Disposes DocumentManager manager) {
-        manager.close();
-    }
 }
