@@ -34,7 +34,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <json.b.version>1.0</json.b.version>
         <javax.json.version>1.1</javax.json.version>
-        <tinkerpop.version>3.3.0</tinkerpop.version>
+        <tinkerpop.version>3.6.1</tinkerpop.version>
     </properties>
 
     <modules>
@@ -46,7 +46,6 @@
         <module>document-double</module>
         <module>elasticsearch</module>
         <module>graph-janus</module>
-        <module>graph-neo4j</module>
         <module>graph-neo4j-remote</module>
         <module>graph-titan</module>
         <module>hazelcast</module>
