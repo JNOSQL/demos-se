@@ -33,7 +33,6 @@ public class App2 {
             .build();
     public static void main(String[] args) {
 
-
         try(SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             PersonRepository repository = container.select(PersonRepository.class).select(ofColumn()).get();
             Person saved = repository.save(PERSON);
