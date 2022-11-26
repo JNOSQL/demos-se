@@ -33,12 +33,12 @@
 
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>mapping-key-value</artifactId>
+            <artifactId>jnosql-mapping-key-value</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jnosql.communication</groupId>
-            <artifactId>memcached-driver</artifactId>
+            <artifactId>jnosql-memcached-driver</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
