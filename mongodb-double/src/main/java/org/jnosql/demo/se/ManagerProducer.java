@@ -28,10 +28,12 @@ import org.eclipse.microprofile.config.ConfigProvider;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
+import java.util.logging.Logger;
 
 @ApplicationScoped
 public class ManagerProducer {
+
+    private static final Logger LOGGER = Logger.getLogger(ManagerProducer.class.getName());
 
     private static final String DATABASE = "jnosql.document.database.2";
 
@@ -39,6 +41,7 @@ public class ManagerProducer {
     @Produces
     @Database(provider = "romain", value = DatabaseType.DOCUMENT)
     public DocumentManager getRomain() {
+        LOGGER.info("Creating DocumentManager to romain database");
         Config config = ConfigProvider.getConfig();
         DocumentConfiguration configuration = new MongoDBDocumentConfiguration();
         Settings settings = MicroProfileSettings.INSTANCE;
@@ -47,4 +50,8 @@ public class ManagerProducer {
         return manager;
     }
 
+    public void close(@Disposes @Database(provider = "romain", value = DatabaseType.DOCUMENT) DocumentManager manager) {
+        LOGGER.info("Closing DocumentManager to romain database");
+        manager.close();
+    }
 }
