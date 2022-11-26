@@ -32,7 +32,7 @@
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>elasticsearch-extension</artifactId>
+            <artifactId>jnosql-elasticsearch-extension</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
