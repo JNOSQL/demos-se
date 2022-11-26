@@ -17,6 +17,9 @@ package org.jnosql.demo.se;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import java.util.Set;
 
 public class App {
 
@@ -27,7 +30,6 @@ public class App {
             DriverRepository repository = container.select(DriverRepository.class).get();
             //an invalid driver it will return an exception
             repository.save(new Driver());
-
         }
     }
 
