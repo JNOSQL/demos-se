@@ -10,7 +10,7 @@ An Artemis project with Java SE using using Column API with Cassandra as driver 
 To run this project a Cassandra instance is required, so you can use either a local instalation or using Docker.
 
 
-## Manual instalation
+## Manual installation
 
 Follow the instructions in: http://cassandra.apache.org/doc/latest/getting_started/installing.html
 
