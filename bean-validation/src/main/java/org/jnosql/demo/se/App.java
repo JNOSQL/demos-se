@@ -12,22 +12,25 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.parking;
+package org.jnosql.demo.se;
 
-import java.util.function.Supplier;
 
-public enum  Color implements Supplier<String> {
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
 
-    BLACK("Black"), WHITE("White"), RED("Red"), BLUE("Blue");
+public class App {
 
-    private final String value;
 
-    Color(String value) {
-        this.value = value;
+    public static void main(String[] args) {
+
+        try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            DriverRepository repository = container.select(DriverRepository.class).get();
+            //an invalid driver it will return an exception
+            repository.save(new Driver());
+
+        }
     }
 
-    @Override
-    public String get() {
-        return value;
+    private App() {
     }
 }

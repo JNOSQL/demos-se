@@ -12,7 +12,7 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.parking;
+package org.jnosql.demo.se;
 
 import jakarta.nosql.mapping.Param;
 import jakarta.nosql.mapping.Query;

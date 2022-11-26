@@ -12,7 +12,7 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.parking;
+package org.jnosql.demo.se;
 
 import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.BeforeAll;

@@ -12,26 +12,22 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.parking.converter;
+package org.jnosql.demo.se;
 
-import org.bson.types.ObjectId;
-import org.eclipse.jnosql.mapping.AttributeConverter;
+import java.util.function.Supplier;
 
-public class ObjectIdConverter implements AttributeConverter<String, ObjectId> {
+public enum  Color implements Supplier<String> {
 
-    @Override
-    public ObjectId convertToDatabaseColumn(String attribute) {
-        if(attribute == null) {
-            return null;
-        }
-        return new ObjectId(attribute);
+    BLACK("Black"), WHITE("White"), RED("Red"), BLUE("Blue");
+
+    private final String value;
+
+    Color(String value) {
+        this.value = value;
     }
 
     @Override
-    public String convertToEntityAttribute(ObjectId dbData) {
-        if(dbData == null) {
-            return null;
-        }
-        return dbData.toString();
+    public String get() {
+        return value;
     }
 }

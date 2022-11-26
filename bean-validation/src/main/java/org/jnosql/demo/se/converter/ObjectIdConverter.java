@@ -12,25 +12,26 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.parking;
+package org.jnosql.demo.se.converter;
 
+import org.bson.types.ObjectId;
+import org.eclipse.jnosql.mapping.AttributeConverter;
 
-import javax.enterprise.inject.se.SeContainer;
-import javax.enterprise.inject.se.SeContainerInitializer;
+public class ObjectIdConverter implements AttributeConverter<String, ObjectId> {
 
-public class App {
-
-
-    public static void main(String[] args) {
-
-        try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            DriverRepository repository = container.select(DriverRepository.class).get();
-            //an invalid driver it will return an exception
-            repository.save(new Driver());
-
+    @Override
+    public ObjectId convertToDatabaseColumn(String attribute) {
+        if(attribute == null) {
+            return null;
         }
+        return new ObjectId(attribute);
     }
 
-    private App() {
+    @Override
+    public String convertToEntityAttribute(ObjectId dbData) {
+        if(dbData == null) {
+            return null;
+        }
+        return dbData.toString();
     }
 }

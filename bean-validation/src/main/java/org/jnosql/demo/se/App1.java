@@ -12,7 +12,7 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.parking;
+package org.jnosql.demo.se;
 
 
 import org.javamoney.moneta.Money;
@@ -22,7 +22,6 @@ import javax.enterprise.inject.se.SeContainerInitializer;
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 public class App1 {

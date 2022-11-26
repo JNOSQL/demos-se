@@ -12,7 +12,7 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.parking.validation;
+package org.jnosql.demo.se.validation;
 
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;

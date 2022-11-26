@@ -12,7 +12,7 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.parking.validation;
+package org.jnosql.demo.se.validation;
 
 import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.Assertions;
@@ -30,14 +30,15 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class MonetaryAmountMaxValidatorTest {
+class MonetaryAmountMinValidatorTest {
 
     private static Validator validator;
 
@@ -48,9 +49,9 @@ class MonetaryAmountMaxValidatorTest {
     }
 
     @Mock
-    private MonetaryMax monetaryMax;
+    private MonetaryMin monetaryMin;
 
-    private MonetaryAmountMaxValidator monetaryValidator;
+    private MonetaryAmountMinValidator monetaryValidator;
 
     private ConstraintValidatorContext context;
 
@@ -58,7 +59,7 @@ class MonetaryAmountMaxValidatorTest {
 
     @BeforeEach
     public void setup(){
-        monetaryValidator = new MonetaryAmountMaxValidator();
+        monetaryValidator = new MonetaryAmountMinValidator();
         money = Money.of(12, Monetary.getCurrency("USD"));
     }
 
@@ -68,35 +69,36 @@ class MonetaryAmountMaxValidatorTest {
     }
 
     @Test
-    public void shouldReturnsTrueWhenIsLesserThanMaximumValue() {
-        when(monetaryMax.value()).thenReturn("20.00");
-        monetaryValidator.initialize(monetaryMax);
+    public void shouldReturnsTrueWhenIsGreatherThanMinimumValue() {
+        when(monetaryMin.value()).thenReturn("10.00");
+        monetaryValidator.initialize(monetaryMin);
         assertTrue(monetaryValidator.isValid(money, context));
     }
 
     @Test
-    public void shouldReturnsTrueWhenIsEqualsThanMaximumValue() {
-        when(monetaryMax.value()).thenReturn("12.00");
-        monetaryValidator.initialize(monetaryMax);
+    public void shouldReturnsTrueWhenIsEqualsThanMinimumValue() {
+        when(monetaryMin.value()).thenReturn("12.00");
+        monetaryValidator.initialize(monetaryMin);
         assertTrue(monetaryValidator.isValid(money, context));
     }
 
     @Test
-    public void shouldReturnsFalseWhenIsGreaterThanMinimumValue() {
-        when(monetaryMax.value()).thenReturn("11.00");
-        monetaryValidator.initialize(monetaryMax);
+    public void shouldReturnsFalseWhenIsLesserThanMinimumValue() {
+        when(monetaryMin.value()).thenReturn("14.00");
+        monetaryValidator.initialize(monetaryMin);
         assertFalse(monetaryValidator.isValid(money, context));
     }
 
 
+
     @Test
-    public void shouldReturnsConstrainsWhenMonetaryIsGreaterThanMaximum() {
-        MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(20, Monetary.getCurrency("BRL")));
+    public void shouldReturnsConstrainsWhenMonetaryIsLesserThanMinimum() {
+        MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(10, Monetary.getCurrency("BRL")));
         Set<ConstraintViolation<MonetaryAmountValidator>> constraintViolations =
                 validator.validate(currency);
 
         assertTrue(constraintViolations.size() == 1);
-        assertEquals("{org.javamoney.midas.constraints.monetaryMax}", constraintViolations.iterator().next().getMessageTemplate());
+        assertEquals("{org.javamoney.midas.constraints.monetaryMin}", constraintViolations.iterator().next().getMessageTemplate());
     }
 
     @Test
@@ -108,15 +110,16 @@ class MonetaryAmountMaxValidatorTest {
     }
 
     @Test
-    public void shouldReturnsEmptyConstrainsWhenMonetaryIsLesserThanMaximum() {
-        MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(10, Monetary.getCurrency("BRL")));
+    public void shouldReturnsEmptyConstrainsWhenMonetaryIsGreaterThanMimimum() {
+        MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(20, Monetary.getCurrency("BRL")));
         Set<ConstraintViolation<MonetaryAmountValidator>> constraintViolations =
                 validator.validate(currency);
+
         assertTrue(constraintViolations.isEmpty());
     }
     private class MonetaryAmountValidator {
 
-        @MonetaryMax("10.12")
+        @MonetaryMin("10.12")
         private MonetaryAmount money;
 
         MonetaryAmountValidator(MonetaryAmount money) {

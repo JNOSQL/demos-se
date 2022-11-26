@@ -12,7 +12,7 @@
  *
  * Otavio Santana
  */
-package org.jnosql.artemis.demo.se.parking.converter;
+package org.jnosql.demo.se.converter;
 
 import org.bson.BsonDecimal128;
 import org.bson.BsonDocument;
