@@ -1,8 +1,10 @@
-# document-double
+= document-double
+
+Sample application using MongoDB and couchdb at the same time with Java SE and Jakarta NoSQL.
 
 Using docker-compose, start the `docker-compose.yml`
 
 
-## Run the code
+== Run the code
 
 With a MongoDB and Couchbase instances running go to the class **App** and have fun.
