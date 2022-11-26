@@ -16,6 +16,7 @@
 package org.jnosql.demo.se;
 
 
+import jakarta.nosql.document.DocumentDeleteQuery;
 import jakarta.nosql.mapping.document.DocumentTemplate;
 import jakarta.nosql.document.DocumentQuery;
 
@@ -42,6 +43,13 @@ public class App {
             DocumentQuery query = select().from("Hero").where("_id").eq("iron_man").build();
             List<Hero> heroes = template.<Hero>select(query).collect(Collectors.toList());
             System.out.println(heroes);
+            DocumentDeleteQuery deleteQuery = DocumentDeleteQuery.delete().from("Hero").where("_id").eq("iron_man")
+                    .build();
+
+            template.delete(deleteQuery);
+
+            System.out.println("After deleting: " + template.<Hero>select(query).collect(Collectors.toList()));
+
 
         }
     }
