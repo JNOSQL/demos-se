@@ -1,7 +1,6 @@
 = Bean Validation sample
 
-**Mongodb**: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
-
+In the sample exploring bean validation and JNoSQL, the application uses MongoDB as a database, but we can use any database instance instead.
 
 To run this project a MongoDB instance is required, so you can use either a local installation or using Docker.
 
