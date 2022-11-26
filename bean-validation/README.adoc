@@ -17,7 +17,7 @@ Follow the instructions in: https://docs.mongodb.com/manual/installation/
 * Install docker: https://www.docker.com/
 * https://store.docker.com/images/mongo
 * Run docker command
-* Run MondoDB: verify MongoDB image name with the command `docker images`, it can be mongodb or mongo, and then execute this command:
+* Run MongoDB: verify MongoDB image name with the command `docker images`, it can be mongodb or mongo, and then execute this command:
 ** `docker run -d --name mongodb-instance -p 27017:27017 mongo`
 
 
