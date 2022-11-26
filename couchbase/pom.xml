@@ -32,7 +32,7 @@
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>couchbase-extension</artifactId>
+            <artifactId>jnosql-couchbase-extension</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
