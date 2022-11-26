@@ -5,11 +5,9 @@
 
 To run this project a MongoDB instance is required, so you can use either a local installation or using Docker.
 
-
 == Manual installation
 
 Follow the instructions in: https://docs.mongodb.com/manual/installation/
-
 
 == Using Docker
 
