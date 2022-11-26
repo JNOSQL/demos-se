@@ -14,8 +14,8 @@
  */
 package org.jnosql.demo.se.converter;
 
+import jakarta.nosql.mapping.AttributeConverter;
 import org.bson.types.ObjectId;
-import org.eclipse.jnosql.mapping.AttributeConverter;
 
 public class ObjectIdConverter implements AttributeConverter<String, ObjectId> {
 

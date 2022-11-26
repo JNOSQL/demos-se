@@ -32,17 +32,17 @@
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>mapping-document</artifactId>
+            <artifactId>jnosql-mapping-document</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>mapping-validation</artifactId>
+            <artifactId>jnosql-mapping-validation</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jnosql.communication</groupId>
-            <artifactId>mongodb-driver</artifactId>
+            <artifactId>jnosql-mongodb-driver</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

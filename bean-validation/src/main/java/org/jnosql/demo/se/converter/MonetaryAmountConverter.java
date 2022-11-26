@@ -14,18 +14,19 @@
  */
 package org.jnosql.demo.se.converter;
 
+import jakarta.nosql.mapping.AttributeConverter;
 import org.bson.BsonDecimal128;
 import org.bson.BsonDocument;
 import org.bson.BsonString;
 import org.bson.BsonValue;
+import org.bson.Document;
 import org.bson.types.Decimal128;
 import org.javamoney.moneta.Money;
-import org.eclipse.jnosql.mapping.AttributeConverter;
-import org.eclipse.jnosql.communication.api.document.Document;
 
 import javax.money.MonetaryAmount;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmount, Object> {
@@ -82,15 +83,19 @@ public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmoun
     private MonetaryAmount getMonetaryAmount(List<Document> dbData) {
 
         BigDecimal value = dbData.stream()
-                .filter(d -> VALUE.equals(d.getName()))
+                .map(d -> d.get(VALUE))
+                .filter(Objects::nonNull)
                 .findFirst()
-                .map(d -> d.get(Decimal128.class).bigDecimalValue())
+
+                .map(d -> Decimal128.class.cast(d)
+                        .bigDecimalValue())
                 .orElse(BigDecimal.ZERO);
 
         String currency = dbData.stream()
-                .filter(d -> CURRENCY.equals(d.getName()))
+                .map(d -> d.get(CURRENCY))
+                .filter(Objects::nonNull)
                 .findFirst()
-                .map(d -> d.get(String.class))
+                .map(Object::toString)
                 .orElse(DEFAULT_CURRENCY);
 
         return Money.of(value, currency);
