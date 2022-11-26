@@ -14,13 +14,17 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.nosql.document.DocumentCollectionManager;
+import jakarta.nosql.Settings;
+import jakarta.nosql.document.DocumentConfiguration;
+import jakarta.nosql.document.DocumentManager;
+import jakarta.nosql.document.DocumentManagerFactory;
 import jakarta.nosql.mapping.Database;
 import jakarta.nosql.mapping.DatabaseType;
-import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.jnosql.communication.mongodb.document.MongoDBDocumentConfiguration;
+import org.eclipse.jnosql.mapping.config.MicroProfileSettings;
+import org.eclipse.microprofile.config.Config;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
@@ -28,30 +32,22 @@ import javax.inject.Inject;
 @ApplicationScoped
 public class ManagerProducer {
 
+    private static final String DATABASE = "jnosql.document.database.2";
     @Inject
-    @ConfigProperty(name = "db1")
-    private DocumentCollectionManager greek;
-
-
-    @Inject
-    @ConfigProperty(name = "db2")
-    private DocumentCollectionManager romain;
-
-    @ApplicationScoped
-    @Produces
-    @Database(provider = "greek", value = DatabaseType.DOCUMENT)
-    public DocumentCollectionManager getGreek() {
-        return greek;
-    }
+    private Config config;
 
     @ApplicationScoped
     @Produces
     @Database(provider = "romain", value = DatabaseType.DOCUMENT)
-    public DocumentCollectionManager getRomain() {
-        return romain;
+    public DocumentManager getRomain() {
+        DocumentConfiguration configuration = new MongoDBDocumentConfiguration();
+        Settings settings = MicroProfileSettings.INSTANCE;
+        DocumentManagerFactory factory = configuration.apply(settings);
+        DocumentManager manager = factory.apply(config.getValue(DATABASE, String.class));
+        return manager;
     }
 
-    public void close(@Disposes @Any DocumentCollectionManager manager) {
+    public void close(@Disposes DocumentManager manager) {
         manager.close();
     }
 }

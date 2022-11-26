@@ -27,9 +27,7 @@ import static jakarta.nosql.document.DocumentQuery.select;
 @ApplicationScoped
 public class GreekService {
 
-
     @Inject
-    @ConfigProperty(name = "db1")
     private DocumentTemplate template;
 
     public God insert(God god) {
