@@ -12,10 +12,7 @@
 package org.jnosql.demo.se;
 
 
-import org.apache.tinkerpop.gremlin.structure.Graph;
 import org.eclipse.jnosql.mapping.graph.GraphTemplate;
-import org.janusgraph.core.JanusGraph;
-import org.janusgraph.example.GraphOfTheGodsFactory;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
