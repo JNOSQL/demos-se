@@ -15,7 +15,6 @@ import org.eclipse.jnosql.mapping.cassandra.column.CassandraTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Locale;
 import java.util.Optional;
@@ -31,17 +30,10 @@ public class App5 {
             Currency currency = Currency.getInstance(Locale.US);
 
             Company company = Company.builder()
-                    .withName("SouJava")
-                    .addLanguage("Portuguese")
-                    .addLanguage("English")
-                    .addLanguage("Italian")
-                    .addLanguage("Spanish")
-                    .addHeadquarter(Headquarter.of("Salvador", "Brazil"))
-                    .addHeadquarter(Headquarter.of("Sao Paulo", "Brazil"))
-                    .addHeadquarter(Headquarter.of("Leiria", "Portugal"))
-                    .add("twitter", "otaviojava")
-                    .add("linkedin", "otaviojava")
-                    .withCost(Money.of(currency, BigDecimal.valueOf(10_000)))
+                    .name("SouJava")
+                    .add(Headquarter.of("Salvador", "Brazil"))
+                    .add(Headquarter.of("Sao Paulo", "Brazil"))
+                    .add(Headquarter.of("Leiria", "Portugal"))
                     .build();
 
             template.insert(company);
