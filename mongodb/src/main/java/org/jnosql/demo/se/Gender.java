@@ -11,5 +11,5 @@
 package org.jnosql.demo.se;
 
 public enum Gender {
-    MALE, FEMALE;
+    MALE, FEMALE
 }
