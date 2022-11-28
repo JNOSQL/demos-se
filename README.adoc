@@ -4,10 +4,53 @@ Java SE sample using NoSQL with Jakarta NoSQL.
 
 [cols="Table's name"]
 |===
-|Name|NoSQL types|Description
+|Name|NoSQL types
 
-|Cell in column 1, row 2
-|Cell in column 2, row 2
-|Cell in column 1, row 3
+|arangodb
+|Key-value and document
 
+|arangodb-graph
+|Graph
+
+|bean-validation
+|document with MongoDB
+
+|Cassandra
+|Column-family
+
+|couchbase
+|document and key-value
+
+|couchdb
+|document
+
+|document-double
+|Two instances of document (Mongodb and couchDB)
+
+|elasticsearch
+|document
+
+|graph-janus
+|Graph
+
+|graph-neo4j-remote
+|Graph
+
+|hazelcast
+|key-value
+
+|memcached
+|key-value
+
+|mongodb
+|document
+
+|mongodb-double
+|document: two instances of MongoDB
+
+|redis
+|key-value
+
+|scylla
+|Column-family
 |===
