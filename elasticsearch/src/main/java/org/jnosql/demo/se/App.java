@@ -29,7 +29,7 @@ public class App {
     public static void main(String[] args) {
 
         Random random = new Random();
-        Long id = random.nextLong();
+        long id = random.nextLong();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
             Address address = Address.builder()

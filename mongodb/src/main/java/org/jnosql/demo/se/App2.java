@@ -26,7 +26,7 @@ public class App2 {
     public static void main(String[] args) {
 
         Random random = new Random();
-        Long id = random.nextLong();
+        long id = random.nextLong();
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
