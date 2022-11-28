@@ -37,10 +37,10 @@ public class App4 {
             fightClub.setDirector(Director.builder().withName("David Fincher")
                     .add("Fight Club").add("Seven").add("The Social Network").build());
 
-            Movie americanBeuty = new Movie();
-            americanBeuty.setName("American Beauty");
-            americanBeuty.setAge(1999);
-            americanBeuty.setDirector(Director.builder().withName("Sam Mendes")
+            Movie americanBeauty = new Movie();
+            americanBeauty.setName("American Beauty");
+            americanBeauty.setAge(1999);
+            americanBeauty.setDirector(Director.builder().withName("Sam Mendes")
                     .add("Spectre").add("Skyfall").add("American Beauty").build());
 
 
