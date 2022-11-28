@@ -2,3 +2,12 @@
 
 Java SE sample using NoSQL with Jakarta NoSQL.
 
+[cols="Table's name"]
+|===
+|Name|NoSQL types|Description
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 1, row 3
+
+|===
