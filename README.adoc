@@ -1,3 +1,4 @@
 = JNoSQL examples code
 
 Java SE sample using NoSQL with Jakarta NoSQL.
+
