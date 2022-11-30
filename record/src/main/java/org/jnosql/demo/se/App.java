@@ -12,16 +12,9 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.mapping.document.DocumentTemplate;
-import jakarta.nosql.document.DocumentQuery;
-
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-import java.util.Arrays;
-import java.util.Optional;
 import java.util.Random;
-
-import static jakarta.nosql.document.DocumentQuery.select;
 
 public class App {
 
