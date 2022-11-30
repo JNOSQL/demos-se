@@ -12,21 +12,36 @@
 package org.jnosql.demo.se;
 
 
+import jakarta.nosql.mapping.Template;
+
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
+import java.util.Optional;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class App {
 
 
     public static void main(String[] args) {
 
-        Random random = new Random();
+        ThreadLocalRandom random = ThreadLocalRandom.current();
         long id = random.nextLong();
+        long superStart = System.currentTimeMillis();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            long start = System.currentTimeMillis();
+            Template template = container.select(Template.class).get();
+            Book book = new Book(id, "cool");
+            template.insert(book);
 
+            Optional<Book> optional = template.find(Book.class, id);
+            System.out.println("The result " + optional);
+            long end = System.currentTimeMillis() - start;
+            System.out.println("The total operation is: " + end);
 
         }
+        long end = System.currentTimeMillis() - superStart;
+        System.out.println("Te total process is: " + end);
     }
 
     private App() {
