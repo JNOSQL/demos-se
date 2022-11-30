@@ -14,18 +14,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>record</artifactId>
     <name>JNoSQL Demo using record MongoDB</name>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>17</source>
-                    <target>17</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
     <parent>
         <groupId>org.eclipse.jnosql.mapping</groupId>
@@ -35,8 +23,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compile.targetLevel>17</maven.compile.targetLevel>
-        <maven.compile.sourceLevel>17</maven.compile.sourceLevel>
+        <maven.compile.target>17</maven.compile.target>
+        <maven.compile.source>17</maven.compile.source>
     </properties>
 
     <dependencies>
@@ -46,5 +34,18 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compile.source}</source>
+                    <target>${maven.compile.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
