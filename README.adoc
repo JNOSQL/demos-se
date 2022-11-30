@@ -2,6 +2,9 @@
 
 Java SE sample using NoSQL with Jakarta NoSQL.
 
+This project contains several projects with the primary goal of exploring the Jakarta NoSQL on several databases.
+
+The table below shows the project name, NoSQL type, and a short description.
 
 [cols="Table's name"]
 |===
