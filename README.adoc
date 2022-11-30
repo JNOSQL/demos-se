@@ -2,6 +2,7 @@
 
 Java SE sample using NoSQL with Jakarta NoSQL.
 
+
 [cols="Table's name"]
 |===
 |Name|NoSQL types
