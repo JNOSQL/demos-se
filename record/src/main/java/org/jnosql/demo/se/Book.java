@@ -5,5 +5,9 @@ import jakarta.nosql.mapping.Entity;
 import jakarta.nosql.mapping.Id;
 
 @Entity
-public record Book(@Id Long id, @Column("name") String name) implements State {
+public record Book(@Id Long id, @Column("name") String name) {
+
+    Book enable() {
+        return new Book(this.id, this.name);
+    }
 }
