@@ -25,7 +25,7 @@ public class App {
     public static void main(String[] args) {
 
         ThreadLocalRandom random = ThreadLocalRandom.current();
-        long id = random.nextLong();
+        long id = random.nextLong(1, 1_000_000);
         long superStart = System.currentTimeMillis();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             long start = System.currentTimeMillis();
