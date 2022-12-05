@@ -17,15 +17,14 @@ import jakarta.nosql.mapping.Template;
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Optional;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.UUID;
 
 public class App {
 
 
     public static void main(String[] args) {
 
-        ThreadLocalRandom random = ThreadLocalRandom.current();
-        long id = random.nextLong(1, 1_000_000);
+        String id = UUID.randomUUID().toString();
         long superStart = System.currentTimeMillis();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             long start = System.currentTimeMillis();
