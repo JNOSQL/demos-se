@@ -22,8 +22,6 @@ Follow the instructions in: https://docs.mongodb.com/manual/installation/
 4. Run MongoDB: verify MongoDB image name with the command `docker images`, it can be mongodb or mongo, and then execute this command 
    1. `docker run -d --name mongodb-instance -p 27017:27017 mongo`
 
-
-
 ## Run the code
 
 With a MongoDB instance running go to the class **App** and have fun.
