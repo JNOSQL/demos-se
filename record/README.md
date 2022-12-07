@@ -25,3 +25,12 @@ Follow the instructions in: https://docs.mongodb.com/manual/installation/
 ## Run the code
 
 With a MongoDB instance running go to the class **App** and have fun.
+
+## Record sample
+
+On this sample, we'll cover three situations with Record:
+
+* Value Objects
+* Immutable entities
+* State
+* DTO
