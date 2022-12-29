@@ -36,6 +36,7 @@ public class App {
             System.out.println("The result " + optional);
             long end = System.currentTimeMillis() - start;
             System.out.println("The total operation is: " + end);
+            template.delete(Book.class, id);
 
         }
         long end = System.currentTimeMillis() - superStart;
