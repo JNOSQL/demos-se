@@ -24,8 +24,8 @@
     </parent>
 
     <properties>
-        <maven.compile.targetLevel>17</maven.compile.targetLevel>
-        <maven.compile.sourceLevel>17</maven.compile.sourceLevel>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <maven.compile.version>3.5.1</maven.compile.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <json.b.version>1.0</json.b.version>
