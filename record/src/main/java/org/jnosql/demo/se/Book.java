@@ -20,6 +20,7 @@ import java.time.Year;
 @Entity
 public record Book(@Id String id, @Column("name") String name,
                    @Column("author") String author,
-                   @Convert(YearConverter.class) @Column("year") Year year) {
+                   @Convert(YearConverter.class) @Column("year") Year year,
+                   @Column int edition) {
 
 }

@@ -29,7 +29,7 @@ public class App {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             long start = System.currentTimeMillis();
             Template template = container.select(Template.class).get();
-            Book book = new Book(id, "cool", "Otavio", Year.now());
+            Book book = new Book(id, "cool", "Otavio", Year.now(), 1);
             template.insert(book);
 
             Optional<Book> optional = template.find(Book.class, id);
