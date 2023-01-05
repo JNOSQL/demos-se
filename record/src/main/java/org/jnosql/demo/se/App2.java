@@ -20,17 +20,19 @@ import java.time.Year;
 import java.util.List;
 import java.util.UUID;
 
+import static java.util.UUID.randomUUID;
+
 public class App2 {
 
 
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            String id = UUID.randomUUID().toString();
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
-            Book first = new Book(id, "Effective Java", "Joshua Bloch", Year.of(2001), 1);
-            Book second = first.nextEdition(UUID.randomUUID().toString(), Year.of(2008));
-            Book third = second.nextEdition(UUID.randomUUID().toString(), Year.of(2018));
+            Book first = new Book(randomUUID().toString(), "Effective Java", "Joshua Bloch",
+                    Year.of(2001), 1);
+            Book second = first.nextEdition(randomUUID().toString(), Year.of(2008));
+            Book third = second.nextEdition(randomUUID().toString(), Year.of(2018));
             template.insert(List.of(first, second, third));
             DocumentQuery query = DocumentQuery.select().from("Book")
                     .where("title").eq("Effective Java")
