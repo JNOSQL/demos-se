@@ -24,9 +24,8 @@ public class App {
 
     public static void main(String[] args) {
 
-        String id = UUID.randomUUID().toString();
-        long superStart = System.currentTimeMillis();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+            String id = UUID.randomUUID().toString();
             long start = System.currentTimeMillis();
             Template template = container.select(Template.class).get();
             Book book = new Book(id, "cool", "Otavio", Year.now(), 1);
@@ -37,10 +36,7 @@ public class App {
             long end = System.currentTimeMillis() - start;
             System.out.println("The total operation is: " + end);
             template.delete(Book.class, id);
-
         }
-        long end = System.currentTimeMillis() - superStart;
-        System.out.println("Te total process is: " + end);
     }
 
     private App() {
