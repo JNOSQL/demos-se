@@ -27,6 +27,7 @@ public record Book(@Id String id,
 
 
     public Book nextEdition(String id, Year year) {
+        Objects.requireNonNull(id, "id is required");
         Objects.requireNonNull(year, "year is required");
         return new Book(id, this.title, this.author, year, this.edition + 1);
     }
