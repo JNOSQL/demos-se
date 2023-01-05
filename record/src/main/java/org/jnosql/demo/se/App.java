@@ -15,6 +15,7 @@ import jakarta.nosql.mapping.Template;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
+import java.time.Year;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -28,7 +29,7 @@ public class App {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             long start = System.currentTimeMillis();
             Template template = container.select(Template.class).get();
-            Book book = new Book(id, "cool");
+            Book book = new Book(id, "cool", "Otavio", Year.now());
             template.insert(book);
 
             Optional<Book> optional = template.find(Book.class, id);
