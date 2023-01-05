@@ -12,6 +12,9 @@ package org.jnosql.demo.se.sample;
 
 import java.time.Year;
 
+/**
+ * This is the {@link org.jnosql.demo.se.Book} without using record feature.
+ */
 public class Book {
 
     private final String id;
@@ -21,4 +24,11 @@ public class Book {
     private final String author;
 
     private final Year year;
+
+    public Book(String id, String name, String author, Year year) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.year = year;
+    }
 }
