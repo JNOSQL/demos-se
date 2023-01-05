@@ -19,8 +19,7 @@ import java.time.Year;
 /**
  * This is the {@link org.jnosql.demo.se.Book} without using record feature.
  */
-@Entity
-public class Book {
+public class BookOld {
 
     @Id
     private final String id;
@@ -37,7 +36,9 @@ public class Book {
     @Column
     private final int edition;
 
-    Book(@Id String id, @Column("name") String name, @Column("name") String author, @Column("name") Year year, @Column("name") int edition) {
+    BookOld(@Id String id, @Column("name") String name,
+            @Column("author") String author, @Column("year") Year year,
+            @Column("edition") int edition) {
         this.id = id;
         this.name = name;
         this.author = author;
