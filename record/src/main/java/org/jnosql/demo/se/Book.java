@@ -11,10 +11,15 @@
 package org.jnosql.demo.se;
 
 import jakarta.nosql.mapping.Column;
+import jakarta.nosql.mapping.Convert;
 import jakarta.nosql.mapping.Entity;
 import jakarta.nosql.mapping.Id;
 
+import java.time.Year;
+
 @Entity
-public record Book(@Id String id, @Column("name") String name) {
+public record Book(@Id String id, @Column("name") String name,
+                   @Column("author") String author,
+                   @Convert(YearConverter.class) @Column("year") Year year) {
 
 }
