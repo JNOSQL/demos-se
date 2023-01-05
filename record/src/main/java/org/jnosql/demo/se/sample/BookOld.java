@@ -36,7 +36,7 @@ public class BookOld {
     @Column
     private final int edition;
 
-    BookOld(@Id String id, @Column("name") String name,
+    BookOld(@Id String id, @Column("title") String name,
             @Column("author") String author, @Column("year") Year year,
             @Column("edition") int edition) {
         this.id = id;
