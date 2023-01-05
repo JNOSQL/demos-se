@@ -28,9 +28,8 @@ public class App {
             String id = UUID.randomUUID().toString();
             long start = System.currentTimeMillis();
             Template template = container.select(Template.class).get();
-            Book book = new Book(id, "cool", "Otavio", Year.now(), 1);
+            Book book = new Book(id, "Java Concurrency in Practice", " Brian Goetz", Year.of(2006), 1);
             template.insert(book);
-
             Optional<Book> optional = template.find(Book.class, id);
             System.out.println("The result " + optional);
             long end = System.currentTimeMillis() - start;
