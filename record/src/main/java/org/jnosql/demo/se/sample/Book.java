@@ -25,10 +25,13 @@ public class Book {
 
     private final Year year;
 
-    public Book(String id, String name, String author, Year year) {
+    private final int edition;
+
+    Book(String id, String name, String author, Year year, int edition) {
         this.id = id;
         this.name = name;
         this.author = author;
         this.year = year;
+        this.edition = edition;
     }
 }
