@@ -26,10 +26,10 @@ public record Book(@Id String isbn,
                    @Column("edition") int edition) {
 
 
-    public Book nextEdition(String id, Year year) {
-        Objects.requireNonNull(id, "isbn is required");
+    public Book nextEdition(String isbn, Year year) {
+        Objects.requireNonNull(isbn, "isbn is required");
         Objects.requireNonNull(year, "year is required");
-        return new Book(id, this.title, this.author, year, this.edition + 1);
+        return new Book(isbn, this.title, this.author, year, this.edition + 1);
     }
 
 }
