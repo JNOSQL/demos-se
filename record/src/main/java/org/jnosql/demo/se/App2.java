@@ -18,7 +18,6 @@ import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import java.time.Year;
 import java.util.List;
-import java.util.UUID;
 
 import static java.util.UUID.randomUUID;
 
@@ -41,9 +40,9 @@ public class App2 {
             System.out.println("The Effective java editions: ");
             template.select(query).forEach(System.out::println);
 
-            template.delete(Book.class, first.id());
-            template.delete(Book.class, second.id());
-            template.delete(Book.class, third.id());
+            template.delete(Book.class, first.isbn());
+            template.delete(Book.class, second.isbn());
+            template.delete(Book.class, third.isbn());
 
         }
     }

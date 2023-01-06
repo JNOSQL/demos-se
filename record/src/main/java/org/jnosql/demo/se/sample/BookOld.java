@@ -11,7 +11,6 @@
 package org.jnosql.demo.se.sample;
 
 import jakarta.nosql.mapping.Column;
-import jakarta.nosql.mapping.Entity;
 import jakarta.nosql.mapping.Id;
 
 import java.time.Year;
@@ -22,7 +21,7 @@ import java.time.Year;
 public class BookOld {
 
     @Id
-    private final String id;
+    private final String isbn;
 
     @Column
     private final String name;
@@ -36,10 +35,10 @@ public class BookOld {
     @Column
     private final int edition;
 
-    BookOld(@Id String id, @Column("title") String name,
+    BookOld(@Id String isbn, @Column("title") String name,
             @Column("author") String author, @Column("year") Year year,
             @Column("edition") int edition) {
-        this.id = id;
+        this.isbn = isbn;
         this.name = name;
         this.author = author;
         this.year = year;

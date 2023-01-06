@@ -19,7 +19,7 @@ import java.time.Year;
 import java.util.Objects;
 
 @Entity
-public record Book(@Id String id,
+public record Book(@Id String isbn,
                    @Column("title") String title,
                    @Column("author") String author,
                    @Convert(YearConverter.class) @Column("year") Year year,
@@ -27,7 +27,7 @@ public record Book(@Id String id,
 
 
     public Book nextEdition(String id, Year year) {
-        Objects.requireNonNull(id, "id is required");
+        Objects.requireNonNull(id, "isbn is required");
         Objects.requireNonNull(year, "year is required");
         return new Book(id, this.title, this.author, year, this.edition + 1);
     }
