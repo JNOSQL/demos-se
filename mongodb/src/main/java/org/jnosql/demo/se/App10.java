@@ -10,22 +10,23 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.nosql.document.DocumentCondition;
-import org.eclipse.jnosql.communication.document.DocumentQuery;
-import jakarta.nosql.document.DocumentTemplate;
-
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import jakarta.nosql.document.DocumentTemplate;
+import org.eclipse.jnosql.communication.document.DocumentCondition;
+import org.eclipse.jnosql.communication.document.DocumentQuery;
+import org.eclipse.jnosql.mapping.document.JNoSQLDocumentTemplate;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static jakarta.nosql.Sort.asc;
-import static jakarta.nosql.document.DocumentCondition.and;
-import static jakarta.nosql.document.DocumentCondition.eq;
-import static jakarta.nosql.document.DocumentCondition.gte;
-import static jakarta.nosql.document.DocumentCondition.or;
+import static jakarta.data.repository.Sort.asc;
+import static org.eclipse.jnosql.communication.document.DocumentCondition.and;
+import static org.eclipse.jnosql.communication.document.DocumentCondition.eq;
+import static org.eclipse.jnosql.communication.document.DocumentCondition.gte;
+import static org.eclipse.jnosql.communication.document.DocumentCondition.or;
 
 public class App10 {
 
@@ -44,7 +45,7 @@ public class App10 {
                     .gender(Gender.MALE)
                     .dailyHours(30).build();
 
-            DocumentTemplate template = container.select(DocumentTemplate.class).get();
+            JNoSQLDocumentTemplate template = container.select(JNoSQLDocumentTemplate.class).get();
 
             template.insert(Arrays.asList(otavio, poliana));
 

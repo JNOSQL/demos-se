@@ -14,8 +14,8 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.nosql.mapping.Param;
-import jakarta.nosql.mapping.Query;
+import jakarta.data.repository.Param;
+import jakarta.data.repository.Query;
 import jakarta.nosql.mapping.Repository;
 
 import java.util.List;

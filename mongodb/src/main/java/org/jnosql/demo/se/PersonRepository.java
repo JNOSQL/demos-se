@@ -12,19 +12,18 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.mapping.Pagination;
-import jakarta.nosql.mapping.Repository;
+import jakarta.data.repository.Pageable;
+import jakarta.data.repository.PageableRepository;
+import jakarta.data.repository.Repository;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import java.util.List;
 import java.util.stream.Stream;
 
 
-@ApplicationScoped
-public interface PersonRepository extends Repository<Person, Long> {
+@Repository
+public interface PersonRepository extends PageableRepository<Person, Long> {
     List<Person> findByName(String name);
 
     Stream<Person> findByPhones(String phone);
-    List<Person> findAll(Pagination pagination);
 
 }

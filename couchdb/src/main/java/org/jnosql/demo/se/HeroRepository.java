@@ -10,12 +10,14 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.nosql.mapping.Repository;
+import jakarta.data.repository.CrudRepository;
+import jakarta.data.repository.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface HeroRepository extends Repository<Hero, String> {
+@Repository
+public interface HeroRepository extends CrudRepository<Hero, String> {
 
     Optional<Hero> findByName(String name);
 

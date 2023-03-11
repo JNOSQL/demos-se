@@ -10,13 +10,15 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.nosql.mapping.Param;
-import jakarta.nosql.mapping.Query;
-import jakarta.nosql.mapping.Repository;
+import jakarta.data.repository.CrudRepository;
+import jakarta.data.repository.Param;
+import jakarta.data.repository.Query;
+import jakarta.data.repository.Repository;
 
 import java.util.List;
 
-public interface TransactionRepository extends Repository<Transaction, String> {
+@Repository
+public interface TransactionRepository extends CrudRepository<Transaction, String> {
 
     @Query("select * from Transaction where currency.curencyName = @currencyName")
     List<Transaction> findByQuery(@Param("currencyName") String currencyName);
