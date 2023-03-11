@@ -10,7 +10,7 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.nosql.mapping.AttributeConverter;
+import org.eclipse.jnosql.mapping.AttributeConverter;
 
 import java.time.Year;
 

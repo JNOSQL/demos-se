@@ -46,7 +46,7 @@ public class App4 {
 
 
             System.out.println("Movies from 1999: " + repository.findByAge(1999));
-            System.out.println("Find all: " + repository.findAll());
+            System.out.println("Find all: " + repository.findAllQuery());
 
 
         }

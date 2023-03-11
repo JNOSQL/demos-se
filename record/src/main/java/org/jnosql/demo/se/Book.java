@@ -11,7 +11,7 @@
 package org.jnosql.demo.se;
 
 import jakarta.nosql.Column;
-import jakarta.nosql.mapping.Convert;
+import org.eclipse.jnosql.mapping.Convert;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
 

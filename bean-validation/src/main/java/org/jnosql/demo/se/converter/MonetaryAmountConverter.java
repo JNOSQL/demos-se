@@ -15,7 +15,7 @@
 package org.jnosql.demo.se.converter;
 
 import jakarta.nosql.document.Document;
-import jakarta.nosql.mapping.AttributeConverter;
+import org.eclipse.jnosql.mapping.AttributeConverter;
 import org.bson.BsonDecimal128;
 import org.bson.BsonDocument;
 import org.bson.BsonString;

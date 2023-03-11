@@ -12,7 +12,7 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.column.ColumnQuery;
+import jakarta.nosql.column.ColumnTemplate;
 import jakarta.nosql.mapping.column.ColumnTemplate;
 import org.eclipse.jnosql.mapping.cassandra.column.CassandraTemplate;
 

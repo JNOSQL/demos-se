@@ -23,5 +23,5 @@ public interface MovieRepository extends CassandraRepository<Movie, String> {
     List<Movie> findByAge(Integer age);
 
     @CQL("select * from developers.Movie")
-    List<Movie> findAll();
+    List<Movie> findAllQuery();
 }

@@ -13,16 +13,13 @@ package org.jnosql.demo.se;
 
 
 import com.datastax.oss.driver.api.core.ConsistencyLevel;
-import jakarta.nosql.column.ColumnQuery;
-import org.eclipse.jnosql.mapping.cassandra.column.CassandraTemplate;
-
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import org.eclipse.jnosql.mapping.cassandra.column.CassandraTemplate;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static jakarta.nosql.column.ColumnQuery.select;
 
 
 public class App3 {
@@ -41,7 +38,6 @@ public class App3 {
             Person saved = cassandraTemplate.save(PERSON, ConsistencyLevel.ONE);
             System.out.println("Person saved" + saved);
 
-            ColumnQuery query = select().from("Person").where("id").eq(1L).build();
 
             List<Person> people = cassandraTemplate.<Person>cql("select * from developers.Person where id = 1").collect(Collectors.toList());
             System.out.println("Entity found: " + people);

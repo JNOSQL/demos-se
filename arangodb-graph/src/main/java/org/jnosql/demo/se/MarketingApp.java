@@ -53,20 +53,20 @@ public final class MarketingApp {
             graph.edge(natalia, "knows", rose);
             graph.edge(banner, "knows", rose);
 
-            List<Person> developers = graph.getTraversalVertex()
+            List<Person> developers = graph.traversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
                     .<Person>getResult().collect(toList());
 
-            List<Person> peopleWhoDeveloperKnows = graph.getTraversalVertex()
+            List<Person> peopleWhoDeveloperKnows = graph.traversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
                     .out("knows")
                     .<Person>getResult().collect(toList());
 
-            List<Person> both = graph.getTraversalVertex()
+            List<Person> both = graph.traversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
@@ -76,7 +76,7 @@ public final class MarketingApp {
                     .distinct()
                     .collect(toList());
 
-            List<Person> couple = graph.getTraversalVertex()
+            List<Person> couple = graph.traversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
