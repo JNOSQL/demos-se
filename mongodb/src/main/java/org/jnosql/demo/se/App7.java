@@ -32,10 +32,11 @@ public class App7 {
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
 
           //  template.insert(entity1);
-
-            final DocumentQuery query1 = select().from("user_scope_properties_broken").where("_id")
-                    .eq("user").and("scope").eq("scope").build();
-            final Optional<Object> first1 = template.select(query1).findFirst();
+            final Optional<Object> first1 = template.select(UserScopePropertiesBroken.class)
+                    .where("_id")
+                    .eq("user").and("scope").eq("scope")
+                    .stream()
+                    .findFirst();
             System.out.println(first1);
         }
     }

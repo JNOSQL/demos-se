@@ -10,14 +10,11 @@
  */
 package org.jnosql.demo.se;
 
-import org.eclipse.jnosql.communication.document.DocumentQuery;
-import jakarta.nosql.document.DocumentTemplate;
-
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import java.util.Optional;
+import jakarta.nosql.document.DocumentTemplate;
 
-import static org.eclipse.jnosql.communication.document.DocumentQuery.select;
+import java.util.Optional;
 
 public class App8 {
 
@@ -31,10 +28,10 @@ public class App8 {
 
             template.insert(salvador);
 
-            final DocumentQuery query = select().from(Citizen.class.getSimpleName())
+            final Optional<Citizen> citizen = template.select(Citizen.class)
                     .where("name").eq("Salvador")
-                    .and("city.name").eq("El Salvador").build();
-            final Optional<Citizen> citizen = template.singleResult(query);
+                    .and("city.name").eq("El Salvador")
+                    .singleResult();
             System.out.println(citizen);
 
             template.delete(Citizen.class, "1");

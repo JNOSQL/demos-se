@@ -43,7 +43,7 @@ public class App5 {
             final String query = "select * from Vendor where _id = @name";
             final PreparedStatement prepare = template.prepare(query);
             prepare.bind("name", vendor.getName());
-            final Optional<Vendor> singleResult = prepare.getSingleResult();
+            final Optional<Vendor> singleResult = prepare.singleResult();
             System.out.println(singleResult);
 
         }

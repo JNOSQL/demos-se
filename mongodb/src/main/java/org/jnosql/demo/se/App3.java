@@ -46,7 +46,9 @@ public class App3 {
             DocumentQuery query = select().from("Person")
                     .where("_id").eq(id).build();
 
-            List<Person> people = repository.<Person>select(query).collect(Collectors.toList());
+            List<Person> people = repository.<Person>select(Person.class)
+                    .where("id").eq(id)
+                    .result();
             System.out.println("Entity found: " + people);
 
         }

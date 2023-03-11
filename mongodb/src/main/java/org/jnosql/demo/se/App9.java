@@ -32,7 +32,8 @@ public class App9 {
 
             final DocumentQuery query = select().from(Citizen.class.getSimpleName())
                     .where("name").eq("Salvador").build();
-            final Optional<Citizen> citizen = template.singleResult(query);
+            final Optional<Citizen> citizen = template.select(Citizen.class)
+                    .where("name").eq("Salvador").singleResult();
             System.out.println(citizen);
 
             template.delete(Citizen.class, "1");

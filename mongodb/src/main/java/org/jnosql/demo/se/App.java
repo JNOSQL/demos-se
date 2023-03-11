@@ -12,16 +12,13 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.document.DocumentTemplate;
-import org.eclipse.jnosql.communication.document.DocumentQuery;
-
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import jakarta.nosql.document.DocumentTemplate;
+
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.Random;
-
-import static org.eclipse.jnosql.communication.document.DocumentQuery.select;
 
 public class App {
 
@@ -44,11 +41,8 @@ public class App {
             Person saved = template.insert(person);
             System.out.println("Person saved" + saved);
 
-
-            DocumentQuery query = select().from("Person")
-                    .where("_id").eq(id).build();
-
-            Optional<Person> personOptional = template.singleResult(query);
+            Optional<Person> personOptional = template.select(Process.class)
+                    .where("id").eq(id).singleResult();
             System.out.println("Entity found: " + personOptional);
 
         }
