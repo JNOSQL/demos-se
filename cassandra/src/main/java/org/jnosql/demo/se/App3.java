@@ -16,8 +16,8 @@ import com.datastax.oss.driver.api.core.ConsistencyLevel;
 import jakarta.nosql.column.ColumnQuery;
 import org.eclipse.jnosql.mapping.cassandra.column.CassandraTemplate;
 
-import javax.enterprise.inject.se.SeContainer;
-import javax.enterprise.inject.se.SeContainerInitializer;
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;

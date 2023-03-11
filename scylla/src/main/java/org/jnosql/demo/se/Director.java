@@ -12,7 +12,7 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.mapping.Column;
+import jakarta.nosql.Column;
 
 import java.util.HashSet;
 import java.util.Objects;

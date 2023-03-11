@@ -10,14 +10,14 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.nosql.document.DocumentQuery;
-import jakarta.nosql.mapping.document.DocumentTemplate;
+import org.eclipse.jnosql.communication.document.DocumentQuery;
+import jakarta.nosql.document.DocumentTemplate;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.stream.Stream;
 
-import static jakarta.nosql.document.DocumentQuery.select;
+import static org.eclipse.jnosql.communication.document.DocumentQuery.select;
 
 @ApplicationScoped
 public class GreekService {

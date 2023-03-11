@@ -12,8 +12,8 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.mapping.Entity;
-import jakarta.nosql.mapping.Id;
+import jakarta.nosql.Entity;
+import jakarta.nosql.Id;
 
 import java.io.Serializable;
 import java.util.List;

@@ -13,15 +13,15 @@ package org.jnosql.demo.se;
 
 
 import org.eclipse.jnosql.mapping.arangodb.document.ArangoDBTemplate;
-import jakarta.nosql.document.DocumentQuery;
+import org.eclipse.jnosql.communication.document.DocumentQuery;
 
-import javax.enterprise.inject.se.SeContainer;
-import javax.enterprise.inject.se.SeContainerInitializer;
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static jakarta.nosql.document.DocumentQuery.select;
+import static org.eclipse.jnosql.communication.document.DocumentQuery.select;
 
 public class App1 {
 

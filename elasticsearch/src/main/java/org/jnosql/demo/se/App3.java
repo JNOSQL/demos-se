@@ -16,8 +16,8 @@ import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.TermQueryBuilder;
 import org.eclipse.jnosql.mapping.elasticsearch.document.ElasticsearchTemplate;
 
-import javax.enterprise.inject.se.SeContainer;
-import javax.enterprise.inject.se.SeContainerInitializer;
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;

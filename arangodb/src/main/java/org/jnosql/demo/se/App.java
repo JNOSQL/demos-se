@@ -12,16 +12,12 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.mapping.document.DocumentTemplate;
-import jakarta.nosql.document.DocumentQuery;
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
+import jakarta.nosql.document.DocumentTemplate;
 
-import javax.enterprise.inject.se.SeContainer;
-import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import static jakarta.nosql.document.DocumentQuery.select;
 
 public class App {
 
@@ -35,8 +31,8 @@ public class App {
 
             template.insert(ironMan);
 
-            DocumentQuery query = select().from("Hero").where("name").eq("iron_man").build();
-            List<Hero> heroes = template.<Hero>select(query).collect(Collectors.toList());
+            List<Hero> heroes = template.select(Hero.class)
+                    .where("name").eq("iron_man").result();
             System.out.println(heroes);
 
         }

@@ -17,8 +17,8 @@ package org.jnosql.demo.se;
 
 import org.javamoney.moneta.Money;
 
-import javax.enterprise.inject.se.SeContainer;
-import javax.enterprise.inject.se.SeContainerInitializer;
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 import java.util.Arrays;

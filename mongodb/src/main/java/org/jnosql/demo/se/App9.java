@@ -10,14 +10,14 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.nosql.document.DocumentQuery;
-import jakarta.nosql.mapping.document.DocumentTemplate;
+import org.eclipse.jnosql.communication.document.DocumentQuery;
+import jakarta.nosql.document.DocumentTemplate;
 
-import javax.enterprise.inject.se.SeContainer;
-import javax.enterprise.inject.se.SeContainerInitializer;
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import java.util.Optional;
 
-import static jakarta.nosql.document.DocumentQuery.select;
+import static org.eclipse.jnosql.communication.document.DocumentQuery.select;
 
 public class App9 {
 

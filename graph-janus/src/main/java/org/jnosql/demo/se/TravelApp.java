@@ -12,8 +12,8 @@ package org.jnosql.demo.se;
 
 import org.eclipse.jnosql.mapping.graph.GraphTemplate;
 
-import javax.enterprise.inject.se.SeContainer;
-import javax.enterprise.inject.se.SeContainerInitializer;
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;

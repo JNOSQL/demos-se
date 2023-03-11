@@ -14,9 +14,9 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.nosql.mapping.Column;
+import jakarta.nosql.Column;
 import jakarta.nosql.mapping.Convert;
-import jakarta.nosql.mapping.Entity;
+import jakarta.nosql.Entity;
 import org.jnosql.demo.se.converter.MonetaryAmountConverter;
 import org.jnosql.demo.se.validation.CurrencyAccepted;
 import org.jnosql.demo.se.validation.MonetaryMax;

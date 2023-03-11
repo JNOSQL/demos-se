@@ -13,11 +13,11 @@ package org.jnosql.demo.se;
 
 
 import jakarta.nosql.mapping.PreparedStatement;
-import jakarta.nosql.mapping.document.DocumentTemplate;
+import jakarta.nosql.document.DocumentTemplate;
 import org.bson.types.Binary;
 
-import javax.enterprise.inject.se.SeContainer;
-import javax.enterprise.inject.se.SeContainerInitializer;
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import java.util.Date;
 import java.util.Optional;
 import java.util.UUID;

@@ -15,10 +15,10 @@
 
 package org.jnosql.demo.se;
 
-import jakarta.nosql.mapping.Column;
+import jakarta.nosql.Column;
 import jakarta.nosql.mapping.Convert;
-import jakarta.nosql.mapping.Entity;
-import jakarta.nosql.mapping.Id;
+import jakarta.nosql.Entity;
+import jakarta.nosql.Id;
 import org.jnosql.demo.se.converter.ObjectIdConverter;
 
 import javax.validation.constraints.AssertTrue;
