@@ -11,7 +11,8 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.mapping.Template;
+
+import jakarta.nosql.Template;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;

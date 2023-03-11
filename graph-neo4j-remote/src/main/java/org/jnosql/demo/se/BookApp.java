@@ -75,23 +75,23 @@ public final class BookApp {
 
             thinkerpop.tx().commit();
 
-            List<String> softwareCategories = graph.getTraversalVertex().hasLabel("Category")
+            List<String> softwareCategories = graph.traversalVertex().hasLabel("Category")
                     .has("name", "Software")
-                    .in("is").hasLabel("Category").<Category>getResult()
+                    .in("is").hasLabel("Category").<Category>result()
                     .map(Category::getName)
                     .collect(toList());
 
-            List<String> softwareBooks = graph.getTraversalVertex().hasLabel("Category")
+            List<String> softwareBooks = graph.traversalVertex().hasLabel("Category")
                     .has("name", "Software")
-                    .in("is").hasLabel("Book").<Book>getResult()
+                    .in("is").hasLabel("Book").<Book>result()
                     .map(Book::getName)
                     .collect(toList());
 
-            List<String> sofwareNoSQLBooks = graph.getTraversalVertex().hasLabel("Category")
+            List<String> sofwareNoSQLBooks = graph.traversalVertex().hasLabel("Category")
                     .has("name", "Software")
                     .in("is")
                     .has("name", "NoSQL")
-                    .in("is").<Book>getResult()
+                    .in("is").<Book>result()
                     .map(Book::getName)
                     .collect(toList());
 
@@ -105,14 +105,14 @@ public final class BookApp {
     }
 
     private static Category getCategory(String name, GraphTemplate graph) {
-        return graph.getTraversalVertex().hasLabel("Category")
+        return graph.traversalVertex().hasLabel("Category")
                 .has("name", name)
                 .<Category>next()
                 .orElseThrow(() -> new IllegalStateException("Entity does not find"));
     }
 
     private static Book getBook(String name, GraphTemplate graph) {
-        return graph.getTraversalVertex().hasLabel("Book")
+        return graph.traversalVertex().hasLabel("Book")
                 .has("name", name)
                 .<Book>next()
                 .orElseThrow(() -> new IllegalStateException("Entity does not find"));

@@ -12,18 +12,16 @@
 package org.jnosql.demo.se;
 
 
-import org.eclipse.jnosql.communication.document.DocumentQuery;
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.nosql.document.DocumentTemplate;
 import org.eclipse.jnosql.mapping.DatabaseQualifier;
 
-import jakarta.enterprise.inject.se.SeContainer;
-import jakarta.enterprise.inject.se.SeContainerInitializer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.eclipse.jnosql.communication.document.DocumentQuery.select;
 import static org.jnosql.demo.se.MongoDBProducer.MONGODB;
 
 
@@ -55,10 +53,9 @@ public class App {
             Person saved = template.insert(PERSON);
             System.out.println("Person saved" + saved);
 
-            DocumentQuery query = select().from("Person")
-                    .where("_id").eq(ID).build();
 
-            Optional<Person> person = template.singleResult(query);
+            Optional<Person> person = template.select(Person.class)
+                    .where("id").eq(ID).singleResult();
             System.out.println("Entity found: " + person);
 
 
@@ -71,7 +68,8 @@ public class App {
             System.out.println("Person saved" + saved);
 
 
-            person = template.singleResult(query);
+            person = template.select(Person.class)
+                    .where("id").eq(ID).singleResult();
             System.out.println("Entity found: " + person);
 
         }

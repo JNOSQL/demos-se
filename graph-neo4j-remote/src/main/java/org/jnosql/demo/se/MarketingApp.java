@@ -68,35 +68,35 @@ public final class MarketingApp {
 
             thinkerpop.tx().commit();
 
-            List<Person> developers = graph.getTraversalVertex()
+            List<Person> developers = graph.traversalVertex()
                     .has("occupation", "Developer")
-                    .<Person>getResult().collect(toList());
+                    .<Person>result().collect(toList());
 
-            List<Person> peopleWhoDeveloperKnows = graph.getTraversalVertex()
+            List<Person> peopleWhoDeveloperKnows = graph.traversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
                     .out("knows")
-                    .<Person>getResult().collect(toList());
+                    .<Person>result().collect(toList());
 
-            List<Person> both = graph.getTraversalVertex()
+            List<Person> both = graph.traversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
                     .outE("knows")
                     .bothV()
-                    .<Person>getResult()
+                    .<Person>result()
                     .distinct()
                     .collect(toList());
 
-            List<Person> couple = graph.getTraversalVertex()
+            List<Person> couple = graph.traversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
                     .outE("knows")
                     .has("feel", "love")
                     .bothV()
-                    .<Person>getResult()
+                    .<Person>result()
                     .distinct()
                     .collect(toList());
 
@@ -109,7 +109,7 @@ public final class MarketingApp {
     }
 
     private static Person getPerson(String name, GraphTemplate graph) {
-        return graph.getTraversalVertex().hasLabel("Person")
+        return graph.traversalVertex().hasLabel("Person")
                 .has("name", name)
                 .<Person>next()
                 .orElseThrow(() -> new IllegalStateException("Entity does not find"));

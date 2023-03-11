@@ -27,12 +27,12 @@ public class TheGodsApp {
     public static void main(String[] args) {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             GraphTemplate graph = container.select(GraphTemplate.class).get();
-            Optional<God> saturn = graph.getTraversalVertex().has("name", "saturn").next();
+            Optional<God> saturn = graph.traversalVertex().has("name", "saturn").next();
             System.out.println(saturn);
-            graph.getTraversalEdge().has("place", geoWithin(circle(37.97, 23.72, 50)))
-                    .stream().forEach(System.out::println);
+            graph.traversalVertex().has("place", geoWithin(circle(37.97, 23.72, 50)))
+                    .result().forEach(System.out::println);
 
-            graph.getTraversalVertex().getResult().forEach(System.out::println);
+            graph.traversalVertex().result().forEach(System.out::println);
         }
     }
 }

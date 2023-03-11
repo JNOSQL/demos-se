@@ -10,7 +10,9 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.nosql.mapping.Repository;
+import jakarta.data.repository.CrudRepository;
+import jakarta.data.repository.Repository;
 
-public interface UserRepository extends Repository<User, String> {
+@Repository
+public interface UserRepository extends CrudRepository<User, String> {
 }

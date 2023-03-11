@@ -10,10 +10,10 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.nosql.mapping.keyvalue.KeyValueTemplate;
-
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.nosql.keyvalue.KeyValueTemplate;
+
 import java.util.Optional;
 
 @ApplicationScoped

@@ -22,7 +22,7 @@ public class ProgrammerService {
 
     public Optional<Programmer> findByName(String name) {
         return template
-                .getTraversalVertex()
+                .traversalVertex()
                 .hasLabel(Programmer.class)
                 .has("name", name)
                 .next();

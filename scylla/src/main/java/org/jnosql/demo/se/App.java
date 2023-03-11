@@ -12,16 +12,13 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.column.ColumnTemplate;
-import jakarta.nosql.mapping.column.ColumnTemplate;
-import org.eclipse.jnosql.mapping.cassandra.column.CassandraTemplate;
-
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import jakarta.nosql.column.ColumnTemplate;
+import org.eclipse.jnosql.mapping.cassandra.column.CassandraTemplate;
+
 import java.util.Arrays;
 import java.util.Optional;
-
-import static jakarta.nosql.column.ColumnQuery.select;
 
 public class App {
 
@@ -35,9 +32,9 @@ public class App {
             Person saved = template.insert(person);
             System.out.println("Person saved" + saved);
 
-            ColumnQuery query = select().from("Person").where("id").eq(1L).build();
 
-            Optional<Person> result = template.singleResult(query);
+            Optional<Person> result = template.select(Person.class)
+                    .where("id").eq(1L).singleResult();
             System.out.println("Entity found: " + result);
 
         }

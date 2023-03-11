@@ -12,7 +12,7 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.mapping.PreparedStatement;
+import jakarta.nosql.PreparedStatement;
 import jakarta.nosql.document.DocumentTemplate;
 
 import jakarta.enterprise.inject.se.SeContainer;

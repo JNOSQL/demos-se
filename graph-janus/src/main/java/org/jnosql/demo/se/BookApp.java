@@ -57,23 +57,23 @@ public final class BookApp {
             graph.edge(shack, "is", romance);
 
 
-            List<String> softwareCategories = graph.getTraversalVertex().hasLabel("Category")
+            List<String> softwareCategories = graph.traversalVertex().hasLabel("Category")
                     .has("name", "Software")
-                    .in("is").hasLabel("Category").<Category>getResult()
+                    .in("is").hasLabel("Category").<Category>result()
                     .map(Category::getName)
                     .collect(toList());
 
-            List<String> softwareBooks = graph.getTraversalVertex().hasLabel("Category")
+            List<String> softwareBooks = graph.traversalVertex().hasLabel("Category")
                     .has("name", "Software")
-                    .in("is").hasLabel("Book").<Book>getResult()
+                    .in("is").hasLabel("Book").<Book>result()
                     .map(Book::getName)
                     .collect(toList());
 
-            List<String> sofwareNoSQLBooks = graph.getTraversalVertex().hasLabel("Category")
+            List<String> sofwareNoSQLBooks = graph.traversalVertex().hasLabel("Category")
                     .has("name", "Software")
                     .in("is")
                     .has("name", "NoSQL")
-                    .in("is").<Book>getResult()
+                    .in("is").<Book>result()
                     .map(Book::getName)
                     .collect(toList());
 

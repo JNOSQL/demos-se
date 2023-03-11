@@ -36,13 +36,13 @@ class TravelerService {
     private GraphTemplate template;
 
     public Optional<Traveler> findByName(String name) {
-        return template.getTraversalVertex()
+        return template.traversalVertex()
                 .hasLabel(Traveler.class)
                 .has("name", name).next();
     }
 
     public Traveler findByNameSafe(String name) {
-        return template.getTraversalVertex()
+        return template.traversalVertex()
                 .hasLabel(Traveler.class)
                 .has("name", name)
                 .<Traveler>next()
@@ -76,36 +76,36 @@ class TravelerService {
     }
 
     Map<String, Long> getPeopleHaveFun() {
-        return template.getTraversalVertex()
+        return template.traversalVertex()
                 .inE(TRAVELS)
                 .has(GOAL, FUN).outV()
-                .<Traveler>getResult()
+                .<Traveler>result()
                 .map(Traveler::getName)
                 .collect((groupingBy(Function.identity(), counting())));
     }
 
     public Map<String, Long> getPeopleTravelWork() {
-        return template.getTraversalVertex()
+        return template.traversalVertex()
                 .inE(TRAVELS)
                 .has(GOAL, WORK).outV()
-                .<Traveler>getResult()
+                .<Traveler>result()
                 .map(Traveler::getName)
                 .collect((groupingBy(Function.identity(), counting())));
     }
 
     public Map<String, Long> getPeopleTravel() {
-        return template.getTraversalVertex()
+        return template.traversalVertex()
                 .in(TRAVELS)
-                .<Traveler>getResult()
+                .<Traveler>result()
                 .map(Traveler::getName)
                 .collect((groupingBy(Function.identity(), counting())));
     }
 
     public List<String> getFriendsCasaBlanca() {
-        return template.getTraversalVertex()
+        return template.traversalVertex()
                 .hasLabel("City")
                 .has("name", "Casa Blanca")
-                .in(TRAVELS).<Traveler>getResult()
+                .in(TRAVELS).<Traveler>result()
                 .map(Traveler::getName).collect(toList());
     }
 

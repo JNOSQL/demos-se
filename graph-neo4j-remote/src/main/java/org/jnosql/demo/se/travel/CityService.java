@@ -31,13 +31,13 @@ class CityService {
     private GraphTemplate template;
 
     public Optional<City> findByName(String name) {
-        return template.getTraversalVertex()
+        return template.traversalVertex()
                 .hasLabel(City.class)
                 .has("name", name).next();
     }
 
     public City findByNameSafe(String name) {
-        return template.getTraversalVertex()
+        return template.traversalVertex()
                 .hasLabel(City.class)
                 .has("name", name).<City>next()
                 .orElseThrow(() -> new IllegalStateException("Entity does not find with name: " + name));
@@ -57,27 +57,27 @@ class CityService {
     }
 
     public Map<String, Long> getMostFunCity() {
-        return template.getTraversalVertex()
+        return template.traversalVertex()
                 .inE(Labels.TRAVELS)
                 .has(GOAL, FUN).inV()
-                .<City>getResult()
+                .<City>result()
                 .map(City::getName)
                 .collect((groupingBy(Function.identity(), counting())));
     }
 
     public Map<String, Long> getMostBusinessCity() {
-        return template.getTraversalVertex()
+        return template.traversalVertex()
                 .inE(Labels.TRAVELS)
                 .has(GOAL, WORK).inV()
-                .<City>getResult()
+                .<City>result()
                 .map(City::getName)
                 .collect((groupingBy(Function.identity(), counting())));
     }
 
     public Map<String, Long> getMostTravelCity() {
-       return template.getTraversalVertex()
+       return template.traversalVertex()
                 .out(Labels.TRAVELS)
-                .<City>getResult()
+                .<City>result()
                 .map(City::getName)
                 .collect((groupingBy(Function.identity(), counting())));
     }

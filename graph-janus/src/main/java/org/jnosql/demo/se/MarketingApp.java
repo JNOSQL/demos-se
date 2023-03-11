@@ -53,37 +53,37 @@ public final class MarketingApp {
             template.edge(natalia, "knows", rose);
             template.edge(banner, "knows", rose);
 
-            List<Person> developers = template.getTraversalVertex()
+            List<Person> developers = template.traversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
-                    .<Person>getResult().collect(toList());
+                    .<Person>result().collect(toList());
 
-            List<Person> peopleWhoDeveloperKnows = template.getTraversalVertex()
+            List<Person> peopleWhoDeveloperKnows = template.traversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
                     .out("knows")
-                    .<Person>getResult().collect(toList());
+                    .<Person>result().collect(toList());
 
-            List<Person> both = template.getTraversalVertex()
+            List<Person> both = template.traversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
                     .outE("knows")
                     .bothV()
-                    .<Person>getResult()
+                    .<Person>result()
                     .distinct()
                     .collect(toList());
 
-            List<Person> couple = template.getTraversalVertex()
+            List<Person> couple = template.traversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
                     .outE("knows")
                     .has("feel", "love")
                     .bothV()
-                    .<Person>getResult()
+                    .<Person>result()
                     .distinct()
                     .collect(toList());
 

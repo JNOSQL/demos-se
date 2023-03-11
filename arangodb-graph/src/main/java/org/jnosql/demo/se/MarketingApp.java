@@ -57,14 +57,14 @@ public final class MarketingApp {
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
-                    .<Person>getResult().collect(toList());
+                    .<Person>result().collect(toList());
 
             List<Person> peopleWhoDeveloperKnows = graph.traversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
                     .out("knows")
-                    .<Person>getResult().collect(toList());
+                    .<Person>result().collect(toList());
 
             List<Person> both = graph.traversalVertex()
                     .has("salary", gte(3_000D))
@@ -72,7 +72,7 @@ public final class MarketingApp {
                     .has("occupation", "Developer")
                     .outE("knows")
                     .bothV()
-                    .<Person>getResult()
+                    .<Person>result()
                     .distinct()
                     .collect(toList());
 
@@ -83,7 +83,7 @@ public final class MarketingApp {
                     .outE("knows")
                     .has("feel", "love")
                     .bothV()
-                    .<Person>getResult()
+                    .<Person>result()
                     .distinct()
                     .collect(toList());
 

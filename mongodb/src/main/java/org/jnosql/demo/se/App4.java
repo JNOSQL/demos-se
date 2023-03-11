@@ -11,11 +11,11 @@
 
 package org.jnosql.demo.se;
 
-import jakarta.nosql.mapping.PreparedStatement;
-import jakarta.nosql.document.DocumentTemplate;
-
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import jakarta.nosql.PreparedStatement;
+import jakarta.nosql.document.DocumentTemplate;
+
 import java.util.Optional;
 import java.util.UUID;
 
@@ -37,7 +37,7 @@ public class App4 {
             final PreparedStatement prepare = template.prepare(query);
             prepare.bind("id", attachment.getId());
 
-            final Optional<Attachment> singleResult = prepare.getSingleResult();
+            final Optional<Attachment> singleResult = prepare.singleResult();
             System.out.println(singleResult);
 
         }

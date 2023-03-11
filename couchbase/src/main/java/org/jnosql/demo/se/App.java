@@ -12,17 +12,12 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.document.DocumentDeleteQuery;
-import jakarta.nosql.document.DocumentTemplate;
-import org.eclipse.jnosql.communication.document.DocumentQuery;
-
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import jakarta.nosql.document.DocumentTemplate;
+
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import static org.eclipse.jnosql.communication.document.DocumentQuery.select;
 
 public class App {
 
@@ -36,15 +31,15 @@ public class App {
 
             template.insert(ironMan);
 
-            DocumentQuery query = select().from("Hero").where("_id").eq("iron_man").build();
-            List<Hero> heroes = template.<Hero>select(query).collect(Collectors.toList());
+            List<Hero> heroes = template.select(Hero.class)
+                    .where("id").eq("iron_man").result();
             System.out.println(heroes);
-            DocumentDeleteQuery deleteQuery = DocumentDeleteQuery.delete().from("Hero").where("_id").eq("iron_man")
-                    .build();
 
-            template.delete(deleteQuery);
+            template.delete(Hero.class).where("id").eq("iron_man")
+                    .execute();
 
-            System.out.println("After deleting: " + template.<Hero>select(query).collect(Collectors.toList()));
+            System.out.println("After deleting: " + template.select(Hero.class)
+                    .where("id").eq("iron_man").result());
 
 
         }

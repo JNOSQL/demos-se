@@ -10,11 +10,13 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.nosql.mapping.Repository;
+import jakarta.data.repository.PageableRepository;
+import jakarta.data.repository.Repository;
 
 import java.util.stream.Stream;
 
-public interface PersonRepository extends Repository<Person, Long> {
+@Repository
+public interface PersonRepository extends PageableRepository<Person, Long> {
 
     Stream<Person> findByOccupationAndSalaryGreaterThan(String ocuppation, Double salary);
 
