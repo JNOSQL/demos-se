@@ -38,7 +38,11 @@ public class App2 {
                     .orderBy("year").desc().build();
 
             System.out.println("The Effective java editions: ");
-            template.select(query).forEach(System.out::println);
+            template.select(Book.class)
+                    .where("title").eq("Effective Java")
+                    .orderBy("year").desc()
+                    .stream()
+                    .forEach(System.out::println);
 
             template.delete(Book.class, first.isbn());
             template.delete(Book.class, second.isbn());

@@ -36,7 +36,7 @@ public class App2 {
 
             PreparedStatement prepare = template.prepare("select * from Hero where realName =@name");
             List<Hero> heroes = prepare.bind("name", "Tony Stark")
-                    .<Hero>getResult().collect(Collectors.toList());
+                    .<Hero>result().collect(Collectors.toList());
             System.out.println(heroes);
             System.out.println(template.query("select * from Hero where _id = 'iron_man'"));
 
