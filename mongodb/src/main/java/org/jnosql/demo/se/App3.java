@@ -12,15 +12,14 @@
 package org.jnosql.demo.se;
 
 
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.nosql.document.DocumentTemplate;
 import org.eclipse.jnosql.communication.document.DocumentQuery;
 
-import jakarta.enterprise.inject.se.SeContainer;
-import jakarta.enterprise.inject.se.SeContainerInitializer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 import static org.eclipse.jnosql.communication.document.DocumentQuery.select;
 

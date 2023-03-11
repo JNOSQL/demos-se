@@ -12,7 +12,6 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.data.repository.Pageable;
 import jakarta.data.repository.PageableRepository;
 import jakarta.data.repository.Repository;
 

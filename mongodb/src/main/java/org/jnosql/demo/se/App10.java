@@ -12,7 +12,6 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import jakarta.nosql.document.DocumentTemplate;
 import org.eclipse.jnosql.communication.document.DocumentCondition;
 import org.eclipse.jnosql.communication.document.DocumentQuery;
 import org.eclipse.jnosql.mapping.document.JNoSQLDocumentTemplate;
