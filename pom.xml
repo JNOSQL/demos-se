@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.eclipse.jnosql</groupId>
         <artifactId>jnosql-parent</artifactId>
-        <version>1.0.0-b5</version>
+        <version>1.0.0-b6</version>
     </parent>
 
     <properties>
