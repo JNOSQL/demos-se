@@ -12,11 +12,13 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.mapping.Repository;
+import jakarta.data.repository.CrudRepository;
+import jakarta.data.repository.Repository;
 
 import java.util.List;
 
-public interface DeveloperRepository extends Repository<Developer, Long> {
+@Repository
+public interface DeveloperRepository extends CrudRepository<Developer, Long> {
 
 
     List<Developer> findByName(String name);

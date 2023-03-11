@@ -13,8 +13,8 @@ package org.jnosql.demo.se;
 import org.eclipse.jnosql.communication.document.DocumentQuery;
 import jakarta.nosql.document.DocumentTemplate;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import java.util.stream.Stream;
 
 import static org.eclipse.jnosql.communication.document.DocumentQuery.select;
@@ -33,7 +33,7 @@ public class GreekService {
         DocumentQuery query = select().from("God")
                 .where("name")
                 .eq(name).build();
-
-        return template.select(query);
+        return template.select(God.class) .where("name")
+                .eq(name).stream();
     }
 }

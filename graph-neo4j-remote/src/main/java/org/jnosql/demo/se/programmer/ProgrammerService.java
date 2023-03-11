@@ -12,7 +12,7 @@ package org.jnosql.demo.se.programmer;
 
 import org.eclipse.jnosql.mapping.graph.GraphTemplate;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Optional;
 
 @ApplicationScoped

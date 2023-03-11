@@ -12,19 +12,19 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.Settings;
-import jakarta.nosql.document.DocumentConfiguration;
-import jakarta.nosql.document.DocumentManager;
-import jakarta.nosql.document.DocumentManagerFactory;
-import jakarta.nosql.mapping.Database;
-import jakarta.nosql.mapping.DatabaseType;
+import org.eclipse.jnosql.communication.Settings;
+import org.eclipse.jnosql.communication.document.DocumentConfiguration;
+import org.eclipse.jnosql.communication.document.DocumentManager;
+import org.eclipse.jnosql.communication.document.DocumentManagerFactory;
+import org.eclipse.jnosql.mapping.Database;
+import org.eclipse.jnosql.mapping.DatabaseType;
 import org.eclipse.jnosql.communication.mongodb.document.MongoDBDocumentConfiguration;
 import org.eclipse.jnosql.mapping.config.MappingConfigurations;
 import org.eclipse.jnosql.mapping.config.MicroProfileSettings;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Disposes;
-import javax.enterprise.inject.Produces;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Disposes;
+import jakarta.enterprise.inject.Produces;
 
 @ApplicationScoped
 public class MongoDBProducer {

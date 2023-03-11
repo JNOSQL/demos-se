@@ -12,8 +12,8 @@ package org.jnosql.demo.se.travel;
 
 import org.eclipse.jnosql.mapping.graph.GraphTemplate;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;

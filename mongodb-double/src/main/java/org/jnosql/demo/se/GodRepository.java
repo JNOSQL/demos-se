@@ -10,13 +10,13 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.nosql.mapping.Repository;
+import jakarta.data.repository.PageableRepository;
+import jakarta.data.repository.Repository;
 
-import javax.enterprise.context.ApplicationScoped;
 import java.util.List;
 
-@ApplicationScoped
-public interface GodRepository extends Repository<God, String> {
+@Repository
+public interface GodRepository extends PageableRepository<God, String> {
 
     List<God> findByName(String name);
 }

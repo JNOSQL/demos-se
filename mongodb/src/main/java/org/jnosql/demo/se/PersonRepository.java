@@ -15,7 +15,7 @@ package org.jnosql.demo.se;
 import jakarta.nosql.mapping.Pagination;
 import jakarta.nosql.mapping.Repository;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.util.List;
 import java.util.stream.Stream;
 

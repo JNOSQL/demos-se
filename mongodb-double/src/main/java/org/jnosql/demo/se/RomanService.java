@@ -10,16 +10,13 @@
  */
 package org.jnosql.demo.se;
 
-import org.eclipse.jnosql.communication.document.DocumentQuery;
-import jakarta.nosql.mapping.Database;
-import jakarta.nosql.mapping.DatabaseType;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import jakarta.nosql.document.DocumentTemplate;
+import org.eclipse.jnosql.mapping.Database;
+import org.eclipse.jnosql.mapping.DatabaseType;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import java.util.stream.Stream;
-
-import static org.eclipse.jnosql.communication.document.DocumentQuery.select;
 
 @ApplicationScoped
 public class RomanService {
@@ -33,10 +30,8 @@ public class RomanService {
     }
 
     public Stream<God> findName(String name) {
-        DocumentQuery query = select().from("God")
-                .where("name")
-                .eq(name).build();
 
-        return template.select(query);
+        return template.select(God.class) .where("name")
+                .eq(name).stream();
     }
 }
