@@ -16,6 +16,9 @@ import jakarta.nosql.document.DocumentTemplate;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import org.eclipse.microprofile.config.Config;
+import org.eclipse.microprofile.config.ConfigProvider;
+
 import java.time.Year;
 import java.util.List;
 

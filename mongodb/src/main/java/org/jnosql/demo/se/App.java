@@ -19,13 +19,14 @@ import jakarta.nosql.document.DocumentTemplate;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class App {
 
 
     public static void main(String[] args) {
 
-        Random random = new Random();
+        ThreadLocalRandom random = ThreadLocalRandom.current();
         long id = random.nextLong();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
