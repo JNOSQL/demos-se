@@ -7,7 +7,7 @@ An Artemis project with Java SE using using Column API with Cassandra as driver 
 **Cassandra**: Apache Cassandra is a free and open-source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure.
 
 
-To run this project a Cassandra instance is required, so you can use either a local instalation or using Docker.
+To run this project a Cassandra instance is required, so you can use either a local installation or using Docker.
 
 
 ## Manual installation
@@ -17,15 +17,15 @@ Follow the instructions in: http://cassandra.apache.org/doc/latest/getting_start
 
 ## Using Docker
 
-![Docker](https://www.docker.com/sites/default/files/horizontal_large.png)
+![Docker](https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png)
 
 
 1. Install docker: https://www.docker.com/
 1. https://store.docker.com/images/cassandra
 1. Run docker command
-1. `docker run -d --name casandra-instance -p 9042:9042 cassandra`
-
-
+    ```console
+    docker run -d --name casandra-instance -p 9042:9042 cassandra
+    ```
 
 ## Run the code
 
