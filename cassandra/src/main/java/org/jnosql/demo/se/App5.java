@@ -11,7 +11,7 @@
 package org.jnosql.demo.se;
 
 
-import org.eclipse.jnosql.mapping.cassandra.column.CassandraTemplate;
+import org.eclipse.jnosql.databases.cassandra.mapping.CassandraTemplate;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
