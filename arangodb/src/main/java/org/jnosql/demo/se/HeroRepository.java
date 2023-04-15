@@ -10,12 +10,14 @@
  */
 package org.jnosql.demo.se;
 
-import org.eclipse.jnosql.mapping.arangodb.document.AQL;
-import org.eclipse.jnosql.mapping.arangodb.document.ArangoDBRepository;
-import org.eclipse.jnosql.mapping.arangodb.document.Param;
+import jakarta.data.repository.Repository;
+import org.eclipse.jnosql.databases.arangodb.mapping.AQL;
+import org.eclipse.jnosql.databases.arangodb.mapping.ArangoDBRepository;
+import org.eclipse.jnosql.databases.arangodb.mapping.Param;
 
 import java.util.List;
 
+@Repository
 public interface HeroRepository extends ArangoDBRepository<Hero, String> {
 
     List<Hero> findByName(String name);

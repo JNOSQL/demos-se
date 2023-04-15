@@ -12,7 +12,7 @@
 package org.jnosql.demo.se;
 
 
-import org.eclipse.jnosql.mapping.arangodb.document.ArangoDBTemplate;
+import org.eclipse.jnosql.databases.arangodb.mapping.ArangoDBTemplate;
 import org.eclipse.jnosql.communication.document.DocumentQuery;
 
 import jakarta.enterprise.inject.se.SeContainer;

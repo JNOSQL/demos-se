@@ -23,21 +23,15 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jnosql.version>1.0.0-SNAPSHOT</jnosql.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>jnosql-arangodb-extension</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.eclipse.jnosql.databases</groupId>
+            <artifactId>jnosql-arangodb</artifactId>
+            <version>${jnosql.version}</version>
         </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>sonatype.snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
-    </repositories>
 
 </project>

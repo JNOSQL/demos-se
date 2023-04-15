@@ -16,12 +16,7 @@
     <artifactId>mapping-demo-java-se</artifactId>
     <packaging>pom</packaging>
     <name>JNoSQL Demo</name>
-
-    <parent>
-        <groupId>org.eclipse.jnosql</groupId>
-        <artifactId>jnosql-parent</artifactId>
-        <version>1.0.0-b6</version>
-    </parent>
+    <version>1.0.0-b6</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -31,6 +26,7 @@
         <jakarta.json.bind.version>3.0.0</jakarta.json.bind.version>
         <jakarta.json.version>2.1.1</jakarta.json.version>
         <tinkerpop.version>3.6.1</tinkerpop.version>
+        <weld.se.core.version>5.1.0.Final</weld.se.core.version>
     </properties>
 
     <modules>
