@@ -13,7 +13,10 @@ A JNoSQL project with Java SE using Document API with ArangoDB as driver impleme
 
 Once this a communication layer to ArangoDB, we're using integration test, so you need to install ArangoDB. The recommended way is using Docker.
 
+## Using Docker
+
 ![Docker](https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png)
+
 
 
 1. Install docker: https://www.docker.com/
@@ -22,7 +25,7 @@ Once this a communication layer to ArangoDB, we're using integration test, so yo
     ```console
     docker run -e ARANGO_NO_AUTH=1 -d --name arangodb-instance -p 8529:8529 -d arangodb/arangodb
     ```
-1. Execute the test 
-    ```console
-    mvn clean install
-    ```
+
+## Run the code
+
+With a ArangoDB instance running go to the classes **App** and have fun.

@@ -14,7 +14,7 @@ package org.jnosql.demo.se;
 
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
-import org.eclipse.jnosql.mapping.cassandra.column.UDT;
+import org.eclipse.jnosql.databases.cassandra.mapping.UDT;
 
 import java.util.Objects;
 

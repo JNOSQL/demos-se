@@ -15,7 +15,7 @@ package org.jnosql.demo.se;
 import com.datastax.oss.driver.api.core.ConsistencyLevel;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import org.eclipse.jnosql.mapping.cassandra.column.CassandraTemplate;
+import org.eclipse.jnosql.databases.cassandra.mapping.CassandraTemplate;
 
 import java.util.Arrays;
 import java.util.List;

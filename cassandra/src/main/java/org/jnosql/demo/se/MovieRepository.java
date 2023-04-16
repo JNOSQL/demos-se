@@ -13,8 +13,8 @@ package org.jnosql.demo.se;
 
 
 import jakarta.data.repository.Repository;
-import org.eclipse.jnosql.mapping.cassandra.column.CQL;
-import org.eclipse.jnosql.mapping.cassandra.column.CassandraRepository;
+import org.eclipse.jnosql.databases.cassandra.mapping.CQL;
+import org.eclipse.jnosql.databases.cassandra.mapping.CassandraRepository;
 
 import java.util.List;
 
