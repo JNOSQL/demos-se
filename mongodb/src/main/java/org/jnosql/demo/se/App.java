@@ -18,7 +18,6 @@ import jakarta.nosql.document.DocumentTemplate;
 
 import java.util.Arrays;
 import java.util.Optional;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class App {
