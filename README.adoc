@@ -9,7 +9,7 @@ This project contains several projects with the primary goal of exploring the Ja
 
 === ArangoDB
 
-image::http://www.jnosql.org/img/logos/ArangoDB.png[ArangoDB]
+image::http://www.jnosql.org/img/logos/ArangoDB.png[ArangoDB, width=200px]
 
 **ArangoDB**: ArangoDB is a native multi-model database system[1] developed by triAGENS GmbH. The database system supports three important data models (key/value, documents, graphs) with one database core and a unified query language AQL (ArangoDB Query Language). The query language is declarative and allows the combination of different data access patterns in a single query. ArangoDB is a NoSQL database system but AQL is similar in many ways to SQL.
 
@@ -35,7 +35,7 @@ docker run -e ARANGO_NO_AUTH=1 -d --name arangodb-instance -p 8529:8529 -d arang
 
 === MongoDB
 
-image::http://www.jnosql.org/img/logos/mongodb.png[MongoDB]
+image::http://www.jnosql.org/img/logos/mongodb.png[MongoDB, width=200px]
 
 
 **Mongodb**: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
@@ -62,7 +62,7 @@ docker run -d --name mongodb-instance -p 27017:27017 mongo
 
 === Couchbase
 
-image::https://www.jnosql.org/img/logos/couchdb.png[Couchbase]
+image::https://www.jnosql.org/img/logos/couchdb.png[Couchbase, width=200px]
 
 Apache CouchDB is an open-source document-oriented NoSQL database, implemented in Erlang. CouchDB uses multiple formats and protocols to store, transfer, and process its data. It uses JSON to store data, JavaScript as its query language using MapReduce, and HTTP for an API.
 
@@ -92,7 +92,7 @@ docker run -d --name couchbase-instance -p 8091-8094:8091-8094 -p 11210:11210 co
 
 === CouchDB
 
-image::http://www.jnosql.org/img/logos/couchbase.svg[CouchDB]
+image::http://www.jnosql.org/img/logos/couchbase.svg[CouchDB, width=200px]
 
 Couchbase Server, originally known as Membase, is an open-source, distributed multi-model NoSQL document-oriented database software package optimized for interactive applications. These applications may serve many concurrent users by creating, storing, retrieving, aggregating, manipulating and presenting data.
 
@@ -117,7 +117,7 @@ docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -d co
 
 === Elastisearch
 
-image::https://www.jnosql.org/img/logos/elastic.svg[ES]
+image::https://www.jnosql.org/img/logos/elastic.svg[ES, width=200px]
 
 Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents.
 
@@ -141,7 +141,7 @@ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsear
 
 === Cassandra
 
-image::http://www.jnosql.org/img/logos/cassandra.png[Cassandra]
+image::http://www.jnosql.org/img/logos/cassandra.png[Cassandra, width=200px]
 
 **Cassandra**: Apache Cassandra is a free and open-source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure.
 
@@ -164,7 +164,7 @@ docker run -d --name casandra-instance -p 9042:9042 cassandra
 
 === Scylla
 
-image::https://www.jnosql.org/img/logos/scylla.svg[ScyllaDB]
+image::https://www.jnosql.org/img/logos/scylla.svg[ScyllaDB, width=200px]
 
 ScyllaDB is an open-source distributed NoSQL wide-column data store. It was designed to be compatible with Apache Cassandra while achieving significantly higher throughputs and lower latencies.
 
@@ -187,7 +187,7 @@ docker run -d --name scylladb-instance -p 9042:9042 scylladb/scylla
 
 === Redis
 
-image::https://www.jnosql.org/img/logos/redis.png[Redis]
+image::https://www.jnosql.org/img/logos/redis.png[Redis, width=200px]
 
 Redis is an in-memory data structure store, used as a distributed, in-memory key–value database, cache and message broker, with optional durability. Redis supports different kinds of abstract data structures, such as strings, lists, maps, sets, sorted sets, HyperLogLogs, bitmaps, streams, and spatial indices.
 
@@ -210,7 +210,7 @@ docker run --name redis-instance -p 6379:6379 -d redis
 
 === Hazelcast
 
-image::http://www.jnosql.org/img/logos/hazelcast.svg[Hazelcast]
+image::http://www.jnosql.org/img/logos/hazelcast.svg[Hazelcast, width=200px]
 
 **Hazelcast**:In computing, Hazelcast is an open source in-memory data grid based on Java.
 
@@ -220,7 +220,7 @@ image::http://www.jnosql.org/img/logos/hazelcast.svg[Hazelcast]
 
 === Memcached
 
-image::https://www.jnosql.org/img/logos/memcached.png[Memcached]
+image::https://www.jnosql.org/img/logos/memcached.png[Memcached, width=200px]
 
 Memcached is a general-purpose distributed memory-caching system. It is often used to speed up dynamic database-driven websites by caching data and objects in RAM to reduce the number of times an external data source must be read. Memcached is free and open-source software, licensed under the Revised BSD license.
 
@@ -244,7 +244,7 @@ docker run -d --name memcached-instance -p 11211:11211 memcached:latest
 
 === Neo4J
 
-image::https://www.jnosql.org/img/logos/neo4j.png[Neo4J]
+image::https://www.jnosql.org/img/logos/neo4j.png[Neo4J, width=200px]
 
 Neo4j is a graph database management system developed by Neo4j, Inc. The data elements Neo4j stores are nodes, edges connecting them, and attributes of nodes and edges.
 
@@ -286,7 +286,7 @@ image::neo4j/Travel.png[]
 
 === JanusGraph
 
-image::https://www.jnosql.org/img/logos/janusgraph.png[JanusGraph]
+image::https://www.jnosql.org/img/logos/janusgraph.png[JanusGraph, width=200px]
 
 JanusGraph is an open source, distributed graph database under The Linux Foundation. JanusGraph is available under the Apache License 2.0. The project is supported by IBM, Google, Hortonworks and Grakn Labs. JanusGraph supports various storage backends.
 
