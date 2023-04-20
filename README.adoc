@@ -82,3 +82,33 @@ docker run -d --name casandra-instance -p 9042:9042 cassandra
 ==== Projects
 
 * link:cassandra/[Cassandra sample]
+
+
+=== Couchbase
+
+image::http://www.jnosql.org/img/logos/couchbase.svg[Couchbase]
+
+Couchbase Server, originally known as Membase, is an open-source, distributed multi-model NoSQL document-oriented database software package optimized for interactive applications. These applications may serve many concurrent users by creating, storing, retrieving, aggregating, manipulating and presenting data.
+
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name couchbase-instance -p 8091-8094:8091-8094 -p 11210:11210 couchbase
+----
+
+4. Follow the instructions: https://hub.docker.com/r/couchbase/server/
+5. Create `heroes` as bucket name
+6. Create `Hero` and `Villain` as collections
+7. Create primary query to `Hero`
+
+==== Projects
+
+* link:couchbase/[Couchbase sample]
