@@ -36,7 +36,7 @@
         <module>scylla</module>
         <module>couchbase</module>
         <module>elasticsearch</module>
-        <module>graph-janus</module>
+        <module>janus-graph</module>
         <module>neo4j</module>
         <module>hazelcast</module>
         <module>memcached</module>
