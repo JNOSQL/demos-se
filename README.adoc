@@ -285,3 +285,54 @@ docker run -d --name scylladb-instance -p 9042:9042 scylladb/scylla
 ==== Projects
 
 * link:scylla/[Scylla sample]
+
+
+=== JanusGraph
+
+image::https://www.jnosql.org/img/logos/janusgraph.png[JanusGraph,200,200]
+
+JanusGraph is an open source, distributed graph database under The Linux Foundation. JanusGraph is available under the Apache License 2.0. The project is supported by IBM, Google, Hortonworks and Grakn Labs. JanusGraph supports various storage backends.
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name scylladb-instance -p 9042:9042 scylladb/scylla
+----
+
+==== Projects
+
+* link:janus-graph/[JanusGraph sample]
+
+
+===== BookApp
+
+Library recommendation, category based that shows the software categories, the software books, and also a book that is
+Software and Java.
+
+image::janus-graph/Book.png[]
+
+===== MarketingApp
+
+The marketing campaign that needs to match from some rules relationship based with four people.
+
+image::janus-graph/Marketing.png[]
+
+===== TravelApp
+
+Given cities and travelers, this TravelApp will return the most famous city, the person who most travel and also some
+friends suggestion placed by the visited cities.
+
+image::janus-graph/Travel.png[]
+
+===== TheGodsApp
+
+The graph of Gods JanusGraph based
+
+image::janus-graph/graph-of-the-gods.png[]
