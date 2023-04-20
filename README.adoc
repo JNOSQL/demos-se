@@ -165,6 +165,8 @@ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsear
 
 === Neo4J
 
+image::https://www.jnosql.org/img/logos/neo4j.png[Neo4J,200,200]
+
 Neo4j is a graph database management system developed by Neo4j, Inc. The data elements Neo4j stores are nodes, edges connecting them, and attributes of nodes and edges.
 
 ==== How to install with Docker
@@ -210,3 +212,16 @@ image::neo4j/Travel.png[]
 image::https://www.jnosql.org/img/logos/redis.png[Redis,200,200]
 
 Redis is an in-memory data structure store, used as a distributed, in-memory key–value database, cache and message broker, with optional durability. Redis supports different kinds of abstract data structures, such as strings, lists, maps, sets, sorted sets, HyperLogLogs, bitmaps, streams, and spatial indices.
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run --name redis-instance -p 6379:6379 -d redis
+----
