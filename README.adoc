@@ -56,3 +56,5 @@ docker run -d --name mongodb-instance -p 27017:27017 mongo
 * link:bean-validation/[MongoDB and Bean validation]
 * link:mongodb[MongoDB sample code]
 * link:mongodb-double/[MongoDB with two different instances]
+* link:record/[MongoDB sample exploring record]
+
