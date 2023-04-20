@@ -44,6 +44,7 @@
         <module>mongodb-double</module>
         <module>redis</module>
         <module>couchdb</module>
+        <module>bean-validation</module>
     </modules>
 
     <dependencies>
