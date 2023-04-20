@@ -40,8 +40,6 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class MonetaryAmountAcceptedValidatorTest {
 
-
-
     private static Validator validator;
 
     @BeforeAll

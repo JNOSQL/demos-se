@@ -16,10 +16,10 @@
 package org.jnosql.demo.se;
 
 import jakarta.nosql.Column;
+import org.eclipse.jnosql.databases.mongodb.mapping.ObjectIdConverter;
 import org.eclipse.jnosql.mapping.Convert;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
-import org.jnosql.demo.se.converter.ObjectIdConverter;
 
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
