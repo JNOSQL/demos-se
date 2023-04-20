@@ -15,6 +15,9 @@ image::http://www.jnosql.org/img/logos/ArangoDB.png[ArangoDB Project]
 
 ==== How to install with Docker
 
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/r/couchbase/server/
 1. Run docker command:
@@ -28,3 +31,28 @@ docker run -e ARANGO_NO_AUTH=1 -d --name arangodb-instance -p 8529:8529 -d arang
 
 * link:arangodb/[Key-value and Document]
  * link:arangodb-graph/[Graph with Apache TinkerPop]
+
+
+=== MongoDB
+
+image::http://www.jnosql.org/img/logos/mongodb.png[MongoDB Project]
+
+
+**Mongodb**: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name mongodb-instance -p 27017:27017 mongo
+----
+
+==== Projects
+
+* link:bean-validation/[MongoDB and Bean validation]
+* link:mongodb[MongoDB sample code]
+* link:mongodb-double/[MongoDB with two different instances]
