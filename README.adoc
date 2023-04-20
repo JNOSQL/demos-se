@@ -225,3 +225,17 @@ image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.p
 ----
 docker run --name redis-instance -p 6379:6379 -d redis
 ----
+
+==== Projects
+
+* link:redis/[Redis sample]
+
+=== Hazelcast
+
+image::http://www.jnosql.org/img/logos/hazelcast.svg[Hazelcast,200,200]
+
+**Hazelcast**:In computing, Hazelcast is an open source in-memory data grid based on Java.
+
+==== Projects
+
+* link:hazelcast/[Hazelcast sample]
