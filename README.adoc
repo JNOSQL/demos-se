@@ -9,7 +9,7 @@ This project contains several projects with the primary goal of exploring the Ja
 
 === ArangoDB
 
-image::http://www.jnosql.org/img/logos/ArangoDB.png[ArangoDB Project]
+image::http://www.jnosql.org/img/logos/ArangoDB.png[ArangoDB,200,200]
 
 **ArangoDB**: ArangoDB is a native multi-model database system[1] developed by triAGENS GmbH. The database system supports three important data models (key/value, documents, graphs) with one database core and a unified query language AQL (ArangoDB Query Language). The query language is declarative and allows the combination of different data access patterns in a single query. ArangoDB is a NoSQL database system but AQL is similar in many ways to SQL.
 
@@ -35,7 +35,7 @@ docker run -e ARANGO_NO_AUTH=1 -d --name arangodb-instance -p 8529:8529 -d arang
 
 === MongoDB
 
-image::http://www.jnosql.org/img/logos/mongodb.png[MongoDB Project]
+image::http://www.jnosql.org/img/logos/mongodb.png[MongoDB,200,200]
 
 
 **Mongodb**: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
@@ -61,7 +61,7 @@ docker run -d --name mongodb-instance -p 27017:27017 mongo
 
 === Cassandra
 
-image::http://www.jnosql.org/img/logos/cassandra.png[Cassandra]
+image::http://www.jnosql.org/img/logos/cassandra.png[Cassandra,200,200]
 
 **Cassandra**: Apache Cassandra is a free and open-source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure.
 
@@ -86,7 +86,7 @@ docker run -d --name casandra-instance -p 9042:9042 cassandra
 
 === Couchbase
 
-image::https://www.jnosql.org/img/logos/couchdb.png[CouchDB]
+image::https://www.jnosql.org/img/logos/couchdb.png[Couchbase,200,200]
 
 Apache CouchDB is an open-source document-oriented NoSQL database, implemented in Erlang. CouchDB uses multiple formats and protocols to store, transfer, and process its data. It uses JSON to store data, JavaScript as its query language using MapReduce, and HTTP for an API.
 
@@ -116,7 +116,7 @@ docker run -d --name couchbase-instance -p 8091-8094:8091-8094 -p 11210:11210 co
 
 === CouchDB
 
-image::http://www.jnosql.org/img/logos/couchbase.svg[Couchbase]
+image::http://www.jnosql.org/img/logos/couchbase.svg[CouchDB,200,200]
 
 Couchbase Server, originally known as Membase, is an open-source, distributed multi-model NoSQL document-oriented database software package optimized for interactive applications. These applications may serve many concurrent users by creating, storing, retrieving, aggregating, manipulating and presenting data.
 
@@ -141,7 +141,7 @@ docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -d co
 
 === Elastisearch
 
-image::https://www.jnosql.org/img/logos/elastic.svg[]
+image::https://www.jnosql.org/img/logos/elastic.svg[ES,200,200]
 
 Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents.
 
@@ -204,3 +204,9 @@ Given cities and travelers, this TravelApp will return the most famous city, the
 friends suggestion placed by the visited cities.
 
 image::neo4j/Travel.png[]
+
+=== Redis
+
+image::https://www.jnosql.org/img/logos/redis.png[Redis,200,200]
+
+Redis is an in-memory data structure store, used as a distributed, in-memory key–value database, cache and message broker, with optional durability. Redis supports different kinds of abstract data structures, such as strings, lists, maps, sets, sorted sets, HyperLogLogs, bitmaps, streams, and spatial indices.
