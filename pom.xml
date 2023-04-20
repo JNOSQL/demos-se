@@ -27,6 +27,9 @@
         <jakarta.json.version>2.1.1</jakarta.json.version>
         <tinkerpop.version>3.6.1</tinkerpop.version>
         <weld.se.core.version>5.1.0.Final</weld.se.core.version>
+        <mockito.verson>4.11.0</mockito.verson>
+        <assertj.version>3.24.2</assertj.version>
+        <junit.version>5.9.2</junit.version>
     </properties>
 
     <modules>
@@ -35,17 +38,16 @@
         <module>cassandra</module>
         <module>scylla</module>
         <module>couchbase</module>
-        <module>document-double</module>
         <module>elasticsearch</module>
-        <module>graph-janus</module>
-        <module>graph-neo4j-remote</module>
+        <module>janus-graph</module>
+        <module>neo4j</module>
         <module>hazelcast</module>
         <module>memcached</module>
         <module>mongodb</module>
         <module>mongodb-double</module>
         <module>redis</module>
         <module>couchdb</module>
-        <module>record</module>
+        <module>bean-validation</module>
     </modules>
 
     <dependencies>
@@ -72,6 +74,36 @@
             <artifactId>microprofile-config-api</artifactId>
             <version>3.0.2</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.verson}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.verson}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

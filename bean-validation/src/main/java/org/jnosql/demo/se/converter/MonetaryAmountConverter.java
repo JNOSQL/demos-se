@@ -14,7 +14,7 @@
  */
 package org.jnosql.demo.se.converter;
 
-import jakarta.nosql.document.Document;
+import org.eclipse.jnosql.communication.document.Document;
 import org.eclipse.jnosql.mapping.AttributeConverter;
 import org.bson.BsonDecimal128;
 import org.bson.BsonDocument;
@@ -82,13 +82,13 @@ public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmoun
     private MonetaryAmount getMonetaryAmount(List<Document> dbData) {
 
         BigDecimal value = dbData.stream()
-                .filter(d -> VALUE.equals(d.getName()))
+                .filter(d -> VALUE.equals(d.name()))
                 .findFirst()
                 .map(d -> d.get(Decimal128.class).bigDecimalValue())
                 .orElse(BigDecimal.ZERO);
 
         String currency = dbData.stream()
-                .filter(d -> CURRENCY.equals(d.getName()))
+                .filter(d -> CURRENCY.equals(d.name()))
                 .findFirst()
                 .map(d -> d.get(String.class))
                 .orElse(DEFAULT_CURRENCY);

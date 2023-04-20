@@ -1,60 +1,322 @@
 = JNoSQL examples code
+:toc: auto
+
+== Introduction
 
 Java SE sample using NoSQL with Jakarta NoSQL.
 
 This project contains several projects with the primary goal of exploring the Jakarta NoSQL on several databases.
 
-The table below shows the project name, NoSQL type, and a short description.
+=== ArangoDB
 
-[cols="Table's name"]
-|===
-|Name|NoSQL types
+image::http://www.jnosql.org/img/logos/ArangoDB.png[ArangoDB,200,200]
 
-|arangodb
-|Key-value and document
+**ArangoDB**: ArangoDB is a native multi-model database system[1] developed by triAGENS GmbH. The database system supports three important data models (key/value, documents, graphs) with one database core and a unified query language AQL (ArangoDB Query Language). The query language is declarative and allows the combination of different data access patterns in a single query. ArangoDB is a NoSQL database system but AQL is similar in many ways to SQL.
 
-|arangodb-graph
-|Graph
+==== How to install with Docker
 
-|bean-validation
-|document with MongoDB
 
-|Cassandra
-|Column-family
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
-|couchbase
-|document and key-value
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
 
-|couchdb
-|document
+[source, bash]
+----
+docker run -e ARANGO_NO_AUTH=1 -d --name arangodb-instance -p 8529:8529 -d arangodb/arangodb
+----
 
-|document-double
-|Two instances of document (Mongodb and couchDB)
+==== Projects
 
-|elasticsearch
-|document
+* link:arangodb/[Key-value and Document]
+ * link:arangodb-graph/[Graph with Apache TinkerPop]
 
-|graph-janus
-|Graph
 
-|graph-neo4j-remote
-|Graph
+=== MongoDB
 
-|hazelcast
-|key-value
+image::http://www.jnosql.org/img/logos/mongodb.png[MongoDB,200,200]
 
-|memcached
-|key-value
 
-|mongodb
-|document
+**Mongodb**: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
 
-|mongodb-double
-|document: two instances of MongoDB
+==== How to install with Docker
 
-|redis
-|key-value
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
-|scylla
-|Column-family
-|===
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name mongodb-instance -p 27017:27017 mongo
+----
+
+==== Projects
+
+* link:bean-validation/[MongoDB and Bean validation]
+* link:mongodb[MongoDB sample code]
+* link:mongodb-double/[MongoDB with two different instances]
+
+
+=== Couchbase
+
+image::https://www.jnosql.org/img/logos/couchdb.png[Couchbase,200,200]
+
+Apache CouchDB is an open-source document-oriented NoSQL database, implemented in Erlang. CouchDB uses multiple formats and protocols to store, transfer, and process its data. It uses JSON to store data, JavaScript as its query language using MapReduce, and HTTP for an API.
+
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name couchbase-instance -p 8091-8094:8091-8094 -p 11210:11210 couchbase
+----
+
+4. Follow the instructions: https://hub.docker.com/r/couchbase/server/
+5. Create `heroes` as bucket name
+6. Create `Hero` and `Villain` as collections
+7. Create primary query to `Hero`
+
+==== Projects
+
+* link:couchbase/[Couchbase sample]
+
+
+=== CouchDB
+
+image::http://www.jnosql.org/img/logos/couchbase.svg[CouchDB,200,200]
+
+Couchbase Server, originally known as Membase, is an open-source, distributed multi-model NoSQL document-oriented database software package optimized for interactive applications. These applications may serve many concurrent users by creating, storing, retrieving, aggregating, manipulating and presenting data.
+
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -d couchdb
+----
+
+==== Projects
+
+* link:couchdb/[Couchdb sample]
+
+
+=== Elastisearch
+
+image::https://www.jnosql.org/img/logos/elastic.svg[ES,200,200]
+
+Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents.
+
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.17.7
+----
+
+==== Projects
+
+* link:elasticsearch/[Elasticsearch sample]
+
+=== Cassandra
+
+image::http://www.jnosql.org/img/logos/cassandra.png[Cassandra,200,200]
+
+**Cassandra**: Apache Cassandra is a free and open-source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure.
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name casandra-instance -p 9042:9042 cassandra
+----
+
+==== Projects
+
+* link:cassandra/[Cassandra sample]
+
+=== Scylla
+
+image::https://www.jnosql.org/img/logos/scylla.svg[ScyllaDB,200,200]
+
+ScyllaDB is an open-source distributed NoSQL wide-column data store. It was designed to be compatible with Apache Cassandra while achieving significantly higher throughputs and lower latencies.
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name scylladb-instance -p 9042:9042 scylladb/scylla
+----
+
+==== Projects
+
+* link:scylla/[Scylla sample]
+
+=== Redis
+
+image::https://www.jnosql.org/img/logos/redis.png[Redis,200,200]
+
+Redis is an in-memory data structure store, used as a distributed, in-memory key–value database, cache and message broker, with optional durability. Redis supports different kinds of abstract data structures, such as strings, lists, maps, sets, sorted sets, HyperLogLogs, bitmaps, streams, and spatial indices.
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run --name redis-instance -p 6379:6379 -d redis
+----
+
+==== Projects
+
+* link:redis/[Redis sample]
+
+=== Hazelcast
+
+image::http://www.jnosql.org/img/logos/hazelcast.svg[Hazelcast,200,200]
+
+**Hazelcast**:In computing, Hazelcast is an open source in-memory data grid based on Java.
+
+==== Projects
+
+* link:hazelcast/[Hazelcast sample]
+
+=== Memcached
+
+image::https://www.jnosql.org/img/logos/memcached.png[Memcached,200,200]
+
+Memcached is a general-purpose distributed memory-caching system. It is often used to speed up dynamic database-driven websites by caching data and objects in RAM to reduce the number of times an external data source must be read. Memcached is free and open-source software, licensed under the Revised BSD license.
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name memcached-instance -p 11211:11211 memcached:latest
+----
+
+==== Projects
+
+* link:memcached/[Memcached sample]
+
+
+=== Neo4J
+
+image::https://www.jnosql.org/img/logos/neo4j.png[Neo4J,200,200]
+
+Neo4j is a graph database management system developed by Neo4j, Inc. The data elements Neo4j stores are nodes, edges connecting them, and attributes of nodes and edges.
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run --publish=7474:7474 --publish=7687:7687 --env NEO4J_AUTH=neo4j/admin neo4j
+----
+
+==== Projects
+
+* link:neo4j/[Neo4J sample]
+
+===== BookApp
+
+Library recommendation, category based that shows the software categories, the software books and also a book that is Software and Java.
+
+image::neo4j/Book.png[]
+
+===== MarketingApp
+
+The marketing campaign that needs to match from some rules relationship based with four people.
+
+image::neo4j/Marketing.png[]
+
+===== TravelApp
+
+Given cities and travelers, this TravelApp will return the most famous city, the person who most travel and also some
+friends suggestion placed by the visited cities.
+
+image::neo4j/Travel.png[]
+
+=== JanusGraph
+
+image::https://www.jnosql.org/img/logos/janusgraph.png[JanusGraph,200,200]
+
+JanusGraph is an open source, distributed graph database under The Linux Foundation. JanusGraph is available under the Apache License 2.0. The project is supported by IBM, Google, Hortonworks and Grakn Labs. JanusGraph supports various storage backends.
+
+==== Projects
+
+* link:janus-graph/[JanusGraph sample]
+
+
+===== BookApp
+
+Library recommendation, category based that shows the software categories, the software books, and also a book that is
+Software and Java.
+
+image::janus-graph/Book.png[]
+
+===== MarketingApp
+
+The marketing campaign that needs to match from some rules relationship based with four people.
+
+image::janus-graph/Marketing.png[]
+
+===== TravelApp
+
+Given cities and travelers, this TravelApp will return the most famous city, the person who most travel and also some
+friends suggestion placed by the visited cities.
+
+image::janus-graph/Travel.png[]
+
+===== TheGodsApp
+
+The graph of Gods JanusGraph based
+
+image::janus-graph/graph-of-the-gods.png[]

@@ -14,14 +14,16 @@
  */
 package org.jnosql.demo.se;
 
+import jakarta.data.repository.CrudRepository;
 import jakarta.data.repository.Param;
 import jakarta.data.repository.Query;
-import jakarta.nosql.mapping.Repository;
+import jakarta.data.repository.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface DriverRepository extends Repository<Driver, String> {
+@Repository
+public interface DriverRepository extends CrudRepository<Driver, String> {
 
     Optional<Driver> findByName(String name);
 

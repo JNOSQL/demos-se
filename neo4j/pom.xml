@@ -12,8 +12,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>record</artifactId>
-    <name>JNoSQL Demo using record MongoDB</name>
+    <artifactId>neo4j</artifactId>
+    <name>JNoSQL Demo using Java SE Graph-neo4j remote</name>
 
     <parent>
         <groupId>org.eclipse.jnosql.mapping</groupId>
@@ -23,29 +23,34 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compile.target>17</maven.compile.target>
-        <maven.compile.source>17</maven.compile.source>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>jnosql-mongodb-extension</artifactId>
+            <artifactId>jnosql-graph-connections</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.tinkerpop</groupId>
+            <artifactId>gremlin-core</artifactId>
+            <version>${tinkerpop.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.steelbridgelabs.oss</groupId>
+            <artifactId>neo4j-gremlin-bolt</artifactId>
+            <version>0.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.smallrye</groupId>
+            <artifactId>smallrye-config</artifactId>
+            <version>1.3.9</version>
+        </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${maven.compile.source}</source>
-                    <target>${maven.compile.target}</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
