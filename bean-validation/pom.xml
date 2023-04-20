@@ -23,23 +23,19 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jnosql.version>1.0.0-SNAPSHOT</jnosql.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>jnosql-mapping-document</artifactId>
-            <version>${project.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
             <artifactId>jnosql-mapping-validation</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jnosql.communication</groupId>
-            <artifactId>jnosql-mongodb-driver</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.eclipse.jnosql.databases</groupId>
+            <artifactId>jnosql-mongodb</artifactId>
+            <version>${jnosql.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
