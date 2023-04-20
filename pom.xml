@@ -37,7 +37,7 @@
         <module>couchbase</module>
         <module>elasticsearch</module>
         <module>graph-janus</module>
-        <module>graph-neo4j-remote</module>
+        <module>neo4j</module>
         <module>hazelcast</module>
         <module>memcached</module>
         <module>mongodb</module>
