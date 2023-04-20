@@ -59,30 +59,6 @@ docker run -d --name mongodb-instance -p 27017:27017 mongo
 * link:mongodb[MongoDB sample code]
 * link:mongodb-double/[MongoDB with two different instances]
 
-=== Cassandra
-
-image::http://www.jnosql.org/img/logos/cassandra.png[Cassandra,200,200]
-
-**Cassandra**: Apache Cassandra is a free and open-source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure.
-
-
-==== How to install with Docker
-
-image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
-
-1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/couchbase/server/
-1. Run docker command:
-
-[source, bash]
-----
-docker run -d --name casandra-instance -p 9042:9042 cassandra
-----
-
-==== Projects
-
-* link:cassandra/[Cassandra sample]
-
 
 === Couchbase
 
@@ -162,6 +138,54 @@ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsear
 ==== Projects
 
 * link:elasticsearch/[Elasticsearch sample]
+
+=== Cassandra
+
+image::http://www.jnosql.org/img/logos/cassandra.png[Cassandra,200,200]
+
+**Cassandra**: Apache Cassandra is a free and open-source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure.
+
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name casandra-instance -p 9042:9042 cassandra
+----
+
+==== Projects
+
+* link:cassandra/[Cassandra sample]
+
+
+=== Scylla
+
+image::https://www.jnosql.org/img/logos/scylla.svg[ScyllaDB,200,200]
+
+ScyllaDB is an open-source distributed NoSQL wide-column data store. It was designed to be compatible with Apache Cassandra while achieving significantly higher throughputs and lower latencies.
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name scylladb-instance -p 9042:9042 scylladb/scylla
+----
+
+==== Projects
+
+* link:scylla/[Scylla sample]
 
 === Neo4J
 
@@ -262,30 +286,6 @@ docker run -d --name memcached-instance -p 11211:11211 memcached:latest
 ==== Projects
 
 * link:memcached/[Memcached sample]
-
-=== Scylla
-
-image::https://www.jnosql.org/img/logos/scylla.svg[ScyllaDB,200,200]
-
-ScyllaDB is an open-source distributed NoSQL wide-column data store. It was designed to be compatible with Apache Cassandra while achieving significantly higher throughputs and lower latencies.
-
-==== How to install with Docker
-
-image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
-
-1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/couchbase/server/
-1. Run docker command:
-
-[source, bash]
-----
-docker run -d --name scylladb-instance -p 9042:9042 scylladb/scylla
-----
-
-==== Projects
-
-* link:scylla/[Scylla sample]
-
 
 === JanusGraph
 
