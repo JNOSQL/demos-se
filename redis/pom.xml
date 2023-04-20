@@ -14,13 +14,11 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>redis</artifactId>
     <name>JNoSQL Demo using Java SE Redis</name>
-
     <parent>
         <groupId>org.eclipse.jnosql.mapping</groupId>
         <artifactId>mapping-demo-java-se</artifactId>
         <version>1.0.0-b6</version>
     </parent>
-
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.databases</groupId>
@@ -28,5 +26,4 @@
             <version>${jnosql.version}</version>
         </dependency>
     </dependencies>
-
 </project>
