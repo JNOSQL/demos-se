@@ -284,4 +284,4 @@ docker run -d --name scylladb-instance -p 9042:9042 scylladb/scylla
 
 ==== Projects
 
-* link:memcached/[Memcached sample]
+* link:scylla/[Scylla sample]
