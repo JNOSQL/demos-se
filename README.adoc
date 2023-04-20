@@ -162,3 +162,45 @@ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsear
 ==== Projects
 
 * link:elasticsearch/[Elasticsearch sample]
+
+=== Neo4J
+
+Neo4j is a graph database management system developed by Neo4j, Inc. The data elements Neo4j stores are nodes, edges connecting them, and attributes of nodes and edges.
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run --publish=7474:7474 --publish=7687:7687 --env NEO4J_AUTH=neo4j/admin neo4j
+----
+
+==== Projects
+
+* link:neo4j/[Neo4J sample]
+
+
+===== BookApp
+
+Library recommendation, category based that shows the software categories, the software books and also a book that is Software and Java.
+
+image::neo4j/Book.png[]
+
+===== MarketingApp
+
+
+The marketing campaign that needs to match from some rules relationship based with four people.
+
+image::neo4j/Marketing.png[]
+
+===== TravelApp
+
+Given cities and travelers, this TravelApp will return the most famous city, the person who most travel and also some
+friends suggestion placed by the visited cities.
+
+image::neo4j/Travel.png[]
