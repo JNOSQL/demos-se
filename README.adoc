@@ -86,9 +86,9 @@ docker run -d --name casandra-instance -p 9042:9042 cassandra
 
 === Couchbase
 
-image::http://www.jnosql.org/img/logos/couchbase.svg[Couchbase]
+image::https://www.jnosql.org/img/logos/couchdb.png[CouchDB]
 
-Couchbase Server, originally known as Membase, is an open-source, distributed multi-model NoSQL document-oriented database software package optimized for interactive applications. These applications may serve many concurrent users by creating, storing, retrieving, aggregating, manipulating and presenting data.
+Apache CouchDB is an open-source document-oriented NoSQL database, implemented in Erlang. CouchDB uses multiple formats and protocols to store, transfer, and process its data. It uses JSON to store data, JavaScript as its query language using MapReduce, and HTTP for an API.
 
 
 ==== How to install with Docker
@@ -112,3 +112,28 @@ docker run -d --name couchbase-instance -p 8091-8094:8091-8094 -p 11210:11210 co
 ==== Projects
 
 * link:couchbase/[Couchbase sample]
+
+
+=== CouchDB
+
+image::http://www.jnosql.org/img/logos/couchbase.svg[Couchbase]
+
+Couchbase Server, originally known as Membase, is an open-source, distributed multi-model NoSQL document-oriented database software package optimized for interactive applications. These applications may serve many concurrent users by creating, storing, retrieving, aggregating, manipulating and presenting data.
+
+
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -d couchdb
+----
+
+==== Projects
+
+* link:couchdb/[Couchdb sample]
