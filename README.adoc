@@ -1,60 +1,8 @@
 = JNoSQL examples code
+:toc: auto
+
+== Introduction
 
 Java SE sample using NoSQL with Jakarta NoSQL.
 
 This project contains several projects with the primary goal of exploring the Jakarta NoSQL on several databases.
-
-The table below shows the project name, NoSQL type, and a short description.
-
-[cols="Table's name"]
-|===
-|Name|NoSQL types
-
-|arangodb
-|Key-value and document
-
-|arangodb-graph
-|Graph
-
-|bean-validation
-|document with MongoDB
-
-|Cassandra
-|Column-family
-
-|couchbase
-|document and key-value
-
-|couchdb
-|document
-
-|document-double
-|Two instances of document (Mongodb and couchDB)
-
-|elasticsearch
-|document
-
-|graph-janus
-|Graph
-
-|graph-neo4j-remote
-|Graph
-
-|hazelcast
-|key-value
-
-|memcached
-|key-value
-
-|mongodb
-|document
-
-|mongodb-double
-|document: two instances of MongoDB
-
-|redis
-|key-value
-
-|scylla
-|Column-family
-|===
