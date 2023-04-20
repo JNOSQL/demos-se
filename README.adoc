@@ -265,7 +265,7 @@ docker run -d --name memcached-instance -p 11211:11211 memcached:latest
 
 === Scylla
 
-image::https://www.jnosql.org/img/logos/scylla.png[ScyllaDB,200,200]
+image::https://www.jnosql.org/img/logos/scylla.svg[ScyllaDB,200,200]
 
 ScyllaDB is an open-source distributed NoSQL wide-column data store. It was designed to be compatible with Apache Cassandra while achieving significantly higher throughputs and lower latencies.
 
