@@ -35,7 +35,6 @@
         <module>cassandra</module>
         <module>scylla</module>
         <module>couchbase</module>
-        <module>document-double</module>
         <module>elasticsearch</module>
         <module>graph-janus</module>
         <module>graph-neo4j-remote</module>
