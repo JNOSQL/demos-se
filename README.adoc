@@ -6,3 +6,25 @@
 Java SE sample using NoSQL with Jakarta NoSQL.
 
 This project contains several projects with the primary goal of exploring the Jakarta NoSQL on several databases.
+
+=== ArangoDB
+
+image::http://www.jnosql.org/img/logos/ArangoDB.png[ArangoDB Project]
+
+**ArangoDB**: ArangoDB is a native multi-model database system[1] developed by triAGENS GmbH. The database system supports three important data models (key/value, documents, graphs) with one database core and a unified query language AQL (ArangoDB Query Language). The query language is declarative and allows the combination of different data access patterns in a single query. ArangoDB is a NoSQL database system but AQL is similar in many ways to SQL.
+
+==== How to install with Docker
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -e ARANGO_NO_AUTH=1 -d --name arangodb-instance -p 8529:8529 -d arangodb/arangodb
+----
+
+==== Projects
+
+* link:arangodb/[Key-value and Document]
+ * link:arangodb-graph/[Graph with Apache TinkerPop]
