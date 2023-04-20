@@ -239,3 +239,26 @@ image::http://www.jnosql.org/img/logos/hazelcast.svg[Hazelcast,200,200]
 ==== Projects
 
 * link:hazelcast/[Hazelcast sample]
+
+
+=== Memcached
+
+image::https://www.jnosql.org/img/logos/memcached.png[Memcached,200,200]
+
+Memcached is a general-purpose distributed memory-caching system. It is often used to speed up dynamic database-driven websites by caching data and objects in RAM to reduce the number of times an external data source must be read. Memcached is free and open-source software, licensed under the Revised BSD license.
+==== How to install with Docker
+
+image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/couchbase/server/
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name memcached-instance -p 11211:11211 memcached:latest
+----
+
+==== Projects
+
+* link:memcached/[Memcached sample]
