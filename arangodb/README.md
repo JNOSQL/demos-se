@@ -1,6 +1,6 @@
 # ArangoDB-demo
 
-![ArangoDB Project](http://www.jnosql.org/img/logos/ArangoDB.png)
+
 
 A JNoSQL project with Java SE using Document API with ArangoDB as driver implementation.
 
