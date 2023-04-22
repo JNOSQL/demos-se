@@ -11,7 +11,7 @@ This project contains several projects with the primary goal of exploring the Ja
 
 image::http://www.jnosql.org/img/logos/ArangoDB.png[ArangoDB, width=200px]
 
-**ArangoDB**: ArangoDB is a native multi-model database system[1] developed by triAGENS GmbH. The database system supports three important data models (key/value, documents, graphs) with one database core and a unified query language AQL (ArangoDB Query Language). The query language is declarative and allows the combination of different data access patterns in a single query. ArangoDB is a NoSQL database system but AQL is similar in many ways to SQL.
+**ArangoDB**: ArangoDB is a native multi-model database system developed by triAGENS GmbH. The database system supports three important data models (key/value, documents, graphs) with one database core and a unified query language AQL (ArangoDB Query Language). The query language is declarative and allows the combination of different data access patterns in a single query. ArangoDB is a NoSQL database system but AQL is similar in many ways to SQL.
 
 ==== How to install with Docker
 
