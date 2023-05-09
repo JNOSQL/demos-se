@@ -77,7 +77,7 @@ image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.p
 
 [source, bash]
 ----
-docker run -d --name couchbase-instance -p 8091-8094:8091-8094 -p 11210:11210 couchbase
+docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -d couchdb
 ----
 
 4. Follow the instructions: https://hub.docker.com/_/couchdb
@@ -107,7 +107,7 @@ image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.p
 
 [source, bash]
 ----
-docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -d couchdb
+docker run -d --name couchbase-instance -p 8091-8094:8091-8094 -p 11210:11210 couchbase
 ----
 
 ==== Projects
@@ -132,6 +132,7 @@ image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.p
 
 [source, bash]
 ----
+
 docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.17.7
 ----
 
