@@ -19,7 +19,7 @@ image::http://www.jnosql.org/img/logos/ArangoDB.png[ArangoDB, width=200px]
 image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
 1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/couchbase/server/
+1. https://hub.docker.com/_/arangodb
 1. Run docker command:
 
 [source, bash]
@@ -45,7 +45,7 @@ image::http://www.jnosql.org/img/logos/mongodb.png[MongoDB, width=200px]
 image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
 1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/couchbase/server/
+1. https://hub.docker.com/_/mongo
 1. Run docker command:
 
 [source, bash]
@@ -60,7 +60,7 @@ docker run -d --name mongodb-instance -p 27017:27017 mongo
 * link:mongodb-double/[MongoDB with two different instances]
 
 
-=== Couchbase
+=== CouchDB
 
 image::https://www.jnosql.org/img/logos/couchdb.png[Couchbase, width=200px]
 
@@ -72,25 +72,25 @@ Apache CouchDB is an open-source document-oriented NoSQL database, implemented i
 image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
 1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/couchbase/server/
+1. https://hub.docker.com/_/couchdb
 1. Run docker command:
 
 [source, bash]
 ----
-docker run -d --name couchbase-instance -p 8091-8094:8091-8094 -p 11210:11210 couchbase
+docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -d couchdb
 ----
 
-4. Follow the instructions: https://hub.docker.com/r/couchbase/server/
+4. Follow the instructions: https://hub.docker.com/_/couchdb
 5. Create `heroes` as bucket name
 6. Create `Hero` and `Villain` as collections
 7. Create primary query to `Hero`
 
 ==== Projects
 
-* link:couchbase/[Couchbase sample]
+* link:couchdb/[Couchdb sample]
 
 
-=== CouchDB
+=== Couchbase
 
 image::http://www.jnosql.org/img/logos/couchbase.svg[CouchDB, width=200px]
 
@@ -107,7 +107,7 @@ image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.p
 
 [source, bash]
 ----
-docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -d couchdb
+docker run -d --name couchbase-instance -p 8091-8094:8091-8094 -p 11210:11210 couchbase
 ----
 
 ==== Projects
@@ -127,11 +127,12 @@ Elasticsearch is a search engine based on the Lucene library. It provides a dist
 image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
 1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/couchbase/server/
+1. https://hub.docker.com/_/elasticsearch
 1. Run docker command:
 
 [source, bash]
 ----
+
 docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.17.7
 ----
 
@@ -150,7 +151,7 @@ image::http://www.jnosql.org/img/logos/cassandra.png[Cassandra, width=200px]
 image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
 1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/couchbase/server/
+1. https://hub.docker.com/_/cassandra
 1. Run docker command:
 
 [source, bash]
@@ -173,7 +174,7 @@ ScyllaDB is an open-source distributed NoSQL wide-column data store. It was desi
 image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
 1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/couchbase/server/
+1. https://hub.docker.com/r/scylladb/scylla
 1. Run docker command:
 
 [source, bash]
@@ -196,7 +197,7 @@ Redis is an in-memory data structure store, used as a distributed, in-memory key
 image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
 1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/couchbase/server/
+1. https://hub.docker.com/_/redis
 1. Run docker command:
 
 [source, bash]
@@ -229,7 +230,7 @@ Memcached is a general-purpose distributed memory-caching system. It is often us
 image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
 1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/couchbase/server/
+1. https://hub.docker.com/_/memcached
 1. Run docker command:
 
 [source, bash]
@@ -253,7 +254,7 @@ Neo4j is a graph database management system developed by Neo4j, Inc. The data el
 image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
 1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/couchbase/server/
+1. https://hub.docker.com/_/neo4j
 1. Run docker command:
 
 [source, bash]
