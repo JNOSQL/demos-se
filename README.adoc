@@ -196,7 +196,7 @@ Redis is an in-memory data structure store, used as a distributed, in-memory key
 image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
 1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/couchbase/server/
+1. https://hub.docker.com/_/redis
 1. Run docker command:
 
 [source, bash]
