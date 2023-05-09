@@ -62,7 +62,7 @@ docker run -d --name mongodb-instance -p 27017:27017 mongo
 
 === Couchbase
 
-image::https://www.jnosql.org/img/logos/couchdb.png[Couchbase, width=200px]
+image::https://www.jnosql.org/img/logos/couchbase.svg[Couchbase, width=200px]
 
 Apache CouchDB is an open-source document-oriented NoSQL database, implemented in Erlang. CouchDB uses multiple formats and protocols to store, transfer, and process its data. It uses JSON to store data, JavaScript as its query language using MapReduce, and HTTP for an API.
 
