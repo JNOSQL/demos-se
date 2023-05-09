@@ -19,7 +19,7 @@ image::http://www.jnosql.org/img/logos/ArangoDB.png[ArangoDB, width=200px]
 image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
 1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/couchbase/server/
+1. https://hub.docker.com/_/arangodb
 1. Run docker command:
 
 [source, bash]
