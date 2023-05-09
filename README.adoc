@@ -60,7 +60,7 @@ docker run -d --name mongodb-instance -p 27017:27017 mongo
 * link:mongodb-double/[MongoDB with two different instances]
 
 
-=== Couchbase
+=== CouchDB
 
 image::https://www.jnosql.org/img/logos/couchdb.png[Couchbase, width=200px]
 
@@ -90,7 +90,7 @@ docker run -d --name couchbase-instance -p 8091-8094:8091-8094 -p 11210:11210 co
 * link:couchdb/[Couchdb sample]
 
 
-=== CouchDB
+=== Couchbase
 
 image::http://www.jnosql.org/img/logos/couchbase.svg[CouchDB, width=200px]
 
