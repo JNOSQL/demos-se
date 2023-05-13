@@ -27,14 +27,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>jnosql-mapping-document</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jnosql.communication</groupId>
-            <artifactId>jnosql-couchdb-driver</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.eclipse.jnosql.databases</groupId>
+            <artifactId>jnosql-couchdb</artifactId>
+            <version>${jnosql.version}</version>
         </dependency>
     </dependencies>
 
