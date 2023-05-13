@@ -33,8 +33,6 @@ public class App4 {
 
             template.insert(entity1);
 
-            final DocumentQuery query1 = select().from("user_scope_properties_broken").where("_id")
-                    .eq("user").and("scope").eq("scope").build();
             final Optional<Object> first1 = template.select(UserScopePropertiesBroken.class)
                     .where("userName")
                     .eq("user").and("scope").eq("scope")
