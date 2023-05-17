@@ -38,14 +38,14 @@ public class App3 {
                     .withAddress(new Address("Engenheiro Jose Anasoh", "Salvador"))
                     .build();
 
-            DocumentTemplate repository = container.select(DocumentTemplate.class).get();
-            Person saved = repository.insert(person);
+            DocumentTemplate template = container.select(DocumentTemplate.class).get();
+            Person saved = template.insert(person);
             System.out.println("Person saved" + saved);
 
             DocumentQuery query = select().from("Person")
                     .where("_id").eq(id).build();
 
-            List<Person> people = repository.<Person>select(Person.class)
+            List<Person> people = template.<Person>select(Person.class)
                     .where("id").eq(id)
                     .result();
             System.out.println("Entity found: " + people);
