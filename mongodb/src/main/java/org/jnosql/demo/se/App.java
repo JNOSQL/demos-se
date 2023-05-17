@@ -37,6 +37,7 @@ public class App {
                     .withAddress(address)
                     .withJob(job)
                     .withId(id).build();
+
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
             Person saved = template.insert(person);
             System.out.println("Person saved" + saved);
