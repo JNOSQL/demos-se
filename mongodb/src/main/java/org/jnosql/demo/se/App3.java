@@ -15,13 +15,10 @@ package org.jnosql.demo.se;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.nosql.document.DocumentTemplate;
-import org.eclipse.jnosql.communication.document.DocumentQuery;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-
-import static org.eclipse.jnosql.communication.document.DocumentQuery.select;
 
 public class App3 {
 
@@ -41,9 +38,6 @@ public class App3 {
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
             Person saved = template.insert(person);
             System.out.println("Person saved" + saved);
-
-            DocumentQuery query = select().from("Person")
-                    .where("_id").eq(id).build();
 
             List<Person> people = template.<Person>select(Person.class)
                     .where("id").eq(id)
