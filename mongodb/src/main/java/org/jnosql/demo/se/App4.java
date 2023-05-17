@@ -14,7 +14,7 @@ package org.jnosql.demo.se;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.nosql.PreparedStatement;
-import jakarta.nosql.document.DocumentTemplate;
+import org.eclipse.jnosql.databases.mongodb.mapping.MongoDBTemplate;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -29,7 +29,7 @@ public class App4 {
             attachment.setContents(new byte[]{1, 2, 3, 4, 5, 6});
             attachment.setName("file.txt");
 
-            DocumentTemplate template = container.select(DocumentTemplate.class).get();
+            MongoDBTemplate template = container.select(MongoDBTemplate.class).get();
             Attachment saved = template.insert(attachment);
             System.out.println("Attachment saved" + saved);
 
