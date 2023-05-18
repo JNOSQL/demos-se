@@ -10,13 +10,15 @@
  */
 package org.jnosql.demo.se;
 
-import org.eclipse.jnosql.mapping.couchbase.document.CouchbaseRepository;
-import org.eclipse.jnosql.mapping.couchbase.document.N1QL;
-import org.eclipse.jnosql.mapping.couchbase.document.Param;
+import jakarta.data.repository.Repository;
+import org.eclipse.jnosql.databases.couchbase.mapping.CouchbaseRepository;
+import org.eclipse.jnosql.databases.couchbase.mapping.N1QL;
+import org.eclipse.jnosql.databases.couchbase.mapping.Param;
 
 import java.util.Optional;
 import java.util.stream.Stream;
 
+@Repository
 public interface HeroRepository extends CouchbaseRepository<Hero, String> {
 
     Stream<Hero> findByAgeGreaterThan(Integer age);

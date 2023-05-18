@@ -13,7 +13,7 @@ package org.jnosql.demo.se;
 
 
 import org.eclipse.jnosql.communication.document.DocumentQuery;
-import org.eclipse.jnosql.mapping.couchbase.document.CouchbaseTemplate;
+import org.eclipse.jnosql.databases.couchbase.mapping.CouchbaseTemplate;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;

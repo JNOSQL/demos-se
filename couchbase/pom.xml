@@ -27,9 +27,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>jnosql-couchbase-extension</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.eclipse.jnosql.databases</groupId>
+            <artifactId>jnosql-couchbase</artifactId>
+            <version>${jnosql.version}</version>
         </dependency>
     </dependencies>
 
