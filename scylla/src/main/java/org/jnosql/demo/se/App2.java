@@ -14,6 +14,7 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+
 import java.util.Arrays;
 import java.util.Optional;
 

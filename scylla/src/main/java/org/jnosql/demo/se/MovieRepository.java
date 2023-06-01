@@ -12,16 +12,18 @@
 package org.jnosql.demo.se;
 
 
-import org.eclipse.jnosql.mapping.cassandra.column.CQL;
-import org.eclipse.jnosql.mapping.cassandra.column.CassandraRepository;
+import jakarta.data.repository.Repository;
+import org.eclipse.jnosql.databases.cassandra.mapping.CQL;
+import org.eclipse.jnosql.databases.cassandra.mapping.CassandraRepository;
 
 import java.util.List;
 
-public interface MovieRepository extends CassandraRepository<Movie, String> {
-
+@Repository
+public interface MovieRepository extends CassandraRepository<Movie, Long> {
 
     List<Movie> findByAge(Integer age);
 
     @CQL("select * from developers.Movie")
     List<Movie> findAllQuery();
+
 }
