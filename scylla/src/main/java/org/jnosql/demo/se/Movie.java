@@ -14,12 +14,17 @@ package org.jnosql.demo.se;
 
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
-import org.eclipse.jnosql.mapping.cassandra.column.UDT;
+import jakarta.nosql.Id;
+import org.eclipse.jnosql.databases.cassandra.mapping.UDT;
 
 import java.util.Objects;
 
-@Entity
+@Entity("Movie")
 public class Movie {
+
+
+    @Id("id")
+    private Long id;
 
     @Column
     private String name;
@@ -46,7 +51,6 @@ public class Movie {
     public void setAge(Integer age) {
         this.age = age;
     }
-
     public Director getDirector() {
         return director;
     }

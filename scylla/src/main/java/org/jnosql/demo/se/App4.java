@@ -16,6 +16,8 @@ package org.jnosql.demo.se;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 
+import java.util.Arrays;
+
 public class App4 {
 
 
@@ -26,24 +28,26 @@ public class App4 {
             MovieRepository repository = container.select(MovieRepository.class).get();
 
             Movie matrix = new Movie();
+
             matrix.setName("The Matrix");
             matrix.setAge(1999);
             matrix.setDirector(Director.builder().withName("Lana Wachowski")
                     .add("The Matrix").add("The Matrix Reloaded").add("Assassins").build());
+            repository.save(matrix);
 
             Movie fightClub = new Movie();
             fightClub.setName("Fight Club");
             fightClub.setAge(1999);
             fightClub.setDirector(Director.builder().withName("David Fincher")
                     .add("Fight Club").add("Seven").add("The Social Network").build());
+            repository.save(fightClub);
 
             Movie americanBeauty = new Movie();
             americanBeauty.setName("American Beauty");
             americanBeauty.setAge(1999);
             americanBeauty.setDirector(Director.builder().withName("Sam Mendes")
                     .add("Spectre").add("Skyfall").add("American Beauty").build());
-
-
+            repository.save(americanBeauty);
 
             System.out.println("Movies from 1999: " + repository.findByAge(1999));
             System.out.println("Find all: " + repository.findAllQuery());
