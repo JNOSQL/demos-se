@@ -16,18 +16,18 @@
 package org.jnosql.demo.se;
 
 import jakarta.nosql.Column;
-import org.eclipse.jnosql.databases.mongodb.mapping.ObjectIdConverter;
-import org.eclipse.jnosql.mapping.Convert;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
+import jakarta.validation.constraints.AssertTrue;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import org.eclipse.jnosql.databases.mongodb.mapping.ObjectIdConverter;
+import org.eclipse.jnosql.mapping.Convert;
 
-import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
