@@ -75,8 +75,8 @@ public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmoun
 
     private MonetaryAmount getMonetaryAmount(Document document) {
 
-        Map<String,Value> attributes = document.value().get(new TypeReference<List<Document>>() {
-                })
+        Map<String,Value> attributes = document.value()
+                .get(new TypeReference<List<Document>>() {})
                 .stream()
                 .map(d -> Map.of(d.name(), d.value()))
                 .reduce(new HashMap<>(), (a, b) -> {
