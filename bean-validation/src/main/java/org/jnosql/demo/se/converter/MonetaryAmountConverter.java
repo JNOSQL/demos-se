@@ -75,7 +75,7 @@ public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmoun
 
     private MonetaryAmount getMonetaryAmount(Document document) {
 
-        Map<String, Value> attributes = document.value().get(new TypeReference<List<Document>>() {
+        Map<String,Value> attributes = document.value().get(new TypeReference<List<Document>>() {
                 })
                 .stream()
                 .map(d -> Map.of(d.name(), d.value()))
@@ -85,8 +85,7 @@ public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmoun
                 });
 
         String currency = Optional.ofNullable(attributes.get(CURRENCY))
-                .map(Value::get)
-                .map(String::valueOf)
+                .map(v -> v.get(String.class))
                 .orElse(DEFAULT_CURRENCY);
 
         BigDecimal value = Optional.ofNullable(attributes.get(VALUE))
