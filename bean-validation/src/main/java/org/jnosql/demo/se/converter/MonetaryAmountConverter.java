@@ -14,6 +14,8 @@
  */
 package org.jnosql.demo.se.converter;
 
+import org.eclipse.jnosql.communication.TypeReference;
+import org.eclipse.jnosql.communication.Value;
 import org.eclipse.jnosql.communication.document.Document;
 import org.eclipse.jnosql.mapping.AttributeConverter;
 import org.bson.BsonDecimal128;
@@ -25,7 +27,9 @@ import org.javamoney.moneta.Money;
 
 import javax.money.MonetaryAmount;
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmount, Object> {
@@ -57,11 +61,40 @@ public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmoun
             return null;
         }
 
-        if (dbData instanceof BsonDocument) {
-            return getMonetaryAmount(BsonDocument.class.cast(dbData));
+        if (dbData instanceof BsonDocument bsonDocument) {
+            return getMonetaryAmount(bsonDocument);
         }
-        return getMonetaryAmount(List.class.cast(dbData));
 
+        if (dbData instanceof Document document) {
+            return getMonetaryAmount(document);
+        }
+
+        return Money.of(BigDecimal.ZERO, DEFAULT_CURRENCY);
+
+    }
+
+    private MonetaryAmount getMonetaryAmount(Document document) {
+
+        Map<String, Value> attributes = document.value().get(new TypeReference<List<Document>>() {
+                })
+                .stream()
+                .map(d -> Map.of(d.name(), d.value()))
+                .reduce(new HashMap<>(), (a, b) -> {
+                    a.putAll(b);
+                    return a;
+                });
+
+        String currency = Optional.ofNullable(attributes.get(CURRENCY))
+                .map(Value::get)
+                .map(String::valueOf)
+                .orElse(DEFAULT_CURRENCY);
+
+        BigDecimal value = Optional.ofNullable(attributes.get(VALUE))
+                .map(v -> v.get(String.class))
+                .map(BigDecimal::new)
+                .orElse(BigDecimal.ZERO);
+
+        return Money.of(value, currency);
     }
 
     private MonetaryAmount getMonetaryAmount(BsonDocument dbData) {
@@ -79,20 +112,4 @@ public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmoun
         return Money.of(value, currency);
     }
 
-    private MonetaryAmount getMonetaryAmount(List<Document> dbData) {
-
-        BigDecimal value = dbData.stream()
-                .filter(d -> VALUE.equals(d.name()))
-                .findFirst()
-                .map(d -> d.get(Decimal128.class).bigDecimalValue())
-                .orElse(BigDecimal.ZERO);
-
-        String currency = dbData.stream()
-                .filter(d -> CURRENCY.equals(d.name()))
-                .findFirst()
-                .map(d -> d.get(String.class))
-                .orElse(DEFAULT_CURRENCY);
-
-        return Money.of(value, currency);
-    }
 }
