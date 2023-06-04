@@ -133,7 +133,11 @@ image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.p
 [source, bash]
 ----
 
-docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.17.7
+docker run -p 9200:9200 -p 9300:9300 \
+  -e "ES_JAVA_OPTS=-Xms1g -Xmx1g" \
+  -e "xpack.security.enabled=false" \
+  -e "discovery.type=single-node" \
+  elasticsearch:8.7.1
 ----
 
 ==== Projects
