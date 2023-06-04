@@ -52,7 +52,7 @@ public class App {
             DocumentQuery query = select().from("developer")
                     .where("_id").eq(id).build();
 
-            Optional<Developer> optional = template.select(Developer.class).where("")
+            Optional<Developer> optional = template.select(Developer.class).where("id")
                     .eq(id).singleResult();
             System.out.println("Entity found: " + optional);
 
