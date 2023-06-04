@@ -20,6 +20,8 @@ import java.util.List;
 @Repository
 public interface DeveloperRepository extends CrudRepository<Developer, Long> {
 
-
+    // It's necessary to make sure that
+    // the 'name' field is mapped as `keyword`
+    // in the mappings of the index (that is our the 'developers' db)
     List<Developer> findByName(String name);
 }
