@@ -12,18 +12,19 @@
 package org.jnosql.demo.se;
 
 
-import org.eclipse.jnosql.mapping.DatabaseQualifier;
-
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import org.eclipse.jnosql.mapping.DatabaseQualifier;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class App2 {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Random random = new Random();
         long id = random.nextLong();
@@ -45,6 +46,9 @@ public class App2 {
             DeveloperRepository repository = container.select(DeveloperRepository.class)
                     .select(DatabaseQualifier.ofDocument()).get();
             repository.save(developer);
+
+            // it's needed 'cause the cluster indexing requires a little delay
+            TimeUnit.SECONDS.sleep(2);
 
             List<Developer> people = repository.findByName("Maria Lovelace");
             System.out.println("Entity found: " + people);
