@@ -27,9 +27,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>jnosql-elasticsearch-extension</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.eclipse.jnosql.databases</groupId>
+            <artifactId>jnosql-elasticsearch</artifactId>
+            <version>${jnosql.version}</version>
         </dependency>
     </dependencies>
 
