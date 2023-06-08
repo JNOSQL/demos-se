@@ -30,7 +30,7 @@
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
             <artifactId>jnosql-mapping-key-value</artifactId>
-            <version>${project.version}</version>
+            <version>${jnosql.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jnosql.communication</groupId>
