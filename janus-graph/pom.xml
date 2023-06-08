@@ -35,12 +35,12 @@
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
             <artifactId>jnosql-mapping-graph</artifactId>
-            <version>${project.version}</version>
+            <version>${jnosql.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
             <artifactId>jnosql-graph-connections</artifactId>
-            <version>${project.version}</version>
+            <version>${jnosql.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tinkerpop</groupId>
