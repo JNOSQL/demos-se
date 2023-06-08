@@ -35,7 +35,7 @@
         <dependency>
             <groupId>org.eclipse.jnosql.communication</groupId>
             <artifactId>jnosql-memcached-driver</artifactId>
-            <version>${project.version}</version>
+            <version>${jnosql.version}</version>
         </dependency>
     </dependencies>
 
