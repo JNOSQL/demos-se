@@ -26,16 +26,10 @@
     </properties>
 
     <dependencies>
-
         <dependency>
-            <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>jnosql-mapping-key-value</artifactId>
-            <version>${jnosql.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jnosql.communication</groupId>
-            <artifactId>jnosql-memcached-driver</artifactId>
-            <version>${jnosql.version}</version>
+            <groupId>org.eclipse.jnosql.databases</groupId>
+            <artifactId>jnosql-memcached</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
