@@ -16,7 +16,7 @@
     <artifactId>mapping-demo-java-se</artifactId>
     <packaging>pom</packaging>
     <name>JNoSQL Demo</name>
-    <version>1.0.0-b6</version>
+    <version>1.0.0</version>
 
     <properties>
         <jnosql.version>1.0.0</jnosql.version>
