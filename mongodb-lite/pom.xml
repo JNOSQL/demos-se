@@ -30,6 +30,18 @@
             <groupId>org.eclipse.jnosql.databases</groupId>
             <artifactId>jnosql-mongodb</artifactId>
             <version>1.0.2-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.eclipse.jnosql.mapping</groupId>
+                    <artifactId>jnosql-mapping-reflection</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jnosql.lite</groupId>
+            <artifactId>mapping-lite-processor</artifactId>
+            <version>1.0.2-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
