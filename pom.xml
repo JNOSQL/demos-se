@@ -46,6 +46,7 @@
         <module>hazelcast</module>
         <module>memcached</module>
         <module>mongodb</module>
+        <module>mongodb-lite</module>
         <module>mongodb-double</module>
         <module>redis</module>
         <module>couchdb</module>
