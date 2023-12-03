@@ -13,90 +13,38 @@ package org.jnosql.demo.se;
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
+import net.datafaker.Faker;
+import net.datafaker.providers.base.Superhero;
 
-import java.io.Serializable;
 import java.util.Collections;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
-public class Hero implements Serializable {
+public record Hero(
 
-    @Id
-    private String id;
+        @Id
+        String id,
 
-    @Column
-    private String name;
+        @Column
+        String name,
+        @Column
+        String descriptor,
 
-    @Column
-    private String realName;
-
-    @Column
-    private Integer age;
-
-    @Column
-    private Set<String> powers;
-
-    Hero() {
-    }
-
-    Hero(String name, String realName, Integer age, Set<String> powers) {
-        this.id = name;
-        this.name = name;
-        this.realName = realName;
-        this.age = age;
-        this.powers = powers;
-    }
+        @Column
+        Set<String> powers) {
 
 
-    public String getName() {
-        return name;
-    }
-
-    public String getRealName() {
-        return realName;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public Set<String> getPowers() {
+    public Set<String> powers() {
         if (powers == null) {
             return Collections.emptySet();
         }
         return Collections.unmodifiableSet(powers);
     }
 
-    public static HeroBuilder builder() {
-        return new HeroBuilder();
+    public static Hero of(Faker faker) {
+        Superhero superhero = faker.superhero();
+        return new Hero(faker.idNumber().valid(), superhero.name(), faker.name().fullName(),
+                Collections.singleton(superhero.power()));
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Hero)) {
-            return false;
-        }
-        Hero hero = (Hero) o;
-        return Objects.equals(name, hero.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(name);
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Hero{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", realName='").append(realName).append('\'');
-        sb.append(", age=").append(age);
-        sb.append(", powers=").append(powers);
-        sb.append('}');
-        return sb.toString();
-    }
 }
