@@ -14,6 +14,7 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import net.datafaker.Faker;
 import org.eclipse.jnosql.communication.document.DocumentQuery;
 import org.eclipse.jnosql.databases.arangodb.mapping.ArangoDBTemplate;
 
@@ -30,15 +31,15 @@ public class App1 {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
-            Hero ironMan = Hero.builder().withRealName("Tony Stark").withName("iron_man")
-                    .withAge(34).withPowers(Collections.singleton("rich")).build();
+            var faker = new Faker();
+            Hero hero = Hero.of(faker);
 
             ArangoDBTemplate template = container.select(ArangoDBTemplate.class).get();
-            template.insert(ironMan);
+            template.insert(hero);
 
             DocumentQuery query = select().from("Hero").where("_key").eq("iron_man").build();
             List<Hero> heroes = template.<Hero>select(query).collect(Collectors.toList());
-            List<Hero> aql = template.<Hero>aql("FOR h IN Hero FILTER  h.name == @id RETURN h", Collections.singletonMap("id", "iron_man"))
+            List<Hero> aql = template.<Hero>aql("FOR h IN Hero FILTER  h.name == @id RETURN h", Collections.singletonMap("id", hero.name()))
                     .collect(Collectors.toList());
             System.out.println(heroes);
             System.out.println(aql);
