@@ -32,10 +32,9 @@ public class App1 {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
             var faker = new Faker();
-            Hero hero = Hero.of(faker);
 
             ArangoDBTemplate template = container.select(ArangoDBTemplate.class).get();
-            template.insert(hero);
+            Hero hero = template.insert(Hero.of(faker));
 
             DocumentQuery query = select().from("Hero").where("_key").eq("iron_man").build();
             List<Hero> heroes = template.<Hero>select(query).collect(Collectors.toList());

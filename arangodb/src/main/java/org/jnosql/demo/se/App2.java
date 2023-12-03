@@ -26,10 +26,9 @@ public class App2 {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             var faker = new Faker();
-            Hero hero = Hero.of(faker);
 
             HeroRepository repository = container.select(HeroRepository.class).get();
-            repository.save(hero);
+            Hero hero = repository.save(Hero.of(faker));
 
             System.out.println(repository.findByName("iron_man"));
             System.out.println(repository.find("Tony Stark"));

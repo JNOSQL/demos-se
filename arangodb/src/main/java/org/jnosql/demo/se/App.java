@@ -26,13 +26,12 @@ public class App {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             var faker = new Faker();
-            Hero ironMan = Hero.of(faker);
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
 
-            template.insert(ironMan);
+            Hero hero = template.insert(Hero.of(faker));
 
             List<Hero> heroes = template.select(Hero.class)
-                    .where("name").eq(faker.name()).result();
+                    .where("name").eq(hero.name()).result();
             System.out.println(heroes);
 
         }

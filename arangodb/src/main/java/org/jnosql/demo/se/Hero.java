@@ -16,9 +16,6 @@ import jakarta.nosql.Id;
 import net.datafaker.Faker;
 import net.datafaker.providers.base.Superhero;
 
-import java.util.Collections;
-import java.util.Set;
-
 @Entity
 public record Hero(
 
@@ -31,20 +28,12 @@ public record Hero(
         String descriptor,
 
         @Column
-        Set<String> powers) {
+        String power) {
 
-
-    public Set<String> powers() {
-        if (powers == null) {
-            return Collections.emptySet();
-        }
-        return Collections.unmodifiableSet(powers);
-    }
 
     public static Hero of(Faker faker) {
         Superhero superhero = faker.superhero();
-        return new Hero(faker.idNumber().valid(), superhero.name(), faker.name().fullName(),
-                Collections.singleton(superhero.power()));
+        return new Hero(faker.idNumber().valid(), superhero.name(), superhero.descriptor(),superhero.power());
     }
 
 }
