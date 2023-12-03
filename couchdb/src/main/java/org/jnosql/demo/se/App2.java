@@ -12,11 +12,11 @@
 package org.jnosql.demo.se;
 
 
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.nosql.PreparedStatement;
 import jakarta.nosql.document.DocumentTemplate;
 
-import jakarta.enterprise.inject.se.SeContainer;
-import jakarta.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;

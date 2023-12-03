@@ -10,11 +10,11 @@
  */
 package org.jnosql.demo.se;
 
-import org.eclipse.jnosql.communication.document.DocumentQuery;
-import jakarta.nosql.document.DocumentTemplate;
-
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.nosql.document.DocumentTemplate;
+import org.eclipse.jnosql.communication.document.DocumentQuery;
+
 import java.util.stream.Stream;
 
 import static org.eclipse.jnosql.communication.document.DocumentQuery.select;

@@ -12,6 +12,7 @@ package org.jnosql.demo.se.travel;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+
 import java.util.List;
 import java.util.Map;
 

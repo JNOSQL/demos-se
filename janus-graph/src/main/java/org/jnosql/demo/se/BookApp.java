@@ -10,10 +10,10 @@
  */
 package org.jnosql.demo.se;
 
-import org.eclipse.jnosql.mapping.graph.GraphTemplate;
-
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import org.eclipse.jnosql.mapping.graph.GraphTemplate;
+
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;

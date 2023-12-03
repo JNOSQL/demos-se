@@ -14,13 +14,12 @@
  */
 package org.jnosql.demo.se.validation;
 
+import javax.money.CurrencyUnit;
+import javax.money.Monetary;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-
-import javax.money.CurrencyUnit;
-import javax.money.Monetary;
 
 class CurrencyReaderConverter {
 

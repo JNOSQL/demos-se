@@ -1,11 +1,9 @@
 package org.jnosql.demo.se;
 
 import jakarta.data.repository.PageableRepository;
-import jakarta.data.repository.Param;
 import jakarta.data.repository.Query;
 import jakarta.data.repository.Repository;
 
-import java.util.List;
 import java.util.Set;
 
 @Repository

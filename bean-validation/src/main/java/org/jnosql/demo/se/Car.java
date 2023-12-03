@@ -15,17 +15,17 @@
 package org.jnosql.demo.se;
 
 import jakarta.nosql.Column;
-import org.eclipse.jnosql.mapping.Convert;
 import jakarta.nosql.Entity;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import org.eclipse.jnosql.mapping.Convert;
 import org.jnosql.demo.se.converter.MonetaryAmountConverter;
 import org.jnosql.demo.se.validation.CurrencyAccepted;
 import org.jnosql.demo.se.validation.MonetaryMax;
 import org.jnosql.demo.se.validation.MonetaryMin;
 
 import javax.money.MonetaryAmount;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import java.util.function.Supplier;
 
 @Entity

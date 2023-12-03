@@ -12,10 +12,10 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.nosql.keyvalue.KeyValueTemplate;
-
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import jakarta.nosql.keyvalue.KeyValueTemplate;
+
 import java.util.Arrays;
 import java.util.Optional;
 

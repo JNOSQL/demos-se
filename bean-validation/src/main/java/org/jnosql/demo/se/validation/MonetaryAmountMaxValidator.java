@@ -14,9 +14,10 @@
  */
 package org.jnosql.demo.se.validation;
 
-import javax.money.MonetaryAmount;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+
+import javax.money.MonetaryAmount;
 import java.math.BigDecimal;
 
 public class MonetaryAmountMaxValidator implements ConstraintValidator<MonetaryMax, MonetaryAmount>{

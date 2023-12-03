@@ -11,10 +11,10 @@
 package org.jnosql.demo.se;
 
 
-import org.eclipse.jnosql.databases.cassandra.mapping.CassandraTemplate;
-
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import org.eclipse.jnosql.databases.cassandra.mapping.CassandraTemplate;
+
 import java.util.Currency;
 import java.util.Locale;
 import java.util.Optional;

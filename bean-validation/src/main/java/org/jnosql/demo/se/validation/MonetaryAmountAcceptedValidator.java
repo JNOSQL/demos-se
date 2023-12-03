@@ -15,10 +15,11 @@
 package org.jnosql.demo.se.validation;
 
 
-import javax.money.CurrencyUnit;
-import javax.money.MonetaryAmount;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+
+import javax.money.CurrencyUnit;
+import javax.money.MonetaryAmount;
 import java.util.ArrayList;
 import java.util.List;
 

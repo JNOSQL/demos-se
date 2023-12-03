@@ -10,9 +10,9 @@
  */
 package org.jnosql.demo.se.programmer;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import org.eclipse.jnosql.mapping.graph.GraphTemplate;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Optional;
 
 @ApplicationScoped

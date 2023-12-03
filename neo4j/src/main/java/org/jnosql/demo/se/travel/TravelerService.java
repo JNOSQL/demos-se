@@ -10,11 +10,11 @@
  */
 package org.jnosql.demo.se.travel;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import org.eclipse.jnosql.mapping.graph.EdgeEntity;
 import org.eclipse.jnosql.mapping.graph.GraphTemplate;
 
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;

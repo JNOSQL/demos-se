@@ -14,15 +14,15 @@
  */
 package org.jnosql.demo.se.converter;
 
-import org.eclipse.jnosql.communication.TypeReference;
-import org.eclipse.jnosql.communication.Value;
-import org.eclipse.jnosql.communication.document.Document;
-import org.eclipse.jnosql.mapping.AttributeConverter;
 import org.bson.BsonDecimal128;
 import org.bson.BsonDocument;
 import org.bson.BsonString;
 import org.bson.BsonValue;
 import org.bson.types.Decimal128;
+import org.eclipse.jnosql.communication.TypeReference;
+import org.eclipse.jnosql.communication.Value;
+import org.eclipse.jnosql.communication.document.Document;
+import org.eclipse.jnosql.mapping.AttributeConverter;
 import org.javamoney.moneta.Money;
 
 import javax.money.MonetaryAmount;

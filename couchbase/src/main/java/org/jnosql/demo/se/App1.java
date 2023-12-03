@@ -12,11 +12,11 @@
 package org.jnosql.demo.se;
 
 
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import org.eclipse.jnosql.communication.document.DocumentQuery;
 import org.eclipse.jnosql.databases.couchbase.mapping.CouchbaseTemplate;
 
-import jakarta.enterprise.inject.se.SeContainer;
-import jakarta.enterprise.inject.se.SeContainerInitializer;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;

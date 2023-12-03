@@ -19,10 +19,6 @@ import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;
 
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.concurrent.ThreadLocalRandom;
-
 public class App {
 
 
