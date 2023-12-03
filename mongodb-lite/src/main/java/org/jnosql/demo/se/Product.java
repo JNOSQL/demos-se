@@ -1,10 +1,10 @@
 package org.jnosql.demo.se;
 
 
-import com.github.javafaker.Faker;
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
+import net.datafaker.Faker;
 import org.eclipse.jnosql.databases.mongodb.mapping.ObjectIdConverter;
 import org.eclipse.jnosql.mapping.Convert;
 

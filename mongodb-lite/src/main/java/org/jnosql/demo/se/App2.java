@@ -12,9 +12,9 @@
 package org.jnosql.demo.se;
 
 
-import com.github.javafaker.Faker;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import net.datafaker.Faker;
 
 public class App2 {
 

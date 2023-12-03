@@ -12,14 +12,11 @@
 package org.jnosql.demo.se;
 
 
-import com.github.javafaker.Faker;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.nosql.document.DocumentTemplate;
+import net.datafaker.Faker;
 
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class App {
 
