@@ -14,6 +14,7 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import net.datafaker.Faker;
 
 import java.util.Collections;
 
@@ -24,11 +25,11 @@ public class App2 {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            Hero ironMan = Hero.builder().withRealName("Tony Stark").withName("iron_man")
-                    .withAge(34).withPowers(Collections.singleton("rich")).build();
+            var faker = new Faker();
+            Hero hero = Hero.of(faker);
 
             HeroRepository repository = container.select(HeroRepository.class).get();
-            repository.save(ironMan);
+            repository.save(hero);
 
             System.out.println(repository.findByName("iron_man"));
             System.out.println(repository.find("Tony Stark"));
