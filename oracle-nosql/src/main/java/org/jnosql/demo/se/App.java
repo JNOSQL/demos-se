@@ -11,14 +11,11 @@
 
 package org.jnosql.demo.se;
 
-
-
-import jakarta.data.Sort;
-import jakarta.data.page.Page;
-import jakarta.data.page.Pageable;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
+import jakarta.nosql.document.DocumentTemplate;
 import net.datafaker.Faker;
+
 
 public class App {
 
@@ -26,24 +23,17 @@ public class App {
     public static void main(String[] args) {
         Faker faker = new Faker();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            BeerRepository repository = container.select(BeerRepository.class).get();
+            DocumentTemplate template = container.select(DocumentTemplate.class).get();
             for (int index = 0; index < 100; index++) {
                 Beer beer = Beer.of(faker);
-                repository.save(beer);
+                template.insert(beer);
             }
 
-            Pageable page = Pageable.ofPage(1).sortBy(Sort.desc("style"));
-            Page<Beer> page1 = repository.findAll(page);
-            System.out.println("The first page");
-            page1.forEach(System.out::println);
-            System.out.println("The second page");
-            Pageable secondPage = page.next();
-            Page<Beer> page2 = repository.findAll(secondPage);
-            page2.forEach(System.out::println);
+            template.select(Beer.class).where("style").eq("Pilsner").orderBy("hop").desc()
+                    .stream().forEach(System.out::println);
 
-            System.out.println("The query result: ");
-            repository.query().forEach(System.out::println);
         }
+        System.exit(0);
     }
 
     private App() {

@@ -69,12 +69,12 @@ public class Beer {
 
     public static Beer of(Faker faker){
         var beer = faker.beer();
-        Beer beer1 = new Beer();
-        beer1.hop = beer.hop();
-        beer1.malt = beer.malt();
-        beer1.style = beer.style();
-        beer1.id= UUID.randomUUID().toString();
-        return beer1;
+        Beer entity = new Beer();
+        entity.hop = beer.hop();
+        entity.malt = beer.malt();
+        entity.style = beer.style();
+        entity.id= UUID.randomUUID().toString();
+        return entity;
     }
 
 }
