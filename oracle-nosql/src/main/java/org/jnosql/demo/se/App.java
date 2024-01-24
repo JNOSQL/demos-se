@@ -12,9 +12,10 @@
 package org.jnosql.demo.se;
 
 
-import jakarta.data.repository.Page;
-import jakarta.data.repository.Pageable;
-import jakarta.data.repository.Sort;
+
+import jakarta.data.Sort;
+import jakarta.data.page.Page;
+import jakarta.data.page.Pageable;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;

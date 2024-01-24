@@ -1,7 +1,8 @@
 package org.jnosql.demo.se;
 
-import jakarta.data.repository.Page;
-import jakarta.data.repository.Pageable;
+
+import jakarta.data.page.Page;
+import jakarta.data.page.Pageable;
 
 public class App2 {
 
