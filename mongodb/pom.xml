@@ -29,7 +29,7 @@
         <dependency>
             <groupId>org.eclipse.jnosql.databases</groupId>
             <artifactId>jnosql-mongodb</artifactId>
-            <version>${jnosql.version}</version>
+            <version>1.0.5-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>net.datafaker</groupId>
