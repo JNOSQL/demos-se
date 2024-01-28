@@ -24,12 +24,16 @@ public class App {
         Faker faker = new Faker();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             DocumentTemplate template = container.select(DocumentTemplate.class).get();
-            for (int index = 0; index < 100; index++) {
-                Beer beer = Beer.of(faker);
-                template.insert(beer);
+            for (int index = 0; index < 0; index++) {
+                Car car = Car.of(faker);
+                template.insert(car);
             }
 
-            template.select(Beer.class).where("style").eq("Pilsner").orderBy("hop").desc()
+         //   template.select(Car.class).stream().toList().forEach(System.out::println);
+            template.select(Car.class).where("transmission").eq("Automatic").orderBy("model").desc()
+                    .stream().forEach(System.out::println);
+
+            template.select(Car.class).where("transmission").eq("CVT").orderBy("make").desc()
                     .stream().forEach(System.out::println);
 
         }

@@ -15,12 +15,12 @@ public class App2 {
         Faker faker = new Faker();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             KeyValueTemplate template = container.select(KeyValueTemplate.class).get();
-            Beer beer = Beer.of(faker);
-            template.put(beer);
+            Car car = Car.of(faker);
+            template.put(car);
 
-            System.out.println("The query result: " + template.get(beer.id(), Beer.class));
-            template.delete(beer.id());
-            System.out.println("The query result: " + template.get(beer.id(), Beer.class));
+            System.out.println("The query result: " + template.get(car.id(), Car.class));
+            template.delete(car.id());
+            System.out.println("The query result: " + template.get(car.id(), Car.class));
         }
         System.exit(0);
     }
