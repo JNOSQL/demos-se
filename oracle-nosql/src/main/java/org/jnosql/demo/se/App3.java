@@ -16,9 +16,13 @@ public class App3 {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             Garage repository = container.select(Garage.class, DatabaseQualifier.ofDocument()).get();
             for (int index = 0; index < 0; index++) {
-                Car beer = Car.of(faker);
-                repository.parking(beer);
+                Car car = Car.of(faker);
+                repository.parking(car);
             }
+
+            Car car = Car.of(faker);
+            repository.parking(car);
+            repository.unpark(car);
 
             Pageable page = Pageable.ofPage(1).size(3).sortBy(Sort.desc("model"));
             Page<Car> page1 = repository.findByTransmission("CVT", page);

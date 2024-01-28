@@ -14,7 +14,7 @@ public interface Garage extends DataRepository<Car, String>{
     Car parking(Car car);
 
     @Delete
-    void departure(Car car);
+    void unpark(Car car);
 
     Page<Car> findByTransmission(String transmission, Pageable page);
 }
