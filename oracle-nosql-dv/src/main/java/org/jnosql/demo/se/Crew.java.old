@@ -1,0 +1,53 @@
+package org.jnosql.demo.se;
+
+import java.util.List;
+import java.util.Objects;
+import jakarta.nosql.Column;
+import jakarta.nosql.Entity;
+
+@Entity
+class Crew {
+  @Column
+  private List<String> names;
+  @Column
+  private String job;
+
+  public String job() {
+        return job;
+  }
+  public List<String>  names() {
+        return names;
+  }
+
+  Crew() {}
+
+  Crew(List<String> names,  String job){
+    this.names = names;
+    this.job = job;
+  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Crew crew = (Crew) o;
+        return Objects.equals(job, crew.job);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(job);
+    }
+
+    @Override
+    public String toString() {
+        return "Crew{" +
+                "name='" + job + '\'' +
+                "name='" + names + '\'' +
+                '}';
+    }
+}
