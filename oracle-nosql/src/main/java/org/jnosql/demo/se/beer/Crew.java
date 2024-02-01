@@ -32,7 +32,7 @@ public class Crew {
     }
 
 
-    Crew() {
+    public Crew() {
     }
 
     Crew(String name) {
