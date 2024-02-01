@@ -12,7 +12,7 @@
  *
  *   Otavio Santana
  */
-package org.jnosql.demo.se;
+package org.jnosql.demo.se.beer;
 
 
 

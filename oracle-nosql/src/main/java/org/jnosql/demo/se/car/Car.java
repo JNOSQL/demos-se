@@ -1,4 +1,4 @@
-package org.jnosql.demo.se;
+package org.jnosql.demo.se.car;
 
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;

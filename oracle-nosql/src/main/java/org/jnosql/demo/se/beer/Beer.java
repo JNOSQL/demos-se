@@ -12,7 +12,7 @@
  *
  *   Otavio Santana
  */
-package org.jnosql.demo.se;
+package org.jnosql.demo.se.beer;
 
 
 import jakarta.nosql.Column;
@@ -23,11 +23,7 @@ import net.datafaker.Faker;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
-import java.util.HashMap;
-
-
 
 
 @Entity
