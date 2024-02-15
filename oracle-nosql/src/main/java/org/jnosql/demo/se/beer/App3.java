@@ -6,13 +6,14 @@ import jakarta.data.page.Pageable;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;
+import org.eclipse.jnosql.mapping.DatabaseQualifier;
 
 public class App3 {
 
     public static void main(String[] args) {
         Faker faker = new Faker();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            BeerRepository repository = container.select(BeerRepository.class).get();
+            BeerRepository repository = container.select(BeerRepository.class, DatabaseQualifier.ofDocument()).get();
             for (int index = 0; index < 100; index++) {
                 Beer beer = Beer.of(faker);
                 repository.save(beer);

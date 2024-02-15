@@ -11,15 +11,10 @@
 package org.jnosql.demo.se.beer;
 
 
-
-import jakarta.data.Sort;
-import jakarta.data.page.Page;
-import jakarta.data.page.Pageable;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.nosql.document.DocumentTemplate;
 import net.datafaker.Faker;
-import org.jnosql.demo.se.car.Car;
 
 public class App {
     public static void main(String[] args) {
