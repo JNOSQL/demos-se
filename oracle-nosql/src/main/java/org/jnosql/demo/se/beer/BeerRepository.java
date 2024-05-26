@@ -14,6 +14,7 @@
  */
 package org.jnosql.demo.se.beer;
 
+import java.util.List;
 import java.util.Set;
 
 import jakarta.data.page.CursoredPage;
@@ -36,4 +37,7 @@ public interface BeerRepository extends OracleNoSQLRepository<Beer, String> {
     @Find
     @OrderBy("hop")
     CursoredPage<Beer> style(@By("style") String style, PageRequest pageRequest);
+
+    @Query("From Beer where style = ?1")
+    List<Beer> jpql(String style);
 }
