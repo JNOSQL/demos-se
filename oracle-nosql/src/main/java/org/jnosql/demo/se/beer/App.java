@@ -13,7 +13,7 @@ package org.jnosql.demo.se.beer;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import jakarta.nosql.document.DocumentTemplate;
+import org.eclipse.jnosql.mapping.document.DocumentTemplate;
 import net.datafaker.Faker;
 
 public class App {

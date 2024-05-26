@@ -6,7 +6,7 @@ import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
 import net.datafaker.Faker;
 import org.eclipse.jnosql.databases.mongodb.mapping.ObjectIdConverter;
-import org.eclipse.jnosql.mapping.Convert;
+import jakarta.nosql.Convert;
 
 import java.util.Objects;
 

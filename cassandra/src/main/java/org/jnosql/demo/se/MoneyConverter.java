@@ -10,7 +10,7 @@
  */
 package org.jnosql.demo.se;
 
-import org.eclipse.jnosql.mapping.AttributeConverter;
+import jakarta.nosql.AttributeConverter;
 
 import java.util.Currency;
 

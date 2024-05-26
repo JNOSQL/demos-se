@@ -12,7 +12,7 @@ package org.jnosql.demo.se;
 
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
-import org.eclipse.jnosql.mapping.Convert;
+import jakarta.nosql.Convert;
 
 import java.math.BigDecimal;
 import java.util.Currency;

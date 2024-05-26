@@ -19,7 +19,7 @@ import jakarta.nosql.Entity;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import org.eclipse.jnosql.mapping.Convert;
+import jakarta.nosql.Convert;
 import org.jnosql.demo.se.converter.MonetaryAmountConverter;
 import org.jnosql.demo.se.validation.CurrencyAccepted;
 import org.jnosql.demo.se.validation.MonetaryMax;

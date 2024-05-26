@@ -21,8 +21,8 @@ import org.bson.BsonValue;
 import org.bson.types.Decimal128;
 import org.eclipse.jnosql.communication.TypeReference;
 import org.eclipse.jnosql.communication.Value;
-import org.eclipse.jnosql.communication.document.Document;
-import org.eclipse.jnosql.mapping.AttributeConverter;
+import jakarta.nosql.AttributeConverter;
+import org.eclipse.jnosql.communication.semistructured.Element;
 import org.javamoney.moneta.Money;
 
 import javax.money.MonetaryAmount;
@@ -65,7 +65,7 @@ public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmoun
             return getMonetaryAmount(bsonDocument);
         }
 
-        if (dbData instanceof Document document) {
+        if (dbData instanceof Element document) {
             return getMonetaryAmount(document);
         }
 
@@ -73,10 +73,10 @@ public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmoun
 
     }
 
-    private MonetaryAmount getMonetaryAmount(Document document) {
+    private MonetaryAmount getMonetaryAmount(Element document) {
 
         Map<String,Value> attributes = document.value()
-                .get(new TypeReference<List<Document>>() {})
+                .get(new TypeReference<List<Element>>() {})
                 .stream()
                 .map(d -> Map.of(d.name(), d.value()))
                 .reduce(new HashMap<>(), (a, b) -> {

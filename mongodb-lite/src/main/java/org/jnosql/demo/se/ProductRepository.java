@@ -10,13 +10,13 @@
  */
 package org.jnosql.demo.se;
 
-import jakarta.data.repository.PageableRepository;
+import jakarta.data.repository.BasicRepository;
 import jakarta.data.repository.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ProductRepository extends PageableRepository<Product, String> {
+public interface ProductRepository extends BasicRepository<Product, String> {
     List<Product> findByName(String name);
 
     List<Product> findByCategory(String category);

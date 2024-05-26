@@ -12,7 +12,8 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.nosql.keyvalue.KeyValueTemplate;
+import org.eclipse.jnosql.mapping.keyvalue.KeyValueTemplate;
+
 
 import java.util.Optional;
 

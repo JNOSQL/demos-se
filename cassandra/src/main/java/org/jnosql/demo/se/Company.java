@@ -13,7 +13,6 @@ package org.jnosql.demo.se;
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
-import org.eclipse.jnosql.databases.cassandra.mapping.UDT;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -26,8 +25,7 @@ public class Company {
     @Id("name")
     private String name;
 
-    @Column
-    @UDT("headquarter")
+    @Column(udt = "headquarter")
     private Set<Headquarter> headquarters;
 
     /**

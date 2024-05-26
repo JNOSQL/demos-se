@@ -14,7 +14,6 @@ package org.jnosql.demo.se;
 
 import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
-import org.eclipse.jnosql.databases.cassandra.mapping.UDT;
 
 import java.util.Objects;
 
@@ -27,8 +26,7 @@ public class Movie {
     @Column
     private Integer age;
 
-    @Column
-    @UDT("director")
+    @Column(udt = "director")
     private Director director;
 
     public String getName() {

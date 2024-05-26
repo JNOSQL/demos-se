@@ -1,9 +1,8 @@
 package org.jnosql.demo.se.car;
 
 
-import jakarta.data.Sort;
 import jakarta.data.page.Page;
-import jakarta.data.page.Pageable;
+import jakarta.data.page.PageRequest;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;
@@ -24,12 +23,12 @@ public class App3 {
             repository.parking(car);
             repository.unpark(car);
 
-            Pageable page = Pageable.ofPage(1).size(3).sortBy(Sort.desc("model"));
-            Page<Car> page1 = repository.findByTransmission("CVT", page);
-            System.out.println("The first page");
+            PageRequest pageRequest = PageRequest.ofPage(1).size(3);
+            Page<Car> page1 = repository.findByTransmission("CVT", pageRequest);
+            System.out.println("The first pageRequest");
             page1.forEach(System.out::println);
-            System.out.println("The second page");
-            Pageable secondPage = page.next();
+            System.out.println("The second pageRequest");
+            var secondPage = page1.nextPageRequest();
             Page<Car> page2 = repository.findByTransmission("CVT", secondPage);
             page2.forEach(System.out::println);
 
