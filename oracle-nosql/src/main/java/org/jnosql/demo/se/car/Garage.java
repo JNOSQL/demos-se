@@ -1,7 +1,7 @@
 package org.jnosql.demo.se.car;
 
 import jakarta.data.page.Page;
-import jakarta.data.page.Pageable;
+import jakarta.data.page.PageRequest;
 import jakarta.data.repository.DataRepository;
 import jakarta.data.repository.Delete;
 import jakarta.data.repository.Repository;
@@ -16,5 +16,5 @@ public interface Garage extends DataRepository<Car, String>{
     @Delete
     void unpark(Car car);
 
-    Page<Car> findByTransmission(String transmission, Pageable page);
+    Page<Car> findByTransmission(String transmission, PageRequest page);
 }

@@ -13,7 +13,8 @@ package org.jnosql.demo.se;
 
 
 import jakarta.nosql.Column;
-import org.eclipse.jnosql.mapping.Embeddable;
+
+import jakarta.nosql.Embeddable;
 
 import java.util.Objects;
 

@@ -14,14 +14,16 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import org.eclipse.jnosql.communication.document.DocumentQuery;
+
+import org.eclipse.jnosql.communication.semistructured.SelectQuery;
 import org.eclipse.jnosql.databases.couchbase.mapping.CouchbaseTemplate;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.eclipse.jnosql.communication.document.DocumentQuery.select;
+import static org.eclipse.jnosql.communication.semistructured.SelectQuery.select;
+
 
 public class App1 {
 
@@ -36,7 +38,7 @@ public class App1 {
             CouchbaseTemplate couchbaseTemplate = container.select(CouchbaseTemplate.class).get();
             couchbaseTemplate.insert(ironMan);
 
-            DocumentQuery query = select().from("Hero").where("_id").eq("iron_man").build();
+            SelectQuery query = select().from("Hero").where("_id").eq("iron_man").build();
             List<Hero> heroes = couchbaseTemplate.<Hero>select(query).collect(Collectors.toList());
             System.out.println(heroes);
 

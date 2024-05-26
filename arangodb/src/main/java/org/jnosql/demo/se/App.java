@@ -14,10 +14,9 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import jakarta.nosql.document.DocumentTemplate;
 import net.datafaker.Faker;
+import org.eclipse.jnosql.mapping.document.DocumentTemplate;
 
-import java.util.Collections;
 import java.util.List;
 
 public class App {
@@ -26,7 +25,7 @@ public class App {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             var faker = new Faker();
-            DocumentTemplate template = container.select(DocumentTemplate.class).get();
+            var template = container.select(DocumentTemplate.class).get();
 
             Hero hero = template.insert(Hero.of(faker));
 

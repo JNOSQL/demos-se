@@ -26,7 +26,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.eclipse.jnosql.databases.mongodb.mapping.ObjectIdConverter;
-import org.eclipse.jnosql.mapping.Convert;
+import jakarta.nosql.Convert;
 
 import java.util.Collections;
 import java.util.List;
