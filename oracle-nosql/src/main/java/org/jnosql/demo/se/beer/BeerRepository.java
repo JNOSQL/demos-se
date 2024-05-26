@@ -16,6 +16,11 @@ package org.jnosql.demo.se.beer;
 
 import java.util.Set;
 
+import jakarta.data.page.CursoredPage;
+import jakarta.data.page.PageRequest;
+import jakarta.data.repository.By;
+import jakarta.data.repository.Find;
+import jakarta.data.repository.OrderBy;
 import jakarta.data.repository.Query;
 import jakarta.data.repository.Repository;
 import org.eclipse.jnosql.databases.oracle.mapping.OracleNoSQLRepository;
@@ -27,4 +32,8 @@ public interface BeerRepository extends OracleNoSQLRepository<Beer, String> {
 
     @Query("select * from Beer")
     Set<Beer> query();
+
+    @Find
+    @OrderBy("hop")
+    CursoredPage<Beer> style(@By("style") String style, PageRequest pageRequest);
 }
