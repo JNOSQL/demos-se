@@ -48,6 +48,7 @@
         <module>mongodb</module>
         <module>mongodb-lite</module>
         <module>mongodb-double</module>
+        <module>mongodb-record</module>
         <module>oracle-nosql</module>
         <module>redis</module>
         <module>couchdb</module>
