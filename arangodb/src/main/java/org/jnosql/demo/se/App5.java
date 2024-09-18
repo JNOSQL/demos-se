@@ -36,7 +36,6 @@ public class App5 {
             template.insert(form);
             List<Form> forms = template.select(Form.class).result();
             System.out.println(forms);
-            fo
 
         }
     }
