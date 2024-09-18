@@ -19,7 +19,7 @@
     <version>1.1.1</version>
 
     <properties>
-        <jnosql.version>1.1.1</jnosql.version>
+        <jnosql.version>1.1.2</jnosql.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compile.version>3.5.1</maven.compile.version>
