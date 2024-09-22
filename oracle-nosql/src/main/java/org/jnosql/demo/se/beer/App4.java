@@ -13,7 +13,7 @@ public class App4 {
             BeerRepository repository = container.select(BeerRepository.class).get();
             for (int index = 0; index < 100; index++) {
                 Beer beer = Beer.of(faker);
-                //repository.save(beer);
+                repository.save(beer);
 
             }
 
