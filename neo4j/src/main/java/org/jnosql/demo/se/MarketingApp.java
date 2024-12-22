@@ -15,7 +15,7 @@ package org.jnosql.demo.se;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import org.apache.tinkerpop.gremlin.structure.Graph;
-import org.eclipse.jnosql.mapping.graph.GraphTemplate;
+import org.eclipse.jnosql.databases.tinkerpop.mapping.GraphTemplate;
 
 import java.util.List;
 

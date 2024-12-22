@@ -12,7 +12,7 @@ package org.jnosql.demo.se.travel;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import org.eclipse.jnosql.mapping.graph.GraphTemplate;
+import org.eclipse.jnosql.databases.tinkerpop.mapping.GraphTemplate;
 
 import java.util.Map;
 import java.util.Optional;

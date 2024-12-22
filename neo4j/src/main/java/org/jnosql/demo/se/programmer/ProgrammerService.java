@@ -11,7 +11,7 @@
 package org.jnosql.demo.se.programmer;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import org.eclipse.jnosql.mapping.graph.GraphTemplate;
+import org.eclipse.jnosql.databases.tinkerpop.mapping.GraphTemplate;
 
 import java.util.Optional;
 
