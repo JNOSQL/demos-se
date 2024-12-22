@@ -28,7 +28,7 @@
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.mapping</groupId>
-            <artifactId>jnosql-graph-connections</artifactId>
+            <artifactId></artifactId>
             <version>${jnosql.version}</version>
         </dependency>
         <dependency>
