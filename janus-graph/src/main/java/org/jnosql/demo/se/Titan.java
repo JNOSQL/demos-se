@@ -51,10 +51,9 @@ public class Titan {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Titan)) {
+        if (!(o instanceof Titan traveler)) {
             return false;
         }
-        Titan traveler = (Titan) o;
         return Objects.equals(id, traveler.id);
     }
 

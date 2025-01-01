@@ -51,10 +51,9 @@ public class God {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof God)) {
+        if (!(o instanceof God traveler)) {
             return false;
         }
-        God traveler = (God) o;
         return Objects.equals(id, traveler.id);
     }
 

@@ -51,10 +51,9 @@ public class Human {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Human)) {
+        if (!(o instanceof Human traveler)) {
             return false;
         }
-        Human traveler = (Human) o;
         return Objects.equals(id, traveler.id);
     }
 

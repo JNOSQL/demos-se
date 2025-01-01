@@ -51,10 +51,9 @@ public class Demigod {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Demigod)) {
+        if (!(o instanceof Demigod traveler)) {
             return false;
         }
-        Demigod traveler = (Demigod) o;
         return Objects.equals(id, traveler.id);
     }
 

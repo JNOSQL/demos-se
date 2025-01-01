@@ -49,10 +49,9 @@ public class Traveler {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Traveler)) {
+        if (!(o instanceof Traveler traveler)) {
             return false;
         }
-        Traveler traveler = (Traveler) o;
         return Objects.equals(id, traveler.id);
     }
 

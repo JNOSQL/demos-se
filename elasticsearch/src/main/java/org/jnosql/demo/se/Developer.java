@@ -73,10 +73,9 @@ public class Developer {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Developer)) {
+        if (!(o instanceof Developer developer)) {
             return false;
         }
-        Developer developer = (Developer) o;
         return Objects.equals(id, developer.id);
     }
 

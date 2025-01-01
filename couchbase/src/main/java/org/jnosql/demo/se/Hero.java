@@ -76,10 +76,9 @@ public class Hero {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Hero)) {
+        if (!(o instanceof Hero hero)) {
             return false;
         }
-        Hero hero = (Hero) o;
         return Objects.equals(name, hero.name);
     }
 

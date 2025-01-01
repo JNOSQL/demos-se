@@ -46,10 +46,9 @@ public class Location {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Location)) {
+        if (!(o instanceof Location traveler)) {
             return false;
         }
-        Location traveler = (Location) o;
         return Objects.equals(id, traveler.id);
     }
 

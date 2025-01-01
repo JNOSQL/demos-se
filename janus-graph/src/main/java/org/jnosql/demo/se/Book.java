@@ -49,10 +49,9 @@ public class Book {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Book)) {
+        if (!(o instanceof Book traveler)) {
             return false;
         }
-        Book traveler = (Book) o;
         return Objects.equals(id, traveler.id);
     }
 

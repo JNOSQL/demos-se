@@ -49,10 +49,9 @@ public class Category {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Category)) {
+        if (!(o instanceof Category traveler)) {
             return false;
         }
-        Category traveler = (Category) o;
         return Objects.equals(id, traveler.id);
     }
 

@@ -45,8 +45,7 @@ public class Director {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Director)) return false;
-        Director director = (Director) o;
+        if (!(o instanceof Director director)) return false;
         return Objects.equals(name, director.name) &&
                 Objects.equals(movies, director.movies);
     }

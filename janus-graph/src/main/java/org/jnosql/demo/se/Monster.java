@@ -44,10 +44,9 @@ public class Monster {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Monster)) {
+        if (!(o instanceof Monster traveler)) {
             return false;
         }
-        Monster traveler = (Monster) o;
         return Objects.equals(id, traveler.id);
     }
 
