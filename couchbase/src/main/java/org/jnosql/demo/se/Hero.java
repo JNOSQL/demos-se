@@ -89,11 +89,10 @@ public class Hero {
 
     @Override
     public String toString() {
-        String sb = "Hero{" + "name='" + name + '\'' +
+        return "Hero{" + "name='" + name + '\'' +
                 ", realName='" + realName + '\'' +
                 ", age=" + age +
                 ", powers=" + powers +
                 '}';
-        return sb;
     }
 }

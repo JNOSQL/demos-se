@@ -61,9 +61,8 @@ public class Villain implements Serializable {
 
     @Override
     public String toString() {
-        String sb = "Villain{" + "id='" + id + '\'' +
+        return "Villain{" + "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 '}';
-        return sb;
     }
 }

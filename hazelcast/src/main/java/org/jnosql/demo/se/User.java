@@ -72,11 +72,10 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        String sb = "User{" + "userName='" + userName + '\'' +
+        return "User{" + "userName='" + userName + '\'' +
                 ", name='" + name + '\'' +
                 ", phones=" + phones +
                 '}';
-        return sb;
     }
 
     public static UserBuilder builder() {

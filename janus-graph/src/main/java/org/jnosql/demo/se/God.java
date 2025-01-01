@@ -64,10 +64,9 @@ public class God {
 
     @Override
     public String toString() {
-        String sb = "God{" + "id=" + id +
+        return "God{" + "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
-        return sb;
     }
 }

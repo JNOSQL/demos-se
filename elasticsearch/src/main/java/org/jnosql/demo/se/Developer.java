@@ -86,13 +86,12 @@ public class Developer {
 
     @Override
     public String toString() {
-        String sb = "Developer{" + "id=" + id +
+        return "Developer{" + "id=" + id +
                 ", name='" + name + '\'' +
                 ", phones=" + phones +
                 ", languages=" + languages +
                 ", address=" + address +
                 '}';
-        return sb;
     }
 
     public static DeveloperBuilder builder() {

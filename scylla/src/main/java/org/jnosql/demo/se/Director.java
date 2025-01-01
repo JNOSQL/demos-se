@@ -57,10 +57,9 @@ public class Director {
 
     @Override
     public String toString() {
-        String sb = "Director{" + "name='" + name + '\'' +
+        return "Director{" + "name='" + name + '\'' +
                 ", movies=" + movies +
                 '}';
-        return sb;
     }
 
     public static DirectorBuilder builder() {

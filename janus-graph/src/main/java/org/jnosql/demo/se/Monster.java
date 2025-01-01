@@ -57,9 +57,8 @@ public class Monster {
 
     @Override
     public String toString() {
-        String sb = "Monster{" + "id=" + id +
+        return "Monster{" + "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
-        return sb;
     }
 }

@@ -61,10 +61,9 @@ public class City {
 
     @Override
     public String toString() {
-        String sb = "City{" + "id=" + id +
+        return "City{" + "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
-        return sb;
     }
 
     public static City of(String name) {

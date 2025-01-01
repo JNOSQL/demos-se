@@ -62,10 +62,9 @@ public class Traveler {
 
     @Override
     public String toString() {
-        String sb = "Traveler{" + "id=" + id +
+        return "Traveler{" + "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
-        return sb;
     }
 
     public static Traveler of(String name) {

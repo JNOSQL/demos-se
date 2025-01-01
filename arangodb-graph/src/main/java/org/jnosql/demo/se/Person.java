@@ -82,13 +82,12 @@ public class Person {
 
     @Override
     public String toString() {
-        String sb = "Person{" + "id=" + id +
+        return "Person{" + "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", occupation='" + occupation + '\'' +
                 ", salary=" + salary +
                 '}';
-        return sb;
     }
 
     public static PersonBuilder builder() {

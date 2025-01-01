@@ -42,8 +42,7 @@ public class ManagerProducer {
         DatabaseConfiguration configuration = new MongoDBDocumentConfiguration();
         Settings settings = MicroProfileSettings.INSTANCE;
         DatabaseManagerFactory factory = configuration.apply(settings);
-        DatabaseManager manager = factory.apply(config.getValue(DATABASE, String.class));
-        return manager;
+        return factory.apply(config.getValue(DATABASE, String.class));
     }
 
     public void close(@Disposes @Database(provider = "romain", value = DatabaseType.DOCUMENT) DatabaseManager manager) {
