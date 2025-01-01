@@ -1,6 +1,5 @@
 package org.jnosql.demo.se.beer;
 
-import jakarta.data.page.PageRequest;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;

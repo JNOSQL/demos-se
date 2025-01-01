@@ -16,8 +16,6 @@ import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;
 
-import java.util.Collections;
-
 public class App2 {
 
 
