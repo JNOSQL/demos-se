@@ -115,7 +115,7 @@ class MonetaryAmountMaxValidatorTest {
                 validator.validate(currency);
         assertTrue(constraintViolations.isEmpty());
     }
-    private class MonetaryAmountValidator {
+    private static class MonetaryAmountValidator {
 
         @MonetaryMax("10.12")
         private MonetaryAmount money;
