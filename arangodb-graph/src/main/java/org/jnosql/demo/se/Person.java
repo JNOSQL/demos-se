@@ -51,6 +51,9 @@ public class Person {
         return age;
     }
 
+    /**
+     * @deprecated default constructor
+     */
     Person() {
     }
 
