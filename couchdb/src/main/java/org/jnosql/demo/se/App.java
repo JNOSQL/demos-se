@@ -31,7 +31,7 @@ public class App {
 
             template.insert(ironMan);
 
-            List<Hero> heroes = template.<Hero>select(Hero.class)
+            List<Hero> heroes = template.select(Hero.class)
                     .where("id").eq("iron_man").result();
             System.out.println(heroes);
 
