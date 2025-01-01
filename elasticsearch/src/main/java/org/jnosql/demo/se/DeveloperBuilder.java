@@ -25,7 +25,7 @@ public class DeveloperBuilder {
 
     private Address address;
 
-    private List<String> languages = new ArrayList<>();
+    private final List<String> languages = new ArrayList<>();
 
     public DeveloperBuilder withId(long id) {
         this.id = id;

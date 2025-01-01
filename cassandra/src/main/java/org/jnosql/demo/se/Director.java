@@ -73,7 +73,7 @@ public class Director {
 
         private String name;
 
-        private Set<String> movies = new HashSet<>();
+        private final Set<String> movies = new HashSet<>();
 
         public DirectorBuilder withName(String name) {
             this.name = name;
