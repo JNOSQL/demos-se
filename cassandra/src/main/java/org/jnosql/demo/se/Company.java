@@ -84,7 +84,7 @@ public class Company {
     public static class CompanyBuilder {
         private String name;
 
-        private Set<Headquarter> headquarters = new HashSet<>();
+        private final Set<Headquarter> headquarters = new HashSet<>();
 
         private CompanyBuilder() {
         }

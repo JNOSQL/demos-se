@@ -35,7 +35,7 @@ class CarTest {
 
     private static Validator validator;
 
-    private CurrencyUnit usd = Monetary.getCurrency(Locale.US);
+    private final CurrencyUnit usd = Monetary.getCurrency(Locale.US);
 
     @BeforeAll
     public static void setUp() {
