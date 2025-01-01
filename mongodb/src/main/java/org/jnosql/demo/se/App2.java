@@ -13,7 +13,7 @@ public class App2 {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            People people = container.select(People.class).get();;
+            People people = container.select(People.class).get();
 
             var pageRequest = PageRequest.ofPage(2).size(2);
             Order<Person> order = Order.by(Sort.desc("name"));
