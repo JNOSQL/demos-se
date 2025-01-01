@@ -18,6 +18,7 @@ package org.jnosql.demo.se.validation;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
+import javax.money.MonetaryAmount;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
@@ -27,15 +28,15 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ *Informs the maximum value of a {@link javax.money.MonetaryAmount}.
+ *To do the comparison is used the {@link javax.money.MonetaryAmount#isLessThanOrEqualTo(MonetaryAmount)} 
+ * @author Otavio Santana
+ */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
 @Constraint(validatedBy = MonetaryAmountMaxValidator.class)
 @Documented
-/**
- *Informs the maximum value of a {@link MonetaryAmount}.
- *To do the comparison is used the {@link MonetaryAmount#isLessThanOrEqualTo(MonetaryAmount)
- * @author Otavio Santana
- */
 public @interface MonetaryMax {
 
     String message() default "{org.javamoney.midas.constraints.monetaryMax}";
