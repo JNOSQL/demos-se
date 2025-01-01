@@ -26,6 +26,7 @@ import org.junit.jupiter.api.Test;
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Locale;
 import java.util.Set;
 
@@ -61,7 +62,7 @@ class DriverTest {
     public void shouldReturnErrorWhenDriverHasNotLicense() {
 
         Driver driver = Driver.builder().withAge(20)
-                .withCars(Arrays.asList(ferrari))
+                .withCars(Collections.singletonList(ferrari))
                 .withEmail("email@email.com")
                 .withLicense(false)
                 .withName("Speed Racer").build();
@@ -78,7 +79,7 @@ class DriverTest {
     public void shouldReturnErrorWhenDriverIsYoung() {
 
         Driver driver = Driver.builder().withAge(10)
-                .withCars(Arrays.asList(ferrari))
+                .withCars(Collections.singletonList(ferrari))
                 .withEmail("email@email.com")
                 .withLicense(true)
                 .withName("Speed Racer").build();
@@ -95,7 +96,7 @@ class DriverTest {
     public void shouldReturnErrorWhenDriverIsOld() {
 
         Driver driver = Driver.builder().withAge(200)
-                .withCars(Arrays.asList(ferrari))
+                .withCars(Collections.singletonList(ferrari))
                 .withEmail("email@email.com")
                 .withLicense(true)
                 .withName("Speed Racer").build();
@@ -112,7 +113,7 @@ class DriverTest {
     public void shouldReturnErrorWhenDriverEmailIsInvalid() {
 
         Driver driver = Driver.builder().withAge(25)
-                .withCars(Arrays.asList(ferrari))
+                .withCars(Collections.singletonList(ferrari))
                 .withEmail("emailemail")
                 .withLicense(true)
                 .withName("Speed Racer").build();
@@ -145,7 +146,7 @@ class DriverTest {
     @Test
     public void shouldCreateInstance() {
         Driver driver = Driver.builder().withAge(25)
-                .withCars(Arrays.asList(ferrari))
+                .withCars(Collections.singletonList(ferrari))
                 .withEmail("email@email.com")
                 .withLicense(true)
                 .withName("Speed Racer").build();
