@@ -86,14 +86,13 @@ public class Developer {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Developer{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", phones=").append(phones);
-        sb.append(", languages=").append(languages);
-        sb.append(", address=").append(address);
-        sb.append('}');
-        return sb.toString();
+        String sb = "Developer{" + "id=" + id +
+                ", name='" + name + '\'' +
+                ", phones=" + phones +
+                ", languages=" + languages +
+                ", address=" + address +
+                '}';
+        return sb;
     }
 
     public static DeveloperBuilder builder() {

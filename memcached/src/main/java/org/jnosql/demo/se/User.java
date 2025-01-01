@@ -72,12 +72,11 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("User{");
-        sb.append("userName='").append(userName).append('\'');
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", phones=").append(phones);
-        sb.append('}');
-        return sb.toString();
+        String sb = "User{" + "userName='" + userName + '\'' +
+                ", name='" + name + '\'' +
+                ", phones=" + phones +
+                '}';
+        return sb;
     }
 
     public static UserBuilder builder() {

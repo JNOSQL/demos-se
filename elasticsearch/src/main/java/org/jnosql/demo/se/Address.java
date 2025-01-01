@@ -80,12 +80,11 @@ public class Address {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Address{");
-        sb.append("street='").append(street).append('\'');
-        sb.append(", city='").append(city).append('\'');
-        sb.append(", number=").append(number);
-        sb.append('}');
-        return sb.toString();
+        String sb = "Address{" + "street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", number=" + number +
+                '}';
+        return sb;
     }
 
     public static AddressBuilder builder() {

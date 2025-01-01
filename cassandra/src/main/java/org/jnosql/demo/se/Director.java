@@ -57,11 +57,10 @@ public class Director {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Director{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", movies=").append(movies);
-        sb.append('}');
-        return sb.toString();
+        String sb = "Director{" + "name='" + name + '\'' +
+                ", movies=" + movies +
+                '}';
+        return sb;
     }
 
     public static DirectorBuilder builder() {

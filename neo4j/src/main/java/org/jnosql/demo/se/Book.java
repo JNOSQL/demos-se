@@ -62,11 +62,10 @@ public class Book {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Traveler{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append('}');
-        return sb.toString();
+        String sb = "Traveler{" + "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+        return sb;
     }
 
     public static Book of(String name) {

@@ -57,10 +57,9 @@ public class Monster {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Monster{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append('}');
-        return sb.toString();
+        String sb = "Monster{" + "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+        return sb;
     }
 }

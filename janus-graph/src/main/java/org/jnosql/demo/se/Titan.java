@@ -64,11 +64,10 @@ public class Titan {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("God{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", age=").append(age);
-        sb.append('}');
-        return sb.toString();
+        String sb = "God{" + "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+        return sb;
     }
 }

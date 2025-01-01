@@ -89,12 +89,11 @@ public class Hero {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Hero{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", realName='").append(realName).append('\'');
-        sb.append(", age=").append(age);
-        sb.append(", powers=").append(powers);
-        sb.append('}');
-        return sb.toString();
+        String sb = "Hero{" + "name='" + name + '\'' +
+                ", realName='" + realName + '\'' +
+                ", age=" + age +
+                ", powers=" + powers +
+                '}';
+        return sb;
     }
 }
