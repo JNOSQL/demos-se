@@ -27,16 +27,16 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-@Target( { METHOD, FIELD, ANNOTATION_TYPE })
-@Retention(RUNTIME)
-@Constraint(validatedBy = {MonetaryAmountAcceptedValidator.class})
-@Documented
 /**
  * Informs the currencies that are allowed on validation.
  * This annotation works with MonetaryAmount and CurrencyUnit.
  * @author Otavio Santana
  * @author Werner Keil
  */
+@Target( { METHOD, FIELD, ANNOTATION_TYPE })
+@Retention(RUNTIME)
+@Constraint(validatedBy = {MonetaryAmountAcceptedValidator.class})
+@Documented
 public @interface CurrencyAccepted {
 
     String message() default "{org.javamoney.midas.constraints.currencyAccepted}";

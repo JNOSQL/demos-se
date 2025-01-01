@@ -27,15 +27,15 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-@Target( { METHOD, FIELD, ANNOTATION_TYPE })
-@Retention(RUNTIME)
-@Constraint(validatedBy = MonetaryAmountMinValidator.class)
-@Documented
 /**
  *Informs the minimum value of a {@link MonetaryAmount}.
  *To do the comparison is used the {@link MonetaryAmount#isGreaterThanOrEqualTo(MonetaryAmount)
  * @author Otavio Santana
  */
+@Target( { METHOD, FIELD, ANNOTATION_TYPE })
+@Retention(RUNTIME)
+@Constraint(validatedBy = MonetaryAmountMinValidator.class)
+@Documented
 public @interface MonetaryMin {
 
     String message() default "{org.javamoney.midas.constraints.monetaryMin}";
