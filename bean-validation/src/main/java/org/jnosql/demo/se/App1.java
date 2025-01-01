@@ -53,7 +53,7 @@ public class App1 {
                     .withName("Michael Schumacher").build();
 
             Driver rubens = Driver.builder().withAge(25)
-                    .withCars(Arrays.asList(mustang))
+                    .withCars(Collections.singletonList(mustang))
                     .withEmail("rubens@mustang.com")
                     .withLicense(true)
                     .withName("Rubens Barrichello").build();
