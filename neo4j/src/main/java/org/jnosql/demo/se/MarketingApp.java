@@ -19,7 +19,6 @@ import org.eclipse.jnosql.databases.tinkerpop.mapping.GraphTemplate;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
 import static org.apache.tinkerpop.gremlin.process.traversal.P.between;
 import static org.apache.tinkerpop.gremlin.process.traversal.P.gte;
 import static org.jnosql.demo.se.Person.builder;

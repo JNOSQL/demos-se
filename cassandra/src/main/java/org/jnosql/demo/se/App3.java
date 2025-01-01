@@ -19,7 +19,6 @@ import org.eclipse.jnosql.databases.cassandra.mapping.CassandraTemplate;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 public class App3 {

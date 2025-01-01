@@ -17,7 +17,6 @@ import jakarta.enterprise.inject.se.SeContainerInitializer;
 
 import java.util.Arrays;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 public class App {
 

@@ -17,8 +17,6 @@ import org.eclipse.jnosql.databases.tinkerpop.mapping.GraphTemplate;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
-
 public final class BookApp {
 
     private BookApp() {
