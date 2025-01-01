@@ -21,7 +21,6 @@ import org.javamoney.moneta.Money;
 
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Locale;
 
