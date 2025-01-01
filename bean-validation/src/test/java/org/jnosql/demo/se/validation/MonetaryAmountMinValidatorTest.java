@@ -97,7 +97,7 @@ class MonetaryAmountMinValidatorTest {
         Set<ConstraintViolation<MonetaryAmountValidator>> constraintViolations =
                 validator.validate(currency);
 
-        assertTrue(constraintViolations.size() == 1);
+        assertEquals(1, constraintViolations.size());
         assertEquals("{org.javamoney.midas.constraints.monetaryMin}", constraintViolations.iterator().next().getMessageTemplate());
     }
 
