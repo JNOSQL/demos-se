@@ -57,14 +57,14 @@ public final class MarketingApp {
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
-                    .<Person>result().collect(toList());
+                    .<Person>result().toList();
 
             List<Person> peopleWhoDeveloperKnows = template.traversalVertex()
                     .has("salary", gte(3_000D))
                     .has("age", between(20, 25))
                     .has("occupation", "Developer")
                     .out("knows")
-                    .<Person>result().collect(toList());
+                    .<Person>result().toList();
 
             List<Person> both = template.traversalVertex()
                     .has("salary", gte(3_000D))
@@ -74,7 +74,7 @@ public final class MarketingApp {
                     .bothV()
                     .<Person>result()
                     .distinct()
-                    .collect(toList());
+                    .toList();
 
             List<Person> couple = template.traversalVertex()
                     .has("salary", gte(3_000D))
@@ -85,7 +85,7 @@ public final class MarketingApp {
                     .bothV()
                     .<Person>result()
                     .distinct()
-                    .collect(toList());
+                    .toList();
 
             System.out.println("Developers has salary greater than 3000 and age between 20 and 25: " + developers);
             System.out.println("Person who the Developers target know: " + peopleWhoDeveloperKnows);

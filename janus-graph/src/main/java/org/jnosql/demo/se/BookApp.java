@@ -61,13 +61,13 @@ public final class BookApp {
                     .has("name", "Software")
                     .in("is").hasLabel("Category").<Category>result()
                     .map(Category::getName)
-                    .collect(toList());
+                    .toList();
 
             List<String> softwareBooks = graph.traversalVertex().hasLabel("Category")
                     .has("name", "Software")
                     .in("is").hasLabel("Book").<Book>result()
                     .map(Book::getName)
-                    .collect(toList());
+                    .toList();
 
             List<String> sofwareNoSQLBooks = graph.traversalVertex().hasLabel("Category")
                     .has("name", "Software")
@@ -75,7 +75,7 @@ public final class BookApp {
                     .has("name", "NoSQL")
                     .in("is").<Book>result()
                     .map(Book::getName)
-                    .collect(toList());
+                    .toList();
 
 
             System.out.println("The software categories: " + softwareCategories);

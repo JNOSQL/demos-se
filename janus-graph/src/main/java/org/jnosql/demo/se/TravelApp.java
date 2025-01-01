@@ -114,7 +114,7 @@ public final class TravelApp {
             List<String> friendsCasaBlanca = graph.traversalVertex()
                     .hasLabel("City")
                     .has("name", "Casa Blanca")
-                    .in(TRAVELS).<Traveler>result().map(Traveler::getName).collect(toList());
+                    .in(TRAVELS).<Traveler>result().map(Traveler::getName).toList();
 
             System.out.println("The city most fun: "+ mostFunCity);
             System.out.println("The city most business: "+ mostBusiness);

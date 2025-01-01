@@ -34,12 +34,12 @@ public class App {
             greek.insert(artemis);
 
             LOGGER.info("Finding in the Greek service ");
-            LOGGER.info("Finding by Artemis : " + greek.findName("Artemis").collect(Collectors.toList()));
-            LOGGER.info("Finding by Diana " + greek.findName("Diana").collect(Collectors.toList()));
+            LOGGER.info("Finding by Artemis : " + greek.findName("Artemis").toList());
+            LOGGER.info("Finding by Diana " + greek.findName("Diana").toList());
 
             LOGGER.info("Finding in the Roman service ");
-            LOGGER.info("Finding by Artemis : " + romain.findName("Artemis").collect(Collectors.toList()));
-            LOGGER.info("Finding by Diana " + romain.findName("Diana").collect(Collectors.toList()));
+            LOGGER.info("Finding by Artemis : " + romain.findName("Artemis").toList());
+            LOGGER.info("Finding by Diana " + romain.findName("Diana").toList());
 
         }
     }

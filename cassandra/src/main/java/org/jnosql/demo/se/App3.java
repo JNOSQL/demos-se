@@ -39,7 +39,7 @@ public class App3 {
             System.out.println("Person saved" + saved);
 
 
-            List<Person> people = cassandraTemplate.<Person>cql("select * from developers.Person where id = 1").collect(Collectors.toList());
+            List<Person> people = cassandraTemplate.<Person>cql("select * from developers.Person where id = 1").toList();
             System.out.println("Entity found: " + people);
 
         }
