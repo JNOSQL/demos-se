@@ -10,10 +10,10 @@
  */
 package org.jnosql.demo.se;
 
+import jakarta.data.repository.Param;
 import jakarta.data.repository.Repository;
 import org.eclipse.jnosql.databases.couchbase.mapping.CouchbaseRepository;
 import org.eclipse.jnosql.databases.couchbase.mapping.N1QL;
-import org.eclipse.jnosql.databases.couchbase.mapping.Param;
 
 import java.util.Optional;
 import java.util.stream.Stream;

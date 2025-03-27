@@ -12,7 +12,7 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import org.eclipse.jnosql.databases.tinkerpop.mapping.GraphTemplate;
+import org.eclipse.jnosql.databases.tinkerpop.mapping.TinkerpopTemplate;
 
 import java.util.List;
 import java.util.Map;
@@ -34,7 +34,7 @@ public final class TravelApp {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            GraphTemplate graph = container.select(GraphTemplate.class).get();
+            TinkerpopTemplate graph = container.select(TinkerpopTemplate.class).get();
 
             Traveler stark = graph.insert(Traveler.of("Stark"));
             Traveler roges = graph.insert(Traveler.of("Rogers"));

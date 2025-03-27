@@ -12,7 +12,7 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import org.eclipse.jnosql.databases.tinkerpop.mapping.GraphTemplate;
+import org.eclipse.jnosql.databases.tinkerpop.mapping.TinkerpopTemplate;
 
 import java.util.Optional;
 
@@ -26,7 +26,7 @@ public class TheGodsApp {
 
     public static void main(String[] args) {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            GraphTemplate graph = container.select(GraphTemplate.class).get();
+            TinkerpopTemplate graph = container.select(TinkerpopTemplate.class).get();
             Optional<God> saturn = graph.traversalVertex().has("name", "saturn").next();
             System.out.println(saturn);
             graph.traversalVertex().has("place", geoWithin(circle(37.97, 23.72, 50)))

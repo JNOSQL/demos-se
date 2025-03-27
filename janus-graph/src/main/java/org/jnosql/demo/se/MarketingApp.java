@@ -14,7 +14,7 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import org.eclipse.jnosql.databases.tinkerpop.mapping.GraphTemplate;
+import org.eclipse.jnosql.databases.tinkerpop.mapping.TinkerpopTemplate;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public final class MarketingApp {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            GraphTemplate template = container.select(GraphTemplate.class).get();
+            TinkerpopTemplate template = container.select(TinkerpopTemplate.class).get();
 
             Person banner = template.insert(Person.builder().withAge(30).withName("Banner")
                     .withOccupation("Developer").withSalary(3_000D).build());
