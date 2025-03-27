@@ -21,7 +21,7 @@ public class Book {
 
 
     @Id
-    private Long id;
+    private String id;
 
     @Column
     private String name;
@@ -35,7 +35,7 @@ public class Book {
     }
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

@@ -12,10 +12,8 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import org.apache.tinkerpop.gremlin.structure.Graph;
-import org.eclipse.jnosql.databases.tinkerpop.mapping.TinkerpopTemplate;
-
-import java.util.List;
+import org.eclipse.jnosql.mapping.graph.Edge;
+import org.eclipse.jnosql.mapping.graph.GraphTemplate;
 
 public final class BookApp {
 
@@ -25,8 +23,7 @@ public final class BookApp {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            TinkerpopTemplate graph = container.select(TinkerpopTemplate.class).get();
-            Graph thinkerpop = container.select(Graph.class).get();
+            GraphTemplate graph = container.select(GraphTemplate.class).get();
 
             graph.insert(Category.of("Software"));
             graph.insert(Category.of("Romance"));
@@ -40,7 +37,6 @@ public final class BookApp {
             graph.insert(Book.of("Migrating to Microservice Databases"));
             graph.insert(Book.of("The Shack"));
 
-            thinkerpop.tx().commit();
 
             Category software = getCategory("Software", graph);
             Category romance = getCategory("Romance", graph);
@@ -56,63 +52,31 @@ public final class BookApp {
 
 
 
-            graph.edge(java, "is", software);
-            graph.edge(nosql, "is", software);
-            graph.edge(microService, "is", software);
+            graph.edge(Edge.source(java).label("is").target(software).build());
+            graph.edge(Edge.source(nosql).label("is").target(software).build());
+            graph.edge(Edge.source(microService).label("is").target(software).build());
 
-            graph.edge(effectiveJava, "is", software);
-            graph.edge(nosqlDistilled, "is", software);
-            graph.edge(migratingMicroservice, "is", software);
+            graph.edge(Edge.source(effectiveJava).label("is").target(software).build());
+            graph.edge(Edge.source(nosqlDistilled).label("is").target(software).build());
+            graph.edge(Edge.source(migratingMicroservice).label("is").target(software).build());
 
-            graph.edge(effectiveJava, "is", java);
-            graph.edge(nosqlDistilled, "is", nosql);
-            graph.edge(migratingMicroservice, "is", microService);
-
-
-            graph.edge(shack, "is", romance);
-
-            thinkerpop.tx().commit();
-
-            List<String> softwareCategories = graph.traversalVertex().hasLabel("Category")
-                    .has("name", "Software")
-                    .in("is").hasLabel("Category").<Category>result()
-                    .map(Category::getName)
-                    .toList();
-
-            List<String> softwareBooks = graph.traversalVertex().hasLabel("Category")
-                    .has("name", "Software")
-                    .in("is").hasLabel("Book").<Book>result()
-                    .map(Book::getName)
-                    .toList();
-
-            List<String> sofwareNoSQLBooks = graph.traversalVertex().hasLabel("Category")
-                    .has("name", "Software")
-                    .in("is")
-                    .has("name", "NoSQL")
-                    .in("is").<Book>result()
-                    .map(Book::getName)
-                    .toList();
+            graph.edge(Edge.source(effectiveJava).label("is").target(java).build());
+            graph.edge(Edge.source(nosqlDistilled).label("is").target(nosql).build());
+            graph.edge(Edge.source(migratingMicroservice).label("is").target(microService).build());
 
 
-            System.out.println("The software categories: " + softwareCategories);
-            System.out.println("The software books: " + softwareBooks);
-            System.out.println("The software and NoSQL books: " + sofwareNoSQLBooks);
-
+            graph.edge(Edge.source(shack).label("is").target(romance).build());
 
         }
     }
 
-    private static Category getCategory(String name, TinkerpopTemplate graph) {
-        return graph.traversalVertex().hasLabel("Category")
-                .has("name", name)
-                .<Category>next()
+    private static Category getCategory(String name, GraphTemplate template) {
+        return template.select(Category.class).where("name").eq(name).<Category>singleResult()
                 .orElseThrow(() -> new IllegalStateException("Entity does not find"));
     }
 
-    private static Book getBook(String name, TinkerpopTemplate graph) {
-        return graph.traversalVertex().hasLabel("Book")
-                .has("name", name)
-                .<Book>next()
+    private static Book getBook(String name, GraphTemplate template) {
+        return template.select(Book.class).where("name").eq(name).<Book>singleResult()
                 .orElseThrow(() -> new IllegalStateException("Entity does not find"));
     }
 }
