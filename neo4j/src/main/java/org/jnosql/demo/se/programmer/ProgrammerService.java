@@ -11,14 +11,14 @@
 package org.jnosql.demo.se.programmer;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import org.eclipse.jnosql.databases.tinkerpop.mapping.GraphTemplate;
+import org.eclipse.jnosql.databases.tinkerpop.mapping.TinkerpopTemplate;
 
 import java.util.Optional;
 
 @ApplicationScoped
 public class ProgrammerService {
 
-    private GraphTemplate template;
+    private TinkerpopTemplate template;
 
     public Optional<Programmer> findByName(String name) {
         return template

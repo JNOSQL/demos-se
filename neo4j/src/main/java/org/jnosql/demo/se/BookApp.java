@@ -13,7 +13,7 @@ package org.jnosql.demo.se;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import org.apache.tinkerpop.gremlin.structure.Graph;
-import org.eclipse.jnosql.databases.tinkerpop.mapping.GraphTemplate;
+import org.eclipse.jnosql.databases.tinkerpop.mapping.TinkerpopTemplate;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public final class BookApp {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            GraphTemplate graph = container.select(GraphTemplate.class).get();
+            TinkerpopTemplate graph = container.select(TinkerpopTemplate.class).get();
             Graph thinkerpop = container.select(Graph.class).get();
 
             graph.insert(Category.of("Software"));
@@ -102,14 +102,14 @@ public final class BookApp {
         }
     }
 
-    private static Category getCategory(String name, GraphTemplate graph) {
+    private static Category getCategory(String name, TinkerpopTemplate graph) {
         return graph.traversalVertex().hasLabel("Category")
                 .has("name", name)
                 .<Category>next()
                 .orElseThrow(() -> new IllegalStateException("Entity does not find"));
     }
 
-    private static Book getBook(String name, GraphTemplate graph) {
+    private static Book getBook(String name, TinkerpopTemplate graph) {
         return graph.traversalVertex().hasLabel("Book")
                 .has("name", name)
                 .<Book>next()
