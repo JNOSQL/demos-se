@@ -15,7 +15,7 @@ package org.jnosql.demo.se;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import org.apache.tinkerpop.gremlin.structure.Graph;
-import org.eclipse.jnosql.databases.tinkerpop.mapping.GraphTemplate;
+import org.eclipse.jnosql.databases.tinkerpop.mapping.TinkerpopTemplate;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public final class MarketingApp {
     public static void main(String[] args) {
 
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            GraphTemplate graph = container.select(GraphTemplate.class).get();
+            TinkerpopTemplate graph = container.select(TinkerpopTemplate.class).get();
             Graph thinkerpop = container.select(Graph.class).get();
 
             graph.insert(builder().withAge(30L).withName("Banner")
@@ -107,7 +107,7 @@ public final class MarketingApp {
         }
     }
 
-    private static Person getPerson(String name, GraphTemplate graph) {
+    private static Person getPerson(String name, TinkerpopTemplate graph) {
         return graph.traversalVertex().hasLabel("Person")
                 .has("name", name)
                 .<Person>next()
