@@ -12,7 +12,7 @@ package org.jnosql.demo.se.travel;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import org.eclipse.jnosql.databases.tinkerpop.mapping.GraphTemplate;
+import org.eclipse.jnosql.databases.tinkerpop.mapping.TinkerpopTemplate;
 
 import java.util.Map;
 import java.util.Optional;
@@ -28,7 +28,7 @@ import static org.jnosql.demo.se.travel.TravelerService.WORK;
 class CityService {
 
     @Inject
-    private GraphTemplate template;
+    private TinkerpopTemplate template;
 
     public Optional<City> findByName(String name) {
         return template.traversalVertex()
