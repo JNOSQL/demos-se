@@ -304,7 +304,7 @@ image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.p
 
 [source, bash]
 ----
-docker run --publish=7474:7474 --publish=7687:7687 --env NEO4J_AUTH=neo4j/admin123 neo4j
+docker run --publish=7474:7474 --publish=7687:7687 --env NEO4J_AUTH=neo4j/admin123 neo4j:5.26.3
 ----
 
 ==== Projects
