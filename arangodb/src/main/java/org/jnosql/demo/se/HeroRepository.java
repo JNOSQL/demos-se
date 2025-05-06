@@ -10,10 +10,10 @@
  */
 package org.jnosql.demo.se;
 
+import jakarta.data.repository.Param;
 import jakarta.data.repository.Repository;
 import org.eclipse.jnosql.databases.arangodb.mapping.AQL;
 import org.eclipse.jnosql.databases.arangodb.mapping.ArangoDBRepository;
-import org.eclipse.jnosql.databases.arangodb.mapping.Param;
 
 import java.util.List;
 
