@@ -34,7 +34,7 @@
         <dependency>
             <groupId>org.eclipse.jnosql.databases</groupId>
             <artifactId>jnosql-arangodb</artifactId>
-            <version>1.1.4</version>
+            <version>${jnosql.version}</version>
         </dependency>
     </dependencies>
 
