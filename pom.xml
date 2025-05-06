@@ -29,7 +29,7 @@
         <jakarta.json.version>2.1.1</jakarta.json.version>
         <tinkerpop.version>3.6.1</tinkerpop.version>
         <weld.se.core.version>6.0.2.Final</weld.se.core.version>
-        <mockito.verson>4.11.0</mockito.verson>
+        <mockito.verson>5.17.0</mockito.verson>
         <assertj.version>3.24.2</assertj.version>
         <junit.version>5.12.2</junit.version>
     </properties>
