@@ -22,7 +22,6 @@
     </parent>
 
     <properties>
-        <jnosql.version>1.1.7-SNAPSHOT</jnosql.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <janusgraph.version>1.2.0-20250219-143145.6c030f7</janusgraph.version>
     </properties>
