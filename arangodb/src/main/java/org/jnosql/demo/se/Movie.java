@@ -7,10 +7,10 @@ import jakarta.nosql.Column;
 import java.util.UUID;
 
 @Entity
-public record Movie(@Id UUID id, @Column String title, @Column String director, @Column int releaseYear) {
+public record Movie(@Id UUID id, @Column String title, @Column int releaseYear) {
 
 
-    public static Movie of(String title, String director, int releaseYear) {
-        return new Movie(UUID.randomUUID(), title, director, releaseYear);
+    public static Movie of(String title, int releaseYear) {
+        return new Movie(UUID.randomUUID(), title, releaseYear);
     }
 }
