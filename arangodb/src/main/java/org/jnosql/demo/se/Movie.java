@@ -5,17 +5,6 @@ import jakarta.nosql.Id;
 import jakarta.nosql.Column;
 
 @Entity
-public class Movie {
+public record Movie(@Id String id, @Column String title, @Column String director, @Column int releaseYear) {
 
-    @Id
-    private String id;
-
-    @Column
-    private String title;
-
-    @Column
-    private String director;
-
-    @Column
-    private int releaseYear;
 }
