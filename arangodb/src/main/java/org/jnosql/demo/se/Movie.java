@@ -4,7 +4,13 @@ import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
 import jakarta.nosql.Column;
 
-@Entity
-public record Movie(@Id String id, @Column String title, @Column String director, @Column int releaseYear) {
+import java.util.UUID;
 
+@Entity
+public record Movie(@Id UUID id, @Column String title, @Column String director, @Column int releaseYear) {
+
+
+    public static Movie of(String title, String director, int releaseYear) {
+        return new Movie(UUID.randomUUID(), title, director, releaseYear);
+    }
 }
