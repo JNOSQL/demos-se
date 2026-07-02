@@ -18,7 +18,7 @@
     <parent>
         <groupId>org.eclipse.jnosql.mapping</groupId>
         <artifactId>mapping-demo-java-se</artifactId>
-        <version>1.1.10</version>
+        <version>1.1.14</version>
     </parent>
 
     <properties>
@@ -29,7 +29,7 @@
         <dependency>
             <groupId>org.eclipse.jnosql.databases</groupId>
             <artifactId>jnosql-mongodb</artifactId>
-            <version>${jnosql.version}</version>
+            <version>1.1.13-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>net.datafaker</groupId>
