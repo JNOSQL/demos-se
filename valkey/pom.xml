@@ -14,11 +14,17 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>valkey</artifactId>
     <name>JNoSQL Demo using Java SE Valkey</name>
+
     <parent>
         <groupId>org.eclipse.jnosql.mapping</groupId>
         <artifactId>mapping-demo-java-se</artifactId>
         <version>1.1.15</version>
     </parent>
+
+    <properties>
+        <jnosql.version>1.2.0-M1</jnosql.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.databases</groupId>
