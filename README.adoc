@@ -178,8 +178,6 @@ image::http://www.jnosql.org/img/logos/cassandra.png[Cassandra, width=200px]
 
 ==== How to install with Docker
 
-
-
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/cassandra
 1. Run docker command:
