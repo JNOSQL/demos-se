@@ -150,10 +150,7 @@ image::https://www.jnosql.org/img/logos/elastic.svg[ES, width=200px]
 
 Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents.
 
-
 ==== How to install with Docker
-
-
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/elasticsearch
