@@ -14,7 +14,7 @@ This project contains several projects with the primary goal of exploring the Ja
 ==== How to install with Docker
 
 
-image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
 
 * Install docker: https://www.docker.com/
 * https://hub.docker.com/_/arangodb
@@ -39,8 +39,6 @@ image::http://www.jnosql.org/img/logos/mongodb.png[MongoDB, width=200px]
 **Mongodb**: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
 
 ==== How to install with Docker
-
-image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/mongo
@@ -68,7 +66,7 @@ image::http://www.jnosql.org/img/logos/oracle.png[Oracle NoSQL, width=200px]
 
 ==== How to install with Docker
 
-image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
 
 1. Install docker: https://www.docker.com/
 2. Run docker command:
@@ -92,7 +90,7 @@ Apache CouchDB is an open-source document-oriented NoSQL database, implemented i
 
 ==== How to install with Docker
 
-image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/couchdb
@@ -122,7 +120,7 @@ Couchbase Server, originally known as Membase, is an open-source, distributed mu
 
 ==== How to install with Docker
 
-image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/r/couchbase/server/
@@ -163,7 +161,7 @@ Elasticsearch is a search engine based on the Lucene library. It provides a dist
 
 ==== How to install with Docker
 
-image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/elasticsearch
@@ -191,7 +189,7 @@ image::http://www.jnosql.org/img/logos/cassandra.png[Cassandra, width=200px]
 
 ==== How to install with Docker
 
-image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/cassandra
@@ -214,7 +212,7 @@ ScyllaDB is an open-source distributed NoSQL wide-column data store. It was desi
 
 ==== How to install with Docker
 
-image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/r/scylladb/scylla
@@ -237,7 +235,7 @@ Redis is an in-memory data structure store, used as a distributed, in-memory key
 
 ==== How to install with Docker
 
-image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/redis
@@ -270,7 +268,7 @@ Memcached is a general-purpose distributed memory-caching system. It is often us
 
 ==== How to install with Docker
 
-image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/memcached
@@ -294,7 +292,7 @@ Neo4j is a graph database management system developed by Neo4j, Inc. The data el
 
 ==== How to install with Docker
 
-image::https://d1q6f0aelx0por.cloudfront.net/product-logos/library-docker-logo.png[]
+
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/neo4j
