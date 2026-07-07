@@ -22,6 +22,9 @@ public class UserBuilder {
 
     private List<String> phones;
 
+    UserBuilder() {
+    }
+
     public UserBuilder username(String username) {
         this.username = username;
         return this;
