@@ -23,7 +23,6 @@ import java.util.Objects;
 @Entity
 public class User implements Serializable {
 
-
     @Id
     private String userName;
 
@@ -43,7 +42,7 @@ public class User implements Serializable {
         return phones;
     }
 
-    public User() {
+    User() {
     }
 
     User(String userName, String name, List<String> phones) {
