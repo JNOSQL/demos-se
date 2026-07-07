@@ -233,6 +233,27 @@ docker run --name redis-instance -p 6379:6379 -d redis
 
 * link:redis/[Redis sample]
 
+=== Valkey
+
+image::https://www.jnosql.org/img/logos/valkey.png[Valkey, width=200px]
+
+Redis is an in-memory data structure store, used as a distributed, in-memory key–value database, cache and message broker, with optional durability. Redis supports different kinds of abstract data structures, such as strings, lists, maps, sets, sorted sets, HyperLogLogs, bitmaps, streams, and spatial indices.
+
+==== How to install with Docker
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/_/redis
+1. Run docker command:
+
+[source, bash]
+----
+docker run --name redis-instance -p 6379:6379 -d redis
+----
+
+==== Projects
+
+* link:redis/[Redis sample]
+
 === Hazelcast
 
 image::http://www.jnosql.org/img/logos/hazelcast.svg[Hazelcast, width=200px]
