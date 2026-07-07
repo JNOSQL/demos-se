@@ -273,8 +273,6 @@ Neo4j is a graph database management system developed by Neo4j, Inc. The data el
 
 ==== How to install with Docker
 
-
-
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/neo4j
 1. Run docker command:
