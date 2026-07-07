@@ -252,7 +252,7 @@ docker run --name valkey-instance -p 6379:6379 -d valkey/valkey:latest
 
 ==== Projects
 
-* link:redis/[Redis sample]
+* link:valkey/[Valkey sample]
 
 === Hazelcast
 
