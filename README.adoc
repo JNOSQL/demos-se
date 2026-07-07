@@ -144,7 +144,6 @@ CREATE PRIMARY INDEX `#primary` ON `heroes`.`_default`.`Hero`
 
 * link:couchbase/[Couchbase sample]
 
-
 === Elastisearch
 
 image::https://www.jnosql.org/img/logos/elastic.svg[ES, width=200px]
