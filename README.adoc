@@ -61,12 +61,9 @@ docker run -d --name mongodb-instance -p 27017:27017 mongo
 
 image::http://www.jnosql.org/img/logos/oracle.png[Oracle NoSQL, width=200px]
 
-
 **Oracle NoSQL**: Oracle NoSQL Database is a NoSQL-type distributed key-value and document database from Oracle Corporation. It provides transactional semantics for data manipulation, horizontal scalability, and simple administration and monitoring.
 
 ==== How to install with Docker
-
-
 
 1. Install docker: https://www.docker.com/
 2. Run docker command:
