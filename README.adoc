@@ -237,7 +237,7 @@ docker run --name redis-instance -p 6379:6379 -d redis
 
 image::https://www.jnosql.org/img/logos/valkey.png[Valkey, width=200px]
 
-Redis is an in-memory data structure store, used as a distributed, in-memory key–value database, cache and message broker, with optional durability. Redis supports different kinds of abstract data structures, such as strings, lists, maps, sets, sorted sets, HyperLogLogs, bitmaps, streams, and spatial indices.
+Valkey is an open-source in-memory key–value database, used as a distributed cache and message broker, with optional durability. Because it holds all data in memory and because of its design, Valkey offers low-latency reads and writes, making it particularly suitable for use cases that require a cache.
 
 ==== How to install with Docker
 
