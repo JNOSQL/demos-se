@@ -15,13 +15,12 @@ package org.jnosql.demo.se;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
 
 @Entity
-public class User implements Serializable {
+public class User {
 
     @Id
     private String userName;
@@ -42,7 +41,7 @@ public class User implements Serializable {
         return phones;
     }
 
-    User() {
+    public User() {
     }
 
     User(String userName, String name, List<String> phones) {
