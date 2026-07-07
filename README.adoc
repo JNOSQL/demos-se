@@ -247,7 +247,7 @@ Valkey is an open-source in-memory key–value database, used as a distributed c
 
 [source, bash]
 ----
-docker run --name redis-instance -p 6379:6379 -d redis
+docker run --name valkey-instance -p 6379:6379 -d valkey/valkey:latest
 ----
 
 ==== Projects
