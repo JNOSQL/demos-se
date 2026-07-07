@@ -199,8 +199,6 @@ ScyllaDB is an open-source distributed NoSQL wide-column data store. It was desi
 
 ==== How to install with Docker
 
-
-
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/r/scylladb/scylla
 1. Run docker command:
