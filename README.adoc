@@ -115,8 +115,6 @@ Couchbase Server, originally known as Membase, is an open-source, distributed mu
 
 ==== How to install with Docker
 
-
-
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/r/couchbase/server/
 1. Run docker command:
