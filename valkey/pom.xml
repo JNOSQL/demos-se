@@ -18,12 +18,8 @@
     <parent>
         <groupId>org.eclipse.jnosql.mapping</groupId>
         <artifactId>mapping-demo-java-se</artifactId>
-        <version>1.1.15</version>
+        <version>1.1.17</version>
     </parent>
-
-    <properties>
-        <jnosql.version>1.2.0-M1</jnosql.version>
-    </properties>
 
     <dependencies>
         <dependency>
