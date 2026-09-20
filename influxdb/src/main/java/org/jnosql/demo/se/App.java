@@ -21,33 +21,72 @@ import java.time.Instant;
 
 public class App {
 
-
-
     public static void main(String[] args) {
 
-        var transaction =
-                new AccountTransaction(
-                        Instant.now(),
-                        "account-42",
-                        new BigDecimal("79.90"),
-                        "EUR",
-                        TransactionStatus.APPROVED
-                );
-        try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+        var firstTransaction = new AccountTransaction(
+                Instant.parse("2026-09-20T08:00:00Z"),
+                "account-42",
+                new BigDecimal("79.90"),
+                "EUR",
+                TransactionStatus.APPROVED
+        );
+
+        var secondTransaction = new AccountTransaction(
+                Instant.parse("2026-09-20T09:00:00Z"),
+                "account-42",
+                new BigDecimal("24.50"),
+                "EUR",
+                TransactionStatus.APPROVED
+        );
+
+        var latestTransaction = new AccountTransaction(
+                Instant.parse("2026-09-20T10:15:00Z"),
+                "account-42",
+                new BigDecimal("120.00"),
+                "EUR",
+                TransactionStatus.DECLINED
+        );
+
+        try (SeContainer container =
+                     SeContainerInitializer.newInstance().initialize()) {
 
             TimeSeriesTemplate template =
                     container.select(TimeSeriesTemplate.class).get();
 
-            AccountTransaction saved = template.insert(transaction);
-            System.out.println("Transaction insert: " + saved);
+            template.insert(firstTransaction);
+            template.insert(secondTransaction);
 
-            var foundTransaction = template.find(AccountTransaction.class,
-                    transaction.getId());
+            AccountTransaction saved =
+                    template.insert(latestTransaction);
 
-            System.out.println("Transaction found: " + foundTransaction);
+            var currentStatus = template
+                    .select(AccountTransaction.class)
+                    .where("account")
+                    .eq("account-42")
+                    .orderBy("id")
+                    .desc()
+                    .limit(1)
+                    .singleResult();
+
+            System.out.println(
+                    "Current account status: " + currentStatus
+            );
+
+            var history = template
+                    .select(AccountTransaction.class)
+                    .where("account")
+                    .eq("account-42")
+                    .orderBy("id")
+                    .desc()
+                    .skip(1)
+                    .limit(10)
+                    .result();
+
+            System.out.println("Transaction history:");
+            history.forEach(System.out::println);
+        }
 
         }
-    }
 
     private App() {
     }
