@@ -53,6 +53,7 @@
         <module>redis</module>
         <module>valkey</module>
         <module>couchdb</module>
+        <module>influxdb</module>
         <module>bean-validation</module>
     </modules>
 
