@@ -291,9 +291,7 @@ image::https://www.jnosql.org/img/logos/influxdb.png[InfluxDB, width=200px]
 
 InfluxDB is a time-series database designed to store and query data that changes over time.
 
-This sample demonstrates Eclipse JNoSQL Time Series support using an account transaction scenario. Each transaction is modeled as a time-based event where the `Instant` identifier represents the point in time at which the transaction occurred.
-
-The sample shows two programming models:
+This sample demonstrates Eclipse JNoSQL Time Series support with InfluxDB using both:
 
 * `TimeSeriesTemplate`
 * Jakarta Data repository support
@@ -301,145 +299,55 @@ The sample shows two programming models:
 ==== How to install with Docker
 
 1. Install Docker: https://www.docker.com/
-2. Run InfluxDB:
+2. Run InfluxDB 3 Core:
 
 [source,bash]
 ----
-docker run -d \
-  --name influxdb-instance \
-  -p 8181:8181 \
-  influxdb:3-core
+docker run -d --name influxdb-instance -p 8181:8181 influxdb:3.11.0-core influxdb3 serve --node-id jnosql --object-store memory --without-auth
 ----
 
-==== Account Transaction
+3. Create the `metrics` database:
 
-The sample represents account activity as a sequence of transactions over time.
-
-[source,java]
+[source,bash]
 ----
-@Entity
-public class AccountTransaction {
-
-    @Id
-    private Instant id;
-
-    @Column
-    private String account;
-
-    @Column
-    private BigDecimal amount;
-
-    @Column
-    private String currency;
-
-    @Column
-    private TransactionStatus status;
-}
+docker exec influxdb-instance influxdb3 create database --host http://localhost:8181 metrics
 ----
 
-The transaction status is represented by an enum:
+4. Configure Eclipse JNoSQL:
 
-[source,java]
+[source,properties]
 ----
-public enum TransactionStatus {
-    APPROVED,
-    DECLINED,
-    PENDING
-}
+jnosql.timeseries.database=metrics
+jnosql.influxdb.url=http://localhost:8181
+jnosql.influxdb.token=jnosql-influxdb-test-token
 ----
 
-The `Instant` identifier represents the time dimension of the transaction.
+NOTE: This tutorial starts InfluxDB with `--without-auth` to keep the local setup simple. Therefore, no authentication token needs to be generated. The token property is provided as a placeholder for the InfluxDB driver configuration.
 
-==== TimeSeriesTemplate
+==== Optional: Explore the data in the browser
 
-The `TimeSeriesTemplate` API provides direct access to time-series persistence operations.
+InfluxDB 3 Explorer provides a browser-based interface for querying and visualizing data stored in InfluxDB 3 Core.
 
-[source,java]
+[source,bash]
 ----
-public class App {
-
-    private static final AccountTransaction TRANSACTION =
-            new AccountTransaction(
-                    Instant.now(),
-                    "account-42",
-                    new BigDecimal("79.90"),
-                    "EUR",
-                    TransactionStatus.APPROVED
-            );
-
-    public static void main(String[] args) {
-
-        try (SeContainer container =
-                     SeContainerInitializer.newInstance().initialize()) {
-
-            TimeSeriesTemplate template =
-                    container.select(TimeSeriesTemplate.class).get();
-
-            AccountTransaction saved =
-                    template.insert(TRANSACTION);
-
-            System.out.println("Transaction saved: " + saved);
-
-            Optional<AccountTransaction> transaction =
-                    template.find(
-                            TRANSACTION.getId(),
-                            AccountTransaction.class
-                    );
-
-            System.out.println("Transaction found: " + transaction);
-        }
-    }
-}
+docker run -d --name influxdb3-explorer -p 8888:8080 influxdata/influxdb3-ui:1.9.0
 ----
 
-==== Jakarta Data Repository
+Open:
 
-The same entity can also be accessed using Jakarta Data repositories.
-
-[source,java]
+[source,text]
 ----
-@Repository
-public interface AccountTransactionRepository
-        extends BasicRepository<AccountTransaction, Instant> {
-}
+http://localhost:8888
 ----
 
-The repository can then be injected from the CDI container using the Time Series database qualifier:
+Configure Explorer to connect to:
 
-[source,java]
+[source,text]
 ----
-public class App2 {
-
-    private static final AccountTransaction TRANSACTION =
-            new AccountTransaction(
-                    Instant.now(),
-                    "account-42",
-                    new BigDecimal("79.90"),
-                    "EUR",
-                    TransactionStatus.APPROVED
-            );
-
-    public static void main(String[] args) {
-
-        try (SeContainer container =
-                     SeContainerInitializer.newInstance().initialize()) {
-
-            AccountTransactionRepository repository =
-                    container.select(
-                            AccountTransactionRepository.class,
-                            DatabaseQualifier.ofTimeSeries()
-                    ).get();
-
-            repository.save(TRANSACTION);
-
-            Optional<AccountTransaction> transaction =
-                    repository.findById(TRANSACTION.getId());
-
-            System.out.println("Transaction found: " + transaction);
-        }
-    }
-}
+http://host.docker.internal:8181
 ----
+
+and use the `metrics` database.
 
 ==== Projects
 
