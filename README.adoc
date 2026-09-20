@@ -285,6 +285,165 @@ docker run -d --name memcached-instance -p 11211:11211 memcached:latest
 
 * link:memcached/[Memcached sample]
 
+=== InfluxDB
+
+image::https://www.jnosql.org/img/logos/influxdb.png[InfluxDB, width=200px]
+
+InfluxDB is a time-series database designed to store and query data that changes over time.
+
+This sample demonstrates Eclipse JNoSQL Time Series support using an account transaction scenario. Each transaction is modeled as a time-based event where the `Instant` identifier represents the point in time at which the transaction occurred.
+
+The sample shows two programming models:
+
+* `TimeSeriesTemplate`
+* Jakarta Data repository support
+
+==== How to install with Docker
+
+1. Install Docker: https://www.docker.com/
+2. Run InfluxDB:
+
+[source,bash]
+----
+docker run -d \
+  --name influxdb-instance \
+  -p 8181:8181 \
+  influxdb:3-core
+----
+
+==== Account Transaction
+
+The sample represents account activity as a sequence of transactions over time.
+
+[source,java]
+----
+@Entity
+public class AccountTransaction {
+
+    @Id
+    private Instant id;
+
+    @Column
+    private String account;
+
+    @Column
+    private BigDecimal amount;
+
+    @Column
+    private String currency;
+
+    @Column
+    private TransactionStatus status;
+}
+----
+
+The transaction status is represented by an enum:
+
+[source,java]
+----
+public enum TransactionStatus {
+    APPROVED,
+    DECLINED,
+    PENDING
+}
+----
+
+The `Instant` identifier represents the time dimension of the transaction.
+
+==== TimeSeriesTemplate
+
+The `TimeSeriesTemplate` API provides direct access to time-series persistence operations.
+
+[source,java]
+----
+public class App {
+
+    private static final AccountTransaction TRANSACTION =
+            new AccountTransaction(
+                    Instant.now(),
+                    "account-42",
+                    new BigDecimal("79.90"),
+                    "EUR",
+                    TransactionStatus.APPROVED
+            );
+
+    public static void main(String[] args) {
+
+        try (SeContainer container =
+                     SeContainerInitializer.newInstance().initialize()) {
+
+            TimeSeriesTemplate template =
+                    container.select(TimeSeriesTemplate.class).get();
+
+            AccountTransaction saved =
+                    template.insert(TRANSACTION);
+
+            System.out.println("Transaction saved: " + saved);
+
+            Optional<AccountTransaction> transaction =
+                    template.find(
+                            TRANSACTION.getId(),
+                            AccountTransaction.class
+                    );
+
+            System.out.println("Transaction found: " + transaction);
+        }
+    }
+}
+----
+
+==== Jakarta Data Repository
+
+The same entity can also be accessed using Jakarta Data repositories.
+
+[source,java]
+----
+@Repository
+public interface AccountTransactionRepository
+        extends BasicRepository<AccountTransaction, Instant> {
+}
+----
+
+The repository can then be injected from the CDI container using the Time Series database qualifier:
+
+[source,java]
+----
+public class App2 {
+
+    private static final AccountTransaction TRANSACTION =
+            new AccountTransaction(
+                    Instant.now(),
+                    "account-42",
+                    new BigDecimal("79.90"),
+                    "EUR",
+                    TransactionStatus.APPROVED
+            );
+
+    public static void main(String[] args) {
+
+        try (SeContainer container =
+                     SeContainerInitializer.newInstance().initialize()) {
+
+            AccountTransactionRepository repository =
+                    container.select(
+                            AccountTransactionRepository.class,
+                            DatabaseQualifier.ofTimeSeries()
+                    ).get();
+
+            repository.save(TRANSACTION);
+
+            Optional<AccountTransaction> transaction =
+                    repository.findById(TRANSACTION.getId());
+
+            System.out.println("Transaction found: " + transaction);
+        }
+    }
+}
+----
+
+==== Projects
+
+* link:influxdb/[InfluxDB Time Series sample]
 
 === Neo4J
 
