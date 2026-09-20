@@ -21,10 +21,14 @@
         <version>1.1.17</version>
     </parent>
 
+    <properties>
+        <jnosql.version>1.1.18-SNAPSHOT</jnosql.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.databases</groupId>
-            <artifactId>jnosql-valkey</artifactId>
+            <artifactId>jnosql-influxdb</artifactId>
             <version>${jnosql.version}</version>
         </dependency>
     </dependencies>
