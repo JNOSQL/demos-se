@@ -14,68 +14,56 @@ import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
 
-import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
-public class AccountTransaction {
+public class SensorReading {
 
     @Id
     private Instant id;
 
     @Column
-    private String account;
+    private String sensor;
 
     @Column
-    private Double amount;
+    private double temperature;
 
     @Column
-    private String currency;
+    private double humidity;
 
-    @Column
-    private TransactionStatus status;
-
-    AccountTransaction(Instant id, String account, Double amount,
-                       String currency,
-                       TransactionStatus status) {
+    SensorReading(Instant id, String sensor, double temperature, double humidity) {
         this.id = id;
-        this.account = account;
-        this.amount = amount;
-        this.currency = currency;
-        this.status = status;
+        this.sensor = sensor;
+        this.temperature = temperature;
+        this.humidity = humidity;
     }
 
-     AccountTransaction() {
+    SensorReading() {
     }
 
     public Instant getId() {
         return id;
     }
 
-    public String getAccount() {
-        return account;
+    public String getSensor() {
+        return sensor;
     }
 
-    public Double getAmount() {
-        return amount;
+    public double getTemperature() {
+        return temperature;
     }
 
-    public String getCurrency() {
-        return currency;
-    }
-
-    public TransactionStatus getStatus() {
-        return status;
+    public double getHumidity() {
+        return humidity;
     }
 
     @Override
     public String toString() {
-        return "AccountTransaction{" +
+        return "SensorReading{" +
                 "id=" + id +
-                ", account='" + account + '\'' +
-                ", amount=" + amount +
-                ", currency='" + currency + '\'' +
-                ", status=" + status +
+                ", sensor='" + sensor + '\'' +
+                ", temperature=" + temperature +
+                ", humidity=" + humidity +
                 '}';
     }
 }
