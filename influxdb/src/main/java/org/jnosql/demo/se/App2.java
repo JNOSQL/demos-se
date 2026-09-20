@@ -12,9 +12,9 @@
 package org.jnosql.demo.se;
 
 
+import jakarta.data.Limit;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import org.eclipse.jnosql.mapping.timeseries.TimeSeriesTemplate;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -23,27 +23,60 @@ public class App2 {
 
     public static void main(String[] args) {
 
-        var transaction =
-                new AccountTransaction(
-                        Instant.now(),
-                        "account-42",
-                        new BigDecimal("79.90"),
-                        "EUR",
-                        TransactionStatus.APPROVED
-                );
-        try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+        var firstTransaction = new AccountTransaction(
+                Instant.now(),
+                "account-42",
+                new BigDecimal("79.90"),
+                "EUR",
+                TransactionStatus.APPROVED
+        );
+
+        var secondTransaction = new AccountTransaction(
+                Instant.now(),
+                "account-42",
+                new BigDecimal("24.50"),
+                "EUR",
+                TransactionStatus.APPROVED
+        );
+
+        var latestTransaction = new AccountTransaction(
+                Instant.now(),
+                "account-42",
+                new BigDecimal("120.00"),
+                "EUR",
+                TransactionStatus.DECLINED
+        );
+
+        try (SeContainer container =
+                     SeContainerInitializer.newInstance().initialize()) {
 
             AccountTransactionRepository repository =
-                    container.select(
-                            AccountTransactionRepository.class).get();
+                    container.select(AccountTransactionRepository.class).get();
 
-            AccountTransaction saved = repository.save(transaction);
-            System.out.println("Transaction insert: " + saved);
+            repository.save(firstTransaction);
+            repository.save(secondTransaction);
+            repository.save(latestTransaction);
 
-            var foundTransaction = repository.findById(transaction.getId());
+            var currentStatus = repository
+                    .findByAccountOrderByIdDesc(
+                            "account-42",
+                            Limit.of(1)
+                    )
+                    .stream()
+                    .findFirst();
 
-            System.out.println("Transaction found: " + foundTransaction);
+            System.out.println(
+                    "Current account status: " + currentStatus
+            );
 
+            var history = repository
+                    .findByAccountOrderByIdDesc(
+                            "account-42",
+                            Limit.range(2, 10)
+                    );
+
+            System.out.println("Recent transaction history:");
+            history.forEach(System.out::println);
         }
     }
 
