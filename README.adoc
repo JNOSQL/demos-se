@@ -7,11 +7,139 @@ Java SE sample using NoSQL with Jakarta NoSQL.
 
 This project contains several projects with the primary goal of exploring the Jakarta NoSQL on several databases.
 
+== Key-Value
+
+=== Redis
+
+
+image::https://www.jnosql.org/img/logos/redis.png[Redis, width=200px]
+
+Redis is an in-memory data structure store, used as a distributed, in-memory key–value database, cache and message broker, with optional durability. Redis supports different kinds of abstract data structures, such as strings, lists, maps, sets, sorted sets, HyperLogLogs, bitmaps, streams, and spatial indices.
+
+===== How to install with Docker
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/_/redis
+1. Run docker command:
+
+[source, bash]
+----
+docker run --name redis-instance -p 6379:6379 -d redis
+----
+
+===== Projects
+
+* link:redis/[Redis sample]
+
+=== Valkey
+
+
+image::https://www.jnosql.org/img/logos/valkey.png[Valkey, width=200px]
+
+Valkey is an open-source in-memory key–value database, used as a distributed cache and message broker, with optional durability. Because it holds all data in memory and because of its design, Valkey offers low-latency reads and writes, making it particularly suitable for use cases that require a cache.
+
+===== How to install with Docker
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/valkey/valkey
+1. Run docker command:
+
+[source, bash]
+----
+docker run --name valkey-instance -p 6379:6379 -d valkey/valkey:latest
+----
+
+===== Projects
+
+* link:valkey/[Valkey sample]
+
+=== Hazelcast
+
+
+image::http://www.jnosql.org/img/logos/hazelcast.svg[Hazelcast, width=200px]
+
+**Hazelcast**:In computing, Hazelcast is an open source in-memory data grid based on Java.
+
+===== Projects
+
+* link:hazelcast/[Hazelcast sample]
+
+=== Memcached
+
+
+image::https://www.jnosql.org/img/logos/memcached.png[Memcached, width=200px]
+
+Memcached is a general-purpose distributed memory-caching system. It is often used to speed up dynamic database-driven websites by caching data and objects in RAM to reduce the number of times an external data source must be read. Memcached is free and open-source software, licensed under the Revised BSD license.
+
+===== How to install with Docker
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/_/memcached
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name memcached-instance -p 11211:11211 memcached:latest
+----
+
+===== Projects
+
+* link:memcached/[Memcached sample]
+
+== Column
+
+=== Cassandra
+
+
+image::http://www.jnosql.org/img/logos/cassandra.png[Cassandra, width=200px]
+
+**Cassandra**: Apache Cassandra is a free and open-source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure.
+
+===== How to install with Docker
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/_/cassandra
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name casandra-instance -p 9042:9042 cassandra
+----
+
+===== Projects
+
+* link:cassandra/[Cassandra sample]
+
+=== Scylla
+
+
+image::https://www.jnosql.org/img/logos/scylla.svg[ScyllaDB, width=200px]
+
+ScyllaDB is an open-source distributed NoSQL wide-column data store. It was designed to be compatible with Apache Cassandra while achieving significantly higher throughputs and lower latencies.
+
+===== How to install with Docker
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/scylladb/scylla
+1. Run docker command:
+
+[source, bash]
+----
+docker run -d --name scylladb-instance -p 9042:9042 scylladb/scylla
+----
+
+===== Projects
+
+* link:scylla/[Scylla sample]
+
+== Document
+
 === ArangoDB
+
 
 **ArangoDB**: ArangoDB is a native multi-model database system developed by triAGENS GmbH. The database system supports three important data models (key/value, documents, graphs) with one database core and a unified query language AQL (ArangoDB Query Language). The query language is declarative and allows the combination of different data access patterns in a single query. ArangoDB is a NoSQL database system but AQL is similar in many ways to SQL.
 
-==== How to install with Docker
+===== How to install with Docker
 
 * Install docker: https://www.docker.com/
 * https://hub.docker.com/_/arangodb
@@ -22,20 +150,20 @@ This project contains several projects with the primary goal of exploring the Ja
 docker run -e ARANGO_NO_AUTH=1 -d --name arangodb-instance -p 8529:8529 -d arangodb/arangodb
 ----
 
-==== Projects
+===== Projects
 
 * link:arangodb/[Key-value and Document]
 * link:arangodb-graph/[Graph with Apache TinkerPop]
 
-
 === MongoDB
+
 
 image::http://www.jnosql.org/img/logos/mongodb.png[MongoDB, width=200px]
 
 
 **Mongodb**: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
 
-==== How to install with Docker
+===== How to install with Docker
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/mongo
@@ -46,21 +174,21 @@ image::http://www.jnosql.org/img/logos/mongodb.png[MongoDB, width=200px]
 docker run -d --name mongodb-instance -p 27017:27017 mongo
 ----
 
-==== Projects
+===== Projects
 
 * link:bean-validation/[MongoDB and Bean validation]
 * link:mongodb[MongoDB sample code]
 * link:mongodb-lite[MongoDB sample code using JNoSQL Lite]
 * link:mongodb-double/[MongoDB with two different instances]
 
-
 === Oracle NoSQL
+
 
 image::http://www.jnosql.org/img/logos/oracle.png[Oracle NoSQL, width=200px]
 
 **Oracle NoSQL**: Oracle NoSQL Database is a NoSQL-type distributed key-value and document database from Oracle Corporation. It provides transactional semantics for data manipulation, horizontal scalability, and simple administration and monitoring.
 
-==== How to install with Docker
+===== How to install with Docker
 
 1. Install docker: https://www.docker.com/
 2. Run docker command:
@@ -70,19 +198,19 @@ image::http://www.jnosql.org/img/logos/oracle.png[Oracle NoSQL, width=200px]
 docker run -d --name oracle-instance -p 8080:8080 ghcr.io/oracle/nosql:latest-ce
 ----
 
-==== Projects
+===== Projects
 
 * link:oracle-nosql/[Oracle NoSQL sample code]
 
-
 === CouchDB
 
-image::https://www.jnosql.org/img/logos/couchdb.png[Couchbase, width=200px]
+
+image::https://www.jnosql.org/img/logos/couchdb.png[CouchDB, width=200px]
 
 Apache CouchDB is an open-source document-oriented NoSQL database, implemented in Erlang. CouchDB uses multiple formats and protocols to store, transfer, and process its data. It uses JSON to store data, JavaScript as its query language using MapReduce, and HTTP for an API.
 
 
-==== How to install with Docker
+===== How to install with Docker
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/couchdb
@@ -98,19 +226,19 @@ docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -d co
 6. Create `Hero` and `Villain` as collections
 7. Create primary query to `Hero`
 
-==== Projects
+===== Projects
 
 * link:couchdb/[Couchdb sample]
 
-
 === Couchbase
 
-image::http://www.jnosql.org/img/logos/couchbase.svg[CouchDB, width=200px]
+
+image::http://www.jnosql.org/img/logos/couchbase.svg[Couchbase, width=200px]
 
 Couchbase Server, originally known as Membase, is an open-source, distributed multi-model NoSQL document-oriented database software package optimized for interactive applications. These applications may serve many concurrent users by creating, storing, retrieving, aggregating, manipulating and presenting data.
 
 
-==== How to install with Docker
+===== How to install with Docker
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/r/couchbase/server/
@@ -131,23 +259,24 @@ docker run -d --name db -p 8091-8097:8091-8097 -p 9123:9123 -p 11207:11207 -p 11
 1. Create Bucket "heroes" using the "Add Bucket" Option
 1. Click at "heroes"
 1. Add "Hero" and "Villain" as Collection
-1. Go to Query session and execute: 
+1. Go to Query session and execute:
 [source]
 ----
 CREATE PRIMARY INDEX `#primary` ON `heroes`.`_default`.`Hero`
 ----
 
-==== Projects
+===== Projects
 
 * link:couchbase/[Couchbase sample]
 
-=== Elastisearch
+=== Elasticsearch
+
 
 image::https://www.jnosql.org/img/logos/elastic.svg[ES, width=200px]
 
 Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents.
 
-==== How to install with Docker
+===== How to install with Docker
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/elasticsearch
@@ -163,132 +292,20 @@ docker run -p 9200:9200 -p 9300:9300 \
   elasticsearch:8.7.1
 ----
 
-==== Projects
+===== Projects
 
 * link:elasticsearch/[Elasticsearch sample]
 
-=== Cassandra
-
-image::http://www.jnosql.org/img/logos/cassandra.png[Cassandra, width=200px]
-
-**Cassandra**: Apache Cassandra is a free and open-source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure.
-
-==== How to install with Docker
-
-1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/_/cassandra
-1. Run docker command:
-
-[source, bash]
-----
-docker run -d --name casandra-instance -p 9042:9042 cassandra
-----
-
-==== Projects
-
-* link:cassandra/[Cassandra sample]
-
-=== Scylla
-
-image::https://www.jnosql.org/img/logos/scylla.svg[ScyllaDB, width=200px]
-
-ScyllaDB is an open-source distributed NoSQL wide-column data store. It was designed to be compatible with Apache Cassandra while achieving significantly higher throughputs and lower latencies.
-
-==== How to install with Docker
-
-1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/scylladb/scylla
-1. Run docker command:
-
-[source, bash]
-----
-docker run -d --name scylladb-instance -p 9042:9042 scylladb/scylla
-----
-
-==== Projects
-
-* link:scylla/[Scylla sample]
-
-=== Redis
-
-image::https://www.jnosql.org/img/logos/redis.png[Redis, width=200px]
-
-Redis is an in-memory data structure store, used as a distributed, in-memory key–value database, cache and message broker, with optional durability. Redis supports different kinds of abstract data structures, such as strings, lists, maps, sets, sorted sets, HyperLogLogs, bitmaps, streams, and spatial indices.
-
-==== How to install with Docker
-
-1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/_/redis
-1. Run docker command:
-
-[source, bash]
-----
-docker run --name redis-instance -p 6379:6379 -d redis
-----
-
-==== Projects
-
-* link:redis/[Redis sample]
-
-=== Valkey
-
-image::https://www.jnosql.org/img/logos/valkey.png[Valkey, width=200px]
-
-Valkey is an open-source in-memory key–value database, used as a distributed cache and message broker, with optional durability. Because it holds all data in memory and because of its design, Valkey offers low-latency reads and writes, making it particularly suitable for use cases that require a cache.
-
-==== How to install with Docker
-
-1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/r/valkey/valkey
-1. Run docker command:
-
-[source, bash]
-----
-docker run --name valkey-instance -p 6379:6379 -d valkey/valkey:latest
-----
-
-==== Projects
-
-* link:valkey/[Valkey sample]
-
-=== Hazelcast
-
-image::http://www.jnosql.org/img/logos/hazelcast.svg[Hazelcast, width=200px]
-
-**Hazelcast**:In computing, Hazelcast is an open source in-memory data grid based on Java.
-
-==== Projects
-
-* link:hazelcast/[Hazelcast sample]
-
-=== Memcached
-
-image::https://www.jnosql.org/img/logos/memcached.png[Memcached, width=200px]
-
-Memcached is a general-purpose distributed memory-caching system. It is often used to speed up dynamic database-driven websites by caching data and objects in RAM to reduce the number of times an external data source must be read. Memcached is free and open-source software, licensed under the Revised BSD license.
-
-==== How to install with Docker
-
-1. Install docker: https://www.docker.com/
-1. https://hub.docker.com/_/memcached
-1. Run docker command:
-
-[source, bash]
-----
-docker run -d --name memcached-instance -p 11211:11211 memcached:latest
-----
-
-==== Projects
-
-* link:memcached/[Memcached sample]
+== Time Series
 
 === InfluxDB
+
 
 image::https://www.jnosql.org/img/logos/influxdb.png[InfluxDB, width=200px]
 
 InfluxDB is a time-series database designed to store and query data that changes over time.
 
-==== How to install with Docker
+===== How to install with Docker
 
 1. Install Docker: https://www.docker.com/
 2. Run InfluxDB 3 Core:
@@ -316,7 +333,7 @@ jnosql.influxdb.token=jnosql-influxdb-test-token
 
 NOTE: This tutorial starts InfluxDB with `--without-auth` to keep the local setup simple. Therefore, no authentication token needs to be generated. The token property is provided as a placeholder for the InfluxDB driver configuration.
 
-==== Optional: Explore the data in the browser
+===== Optional: Explore the data in the browser
 
 InfluxDB 3 Explorer provides a browser-based interface for querying and visualizing data stored in InfluxDB 3 Core.
 
@@ -341,17 +358,18 @@ http://host.docker.internal:8181
 
 and use the `metrics` database.
 
-==== Projects
+===== Projects
 
 * link:influxdb/[InfluxDB Time Series sample]
 
 === Apache IoTDB
 
+
 image::https://www.jnosql.org/img/logos/apache-io-tbd.png[Apache IoTDB, width=200px]
 
 Apache IoTDB is a time-series database designed for IoT data management and analysis.
 
-==== How to install with Docker
+===== How to install with Docker
 
 1. Install Docker: https://www.docker.com/
 2. Run Apache IoTDB:
@@ -382,7 +400,7 @@ Apache IoTDB will be available through its native RPC endpoint at:
 localhost:6667
 ----
 
-==== MicroProfile Config
+===== MicroProfile Config
 
 Configure Eclipse JNoSQL using `microprofile-config.properties`:
 
@@ -398,11 +416,12 @@ jnosql.iotdb.enable.redirection=false
 
 NOTE: For the Docker-based tutorial, `jnosql.iotdb.enable.redirection=false` is recommended because the address advertised by the container may not be reachable through the mapped host port.
 
-==== Projects
+===== Projects
 
 * link:iotdb/[Apache IoTDB Time Series sample]
 
 === QuestDB
+
 
 image::https://www.jnosql.org/img/logos/questdb.png[QuestDB, width=200px]
 
@@ -413,7 +432,7 @@ This sample demonstrates Eclipse JNoSQL Time Series support with QuestDB using b
 * `TimeSeriesTemplate`
 * Jakarta Data repository support
 
-==== How to install with Docker
+===== How to install with Docker
 
 1. Install Docker: https://www.docker.com/
 2. Run QuestDB:
@@ -426,7 +445,7 @@ docker run -d \
   questdb/questdb:10.0.1
 ----
 
-QuestDB exposes its Web Console and HTTP services on port `9000`. The Eclipse JNoSQL driver also connects through this endpoint. :contentReference[oaicite:1]{index=1}
+QuestDB exposes its Web Console and HTTP services on port `9000`. The Eclipse JNoSQL driver also connects through this endpoint.
 
 Open the QuestDB Web Console in your browser:
 
@@ -437,7 +456,7 @@ http://localhost:9000
 
 No database creation step is required for this sample.
 
-==== MicroProfile Config
+===== MicroProfile Config
 
 Configure Eclipse JNoSQL using `microprofile-config.properties`:
 
@@ -456,9 +475,9 @@ The QuestDB connection URL follows the QuestDB client format:
 ws::addr=localhost:9000;
 ----
 
-The JNoSQL QuestDB test configuration uses this same URL format and the `qdb` database. :contentReference[oaicite:2]{index=2}
+The JNoSQL QuestDB test configuration uses this same URL format and the `qdb` database.
 
-==== Explore the data in the browser
+===== Explore the data in the browser
 
 QuestDB includes its own Web Console, so no additional container is required.
 
@@ -491,17 +510,20 @@ ORDER BY id DESC
 LIMIT 1;
 ----
 
-==== Projects
+===== Projects
 
 * link:questdb/[QuestDB Time Series sample]
 
+== Graph
+
 === Neo4J
+
 
 image::https://www.jnosql.org/img/logos/neo4j.png[Neo4J, width=200px]
 
 Neo4j is a graph database management system developed by Neo4j, Inc. The data elements Neo4j stores are nodes, edges connecting them, and attributes of nodes and edges.
 
-==== How to install with Docker
+===== How to install with Docker
 
 1. Install docker: https://www.docker.com/
 1. https://hub.docker.com/_/neo4j
@@ -512,16 +534,17 @@ Neo4j is a graph database management system developed by Neo4j, Inc. The data el
 docker run --publish=7474:7474 --publish=7687:7687 --env NEO4J_AUTH=neo4j/admin123 neo4j:5.26.3
 ----
 
-==== Projects
+===== Projects
 
 * link:neo4j/[Neo4J sample]
 
 === JanusGraph
 
+
 image::https://www.jnosql.org/img/logos/janusgraph.png[JanusGraph, width=200px]
 
 JanusGraph is an open source, distributed graph database under The Linux Foundation. JanusGraph is available under the Apache License 2.0. The project is supported by IBM, Google, Hortonworks and Grakn Labs. JanusGraph supports various storage backends.
 
-==== Projects
+===== Projects
 
 * link:janus-graph/[JanusGraph sample]
