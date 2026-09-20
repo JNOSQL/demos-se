@@ -14,27 +14,36 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import org.eclipse.jnosql.mapping.DatabaseQualifier;
+import org.eclipse.jnosql.mapping.timeseries.TimeSeriesTemplate;
 
-import java.util.Arrays;
-import java.util.Optional;
+import java.math.BigDecimal;
+import java.time.Instant;
 
 public class App2 {
 
-    private static final User USER = User.builder().
-            phones(Arrays.asList("234", "432"))
-            .username("username")
-            .name("Name")
-            .build();
-
     public static void main(String[] args) {
 
+        var transaction =
+                new AccountTransaction(
+                        Instant.now(),
+                        "account-42",
+                        new BigDecimal("79.90"),
+                        "EUR",
+                        TransactionStatus.APPROVED
+                );
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
-            UserRepository repository = container.select(UserRepository.class, DatabaseQualifier.ofKeyValue()).get();
-            repository.save(USER);
-            Optional<User> user = repository.findById("username");
-            System.out.println("User found: " + user);
+            AccountTransactionRepository repository =
+                    container.select(
+                            AccountTransactionRepository.class).get();
+
+            AccountTransaction saved = repository.save(transaction);
+            System.out.println("Transaction insert: " + saved);
+
+            var foundTransaction = repository.findById(transaction.getId());
+
+            System.out.println("Transaction found: " + foundTransaction);
+
         }
     }
 
