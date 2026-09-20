@@ -16,66 +16,62 @@ import jakarta.data.Limit;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 
-import java.math.BigDecimal;
 import java.time.Instant;
 
 public class App2 {
 
     public static void main(String[] args) {
 
-        var firstTransaction = new AccountTransaction(
+        var firstReading = new SensorReading(
                 Instant.now(),
-                "account-42",
-                79.90,
-                "EUR",
-                TransactionStatus.APPROVED
+                "sensor-01",
+                21.4,
+                45.0
         );
 
-        var secondTransaction = new AccountTransaction(
+        var secondReading = new SensorReading(
                 Instant.now(),
-                "account-42",
-                24.50,
-                "EUR",
-                TransactionStatus.APPROVED
+                "sensor-01",
+                22.1,
+                46.5
         );
 
-        var latestTransaction = new AccountTransaction(
+        var latestReading = new SensorReading(
                 Instant.now(),
-                "account-42",
-                120.00,
-                "EUR",
-                TransactionStatus.DECLINED
+                "sensor-01",
+                23.6,
+                48.2
         );
 
         try (SeContainer container =
                      SeContainerInitializer.newInstance().initialize()) {
 
-            AccountTransactionRepository repository =
-                    container.select(AccountTransactionRepository.class).get();
+            SensorReadingRepository repository =
+                    container.select(SensorReadingRepository.class).get();
 
-            repository.save(firstTransaction);
-            repository.save(secondTransaction);
-            repository.save(latestTransaction);
+            repository.save(firstReading);
+            repository.save(secondReading);
+            repository.save(latestReading);
 
-            var currentStatus = repository
-                    .findByAccountOrderByIdDesc(
-                            "account-42",
+            var currentReading = repository
+                    .findBySensorOrderByIdDesc(
+                            "sensor-01",
                             Limit.of(1)
                     )
                     .stream()
                     .findFirst();
 
             System.out.println(
-                    "Current account status: " + currentStatus
+                    "Current sensor reading: " + currentReading
             );
 
             var history = repository
-                    .findByAccountOrderByIdDesc(
-                            "account-42",
+                    .findBySensorOrderByIdDesc(
+                            "sensor-01",
                             Limit.range(2, 10)
                     );
 
-            System.out.println("Recent transaction history:");
+            System.out.println("Recent sensor history:");
             history.forEach(System.out::println);
         }
     }
