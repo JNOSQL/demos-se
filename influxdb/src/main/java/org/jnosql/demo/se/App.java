@@ -14,27 +14,37 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import org.eclipse.jnosql.mapping.keyvalue.KeyValueTemplate;
+import org.eclipse.jnosql.mapping.timeseries.TimeSeriesTemplate;
 
-import java.util.Arrays;
-import java.util.Optional;
+import java.math.BigDecimal;
+import java.time.Instant;
 
 public class App {
 
-    private static final User USER = User.builder().
-            phones(Arrays.asList("234", "432"))
-            .username("username")
-            .name("Name")
-            .build();
+
 
     public static void main(String[] args) {
 
+        var transaction =
+                new AccountTransaction(
+                        Instant.now(),
+                        "account-42",
+                        new BigDecimal("79.90"),
+                        "EUR",
+                        TransactionStatus.APPROVED
+                );
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            KeyValueTemplate template = container.select(KeyValueTemplate.class).get();
-            User userSaved = template.put(USER);
-            System.out.println("User saved: " + userSaved);
-            Optional<User> user = template.get("username", User.class);
-            System.out.println("Entity found: " + user);
+
+            TimeSeriesTemplate template =
+                    container.select(TimeSeriesTemplate.class).get();
+
+            AccountTransaction saved = template.insert(transaction);
+            System.out.println("Transaction insert: " + saved);
+
+            var foundTransaction = template.find(AccountTransaction.class,
+                    transaction.getId());
+
+            System.out.println("Transaction found: " + foundTransaction);
 
         }
     }
