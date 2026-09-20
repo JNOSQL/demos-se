@@ -415,6 +415,99 @@ NOTE: For the Docker-based tutorial, `jnosql.iotdb.enable.redirection=false` is 
 
 * link:iotdb/[Apache IoTDB Time Series sample]
 
+=== QuestDB
+
+image::https://www.jnosql.org/img/logos/questdb.png[QuestDB, width=200px]
+
+QuestDB is a high-performance time-series database designed for fast ingestion and SQL analytics over time-oriented data.
+
+This sample demonstrates Eclipse JNoSQL Time Series support with QuestDB using both:
+
+* `TimeSeriesTemplate`
+* Jakarta Data repository support
+
+==== How to install with Docker
+
+1. Install Docker: https://www.docker.com/
+2. Run QuestDB:
+
+[source,bash]
+----
+docker run -d \
+  --name questdb-instance \
+  -p 9000:9000 \
+  questdb/questdb:10.0.1
+----
+
+QuestDB exposes its Web Console and HTTP services on port `9000`. The Eclipse JNoSQL driver also connects through this endpoint. :contentReference[oaicite:1]{index=1}
+
+Open the QuestDB Web Console in your browser:
+
+[source,text]
+----
+http://localhost:9000
+----
+
+No database creation step is required for this sample.
+
+==== MicroProfile Config
+
+Configure Eclipse JNoSQL using `microprofile-config.properties`:
+
+[source,properties]
+----
+jnosql.timeseries.database=qdb
+jnosql.questdb.url=ws::addr=localhost:9000;
+----
+
+The `jnosql.timeseries.database` property defines the logical database used by the Time Series manager.
+
+The QuestDB connection URL follows the QuestDB client format:
+
+[source,text]
+----
+ws::addr=localhost:9000;
+----
+
+The JNoSQL QuestDB test configuration uses this same URL format and the `qdb` database. :contentReference[oaicite:2]{index=2}
+
+==== Explore the data in the browser
+
+QuestDB includes its own Web Console, so no additional container is required.
+
+Open:
+
+[source,text]
+----
+http://localhost:9000
+----
+
+From the SQL editor, you can inspect the sensor data written by Eclipse JNoSQL.
+
+For example:
+
+[source,sql]
+----
+SELECT *
+FROM SensorReading
+ORDER BY id DESC;
+----
+
+Or retrieve the latest reading for a specific sensor:
+
+[source,sql]
+----
+SELECT *
+FROM SensorReading
+WHERE sensor = 'sensor-01'
+ORDER BY id DESC
+LIMIT 1;
+----
+
+==== Projects
+
+* link:questdb/[QuestDB Time Series sample]
+
 === Neo4J
 
 image::https://www.jnosql.org/img/logos/neo4j.png[Neo4J, width=200px]
