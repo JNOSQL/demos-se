@@ -16,7 +16,6 @@ import jakarta.nosql.Id;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.Objects;
 
 @Entity
 public class AccountTransaction {
@@ -36,18 +35,17 @@ public class AccountTransaction {
     @Column
     private TransactionStatus status;
 
-    AccountTransaction() {
-    }
-
-    public AccountTransaction(Instant id, String account,
-                              BigDecimal amount,
-                              String currency,
-                              TransactionStatus status) {
+    AccountTransaction(Instant id, String account, BigDecimal amount,
+                       String currency,
+                       TransactionStatus status) {
         this.id = id;
         this.account = account;
         this.amount = amount;
         this.currency = currency;
         this.status = status;
+    }
+
+     AccountTransaction() {
     }
 
     public Instant getId() {
@@ -68,19 +66,6 @@ public class AccountTransaction {
 
     public TransactionStatus getStatus() {
         return status;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (!(o instanceof AccountTransaction that)) {
-            return false;
-        }
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
     }
 
     @Override
