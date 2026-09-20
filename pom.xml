@@ -54,6 +54,7 @@
         <module>valkey</module>
         <module>couchdb</module>
         <module>influxdb</module>
+        <module>iotbd</module>
         <module>bean-validation</module>
     </modules>
 
