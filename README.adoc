@@ -353,6 +353,68 @@ and use the `metrics` database.
 
 * link:influxdb/[InfluxDB Time Series sample]
 
+=== Apache IoTDB
+
+image::https://www.jnosql.org/img/logos/apache-io-tbd.png[Apache IoTDB, width=200px]
+
+Apache IoTDB is a time-series database designed for IoT data management and analysis.
+
+This sample demonstrates Eclipse JNoSQL Time Series support with Apache IoTDB using both:
+
+* `TimeSeriesTemplate`
+* Jakarta Data repository support
+
+==== How to install with Docker
+
+1. Install Docker: https://www.docker.com/
+2. Run Apache IoTDB:
+
+[source,bash]
+----
+docker run -d --name iotdb-instance -p 6667:6667 -e dn_rpc_address=0.0.0.0 apache/iotdb:2.0.11-standalone
+----
+
+3. Create the `jnosql` database:
+
+[source,bash]
+----
+docker exec -it iotdb-instance \
+  /iotdb/sbin/start-cli.sh \
+  -h 127.0.0.1 \
+  -p 6667 \
+  -u root \
+  -pw root \
+  -sql_dialect table \
+  -e "CREATE DATABASE IF NOT EXISTS jnosql"
+----
+
+Apache IoTDB will be available through its native RPC endpoint at:
+
+[source,text]
+----
+localhost:6667
+----
+
+==== MicroProfile Config
+
+Configure Eclipse JNoSQL using `microprofile-config.properties`:
+
+[source,properties]
+----
+jnosql.timeseries.database=jnosql
+jnosql.iotdb.host=localhost
+jnosql.iotdb.port=6667
+jnosql.iotdb.username=root
+jnosql.iotdb.password=root
+jnosql.iotdb.enable.redirection=false
+----
+
+NOTE: For the Docker-based tutorial, `jnosql.iotdb.enable.redirection=false` is recommended because the address advertised by the container may not be reachable through the mapped host port.
+
+==== Projects
+
+* link:iotdb/[Apache IoTDB Time Series sample]
+
 === Neo4J
 
 image::https://www.jnosql.org/img/logos/neo4j.png[Neo4J, width=200px]
