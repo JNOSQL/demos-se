@@ -16,35 +16,31 @@ import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import org.eclipse.jnosql.mapping.timeseries.TimeSeriesTemplate;
 
-import java.math.BigDecimal;
 import java.time.Instant;
 
 public class App {
 
     public static void main(String[] args) {
 
-        var firstTransaction = new AccountTransaction(
-                Instant.parse("2026-09-20T08:00:00Z"),
-                "account-42",
-                79.90,
-                "EUR",
-                TransactionStatus.APPROVED
+        var firstReading = new SensorReading(
+                Instant.now(),
+                "sensor-01",
+                21.4,
+                45.0
         );
 
-        var secondTransaction = new AccountTransaction(
-                Instant.parse("2026-09-20T09:00:00Z"),
-                "account-42",
-                24.50,
-                "EUR",
-                TransactionStatus.APPROVED
+        var secondReading = new SensorReading(
+                Instant.now(),
+                "sensor-01",
+                22.1,
+                46.5
         );
 
-        var latestTransaction = new AccountTransaction(
-                Instant.parse("2026-09-20T10:15:00Z"),
-                "account-42",
-                120.00,
-                "EUR",
-                TransactionStatus.DECLINED
+        var latestReading = new SensorReading(
+                Instant.now(),
+                "sensor-01",
+                23.6,
+                48.2
         );
 
         try (SeContainer container =
@@ -53,40 +49,37 @@ public class App {
             TimeSeriesTemplate template =
                     container.select(TimeSeriesTemplate.class).get();
 
-            template.insert(firstTransaction);
-            template.insert(secondTransaction);
+            template.insert(firstReading);
+            template.insert(secondReading);
+            template.insert(latestReading);
 
-            AccountTransaction saved =
-                    template.insert(latestTransaction);
-
-            var currentStatus = template
-                    .select(AccountTransaction.class)
-                    .where("account")
-                    .eq("account-42")
+            var currentReading = template
+                    .select(SensorReading.class)
+                    .where("sensor")
+                    .eq("sensor-01")
                     .orderBy("id")
                     .desc()
                     .limit(1)
                     .singleResult();
 
             System.out.println(
-                    "Current account status: " + currentStatus
+                    "Current sensor reading: " + currentReading
             );
 
             var history = template
-                    .select(AccountTransaction.class)
-                    .where("account")
-                    .eq("account-42")
+                    .select(SensorReading.class)
+                    .where("sensor")
+                    .eq("sensor-01")
                     .orderBy("id")
                     .desc()
                     .skip(1)
                     .limit(10)
                     .result();
 
-            System.out.println("Transaction history:");
+            System.out.println("Recent sensor history:");
             history.forEach(System.out::println);
         }
-
-        }
+    }
 
     private App() {
     }
