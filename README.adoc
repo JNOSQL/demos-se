@@ -13,9 +13,6 @@ This project contains several projects with the primary goal of exploring the Ja
 
 ==== How to install with Docker
 
-
-
-
 * Install docker: https://www.docker.com/
 * https://hub.docker.com/_/arangodb
 * Run docker command:
@@ -291,11 +288,6 @@ image::https://www.jnosql.org/img/logos/influxdb.png[InfluxDB, width=200px]
 
 InfluxDB is a time-series database designed to store and query data that changes over time.
 
-This sample demonstrates Eclipse JNoSQL Time Series support with InfluxDB using both:
-
-* `TimeSeriesTemplate`
-* Jakarta Data repository support
-
 ==== How to install with Docker
 
 1. Install Docker: https://www.docker.com/
@@ -358,11 +350,6 @@ and use the `metrics` database.
 image::https://www.jnosql.org/img/logos/apache-io-tbd.png[Apache IoTDB, width=200px]
 
 Apache IoTDB is a time-series database designed for IoT data management and analysis.
-
-This sample demonstrates Eclipse JNoSQL Time Series support with Apache IoTDB using both:
-
-* `TimeSeriesTemplate`
-* Jakarta Data repository support
 
 ==== How to install with Docker
 
@@ -529,25 +516,6 @@ docker run --publish=7474:7474 --publish=7687:7687 --env NEO4J_AUTH=neo4j/admin1
 
 * link:neo4j/[Neo4J sample]
 
-===== BookApp
-
-Library recommendation, category based that shows the software categories, the software books and also a book that is Software and Java.
-
-image::neo4j/Book.png[]
-
-===== MarketingApp
-
-The marketing campaign that needs to match from some rules relationship based with four people.
-
-image::neo4j/Marketing.png[]
-
-===== TravelApp
-
-Given cities and travelers, this TravelApp will return the most famous city, the person who most travel and also some
-friends suggestion placed by the visited cities.
-
-image::neo4j/Travel.png[]
-
 === JanusGraph
 
 image::https://www.jnosql.org/img/logos/janusgraph.png[JanusGraph, width=200px]
@@ -557,30 +525,3 @@ JanusGraph is an open source, distributed graph database under The Linux Foundat
 ==== Projects
 
 * link:janus-graph/[JanusGraph sample]
-
-
-===== BookApp
-
-Library recommendation, category based that shows the software categories, the software books, and also a book that is
-Software and Java.
-
-image::janus-graph/Book.png[]
-
-===== MarketingApp
-
-The marketing campaign that needs to match from some rules relationship based with four people.
-
-image::janus-graph/Marketing.png[]
-
-===== TravelApp
-
-Given cities and travelers, this TravelApp will return the most famous city, the person who most travel and also some
-friends suggestion placed by the visited cities.
-
-image::janus-graph/Travel.png[]
-
-===== TheGodsApp
-
-The graph of Gods JanusGraph based
-
-image::janus-graph/graph-of-the-gods.png[]
