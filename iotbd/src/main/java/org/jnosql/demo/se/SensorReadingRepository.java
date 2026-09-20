@@ -18,7 +18,8 @@ import java.time.Instant;
 import java.util.List;
 
 @Repository
-public interface AccountTransactionRepository extends BasicRepository<AccountTransaction, Instant> {
+public interface SensorReadingRepository extends BasicRepository<SensorReading, Instant> {
 
-    List<AccountTransaction> findByAccountOrderByIdDesc(String account, Limit limit);
+
+    List<SensorReading> findBySensorOrderByIdDesc(String sensor, Limit limit);
 }
