@@ -10,11 +10,15 @@
  */
 package org.jnosql.demo.se;
 
+import jakarta.data.Limit;
 import jakarta.data.repository.BasicRepository;
 import jakarta.data.repository.Repository;
 
 import java.time.Instant;
+import java.util.List;
 
 @Repository
 public interface AccountTransactionRepository extends BasicRepository<AccountTransaction, Instant> {
+
+    List<AccountTransaction> findByAccountOrderByIdDesc(String account, Limit limit);
 }
