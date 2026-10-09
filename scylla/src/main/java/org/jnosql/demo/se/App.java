@@ -14,7 +14,7 @@ package org.jnosql.demo.se;
 
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import org.eclipse.jnosql.databases.cassandra.mapping.CassandraTemplate;
+import org.eclipse.jnosql.databases.scylladb.mapping.ScyllaDBTemplate;
 import org.eclipse.jnosql.mapping.column.ColumnTemplate;
 
 import java.util.Arrays;
@@ -28,7 +28,7 @@ public class App {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             Person person = Person.builder().withPhones(Arrays.asList("234", "432"))
                     .withName("Ada Lovelace").withId(1).build();
-            ColumnTemplate template = container.select(CassandraTemplate.class).get();
+            ColumnTemplate template = container.select(ScyllaDBTemplate.class).get();
             Person saved = template.insert(person);
             System.out.println("Person saved" + saved);
 
