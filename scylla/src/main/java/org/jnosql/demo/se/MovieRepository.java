@@ -13,13 +13,13 @@ package org.jnosql.demo.se;
 
 
 import jakarta.data.repository.Repository;
-import org.eclipse.jnosql.databases.cassandra.mapping.CQL;
-import org.eclipse.jnosql.databases.cassandra.mapping.CassandraRepository;
+import org.eclipse.jnosql.databases.scylladb.mapping.CQL;
+import org.eclipse.jnosql.databases.scylladb.mapping.ScyllaDBRepository;
 
 import java.util.List;
 
 @Repository
-public interface MovieRepository extends CassandraRepository<Movie, Long> {
+public interface MovieRepository extends ScyllaDBRepository<Movie, Long> {
 
     List<Movie> findByAge(Integer age);
 
