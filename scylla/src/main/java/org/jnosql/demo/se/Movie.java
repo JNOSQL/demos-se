@@ -21,8 +21,6 @@ import java.util.Objects;
 @Entity("Movie")
 public class Movie {
 
-
-
     @Id("name")
     private String name;
 
