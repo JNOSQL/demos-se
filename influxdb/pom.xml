@@ -21,10 +21,6 @@
         <version>1.1.20</version>
     </parent>
 
-    <properties>
-        <jnosql.version>1.1.18-SNAPSHOT</jnosql.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.databases</groupId>
