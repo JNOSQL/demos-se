@@ -15,7 +15,7 @@ package org.jnosql.demo.se;
 import com.datastax.oss.driver.api.core.ConsistencyLevel;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import org.eclipse.jnosql.databases.cassandra.mapping.CassandraTemplate;
+import org.eclipse.jnosql.databases.scylladb.mapping.ScyllaDBTemplate;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +27,7 @@ public class App3 {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             Person person = Person.builder().withPhones(Arrays.asList("234", "432"))
                     .withName("Ada Lovelace").withId(1).build();
-            CassandraTemplate cassandraTemplate = container.select(CassandraTemplate.class).get();
+            ScyllaDBTemplate cassandraTemplate = container.select(ScyllaDBTemplate.class).get();
             Person saved = cassandraTemplate.save(person, ConsistencyLevel.ONE);
             System.out.println("Person saved" + saved);
             List<Person> people = cassandraTemplate.<Person>cql("select * from developers.Person where id = 1")
