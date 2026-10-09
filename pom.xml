@@ -16,7 +16,7 @@
     <artifactId>mapping-demo-java-se</artifactId>
     <packaging>pom</packaging>
     <name>JNoSQL Demo</name>
-    <version>1.1.17</version>
+    <version>1.1.20</version>
 
     <properties>
         <jnosql.version>1.1.20</jnosql.version>
@@ -137,7 +137,7 @@
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
-                    <version>1.1.17</version>
+                    <version>1.1.20</version>
                     <configuration>
                         <lifecycleMappingMetadata>
                             <pluginExecutions>
