@@ -22,10 +22,8 @@ import java.util.Objects;
 public class Movie {
 
 
-    @Id("id")
-    private Long id;
 
-    @Column
+    @Id("name")
     private String name;
 
     @Column
@@ -34,33 +32,21 @@ public class Movie {
     @Column(udt = "director")
     private Director director;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    Movie(String name, Integer age, Director director) {
         this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
         this.age = age;
-    }
-    public Director getDirector() {
-        return director;
+        this.director = director;
     }
 
-    public void setDirector(Director director) {
-        this.director = director;
+    Movie() {
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Movie movie)) return false;
+        if (!(o instanceof Movie movie)) {
+            return false;
+        }
         return Objects.equals(name, movie.name);
     }
 
