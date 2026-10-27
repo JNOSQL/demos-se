@@ -298,6 +298,16 @@ docker run -p 9200:9200 -p 9300:9300 \
 
 == Time Series
 
+The time-series samples also include `TemporalQueryApp`, which demonstrates the temporal operations of `TimeSeriesTemplate` (Eclipse JNoSQL 1.1.21-SNAPSHOT). The temporal reference is the entity attribute annotated with `@Id`:
+
+* `latest(n)` / `earliest(n)`: the `n` newest / oldest observations
+* `since(t)` / `until(t)`: observations at or after / at or before `t`
+* `last(duration)`: observations within a period relative to the execution time
+
+They compose with `where(...)`, e.g. `select(Entity.class).where("sensor").eq("s1").since(start).until(end).latest(3)`.
+
+NOTE: These samples use the `1.1.21-SNAPSHOT` artifacts, resolved from the Central Portal snapshots repository declared in each project's `pom.xml`.
+
 === InfluxDB
 
 
@@ -361,6 +371,7 @@ and use the `metrics` database.
 ===== Projects
 
 * link:influxdb/[InfluxDB Time Series sample]
+* Run the temporal query sample: `mvn -f influxdb/pom.xml compile exec:java -Dexec.mainClass=org.jnosql.demo.se.TemporalQueryApp`
 
 === Apache IoTDB
 
@@ -419,6 +430,7 @@ NOTE: For the Docker-based tutorial, `jnosql.iotdb.enable.redirection=false` is 
 ===== Projects
 
 * link:iotdb/[Apache IoTDB Time Series sample]
+* Run the temporal query sample: `mvn -f iotbd/pom.xml compile exec:java -Dexec.mainClass=org.jnosql.demo.se.TemporalQueryApp`
 
 === QuestDB
 
@@ -513,6 +525,7 @@ LIMIT 1;
 ===== Projects
 
 * link:questdb/[QuestDB Time Series sample]
+* Run the temporal query sample: `mvn -f questdb/pom.xml compile exec:java -Dexec.mainClass=org.jnosql.demo.se.TemporalQueryApp`
 
 == Graph
 
