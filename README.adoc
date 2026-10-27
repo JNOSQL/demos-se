@@ -548,3 +548,109 @@ JanusGraph is an open source, distributed graph database under The Linux Foundat
 ===== Projects
 
 * link:janus-graph/[JanusGraph sample]
+
+== Vector
+
+=== Qdrant
+
+image::https://www.jnosql.org/img/logos/qdrant.png[Qdrant, width=200px]
+
+Qdrant is an open-source vector database. This sample uses Eclipse JNoSQL Vector support (`VectorTemplate`) with Qdrant to run semantic search over a small product catalog.
+
+Embeddings are generated locally and in-process with LangChain4j's ONNX `AllMiniLmL6V2QuantizedEmbeddingModel` (used only for embeddings). No external AI API, API key, or Qdrant Cloud account is required.
+
+[source, text]
+----
+Product text -> local embedding model -> float[] -> DenseVector -> VectorTemplate -> Qdrant
+----
+
+===== How to install with Docker
+
+1. Install docker: https://www.docker.com/
+1. https://hub.docker.com/r/qdrant/qdrant
+1. Run docker command:
+
+[source, bash]
+----
+docker run --name qdrant-instance -p 6333:6333 -p 6334:6334 -d qdrant/qdrant
+----
+
+Port `6333` is the regular HTTP/UI endpoint (http://localhost:6333/dashboard). Port `6334` is the gRPC endpoint, which is the one used by the Eclipse JNoSQL Qdrant integration (`jnosql.qdrant.port=6334`).
+
+===== How to run
+
+[source, bash]
+----
+mvn -pl qdrant-vector -am compile exec:java -Dexec.mainClass=org.jnosql.demo.se.App
+----
+
+The first run may take a little longer while the local model is loaded.
+
+===== Lexical vs. semantic search
+
+A lexical search matches words. A semantic search matches meaning, so the query can retrieve relevant content even when it shares no terms with it. Only `name + " " + description` is embedded; `ProductType` stays a regular structured field.
+
+====== Pure semantic search
+
+[source, java]
+----
+template.search(Product.class)
+        .vector(queryVector)
+        .limit(Limit.of(3))
+        .result();
+----
+
+[cols="2,2,2"]
+|===
+|Stored product |Semantic query |Relevant result
+
+|Dog Bed: Soft sleeping cushion for dogs
+|comfortable place for my pet to sleep
+|Dog Bed
+
+|Wireless Headphones: Bluetooth audio headset with noise cancellation
+|listen to music without cables
+|Wireless Headphones (together with Bluetooth Speaker)
+|===
+
+====== Semantic search with filtering
+
+The vector decides semantic relevance, while a regular Jakarta NoSQL condition restricts the results to a business category.
+
+[source, java]
+----
+template.search(Product.class)
+        .vector(queryVector)
+        .where("type").eq(ProductType.ELECTRONICS)
+        .limit(Limit.of(3))
+        .result();
+----
+
+[cols="2,1,2"]
+|===
+|Semantic query |Filter |Relevant results
+
+|listen to music without cables
+|type = ELECTRONICS
+|Wireless Headphones, Bluetooth Speaker
+
+|something comfortable for my animal to rest
+|type = PET
+|Dog Bed
+|===
+
+Each search prints the top 3 products, for example:
+
+[source, text]
+----
+Semantic query: listen to music without cables
+Filter: type = ELECTRONICS
+
+Top matches:
+1. Bluetooth Speaker - Portable wireless speaker for listening to music
+2. Wireless Headphones - Bluetooth audio headset with noise cancellation
+----
+
+===== Projects
+
+* link:qdrant-vector/[Qdrant Vector sample] (module `qdrant-vector`)
