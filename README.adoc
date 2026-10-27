@@ -607,7 +607,7 @@ Milvus is an open-source, highly scalable vector database designed to store, ind
 docker run -d --name milvus-standalone -p 19530:19530 -p 9091:9091 \
   -e DEPLOY_MODE=STANDALONE -e ETCD_USE_EMBED=true \
   -e ETCD_DATA_DIR=/var/lib/milvus/etcd -e COMMON_STORAGETYPE=local \
-  milvusdb/milvus:v2.6.25 milvus run standalone
+  milvusdb/milvus:v3.0.4 milvus run standalone
 ----
 
 ===== Projects
