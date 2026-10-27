@@ -57,6 +57,8 @@
         <module>iotbd</module>
         <module>questdb</module>
         <module>qdrant-vector</module>
+        <module>milvus-vector</module>
+        <module>weaviate-vector</module>
         <module>bean-validation</module>
     </modules>
 
