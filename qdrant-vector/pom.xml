@@ -22,7 +22,6 @@
     </parent>
 
     <properties>
-        <jnosql.version>1.1.21-SNAPSHOT</jnosql.version>
         <langchain4j.embeddings.version>1.22.0-beta32</langchain4j.embeddings.version>
     </properties>
 
